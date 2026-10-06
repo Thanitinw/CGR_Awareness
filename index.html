@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>GRC in Action · Introduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="intro">
+<div class="wrap">
+  <!-- header + เมนู + footer เติมโดย assets/js/layout.js -->
+  <main class="page">
+    <section>
+      <div class="sec-head"><span class="eyebrow">ทำไมต้องเปลี่ยน</span><h2>จากคลิปยาวที่ดูครั้งเดียว สู่คลิปสั้นที่มาทุก 2 สัปดาห์</h2></div>
+      <div class="shift">
+        <div class="panel">
+          <h3>รูปแบบเดิม</h3>
+          <dl>
+            <dt>ความยาว</dt><dd>10–15 นาที / หัวข้อ</dd>
+            <dt>จำนวน</dt><dd>ประมาณ 10 หัวข้อ / ปี</dd>
+            <dt>การเผยแพร่</dt><dd>ปล่อยครั้งเดียว</dd>
+            <dt>รูปแบบ</dt><dd>บรรยายเนื้อหา</dd>
+          </dl>
+          <p class="problem">ให้ความรู้ไปมากใน 2 ปีที่ผ่านมา แต่พนักงานจำนวนมากไม่ได้เข้าไปดูหรือฟัง ข้อมูลสำคัญจึงไม่ถึงตัว</p>
+        </div>
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="panel new">
+          <h3>GRC in Action</h3>
+          <dl>
+            <dt>ความยาว</dt><dd>Main Story ประมาณ 2 นาที · Micro Reinforcement ไม่เกิน 1 นาที · คลิปเปิดตัวไม่เกิน 3 นาที</dd>
+            <dt>จำนวน</dt><dd>24 คลิป / ปี (ทุก 2 สัปดาห์)</dd>
+            <dt>ช่องทาง</dt><dd>อัปโหลด YouTube แล้วส่งลิงก์ทาง LINE</dd>
+            <dt>วัดผล</dt><dd>Engagement จากยอดดู และ CGR Awareness Assessment ปีละครั้ง (พ.ย.)</dd>
+          </dl>
+          <p class="problem">เดือนละ 1 เรื่อง เล่าเป็นเรื่องราวในสัปดาห์ที่ 1 แล้วต่อยอดอีกมุมหนึ่งของเรื่องเดียวกันในสัปดาห์ที่ 3 พร้อมกติกาที่ใช้ได้จริงของบริษัท</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="kpis" id="kpis"></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">จังหวะต่อเดือน</span><h2>1 เรื่อง 2 คลิป</h2></div>
+      <div class="rhythm">
+        <div class="wk on main"><span class="lbl">สัปดาห์ที่ 1</span><b>Main Story</b><p>ประมาณ 2 นาที · เล่าสถานการณ์ ตัวละคร จุดตัดสินใจ และ Key Message</p></div>
+        <div class="wk"><span class="lbl">สัปดาห์ที่ 2</span><p>พนักงานดูย้อนหลังได้จาก YouTube</p></div>
+        <div class="wk on micro"><span class="lbl">สัปดาห์ที่ 3</span><b>Micro Reinforcement</b><p>ไม่เกิน 1 นาที · ต่อยอดอีกมุมของเรื่องเดิม พร้อมกติกาของบริษัท</p></div>
+        <div class="wk"><span class="lbl">สัปดาห์ที่ 4</span><p>เตรียมคลิปเรื่องถัดไป</p></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">ความครอบคลุม</span><h2>13 หมวดเนื้อหา · 6 กลุ่ม</h2><p class="muted">แบ่งกลุ่มตามคำถามว่า "เรื่องนี้ปกป้องใคร"</p><p class="muted small">อ้างอิงแนวคิดผู้มีส่วนได้เสียใน CG Code และเกณฑ์ CGR · ตัวเลขคือจำนวน Main Story ตลอด 3 ปี</p></div>
+      <div class="cats" id="cats"></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">ขั้นตอนต่อเดือน</span><h2>วงจรผลิตและเผยแพร่</h2></div>
+      <div class="steps">
+        <div class="step"><h3>ยืนยันสคริปต์</h3><p>เปิด Draft Script จากคลิปในหน้า Action Plan ปรับถ้อยคำให้เข้ากับบริบทกลุ่มบริษัท ตรวจถ้อยคำด้านกฎหมาย/Compliance (<span id="rv" class="num"></span> เรื่องมีหมายเหตุให้ตรวจเป็นพิเศษ)</p></div>
+        <div class="step"><h3>ผลิต 2 คลิปพร้อมกัน</h3><p>ถ่าย Main Story และ Micro ของเดือนเดียวกันในรอบเดียว เพราะใช้ฉากและประเด็นเดียวกัน</p></div>
+        <div class="step"><h3>เผยแพร่</h3><p>อัปโหลด YouTube (Unlisted) จัดเป็น Playlist รายปี ส่งลิงก์ทาง LINE สัปดาห์ที่ 1 และ 3</p></div>
+        <div class="step"><h3>วัดผล</h3><p>ดูยอดวิวและเวลาดูเฉลี่ยใน YouTube Studio · CGR Awareness Assessment ทุกเดือนพฤศจิกายน</p></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ข้อมูล (ลำดับสำคัญ) — รายการไฟล์ episodes ต้องตรงกันทั้ง 3 หน้า -->
+<script src="data/config.js"></script>
+<script src="data/groups.js"></script>
+<script src="data/episodes/fy2569-q1.js"></script>
+<script src="data/episodes/fy2569-q2.js"></script>
+<script src="data/episodes/fy2569-q3.js"></script>
+<script src="data/episodes/fy2569-q4.js"></script>
+<script src="data/episodes/fy2570-q1.js"></script>
+<script src="data/episodes/fy2570-q2.js"></script>
+<script src="data/episodes/fy2570-q3.js"></script>
+<script src="data/episodes/fy2570-q4.js"></script>
+<script src="data/episodes/fy2571-q1.js"></script>
+<script src="data/episodes/fy2571-q2.js"></script>
+<script src="data/episodes/fy2571-q3.js"></script>
+<script src="data/episodes/fy2571-q4.js"></script>
+<script src="data/progress.js"></script>
+<!-- App -->
+<script src="assets/js/core.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/intro.js"></script>
+</body>
+</html>

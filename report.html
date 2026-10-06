@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>GRC in Action · Report Progress</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-page="report">
+<div class="wrap">
+  <!-- header + เมนู + footer เติมโดย assets/js/layout.js -->
+  <main class="page">
+    <section>
+      <div class="sec-head"><span class="eyebrow">ภาพรวม</span><h2>ความคืบหน้าโครงการ</h2><p class="muted" id="asof"></p></div>
+      <div class="rk kpis" id="rkpi"></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">Timeline</span><h2>งานที่กำลังเดิน: เดือนที่แล้วถึง 4 เดือนข้างหน้า</h2>
+        <p class="muted">1 แถว = 1 เรื่อง (Main + Micro ผลิตพร้อมกัน) · แท่งคือช่วงงานตามแผน ระบบคำนวณย้อนจากวันเผยแพร่ · สีของแท่งแสดงความคืบหน้าจริงจากสถานะ</p></div>
+      <div class="g-legend" id="glegend"></div>
+      <div class="gantt-wrap"><div class="gantt" id="gantt"></div></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">ต้องติดตาม</span><h2>งานที่ล่าช้า ต้องแก้ไข หรือถึงกำหนดใน 4 สัปดาห์</h2></div>
+      <div class="tbl-wrap" id="watch"></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">สถานะ</span><h2>จำนวนคลิปในแต่ละขั้น</h2><p class="muted" id="sfilter-note"></p></div>
+      <div class="filters" id="sfy"></div>
+      <div class="card" id="sdist"></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">กิจกรรมประจำปี</span><h2>CGR Awareness Assessment</h2></div>
+      <div class="tbl-wrap" id="assess"></div>
+    </section>
+
+    <p class="note">อัปเดตสถานะที่ไฟล์ <code>data/progress.js</code> แล้วรีเฟรชหน้านี้ · ดูวิธีใน README.md</p>
+  </main>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<!-- ข้อมูล (ลำดับสำคัญ) — รายการไฟล์ episodes ต้องตรงกันทั้ง 3 หน้า -->
+<script src="data/config.js"></script>
+<script src="data/groups.js"></script>
+<script src="data/episodes/fy2569-q1.js"></script>
+<script src="data/episodes/fy2569-q2.js"></script>
+<script src="data/episodes/fy2569-q3.js"></script>
+<script src="data/episodes/fy2569-q4.js"></script>
+<script src="data/episodes/fy2570-q1.js"></script>
+<script src="data/episodes/fy2570-q2.js"></script>
+<script src="data/episodes/fy2570-q3.js"></script>
+<script src="data/episodes/fy2570-q4.js"></script>
+<script src="data/episodes/fy2571-q1.js"></script>
+<script src="data/episodes/fy2571-q2.js"></script>
+<script src="data/episodes/fy2571-q3.js"></script>
+<script src="data/episodes/fy2571-q4.js"></script>
+<script src="data/progress.js"></script>
+<!-- App -->
+<script src="assets/js/core.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/report.js"></script>
+</body>
+</html>
