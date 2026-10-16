@@ -198,6 +198,10 @@ summary .m small{display:block;font-size:12px}
 .mtabs .mt[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .mtabs .mt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sb-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+.sb-ver{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
+.sb-ver button{all:unset;cursor:pointer;font-size:13px;padding:5px 14px;border-radius:999px}
+.sb-ver button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.sb-ver button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sb-h h3{font-size:16px;margin:0}
 .sb-copy{all:unset;cursor:pointer;font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--accent)}
 .sb-copy:focus-visible{outline:2px solid var(--accent)}
@@ -960,24 +964,31 @@ function sbCopy(d){
   return t;
 }
 const sbShow=new Set(["audio","visual","screen"]);
+let sbVer="case";
+const VIEW=d=>sbVer==="drama"&&d.drama?d.drama:d;
 function renderSB(d){
-  const s=d.sb;if(!s)return renderScript(d.script);
+  const V=VIEW(d),drama=V!==d,s=V.sb;if(!s)return renderScript(d.script);
+  const vd=drama?Object.assign(Object.create(d),{sb:V.sb,est:V.est}):d;
   const N=s.parts.reduce((a,p)=>a+p.scenes.length,0);
   const SC=s.parts.flatMap(p=>p.scenes);
   const meta=el("dl",{class:"sb-meta"},
-      el("dt",{text:"ความยาวรวม"}),el("dd",{text:`ประมาณ ${mmss(d.est)} นาที (${N} ฉาก / ฉากละประมาณ ${Math.round(d.est/N)} วินาที)`}),
+      el("dt",{text:"ความยาวรวม"}),el("dd",{text:`ประมาณ ${mmss(V.est)} นาที (${N} ฉาก / ฉากละประมาณ ${Math.round(V.est/N)} วินาที)`}),
+      ...(drama&&V.title&&V.title!==d.topic?[el("dt",{text:"ชื่อตอน"}),el("dd",{text:V.title})]:[]),
+      ...(drama?[el("dt",{text:"ตัวละคร"}),el("dd",{text:V.cast.join(" · ")})]:[]),
       el("dt",{text:"กลุ่มเป้าหมาย"}),el("dd",{text:s.audience}),
       el("dt",{text:"ธีมการเล่าเรื่อง"}),el("dd",{text:s.theme}),
       ...(s.music?[el("dt",{text:"ดนตรีประกอบ"}),el("dd",{text:s.music})]:[]));
-  if(d.cls==="main"){parseStory(d.story).forEach(([k,v])=>{if(k&&/ตัวละคร|จุดตัดสินใจ|คำถาม/.test(k))meta.append(el("dt",{text:k.replace(" / คำถาม","")}),el("dd",{text:v}))})}
-  const box=el("div",{class:"sb"},el("div",{class:"sb-h"},el("h3",{text:"โครงสร้างเนื้อหา"})),meta);
+  if(d.cls==="main"&&!drama){parseStory(d.story).forEach(([k,v])=>{if(k&&/ตัวละคร|จุดตัดสินใจ|คำถาม/.test(k))meta.append(el("dt",{text:k.replace(" / คำถาม","")}),el("dd",{text:v}))})}
+  const ver=el("div",{class:"sb-ver",role:"group","aria-label":"เลือกเวอร์ชันสตอรีบอร์ด"});
+  [["case","เคสสั้น"],["drama","ละครซีรีส์ \"ชั้น 12\""]].forEach(([k,l])=>{const b=el("button",{type:"button","aria-pressed":String((drama?"drama":"case")===k),text:l});b.disabled=k==="drama"&&!d.drama;b.addEventListener("click",()=>{if(sbVer===k)return;sbVer=k;box.replaceWith(renderSB(d));const e=document.querySelector("#dlg .sheet-head .est");if(e&&VIEW(d).est)e.textContent=`ยาวประมาณ ${mmss(VIEW(d).est)} นาที`});ver.append(b)});
+  const box=el("div",{class:"sb"+(drama?" drama":"")},el("div",{class:"sb-h"},el("h3",{text:"โครงสร้างเนื้อหา"}),ver),meta);
   const F=[["visual","ภาพ"],["screen","Keyword บนจอ"],["audio","เสียง"]];
   const fb=el("div",{class:"sb-filter",role:"group","aria-label":"เลือกคอลัมน์ที่จะแสดงและคัดลอก"},el("span",{class:"muted",text:"แสดง:"}));
   const apply=()=>{F.forEach(([k])=>box.classList.toggle("hide-"+k,!sbShow.has(k)));fb.querySelectorAll("button[data-f]").forEach(x=>x.setAttribute("aria-pressed",String(sbShow.has(x.dataset.f))))};
   F.forEach(([k,l])=>{const x=el("button",{class:"chip f-"+k,"data-f":k,text:l});x.addEventListener("click",()=>{if(sbShow.has(k)&&F.filter(([q])=>sbShow.has(q)).length>1)sbShow.delete(k);else sbShow.add(k);apply()});fb.append(x)});
   const all=el("button",{class:"chip",text:"ทั้งหมด"});all.addEventListener("click",()=>{F.forEach(([k])=>sbShow.add(k));apply()});fb.append(all);
   const cp=el("button",{class:"sb-copy",text:"คัดลอกส่วนที่แสดง"});
-  cp.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(sbCopy(d));cp.textContent="คัดลอกแล้ว ✓"}catch(e){cp.textContent="คัดลอกไม่สำเร็จ"}setTimeout(()=>cp.textContent="คัดลอกส่วนที่แสดง",1600)});
+  cp.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(sbCopy(vd));cp.textContent="คัดลอกแล้ว ✓"}catch(e){cp.textContent="คัดลอกไม่สำเร็จ"}setTimeout(()=>cp.textContent="คัดลอกส่วนที่แสดง",1600)});
   const edb=el("button",{class:"sb-copy sb-edit",text:"✎ แก้ไข"});edb.addEventListener("click",()=>startEdit(d,box));
   fb.append(el("span",{class:"sp"}),edb,cp);
   if(SAVED[d.i])box.append(el("p",{class:"sbe-saved",text:`บันทึกขึ้น Git แล้ว (${SAVED[d.i]} น.) · หน้าเว็บบน GitHub อัปเดตภายใน 1–2 นาที`}));
@@ -1017,7 +1028,7 @@ function showScript(i){
   prev.addEventListener("click",()=>showScript(CLIPS[idx-1].i));next.addEventListener("click",()=>showScript(CLIPS[idx+1].i));
   sheet.append(
     el("div",{class:"sheet-head"},
-      el("div",{class:"meta"},el("span",{class:"fmt "+d.cls,text:`${KIND[d.kind]} · ${d.dur}`}),d.est?el("span",{class:"num est",text:`ยาวประมาณ ${mmss(d.est)} นาที`}):null,el("span",{class:"num",text:`คลิป ${idx+1} / ${CLIPS.length} · เผยแพร่ ${d.date_th}`}),d.holiday?el("span",{class:"hol",text:"ตรงวันหยุด: "+d.holiday}):null,el("span",{class:"pill",text:d.cat}),d.g!=="assess"?el("span",{class:"pill own",text:"เจ้าของเนื้อหา: "+(d.owner||ownerOf(d.cat))+(d.co?" · ร่วม: "+d.co:"")}):null,
+      el("div",{class:"meta"},el("span",{class:"fmt "+d.cls,text:`${KIND[d.kind]} · ${d.dur}`}),d.est?el("span",{class:"num est",text:`ยาวประมาณ ${mmss(VIEW(d).est||d.est)} นาที`}):null,el("span",{class:"num",text:`คลิป ${idx+1} / ${CLIPS.length} · เผยแพร่ ${d.date_th}`}),d.holiday?el("span",{class:"hol",text:"ตรงวันหยุด: "+d.holiday}):null,el("span",{class:"pill",text:d.cat}),d.g!=="assess"?el("span",{class:"pill own",text:"เจ้าของเนื้อหา: "+(d.owner||ownerOf(d.cat))+(d.co?" · ร่วม: "+d.co:"")}):null,
         d.review?el("span",{class:"flag",style:"font-size:12px;font-family:var(--font-data);color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:1px 6px",text:"ตรวจถ้อยคำก่อนผลิต"}):null),
       el("h2",{id:"dlg-title",text:d.topic}),pairBtn),
     ...mtabs(d,storyEl,side),el("div",{class:"pager"},prev,next));
@@ -1115,7 +1126,7 @@ async function getToken(){
 const tsec=t=>{const[a,b]=t.split(":").map(Number);return a*60+b};
 const fmtT=x=>`${Math.floor(Math.round(x)/60)}:${String(Math.round(x)%60).padStart(2,"0")}`;
 const alen=au=>(au||[]).reduce((n,[w,x])=>n+String(x).replace(/\s|[“”"]/g,"").length,0);
-function applyEdit(row,parts){
+function applyEdit(row,parts){ /* row = clip row, or row.drama for the drama version */
   const old={};let oc=0,od=0;
   (row.sb.parts||[]).forEach(p=>p.scenes.forEach(s=>{const[a,b]=s.time.split("–");const d=tsec(b)-tsec(a),l=alen(s.audio);old[s.no]={d,l};oc+=l;od+=d}));
   const rate=oc&&od?oc/od:12;
@@ -1137,13 +1148,13 @@ function applyEdit(row,parts){
   row.sb.parts=out;row.est=Math.round(t);row.script=L.join("\n").trim();
   return row;
 }
-async function saveClip(d,parts,tok){
-  const label=`${d.m} ${d.slot||""}`.trim();
+async function saveClip(d,parts,tok,ver){
+  const label=`${d.m} ${d.slot||""}`.trim()+(ver==="drama"?" (ละครซีรีส์)":"");
   let updated=null;
   for(let k=0;k<3;k++){
     try{
       await commitFiles(tok,[
-        {path:GH.rows,content:async base=>{const D=JSON.parse(await ghRaw(GH.rows,base,tok));const row=D.find(x=>x.m===d.m&&x.w===d.w);if(!row)throw new Error("ไม่พบคลิปนี้ในข้อมูลบน GitHub");applyEdit(row,parts);updated=JSON.parse(JSON.stringify(row));saveClip._D=D;return JSON.stringify(D,null,1)}},
+        {path:GH.rows,content:async base=>{const D=JSON.parse(await ghRaw(GH.rows,base,tok));const row=D.find(x=>x.m===d.m&&x.w===d.w);if(!row)throw new Error("ไม่พบคลิปนี้ในข้อมูลบน GitHub");const tg=ver==="drama"?row.drama:row;if(!tg)throw new Error("ไม่พบเวอร์ชันละครของคลิปนี้บน GitHub");applyEdit(tg,parts);updated=JSON.parse(JSON.stringify(tg));saveClip._D=D;return JSON.stringify(D,null,1)}},
         {path:GH.page,content:async base=>{const h=await ghRaw(GH.page,base,tok);const p=h.indexOf("const DATA = "),q=h.indexOf("\n",p);if(p<0||q<0)throw new Error("โครงไฟล์ index.html ไม่ตรงรูปแบบ");return h.slice(0,p)+"const DATA = "+JSON.stringify(saveClip._D).replace(/<\//g,"<\\/")+";"+h.slice(q)}}
       ],`แก้สตอรีบอร์ด: ${label} – ${d.topic}`);
       return updated;
@@ -1153,10 +1164,11 @@ async function saveClip(d,parts,tok){
 /* editor view */
 function sbEditor(d){
   const esc=v=>v==null?"":String(v);
+  const SRC=VIEW(d),ver=SRC===d?"case":"drama";
   const box=el("div",{class:"sb sbe"});
-  box.append(el("div",{class:"sb-h"},el("h3",{text:"แก้ไขสตอรีบอร์ด"})),
+  box.append(el("div",{class:"sb-h"},el("h3",{text:"แก้ไขสตอรีบอร์ด · "+(ver==="drama"?"ละครซีรีส์ \"ชั้น 12\"":"เคสสั้น")})),
     el("p",{class:"muted small",text:"Keyword บนจอ: 1 บรรทัดต่อ 1 ข้อความ · เสียง: 1 บรรทัดต่อ 1 ประโยค รูปแบบ \"ผู้พูด: ข้อความ\" (บรรทัดที่ไม่มีผู้พูด = ผู้บรรยาย) · ทุกฉากต้องมีเสียง · ความยาวแต่ละฉากคำนวณใหม่อัตโนมัติตอนบันทึก"}));
-  const parts=d.sb.parts.map(p=>({name:p.name,rows:p.scenes.map(s=>({pno:s.no,title:s.title,visual:s.visual,screen:(s.screen||[]).map(x=>x[1]).join("\n"),audio:(s.audio||[]).map(([w,x])=>w+": "+x).join("\n")}))}));
+  const parts=SRC.sb.parts.map(p=>({name:p.name,rows:p.scenes.map(s=>({pno:s.no,title:s.title,visual:s.visual,screen:(s.screen||[]).map(x=>x[1]).join("\n"),audio:(s.audio||[]).map(([w,x])=>w+": "+x).join("\n")}))}));
   const fit=t=>{t.style.height="auto";t.style.height=(t.scrollHeight+2)+"px"};
   const ta=(v,cls,rows)=>{const t=el("textarea",{class:cls,rows:String(rows||3)});t.value=esc(v);t.addEventListener("input",()=>fit(t));return t};
   const holder=el("div");
@@ -1195,8 +1207,8 @@ function sbEditor(d){
     const tok=await getToken();if(!tok)return;
     save.disabled=cancel.disabled=true;msg.className="auth-msg";msg.textContent="กำลังบันทึกขึ้น GitHub…";
     try{
-      const row=await saveClip(d,out,tok);
-      d.sb=row.sb;d.est=row.est;d.script=row.script;
+      const row=await saveClip(d,out,tok,ver);
+      SRC.sb=row.sb;SRC.est=row.est;SRC.script=row.script;
       SAVED[d.i]=new Date().toLocaleTimeString("th-TH",{hour:"2-digit",minute:"2-digit"});
       showScript(d.i);
     }catch(e){
