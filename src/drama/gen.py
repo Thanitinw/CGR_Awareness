@@ -4,7 +4,7 @@ import json, re, copy, sys, os
 S = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(S, 'drama'))
 from samples import SAMPLES
-from realcase import REAL, VIS
+from realcase2 import REAL, VIS, GAGS
 from dur import syl
 
 FEMALE = {'เบล', 'มายด์', 'พี่อร', 'พี่นุ่น'}
@@ -198,6 +198,16 @@ def apply_real(dr, key):
     dr['ref'] = r['ref']
     return dr
 
+_gag_n = {}
+def add_gag(dr, key):
+    if key in SAMPLES: return
+    lead = dr.get('lead')
+    g = GAGS.get(lead)
+    if not g: return
+    k = _gag_n.get(lead, 0); _gag_n[lead] = k + 1
+    last = dr['sb']['parts'][-1]['scenes'][-1]
+    last['visual'] = last['visual'] + ' · มุกท้ายตอน: ' + g[k % len(g)]
+
 def script_of(dr):
     L = []
     for p in dr['sb']['parts']:
@@ -217,7 +227,7 @@ if __name__ == '__main__':
         if not d.get('w') or not d.get('sb'): continue
         dr = build(d)
         if dr.get('est') is None: dr['est'] = d.get('est')
-        dr = apply_real(dr, (d['m'], d['w'])); dr['script'] = script_of(dr)
+        dr = apply_real(dr, (d['m'], d['w'])); add_gag(dr, (d['m'], d['w'])); dr['script'] = script_of(dr)
         if dr.get('est') is None: dr['est'] = d.get('est')
         d['drama'] = dr; n += 1
     json.dump(D, open(path, 'w'), ensure_ascii=False, indent=1)
