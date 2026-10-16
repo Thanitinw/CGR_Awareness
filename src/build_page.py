@@ -1,0 +1,10 @@
+# Rebuild ../index.html from tpl.html (head/styles) + body3.html (page) + rows9.json (clip data)
+import json, os
+here = os.path.dirname(os.path.abspath(__file__))
+t = open(os.path.join(here, 'tpl.html'), encoding='utf-8').read()
+b = open(os.path.join(here, 'body3.html'), encoding='utf-8').read()
+D = json.load(open(os.path.join(here, 'rows9.json'), encoding='utf-8'))
+data = json.dumps(D, ensure_ascii=False).replace('</', '<\\/')
+page = t[:t.find('</style>')] + b.replace('__DATA__', data, 1)
+open(os.path.join(here, '..', 'index.html'), 'w', encoding='utf-8').write(page)
+print('index.html', len(page))

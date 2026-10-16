@@ -1,0 +1,449 @@
+<title>Governance in Action</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap">
+<style>
+/* Theme ref: clean corporate energy look — deep blue primary, fresh green secondary, light blue-tinted ground, soft circles, rounder corners. Layout: plan dashboard — strategy shift → numbers → 36-month calendar grid → filterable episode register */
+:root{
+  --bg:#F5F8FC; --surface:#FFFFFF; --sunk:#EDF2F8; --line:#D8E1EC;
+  --fg:#13243B; --muted:#56677D; --accent:#0B4EA2; --accent-2:#5DAE3A; --accent-soft:#E3EDF9; --on-accent:#FFFFFF;
+  --g1:#2F6BCB; --g2:#00826A; --g3:#7A4BB0; --g4:#C46A12; --g5:#1A7FB0; --g6:#6B7A1F; --assess:#B8860B;
+  --font-display:"IBM Plex Sans Thai",Tahoma,system-ui,sans-serif;
+  --font-body:"IBM Plex Sans Thai",Tahoma,system-ui,sans-serif;
+  --font-data:"IBM Plex Sans Thai",Tahoma,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C1622; --surface:#122133; --sunk:#192B40; --line:#29405A;
+  --fg:#E6EEF7; --muted:#9DB0C6; --accent:#6EA8F0; --accent-2:#8ED46B; --accent-soft:#18324F; --on-accent:#0C1622;
+  --g1:#5A88D8; --g2:#16A07E; --g3:#9670D4; --g4:#C87732; --g5:#2C9DCB; --g6:#869838; --assess:#E3BE52; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C1622; --surface:#122133; --sunk:#192B40; --line:#29405A;
+  --fg:#E6EEF7; --muted:#9DB0C6; --accent:#6EA8F0; --accent-2:#8ED46B; --accent-soft:#18324F; --on-accent:#0C1622;
+  --g1:#5A88D8; --g2:#16A07E; --g3:#9670D4; --g4:#C87732; --g5:#2C9DCB; --g6:#869838; --assess:#E3BE52; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.65;padding-inline:20px;padding-block:28px 64px}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(28px,4.4vw,42px);font-weight:700;letter-spacing:-.01em}
+h2{font-size:22px;font-weight:600}
+h3{font-size:16px;font-weight:600}
+p{margin:0;text-wrap:pretty;line-break:strict}
+.eyebrow{font-family:var(--font-data);font-size:12px;letter-spacing:.02em;color:var(--accent);font-weight:500}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:16px}
+.sec-head{display:flex;flex-direction:column;gap:4px;max-width:70ch}
+
+/* header */
+header{display:flex;flex-direction:column;gap:12px;padding:32px 32px 30px;border-radius:20px;background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden}
+header>*{position:relative;z-index:1}
+header::before{content:"";width:56px;height:4px;background:var(--accent-2);border-radius:2px;position:relative;z-index:1}
+header::after{content:"";position:absolute;z-index:0;right:-90px;top:-110px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 35% 65%,var(--accent-2) 0 46px,transparent 47px),radial-gradient(circle,transparent 0 104px,var(--accent-soft) 105px 150px,transparent 151px);opacity:.9}
+@media (max-width:720px){header{padding:24px 18px}header::after{right:-170px;top:-170px;opacity:.6}}
+header .lead{font-size:16px;max-width:68ch;color:var(--muted)}
+.period{display:inline-flex;gap:8px;align-items:center;font-family:var(--font-data);font-size:13px;background:var(--accent);color:var(--on-accent);padding:5px 14px;border-radius:999px;width:fit-content}
+
+/* shift */
+.shift{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel.new{border-color:var(--accent);border-top:4px solid var(--accent)}
+.panel dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px}
+.panel dt{color:var(--muted);font-size:13px}
+.panel dd{margin:0;font-weight:500}
+.arrow{align-self:center;font-family:var(--font-data);color:var(--accent);font-size:24px}
+.problem{font-size:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.kpi{background:var(--sunk);padding:18px 20px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-family:var(--font-display);font-size:34px;font-weight:600;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:13px;color:var(--muted)}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.group{display:flex;flex-direction:column;gap:8px;min-width:0}
+.group h3{display:flex;align-items:center;gap:8px}
+.sw{width:10px;height:10px;border-radius:2px;flex:none}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) 84px 22px;gap:10px;align-items:center;font-size:14px}
+.bar-row .track{height:8px;background:var(--sunk);border-radius:2px;overflow:hidden}
+.bar-row .fill{height:100%;border-radius:2px}
+.bar-row .n{font-family:var(--font-data);font-size:13px;text-align:right}
+
+/* calendar */
+.cal-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.cal{display:grid;grid-template-columns:96px repeat(12,minmax(78px,1fr));min-width:1040px}
+.cal .h{font-family:var(--font-data);font-size:12px;color:var(--muted);padding:10px 8px;border-bottom:1px solid var(--line);text-align:center}
+.cal .fy{padding:10px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.cal .fy b{font-family:var(--font-display);font-size:15px}
+.cal .fy small{font-size:12px;color:var(--muted)}
+.cell{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:6px;display:flex;flex-direction:column;gap:4px;min-height:104px}
+.cell:last-child{border-right:0}
+.ep{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:3px;padding:6px 7px;border-radius:4px;background:var(--sunk);border-top:3px solid var(--c);font-size:12px;line-height:1.4;flex:1}
+.ep:hover{background:var(--accent-soft)}
+.ep:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.ep .tag{font-size:12px;color:var(--c);font-weight:600}
+.ep.assess{flex:0;background:transparent;border:1px dashed var(--assess);border-top:3px solid var(--assess)}
+.ep.assess .tag{color:var(--assess)}
+.ep.dim{opacity:.25}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+
+/* register */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{all:unset;cursor:pointer;font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);display:inline-flex;gap:6px;align-items:center}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+details{border-bottom:1px solid var(--line)}
+details:last-child{border-bottom:0}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:88px 6px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 18px}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--sunk)}
+summary:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+summary .m{font-family:var(--font-data);font-size:13px;color:var(--muted)}
+summary .stripe{width:6px;height:100%;min-height:34px;border-radius:2px;background:var(--c)}
+summary .t{font-weight:500;min-width:0}
+summary .t small{display:block;font-size:12px;color:var(--c);font-weight:600}
+summary .flag{font-size:12px;font-family:var(--font-data);color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:1px 6px;white-space:nowrap}
+.body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:4px 18px 20px 126px}
+.body h4{margin:0 0 6px;font-size:12px;font-family:var(--font-data);letter-spacing:.02em;color:var(--muted);font-weight:500}
+.body p{white-space:pre-line;font-size:14px}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+.step{display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:2px solid var(--accent)}
+.step::before{counter-increment:s;content:"ขั้น " counter(s);font-family:var(--font-data);font-size:12px;color:var(--accent)}
+.step p{font-size:14px;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+@media (max-width:820px){
+  .shift{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .body{grid-template-columns:1fr;padding:4px 18px 20px}
+  summary{grid-template-columns:6px minmax(0,1fr);gap:4px 12px}
+  summary .m{grid-column:2;order:-1}
+  summary .stripe{grid-row:1/span 2}
+  summary .flag{grid-column:2;justify-self:start}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}.bar-row{grid-template-columns:minmax(0,1fr) 70px 22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto;margin-top:-20px}
+.tab{all:unset;cursor:pointer;padding:12px 18px;font-family:var(--font-display);font-weight:500;font-size:15px;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;display:inline-flex;gap:8px;align-items:baseline}
+.tab small{font-family:var(--font-data);font-size:12px}
+.tab:hover{color:var(--fg)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent-2)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.tabpanel{display:flex;flex-direction:column;gap:44px}
+.to-script{all:unset;cursor:pointer;font-size:13px;color:var(--accent);font-weight:600;margin-top:10px;display:inline-block}
+.to-script:hover{text-decoration:underline}
+.to-script:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* scripts */
+.sc{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;align-items:start}
+.sc-nav{position:sticky;top:calc(env(safe-area-inset-top,0px) + 60px);max-height:calc(100vh - 90px);overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.sc-nav .fyh{font-family:var(--font-data);font-size:12px;letter-spacing:.02em;color:var(--muted);padding:12px 14px 6px;background:var(--sunk);position:sticky;top:0}
+.sc-item{all:unset;cursor:pointer;display:grid;grid-template-columns:4px minmax(0,1fr);gap:10px;padding:9px 14px;font-size:13px;line-height:1.45;border-top:1px solid var(--line);width:100%;box-sizing:border-box}
+.sc-item .bar{background:var(--c);border-radius:2px}
+.sc-item small{display:block;font-family:var(--font-data);color:var(--muted);font-size:12px}
+.sc-item:hover{background:var(--sunk)}
+.sc-item[aria-current="true"]{background:var(--accent-soft)}
+.sc-item:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.sc-select{display:none;font:inherit;padding:10px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);width:100%}
+.sheet{display:flex;flex-direction:column;gap:22px;min-width:0}
+.sheet-head{display:flex;flex-direction:column;gap:8px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.sheet-head .meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--muted)}
+.pill{font-size:12px;font-weight:600;color:var(--c);border:1px solid var(--c);border-radius:999px;padding:1px 10px}
+.sheet-head h2{font-size:24px}
+.story{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.story div{background:var(--sunk);padding:14px 16px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.story h4,.side h4{margin:0;font-family:var(--font-data);font-size:12px;letter-spacing:.02em;color:var(--muted);font-weight:500}
+.script{display:flex;flex-direction:column;gap:14px}
+.cue{font-family:var(--font-data);font-size:12px;color:var(--accent);letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.cue::after{content:"";flex:1;height:1px;background:var(--line)}
+.line{display:grid;grid-template-columns:130px minmax(0,1fr);gap:14px}
+.line .who{font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--fg)}
+.line.nar .who{color:var(--accent)}
+.line .say{display:flex;flex-direction:column;gap:8px;font-size:16px}
+.line.nar .say{color:var(--fg)}
+.line.dia .say{font-style:normal;border-left:2px solid var(--line);padding-left:12px}
+.side{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding-top:18px;border-top:1px solid var(--line)}
+.side p{white-space:pre-line;font-size:14px;margin-top:6px}
+.pager{display:flex;justify-content:space-between;gap:12px}
+.pager button{all:unset;cursor:pointer;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:6px}
+.pager button:hover{border-color:var(--accent);color:var(--accent)}
+.pager button:disabled{opacity:.35;cursor:default}
+.pager button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:820px){
+  .sc{grid-template-columns:1fr}.sc-nav{display:none}.sc-select{display:block}
+  .story,.side{grid-template-columns:1fr}
+  .line{grid-template-columns:1fr;gap:4px}
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">CGR Awareness · แผนสื่อสาร 3 ปี</span>
+    <h1>Governance in Action</h1>
+    <p class="lead">ปรับจากคลิปยาวปีละครั้ง เป็นคลิปสั้นเล่าเป็นเรื่องราวทุกเดือน เพื่อให้พนักงานในกลุ่มบริษัทได้รับประเด็นสำคัญด้านธรรมาภิบาล ความเสี่ยง และการปฏิบัติตามกฎเกณฑ์อย่างต่อเนื่อง</p>
+    <span class="period">ต.ค. 2569 → ก.ย. 2572 · 36 เดือน</span>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="ส่วนของแผน">
+    <button class="tab" role="tab" id="tab-intro" aria-controls="intro" data-t="intro">Introduction</button>
+    <button class="tab" role="tab" id="tab-plan" aria-controls="plan" data-t="plan">Action Plan <small>หัวข้อรายเดือน</small></button>
+    <button class="tab" role="tab" id="tab-scripts" aria-controls="scripts" data-t="scripts">Scripts <small>36 ตอน</small></button>
+  </nav>
+  <div class="tabpanel" id="intro" role="tabpanel" aria-labelledby="tab-intro">
+  <section>
+    <div class="sec-head"><span class="eyebrow">ทำไมต้องเปลี่ยน</span><h2>จากคลิปยาวที่ดูครั้งเดียว สู่คลิปสั้นที่มาทุกเดือน</h2></div>
+    <div class="shift">
+      <div class="panel">
+        <h3>รูปแบบเดิม</h3>
+        <dl>
+          <dt>ความยาว</dt><dd>10–15 นาที / หัวข้อ</dd>
+          <dt>จำนวน</dt><dd>ประมาณ 10 หัวข้อ / ปี</dd>
+          <dt>การเผยแพร่</dt><dd>ปล่อยครั้งเดียว</dd>
+          <dt>รูปแบบ</dt><dd>บรรยายเนื้อหา</dd>
+        </dl>
+        <p class="problem">พนักงานจำนวนมากไม่ได้เข้าไปดู ข้อมูลสำคัญที่ควรรู้จึงไม่ถึงตัว</p>
+      </div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="panel new">
+        <h3>Governance in Action</h3>
+        <dl>
+          <dt>ความยาว</dt><dd>คลิปสั้น 1 ฉาก 1 ประเด็น</dd>
+          <dt>จำนวน</dt><dd>12 ตอน / ปี (ทุกเดือน)</dd>
+          <dt>การเผยแพร่</dt><dd>สม่ำเสมอ ต่อเนื่อง 3 ปี</dd>
+          <dt>รูปแบบ</dt><dd>Storytelling: ตัวละคร · จุดตัดสินใจ · Red Flag · สิ่งที่ควรทำ</dd>
+        </dl>
+        <p class="problem">ช่วงแรกสลับเนื้อหากฎหมายและสัญญาที่กระทบธุรกิจ กับเรื่อง Compliance และวัดผลด้วย CGR Awareness Assessment ทุกเดือนพฤศจิกายน</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="kpis" id="kpis"></div>
+  </section>
+  <section>
+    <div class="sec-head"><span class="eyebrow">ความครอบคลุม</span><h2>13 หมวดเนื้อหา จัดเป็น 5 กลุ่ม</h2><p class="muted">จำนวนตอนต่อหมวดตลอด 3 ปี</p></div>
+    <div class="cats" id="cats"></div>
+  </section>
+  <section>
+    <div class="sec-head"><span class="eyebrow">ขั้นตอนต่อตอน</span><h2>วงจรผลิตคลิปแต่ละเดือน</h2></div>
+    <div class="steps">
+      <div class="step"><h3>ยืนยันหัวข้อและสคริปต์</h3><p>ใช้ Draft Script ใน Content Master เป็นต้นแบบ ปรับให้เข้ากับบริบทกลุ่มบริษัท</p></div>
+      <div class="step"><h3>ตรวจถ้อยคำ</h3><p>ตอนที่ระบุไว้ให้ Legal / Compliance ตรวจร่างก่อนผลิต (<span id="rv" class="num"></span> ตอน)</p></div>
+      <div class="step"><h3>ผลิตและเผยแพร่</h3><p>ปล่อยตามปฏิทินรายเดือน ย้ำ Key Message และสิ่งที่ควรทำในช่วงปิดคลิป</p></div>
+      <div class="step"><h3>วัดผลรายปี</h3><p>CGR Awareness Assessment ทุกเดือนพฤศจิกายน แยกจากคลิปรายเดือน</p></div>
+    </div>
+  </section>
+  </div>
+  <div class="tabpanel" id="plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
+  <section>
+    <div class="sec-head"><span class="eyebrow">ปฏิทินเผยแพร่</span><h2>ตารางคลิปรายเดือน แยกตามปีงบประมาณ</h2><p class="muted">กดที่คลิปเพื่อดูสาระสำคัญ · กรอบเส้นประคือรอบประเมิน CGR Awareness ประจำปี</p></div>
+    <div class="legend" id="legend"></div>
+    <div class="cal-scroll"><div class="cal" id="cal"></div></div>
+  </section>
+  <section id="register">
+    <div class="sec-head"><span class="eyebrow">รายการตอน</span><h2>หัวข้อ Key Message และสิ่งที่พนักงานควรทำ</h2></div>
+    <div class="filters" id="yearf"></div>
+    <div class="filters" id="groupf"></div>
+    <div class="list" id="list"></div>
+  </section>
+  </div>
+  <div class="tabpanel" id="scripts" role="tabpanel" aria-labelledby="tab-scripts" hidden>
+    <div class="sec-head"><span class="eyebrow">Draft Script</span><h2>สคริปต์รายตอนสำหรับพัฒนาวิดีโอ</h2><p class="muted">ฉาก ตัวละคร บทพูด และ Key Message ของแต่ละตอน · ร่างเพื่อตรวจทานก่อนผลิต</p></div>
+    <select class="sc-select" id="scsel" aria-label="เลือกตอน"></select>
+    <div class="sc">
+      <nav class="sc-nav" id="scnav" aria-label="รายการตอน"></nav>
+      <article class="sheet" id="sheet"></article>
+    </div>
+  </div>
+
+  <footer>ที่มา: Governance in Action – Content Master Plan &amp; Draft Script (ต.ค. 2569 – ก.ย. 2572)</footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+const GROUPS = [
+  {id:"g1",name:"กฎหมาย สัญญา และทรัพย์สินทางปัญญา",cats:["กฎหมายและการบริหารสัญญา","ทรัพย์สินทางปัญญา"]},
+  {id:"g2",name:"ต่อต้านทุจริตและธรรมาภิบาล",cats:["การต่อต้านการทุจริตคอร์รัปชัน","การทุจริตและการควบคุมภายใน","ความขัดแย้งทางผลประโยชน์","ธรรมาภิบาลและการตัดสินใจเชิงจริยธรรม"]},
+  {id:"g3",name:"การแข่งขันและตลาดทุน",cats:["การแข่งขันทางการค้าอย่างเป็นธรรม","ข้อมูลภายในและการซื้อขายหลักทรัพย์"]},
+  {id:"g4",name:"ข้อมูลส่วนบุคคลและเทคโนโลยี",cats:["การคุ้มครองข้อมูลส่วนบุคคล","ความมั่นคงปลอดภัยสารสนเทศและ AI"]},
+  {id:"g5",name:"คน ความปลอดภัย และการแจ้งเบาะแส",cats:["สิทธิมนุษยชน","ความปลอดภัย อาชีวอนามัย และสภาพแวดล้อมการทำงาน","การแจ้งเบาะแสและข้อร้องเรียน"]},
+];
+const ASSESS = "การประเมิน CGR Awareness ประจำปี";
+const groupOf = c => c===ASSESS ? null : GROUPS.find(g=>g.cats.includes(c));
+const colorOf = c => c===ASSESS ? "var(--assess)" : `var(--${groupOf(c).id})`;
+const MONTHS = ["ต.ค.","พ.ย.","ธ.ค.","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย."];
+const el = (t,a={},...k)=>{const e=document.createElement(t);for(const[x,v]of Object.entries(a)){if(x==="style")e.style.cssText=v;else if(x==="text")e.textContent=v;else e.setAttribute(x,v)}k.forEach(c=>e.append(c));return e};
+
+DATA.forEach((d,i)=>{
+  d.i=i; const [mon,yr]=d.m.split(" "); d.mi=MONTHS.indexOf(mon);
+  d.fy = d.mi<=2 ? +yr : +yr-1;  // fiscal year named by its starting year: ต.ค. 2569 – ก.ย. 2570 = ปีงบ 2569
+  d.assess = d.cat===ASSESS; d.g = groupOf(d.cat)?.id||"assess";
+  d.review = /Legal|Compliance/.test(d.note||"");
+});
+const clips = DATA.filter(d=>!d.assess);
+const FYS = [...new Set(DATA.map(d=>d.fy))];
+
+// KPIs
+const kp = [[clips.length,"คลิปสั้นรายเดือน"],[new Set(clips.map(d=>d.cat)).size,"หมวดเนื้อหา"],[FYS.length,`ปีงบประมาณ (${FYS[0]}–${FYS[FYS.length-1]})`],[DATA.filter(d=>d.assess).length,"รอบประเมิน CGR Awareness"]];
+kp.forEach(([n,l])=>document.getElementById("kpis").append(el("div",{class:"kpi"},el("b",{text:n}),el("span",{text:l}))));
+document.getElementById("rv").textContent = clips.filter(d=>d.review).length;
+
+// categories
+const max = Math.max(...GROUPS.flatMap(g=>g.cats.map(c=>clips.filter(d=>d.cat===c).length)));
+GROUPS.forEach(g=>{
+  const tot = clips.filter(d=>d.g===g.id).length;
+  const box = el("div",{class:"group"}, el("h3",{},el("span",{class:"sw",style:`background:var(--${g.id})`}),`${g.name}`, el("span",{class:"muted num",style:"font-weight:400;font-size:13px",text:`· ${tot} ตอน`})));
+  g.cats.map(c=>[c,clips.filter(d=>d.cat===c).length]).sort((a,b)=>b[1]-a[1]).forEach(([c,n])=>{
+    box.append(el("div",{class:"bar-row"}, el("span",{text:c}), el("div",{class:"track"},el("div",{class:"fill",style:`width:${n/max*100}%;background:var(--${g.id})`})), el("span",{class:"n",text:n})));
+  });
+  document.getElementById("cats").append(box);
+});
+
+// legend
+const lg = document.getElementById("legend");
+GROUPS.forEach(g=>lg.append(el("span",{},el("span",{class:"sw",style:`background:var(--${g.id})`}),g.name)));
+lg.append(el("span",{},el("span",{class:"sw",style:"background:transparent;border:1px dashed var(--assess)"}),"CGR Awareness Assessment"));
+
+// calendar
+const cal = document.getElementById("cal");
+cal.append(el("div",{class:"h",text:"ปีงบ"}));
+MONTHS.forEach(m=>cal.append(el("div",{class:"h",text:m})));
+FYS.forEach(fy=>{
+  cal.append(el("div",{class:"fy"},el("b",{text:`ปี ${fy}`}),el("small",{text:`ต.ค. ${fy} – ก.ย. ${fy+1}`})));
+  MONTHS.forEach((_,mi)=>{
+    const cell = el("div",{class:"cell"});
+    DATA.filter(d=>d.fy===fy&&d.mi===mi).sort((a,b)=>a.assess-b.assess).forEach(d=>{
+      const b = el("button",{class:"ep"+(d.assess?" assess":""),style:`--c:${colorOf(d.cat)}`,"data-g":d.g,"aria-label":`${d.m} ${d.topic}`},
+        el("span",{class:"tag",text:d.assess?"Assessment":shortCat(d.cat)}), d.assess?"แบบประเมินประจำปี":d.topic);
+      b.addEventListener("click",()=>openEp(d));
+      cell.append(b);
+    });
+    cal.append(cell);
+  });
+});
+function shortCat(c){return {"กฎหมายและการบริหารสัญญา":"กฎหมาย/สัญญา","การต่อต้านการทุจริตคอร์รัปชัน":"ต่อต้านคอร์รัปชัน","การทุจริตและการควบคุมภายใน":"ควบคุมภายใน","ความขัดแย้งทางผลประโยชน์":"COI","การแข่งขันทางการค้าอย่างเป็นธรรม":"แข่งขันเป็นธรรม","การคุ้มครองข้อมูลส่วนบุคคล":"PDPA","ความมั่นคงปลอดภัยสารสนเทศและ AI":"InfoSec & AI","การแจ้งเบาะแสและข้อร้องเรียน":"แจ้งเบาะแส","ทรัพย์สินทางปัญญา":"IP","สิทธิมนุษยชน":"สิทธิมนุษยชน","ข้อมูลภายในและการซื้อขายหลักทรัพย์":"Insider","ความปลอดภัย อาชีวอนามัย และสภาพแวดล้อมการทำงาน":"OHS","ธรรมาภิบาลและการตัดสินใจเชิงจริยธรรม":"ธรรมาภิบาล"}[c]||c}
+
+// register
+let fYear="all", fGroup="all";
+function chips(id,opts,get,set){
+  const box=document.getElementById(id); box.innerHTML="";
+  opts.forEach(([v,label,col])=>{
+    const c=el("button",{class:"chip","aria-pressed":String(get()===v)}, ...(col?[el("span",{class:"sw",style:`background:${col}`})]:[]), label);
+    c.addEventListener("click",()=>{set(v);render()}); box.append(c);
+  });
+}
+function render(){
+  chips("yearf",[["all","ทุกปี"],...FYS.map(f=>[f,`ปีงบ ${f}`])],()=>fYear,v=>fYear=v);
+  chips("groupf",[["all","ทุกกลุ่ม"],...GROUPS.map(g=>[g.id,g.name,`var(--${g.id})`]),["assess","Assessment","var(--assess)"]],()=>fGroup,v=>fGroup=v);
+  const list=document.getElementById("list"); list.innerHTML="";
+  const rows=DATA.filter(d=>(fYear==="all"||d.fy===fYear)&&(fGroup==="all"||d.g===fGroup));
+  rows.forEach(d=>{
+    const s=el("summary",{style:`--c:${colorOf(d.cat)}`}, el("span",{class:"m",text:d.m}), el("span",{class:"stripe"}),
+      el("span",{class:"t"},el("small",{text:d.cat}),d.topic));
+    s.append(d.review?el("span",{class:"flag",text:"Legal/Compliance ตรวจ"}):el("span"));
+    const body=el("div",{class:"body"},
+      el("div",{},el("h4",{text:"Key Message / Red Flag"}),el("p",{text:d.key||"–"})),
+      el("div",{},el("h4",{text:"สิ่งที่พนักงานควรทำ"}),el("p",{text:d.act||"–"})),
+      el("div",{},el("h4",{text:"หมายเหตุก่อนผลิต"}),el("p",{text:d.note||"–"}),
+        ...(d.assess?[]:[(()=>{const b=el("button",{class:"to-script",text:"อ่านสคริปต์ตอนนี้ →"});b.addEventListener("click",()=>showScript(d.i));return b})()])));
+    const det=el("details",{id:"ep"+d.i},s,body); list.append(det);
+  });
+  if(!rows.length) list.append(el("div",{class:"empty",text:"ไม่มีตอนในตัวกรองนี้"}));
+  document.querySelectorAll(".ep").forEach(b=>b.classList.toggle("dim",fGroup!=="all"&&b.dataset.g!==fGroup));
+}
+function openEp(d){
+  fYear="all"; fGroup="all"; render();
+  const det=document.getElementById("ep"+d.i); det.open=true;
+  det.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  det.querySelector("summary").focus({preventScroll:true});
+}
+render();
+
+// ---------- tabs ----------
+const TABS=["intro","plan","scripts"];
+function setTab(id,push=true){
+  if(!TABS.includes(id)) id="intro";
+  TABS.forEach(x=>{document.getElementById(x).hidden = x!==id; const b=document.getElementById("tab-"+x); b.setAttribute("aria-selected",String(x===id)); b.tabIndex = x===id?0:-1;});
+  if(push){ try{history.replaceState(null,"","#"+id)}catch(e){} }
+}
+document.querySelectorAll(".tab").forEach(b=>{
+  b.addEventListener("click",()=>{setTab(b.dataset.t);window.scrollTo({top:0})});
+  b.addEventListener("keydown",e=>{const i=TABS.indexOf(b.dataset.t);let n=null;
+    if(e.key==="ArrowRight")n=TABS[(i+1)%3]; if(e.key==="ArrowLeft")n=TABS[(i+2)%3];
+    if(n){e.preventDefault();setTab(n);document.getElementById("tab-"+n).focus()}});
+});
+const _openEp=openEp; openEp=function(d){setTab("plan");_openEp(d)};
+
+// ---------- scripts ----------
+const SC = clips; let cur = SC[0].i;
+const nav=document.getElementById("scnav"), sel=document.getElementById("scsel"), sheet=document.getElementById("sheet");
+FYS.forEach(fy=>{
+  nav.append(el("div",{class:"fyh",text:`ปีงบ ${fy}`}));
+  const og=el("optgroup",{label:`ปีงบ ${fy}`});
+  SC.filter(d=>d.fy===fy).forEach(d=>{
+    const b=el("button",{class:"sc-item",style:`--c:${colorOf(d.cat)}`,"data-i":d.i},el("span",{class:"bar"}),el("span",{},el("small",{text:d.m+" · "+shortCat(d.cat)}),d.topic));
+    b.addEventListener("click",()=>{showScript(d.i,false)}); nav.append(b);
+    og.append(el("option",{value:d.i,text:`${d.m} · ${d.topic}`}));
+  });
+  sel.append(og);
+});
+sel.addEventListener("change",()=>showScript(+sel.value,false));
+
+function parseStory(s){
+  return s.split("\n").map(l=>{const k=l.indexOf(":");return k>0?[l.slice(0,k).trim(),l.slice(k+1).trim()]:["",l.trim()]}).filter(x=>x[1]);
+}
+function renderScript(s){
+  const box=el("div",{class:"script"}); let cur=null;
+  s.split("\n").forEach(raw=>{
+    const l=raw.trim(); if(!l){cur=null;return}
+    const cue=l.match(/^\[(.+)\]$/);
+    if(cue){box.append(el("div",{class:"cue",text:cue[1]}));cur=null;return}
+    const sp=l.match(/^([^:“"\[]{1,40}):\s*(.*)$/);
+    if(sp){
+      const nar=sp[1].includes("ผู้บรรยาย");
+      const say=el("div",{class:"say"});
+      cur=el("div",{class:"line "+(nar?"nar":"dia")},el("span",{class:"who",text:sp[1]}),say);
+      box.append(cur); if(sp[2]) say.append(el("p",{text:sp[2]}));
+      return;
+    }
+    if(!cur){const say=el("div",{class:"say"});cur=el("div",{class:"line nar"},el("span",{class:"who",text:""}),say);box.append(cur)}
+    cur.querySelector(".say").append(el("p",{text:l}));
+  });
+  return box;
+}
+function showScript(i,jump=true){
+  cur=i; const d=DATA[i]; const idx=SC.findIndex(x=>x.i===i);
+  if(jump){setTab("scripts")}
+  nav.querySelectorAll(".sc-item").forEach(b=>b.setAttribute("aria-current",String(+b.dataset.i===i)));
+  sel.value=i;
+  sheet.innerHTML=""; sheet.style.setProperty("--c",colorOf(d.cat));
+  const story=el("div",{class:"story"});
+  parseStory(d.story).forEach(([k,v])=>story.append(el("div",{},el("h4",{text:k||"ฉาก"}),el("span",{text:v}))));
+  const prev=el("button",{text:"← ตอนก่อนหน้า"}), next=el("button",{text:"ตอนถัดไป →"});
+  prev.disabled=idx===0; next.disabled=idx===SC.length-1;
+  prev.addEventListener("click",()=>showScript(SC[idx-1].i)); next.addEventListener("click",()=>showScript(SC[idx+1].i));
+  sheet.append(
+    el("div",{class:"sheet-head"},
+      el("div",{class:"meta"},el("span",{class:"num",text:`ตอนที่ ${idx+1} / ${SC.length} · ${d.m}`}),el("span",{class:"pill",text:d.cat}),
+        ...(d.review?[el("span",{class:"flag",style:"font-size:12px;font-family:var(--font-data);color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:1px 6px",text:"Legal/Compliance ตรวจก่อนเผยแพร่"})]:[])),
+      el("h2",{text:d.topic})),
+    story,
+    renderScript(d.script),
+    el("div",{class:"side"},
+      el("div",{},el("h4",{text:"Key Message / Red Flag"}),el("p",{text:d.key})),
+      el("div",{},el("h4",{text:"สิ่งที่พนักงานควรทำ"}),el("p",{text:d.act})),
+      el("div",{},el("h4",{text:"หมายเหตุก่อนผลิต"}),el("p",{text:d.note}))),
+    el("div",{class:"pager"},prev,next));
+  if(jump){ window.scrollTo({top:0}); const a=nav.querySelector('[aria-current="true"]'); a&&a.scrollIntoView({block:"nearest"}); }
+}
+showScript(SC[0].i,false);
+setTab((location.hash||"").slice(1),false);
+window.addEventListener("hashchange",()=>setTab(location.hash.slice(1),false));
+</script>
