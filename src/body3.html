@@ -1060,11 +1060,6 @@ async function aesKey(pw,salt,iter){
   const base=await crypto.subtle.importKey("raw",TE.encode(pw),"PBKDF2",false,["deriveKey"]);
   return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:iter,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
 }
-async function sealToken(tok,pw){
-  const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),iter=600000;
-  const ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},await aesKey(pw,salt,iter),TE.encode(tok)));
-  return JSON.stringify({v:1,kdf:"PBKDF2-SHA256",iter,salt:b64(salt),iv:b64(iv),ct:b64(ct)},null,1);
-}
 async function openToken(sealed,pw){
   const k=JSON.parse(sealed);
   const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(k.iv)},await aesKey(pw,unb64(k.salt),k.iter),unb64(k.ct));
@@ -1084,50 +1079,29 @@ async function commitFiles(tok,files,message){
   await ghFetch("/git/refs/heads/"+GH.branch,{method:"PATCH",body:JSON.stringify({sha:c.sha,force:false})},tok);
   return c.sha;
 }
-/* password dialog: unlock with password, or first-time setup (token + new password) */
+/* password dialog: unlock only (password/token are set by the admin outside the website) */
 function authDialog(){
   return new Promise(resolve=>{
     const msg=el("p",{class:"auth-msg"});
     const pw=el("input",{type:"password",autocomplete:"current-password",placeholder:"รหัสผ่าน"});
-    const tk=el("input",{type:"password",autocomplete:"off",placeholder:"GitHub token (github_pat_…)"});
-    const p1=el("input",{type:"password",autocomplete:"new-password",placeholder:"ตั้งรหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)"});
-    const p2=el("input",{type:"password",autocomplete:"new-password",placeholder:"ยืนยันรหัสผ่านใหม่"});
     const go=el("button",{class:"sbe-btn pri",text:"ปลดล็อก"}),cancel=el("button",{class:"sbe-btn",text:"ยกเลิก"});
-    const toSetup=el("button",{class:"auth-link",text:"ตั้งค่าครั้งแรก / เปลี่ยนรหัสผ่าน"});
-    const unlockBox=el("div",{class:"auth-box"},el("label",{},"รหัสผ่านสำหรับแก้ไข",pw));
-    const setupBox=el("div",{class:"auth-box",hidden:""},
-      el("p",{class:"muted small",text:"ใส่ GitHub token ที่มีสิทธิ์ Contents: Read and write เฉพาะ repo นี้ แล้วตั้งรหัสผ่านที่ทีมจะใช้ ระบบจะเข้ารหัส token ด้วยรหัสผ่านก่อนเก็บใน repo"}),
-      el("label",{},"GitHub token",tk),el("label",{},"รหัสผ่านใหม่",p1),el("label",{},"ยืนยันรหัสผ่าน",p2));
-    let mode="unlock";
     const dlg=el("dialog",{class:"modal auth-dlg","aria-label":"รหัสผ่านสำหรับแก้ไขสตอรีบอร์ด"},
       el("div",{class:"modal-bar"},el("span",{class:"eyebrow",text:"แก้ไขสตอรีบอร์ด"})),
-      el("h2",{text:"ใส่รหัสผ่าน"}),unlockBox,setupBox,msg,
-      el("div",{class:"auth-act"},toSetup,el("span",{class:"sp"}),cancel,go));
+      el("h2",{text:"ใส่รหัสผ่าน"}),el("div",{class:"auth-box"},el("label",{},"รหัสผ่านสำหรับแก้ไข",pw)),msg,
+      el("div",{class:"auth-act"},el("span",{class:"sp"}),cancel,go));
     const done=v=>{dlg.close();dlg.remove();resolve(v)};
-    toSetup.addEventListener("click",()=>{mode=mode==="unlock"?"setup":"unlock";unlockBox.hidden=mode!=="unlock";setupBox.hidden=mode!=="setup";
-      dlg.querySelector("h2").textContent=mode==="unlock"?"ใส่รหัสผ่าน":"ตั้งค่าการแก้ไข";go.textContent=mode==="unlock"?"ปลดล็อก":"บันทึกการตั้งค่า";toSetup.textContent=mode==="unlock"?"ตั้งค่าครั้งแรก / เปลี่ยนรหัสผ่าน":"← กลับไปใส่รหัสผ่าน";msg.textContent=""});
     cancel.addEventListener("click",()=>done(null));
     dlg.addEventListener("cancel",e=>{e.preventDefault();done(null)});
     const run=async()=>{
       go.disabled=true;msg.className="auth-msg";msg.textContent="กำลังตรวจสอบ…";
       try{
-        if(mode==="unlock"){
-          let sealed;try{sealed=await ghRaw(GH.key)}catch(e){if(e.status===404)throw new Error("ยังไม่ได้ตั้งค่า กด \"ตั้งค่าครั้งแรก\" ก่อน");throw e}
-          let tok;try{tok=await openToken(sealed,pw.value)}catch(e){throw new Error("รหัสผ่านไม่ถูกต้อง")}
-          done(tok);
-        }else{
-          if(p1.value.length<12)throw new Error("รหัสผ่านต้องยาวอย่างน้อย 12 ตัวอักษร");
-          if(p1.value!==p2.value)throw new Error("รหัสผ่านทั้งสองช่องไม่ตรงกัน");
-          const tok=tk.value.trim();if(!tok)throw new Error("กรุณาใส่ GitHub token");
-          const info=await (await ghFetch("",{},tok)).json();
-          if(!info.permissions||!info.permissions.push)throw new Error("token นี้ไม่มีสิทธิ์เขียน repo");
-          await commitFiles(tok,[{path:GH.key,content:await sealToken(tok,p1.value)}],"ตั้งค่ารหัสผ่านสำหรับแก้ไขสตอรีบอร์ด");
-          done(tok);
-        }
-      }catch(e){msg.className="auth-msg err";msg.textContent=e.status===401?"token ไม่ถูกต้องหรือหมดอายุ":e.message;go.disabled=false}
+        let sealed;try{sealed=await ghRaw(GH.key)}catch(e){if(e.status===404)throw new Error("ยังไม่ได้ตั้งค่าการแก้ไข กรุณาติดต่อผู้ดูแลระบบ");throw e}
+        let tok;try{tok=await openToken(sealed,pw.value)}catch(e){throw new Error("รหัสผ่านไม่ถูกต้อง")}
+        done(tok);
+      }catch(e){msg.className="auth-msg err";msg.textContent=e.message;go.disabled=false}
     };
     go.addEventListener("click",run);
-    [pw,p2].forEach(x=>x.addEventListener("keydown",e=>{if(e.key==="Enter")run()}));
+    pw.addEventListener("keydown",e=>{if(e.key==="Enter")run()});
     document.body.append(dlg);try{dlg.showModal()}catch(e){dlg.setAttribute("open","")}pw.focus();
   });
 }
@@ -1227,7 +1201,7 @@ function sbEditor(d){
       showScript(d.i);
     }catch(e){
       if(e.status===401){GH_TOKEN=null;try{sessionStorage.removeItem("gia_tok")}catch(_){}}
-      msg.className="auth-msg err";msg.textContent="บันทึกไม่สำเร็จ: "+(e.status===401?"token หมดอายุหรือถูกยกเลิก ให้ตั้งค่าใหม่":e.message);
+      msg.className="auth-msg err";msg.textContent="บันทึกไม่สำเร็จ: "+(e.status===401?"สิทธิ์บันทึกหมดอายุหรือถูกยกเลิก กรุณาติดต่อผู้ดูแลระบบ":e.message);
       save.disabled=cancel.disabled=false;
     }
   });

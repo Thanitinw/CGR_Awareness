@@ -21,11 +21,12 @@ src/build_page.py  รวมไฟล์ด้านบนเป็น index.htm
 ## แก้สตอรีบอร์ดจากหน้าเว็บ
 
 1. เปิดหน้าเว็บจาก GitHub Pages (หรือไฟล์ `index.html` บนเครื่อง) → เปิดคลิป → ปุ่ม **✎ แก้ไข**
-2. ใส่รหัสผ่านสำหรับแก้ไข → แก้ ภาพ / Keyword บนจอ / เสียง เพิ่มหรือลบฉากได้
+2. ใส่รหัสผ่านสำหรับแก้ไข (ขอจากผู้ดูแล) → แก้ ภาพ / Keyword บนจอ / เสียง เพิ่มหรือลบฉากได้
 3. กด **บันทึกขึ้น Git** → หน้าเว็บ commit `src/rows9.json` และ `index.html` เข้า branch `main` ทันที (เวลาแต่ละฉากคำนวณใหม่อัตโนมัติ)
 
-ตั้งค่าครั้งแรก: ในหน้าต่างรหัสผ่าน กด "ตั้งค่าครั้งแรก / เปลี่ยนรหัสผ่าน" แล้วใส่ GitHub fine-grained token
-(Repository access: เฉพาะ repo นี้ · Permissions: Contents = Read and write) และตั้งรหัสผ่านอย่างน้อย 12 ตัวอักษร
-token จะถูกเข้ารหัสด้วยรหัสผ่าน (PBKDF2 + AES-GCM) แล้วเก็บที่ `src/editor-key.json` ถ้า token หมดอายุ ให้ตั้งค่าใหม่ด้วยวิธีเดียวกัน
+ตั้งหรือเปลี่ยนรหัสผ่าน (ผู้ดูแลเท่านั้น ทำบนเครื่อง ไม่มีบนหน้าเว็บ):
+`pip install cryptography` แล้ว `python3 tools/set_editor_password.py` → ใส่ GitHub fine-grained token
+(Repository access: เฉพาะ repo นี้ · Permissions: Contents = Read and write) และรหัสผ่านอย่างน้อย 12 ตัวอักษร
+→ commit + push `src/editor-key.json` · token ถูกเข้ารหัสด้วยรหัสผ่าน (PBKDF2 + AES-GCM) ก่อนเก็บ
 
 > `src/rows9.json` ใน repo คือข้อมูลล่าสุดเสมอ (รวมการแก้จากหน้าเว็บ) ก่อนแก้ไฟล์ใน `src/` บนเครื่อง ให้ `git pull` ก่อนทุกครั้ง
