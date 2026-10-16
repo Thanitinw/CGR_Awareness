@@ -534,6 +534,8 @@ summary .m small{display:block;font-size:12px}
 .catx[open]>summary .cx::after{transform:rotate(180deg)}
 .catx>summary:hover{background:var(--sunk)}
 .catx>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.catx .cxw{display:flex;flex-direction:column;gap:2px;min-width:0}
+.catx .cown{font-family:var(--font-data);font-size:12px;font-weight:400;color:var(--muted);line-height:1.35}
 .catx .thl{margin:0 0 6px;padding-left:10px;border-left:2px solid var(--c)}
 @media (max-width:820px){.catx>summary{grid-template-columns:minmax(0,1fr) 70px 22px}}
 
@@ -739,8 +741,7 @@ summary .m small{display:block;font-size:12px}
         <div class="panel new"><h3>ทีมงานโครงการ</h3><p>ทำงานร่วมกันระหว่างหน่วยงานกำกับดูแลกิจการ (CG / Compliance) และ HR</p></div>
         <div class="panel"><h3>ทีมงานโครงการดูแล</h3><ul><li>วางแผน ร่างสคริปต์ และประสานเจ้าของเนื้อหา</li><li>ผลิตคลิป ส่งลิงก์ในกลุ่ม LINE และดูแลสมาชิกกลุ่ม</li><li>จัดแบบทดสอบประจำปี และสรุปผลตามแท็บ Measurement</li></ul></div>
       </div>
-      <div class="owners" id="owners"></div>
-      <p class="mnote">เครื่องหมาย "/" = หน่วยงานใดหน่วยงานหนึ่งตามโครงสร้างของแต่ละบริษัท · หน่วยงานร่วมรายธีมดูได้ในการ์ดหมวดด้านบน<br>รายชื่อในแต่ละกลุ่มสรุปจากเจ้าของเนื้อหารายธีม ซึ่งเป็นข้อมูลชุดเดียวกับที่แสดงในการ์ดหมวดด้านบน และในสคริปต์แต่ละคลิป · "·" = กลุ่มนี้มีหลายธีมที่เจ้าของต่างกัน · รายชื่อหน่วยงานปรับตามโครงสร้างจริงของกลุ่มบริษัท</p>
+      <p class="mnote">เจ้าของเนื้อหาของแต่ละธีมแสดงใต้ชื่อธีมในการ์ดหมวดด้านบน กดชื่อธีมเพื่อดูหน่วยงานร่วมรายคลิป · เครื่องหมาย "/" = หน่วยงานใดหน่วยงานหนึ่งตามโครงสร้างของแต่ละบริษัท · รายชื่อหน่วยงานปรับตามโครงสร้างจริงของกลุ่มบริษัท</p>
     </section>
   </div>
 
@@ -1022,10 +1023,6 @@ const SHORT={"สิ่งแวดล้อมและสภาพภูมิ
 const shortCat=c=>SHORT[c]||c;
 const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,v]of Object.entries(a)){if(x==="style")e.style.cssText=v;else if(x==="text")e.textContent=v;else e.setAttribute(x,v)}k.forEach(c=>c!=null&&e.append(c));return e};
 GROUPS.forEach(g=>g.cats.forEach(c=>OWNER[c]=ownerList(c).join(" · ")));
-GROUPS.forEach(g=>{const box=el("div",{class:"og",style:`--c:var(--${g.id})`},el("h3",{text:g.name}));
-  g.cats.forEach(c=>box.append(el("div",{class:"row"},el("span",{text:shortCat(c)}),el("span",{text:ownerOf(c)}))));
-  document.getElementById("owners").append(box);});
-
 DATA.forEach((d,i)=>{
   d.i=i; const[mon,yr]=d.m.split(" "); d.mi=MONTHS.indexOf(mon);
   d.fy=d.mi<=2?+yr:+yr-1;   // ปีงบตั้งชื่อตามปีที่เริ่ม: ต.ค. 2569 – ก.ย. 2570 = ปีงบ 2569
@@ -1083,7 +1080,7 @@ GROUPS.forEach(g=>{
       if(pair)r.querySelector(".tt2").addEventListener("click",()=>showScript(pair.i));
       tl.append(r)});
     box.append(el("details",{class:"catx"},
-      el("summary",{class:"bar-row","aria-label":`${c} ${n} ธีม กดเพื่อดูรายละเอียด`},el("span",{class:"cx"},c),el("div",{class:"track"},el("div",{class:"fill",style:`width:${n/max*100}%;background:var(--${g.id})`})),el("span",{class:"n",text:n})),tl));});
+      el("summary",{class:"bar-row","aria-label":`${c} ${n} ธีม เจ้าของเนื้อหา ${ownerOf(c)} กดเพื่อดูรายละเอียด`},el("span",{class:"cxw"},el("span",{class:"cx"},c),el("small",{class:"cown",text:ownerOf(c)})),el("div",{class:"track"},el("div",{class:"fill",style:`width:${n/max*100}%;background:var(--${g.id})`})),el("span",{class:"n",text:n})),tl));});
   const ul=el("ul",{class:"grefs"});g.refs.forEach(r=>ul.append(el("li",{text:r})));
   box.append(el("details",{class:"gref"},el("summary",{text:"อ้างอิง ("+g.refs.length+")"}),ul));
   document.getElementById("cats").append(box);
