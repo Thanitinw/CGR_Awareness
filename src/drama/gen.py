@@ -4,6 +4,8 @@ import json, re, copy, sys, os
 S = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(S, 'drama'))
 from samples import SAMPLES
+from realcase import REAL, VIS
+from dur import syl
 
 FEMALE = {'เบล', 'มายด์', 'พี่อร', 'พี่นุ่น'}
 MALE = {'พี่ต้น', 'โอ๊ต', 'พี่เอก', 'ก้อง', 'ภูมิ', 'คุณวิชัย'}
@@ -107,7 +109,7 @@ def generic(t):
 def sub_roles(text, mp):
     for role in sorted(mp, key=len, reverse=True):
         name = mp[role]
-        text = re.sub(re.escape(role) + r'(?:หญิง|ชาย|หนุ่ม|สาว|คนหนึ่ง|คนนี้|ของเรา)*', name, text)
+        text = re.sub(re.escape(role) + r'(?:\s?(?:หญิง|ชาย|หนุ่ม|สาว)|(?:หญิง|ชาย|หนุ่ม|สาว|คนหนึ่ง|คนนี้|ของเรา))*', name, text)
     return text
 
 def particles(line, who):
@@ -115,8 +117,10 @@ def particles(line, who):
         line = re.sub(r'นะคะ|นะค่ะ', 'นะครับ', line)
         line = line.replace('ค่ะ', 'ครับ').replace('ดิฉัน', 'ผม')
         line = re.sub(r'คะ(?![ก-๙])', 'ครับ', line)
-        line = re.sub(r'(^|[“\s])หนู(?![ก-๙])', r'\1ผม', line)
+        line = line.replace('หนู', 'ผม')
     elif who in FEMALE:
+        line = line.replace('นะครับ', 'นะคะ')
+        line = re.sub(r'(พี่|หัวหน้า|คุณ)ครับ', r'\1คะ', line)
         line = re.sub(r'(ไหม|มั้ย|หรือ|เหรอ|อะไร|ยังไง|อย่างไร|ไหน|เท่าไร|กี่\S*|ใคร)ครับ', r'\1คะ', line)
         line = line.replace('ครับ?', 'คะ?').replace('ครับ”', 'ค่ะ”').replace('ครับ ', 'ค่ะ ').replace('ครับ', 'ค่ะ')
         line = line.replace('ผม', 'หนู' if who == 'เบล' else 'เรา')
@@ -169,6 +173,31 @@ def build(d):
     return dict(title=d.get('topic'), cast=cast, lead=lead, est=est,
                 sb=dict(audience=sb.get('audience'), theme=f'ละครซีรีส์ "ชั้น 12" · ตัวเอกตอนนี้: {lead}', music=sb.get('music'), parts=parts))
 
+def fmt_t(x):
+    x = int(round(x)); return f'{x // 60}:{x % 60:02d}'
+
+def apply_real(dr, key):
+    scenes = [s for p in dr['sb']['parts'] for s in p['scenes']]
+    for a, b in VIS.get(key, []):
+        for s in scenes: s['visual'] = s['visual'].replace(a, b)
+    r = REAL.get(key)
+    if not r: return dr
+    by = {s['no']: s for s in scenes}
+    for no, ch in r['edits'].items():
+        s = by[no]
+        a, b = s['time'].split('–'); d0 = tsec(b) - tsec(a)
+        old = syl(' '.join(x for _, x in s['audio'])) or 1
+        for k, v in ch.items(): s[k] = v
+        new = syl(' '.join(x for _, x in s['audio']))
+        s['_d'] = max(4, d0 * new / old)
+    t = 0.0
+    for s in scenes:
+        a, b = s['time'].split('–'); d = s.pop('_d', tsec(b) - tsec(a))
+        s['time'] = fmt_t(t) + '–' + fmt_t(t + d); t += d
+    dr['est'] = int(round(t))
+    dr['ref'] = r['ref']
+    return dr
+
 def script_of(dr):
     L = []
     for p in dr['sb']['parts']:
@@ -186,7 +215,9 @@ if __name__ == '__main__':
     n = 0
     for d in D:
         if not d.get('w') or not d.get('sb'): continue
-        dr = build(d); dr['script'] = script_of(dr)
+        dr = build(d)
+        if dr.get('est') is None: dr['est'] = d.get('est')
+        dr = apply_real(dr, (d['m'], d['w'])); dr['script'] = script_of(dr)
         if dr.get('est') is None: dr['est'] = d.get('est')
         d['drama'] = dr; n += 1
     json.dump(D, open(path, 'w'), ensure_ascii=False, indent=1)

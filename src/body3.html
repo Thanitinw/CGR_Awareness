@@ -198,6 +198,7 @@ summary .m small{display:block;font-size:12px}
 .mtabs .mt[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .mtabs .mt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sb-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+.sb-ref{display:flex;flex-direction:column;gap:4px}.sb-ref .src{font-size:12.5px;color:var(--muted)}.sb-ref a{color:var(--accent);overflow-wrap:anywhere}
 .sb-ver{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
 .sb-ver button{all:unset;cursor:pointer;font-size:13px;padding:5px 14px;border-radius:999px}
 .sb-ver button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
@@ -955,7 +956,7 @@ function sbText(d){
 function groupAu(au){const o=[];au.forEach(([w,x])=>{const l=o[o.length-1];if(l&&l[0]===w)l[1]+=(w.includes("ผู้บรรยาย")?" ":" ")+x;else o.push([w,x])});return o}
 function sbCopy(d){
   const s=d.sb,on=k=>sbShow.has(k);
-  let t=`# ${d.topic}\n${KIND[d.kind]} · เผยแพร่ ${d.date_th}\n`+(s.music?`ดนตรีประกอบ: ${s.music}\n`:"")+"\n";
+  let t=`# ${d.topic}\n${KIND[d.kind]} · เผยแพร่ ${d.date_th}\n`+(s.music?`ดนตรีประกอบ: ${s.music}\n`:"")+(d.drama&&d.sb===d.drama.sb&&d.drama.ref?`อ้างอิงเคสจริง: ${d.drama.ref.case}\n`:"")+"\n";
   s.parts.forEach((p,k)=>{t+=`${k+1}. ${p.name}\n`;
     p.scenes.forEach(c=>{t+=`ฉากที่ ${c.no} [${c.time}] ${c.title}\n`;
       if(on("visual"))t+=`  ภาพ: ${c.visual}\n`;
@@ -975,6 +976,7 @@ function renderSB(d){
       el("dt",{text:"ความยาวรวม"}),el("dd",{text:`ประมาณ ${mmss(V.est)} นาที (${N} ฉาก / ฉากละประมาณ ${Math.round(V.est/N)} วินาที)`}),
       ...(drama&&V.title&&V.title!==d.topic?[el("dt",{text:"ชื่อตอน"}),el("dd",{text:V.title})]:[]),
       ...(drama?[el("dt",{text:"ตัวละคร"}),el("dd",{text:V.cast.join(" · ")})]:[]),
+      ...(drama&&V.ref?[el("dt",{text:"อ้างอิงเคสจริง"}),el("dd",{class:"sb-ref"},el("b",{text:V.ref.case}),el("span",{text:V.ref.use}),el("span",{class:"src"},"แหล่งข้อมูล: ",...V.ref.sources.flatMap(([t,u],k)=>{const a=el("a",{href:u,target:"_blank",rel:"noopener",text:t});return k?[" · ",a]:[a]})))]:[]),
       el("dt",{text:"กลุ่มเป้าหมาย"}),el("dd",{text:s.audience}),
       el("dt",{text:"ธีมการเล่าเรื่อง"}),el("dd",{text:s.theme}),
       ...(s.music?[el("dt",{text:"ดนตรีประกอบ"}),el("dd",{text:s.music})]:[]));
