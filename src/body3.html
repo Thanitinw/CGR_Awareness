@@ -401,6 +401,30 @@ summary .m small{display:block;font-size:12px}
 .seqtbl td.no{color:var(--muted)}
 .seqtbl tr.grp td{font-weight:600;font-size:12px;background:var(--accent-soft);color:var(--accent);padding:5px 12px}
 @media (max-width:560px){.seqtbl td.y{white-space:normal}.seqtbl th,.seqtbl td{padding:6px 6px}.seqtbl td.t{width:34%}}
+/* storyboard editor */
+.sb-filter .sb-edit{margin-right:6px}
+.sbe-t td{vertical-align:top}
+.sbe textarea,.sbe input.sbe-title,.auth-dlg input{box-sizing:border-box;width:100%;font:inherit;font-size:13px;line-height:1.5;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 8px;resize:vertical;min-height:2.4em;overflow:hidden}
+.sbe textarea:focus,.sbe input:focus,.auth-dlg input:focus{outline:2px solid var(--accent);outline-offset:0;border-color:var(--accent)}
+.sbe input.sbe-title{margin-top:6px}
+.sbe-ops{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.sbe-mini{all:unset;cursor:pointer;font-size:12px;padding:2px 8px;border:1px solid var(--line);border-radius:6px;color:var(--accent)}
+.sbe-mini:hover{border-color:var(--accent)}
+.sbe-bar{position:sticky;bottom:0;display:flex;align-items:center;gap:8px;padding:12px 0;margin-top:8px;background:var(--surface);border-top:1px solid var(--line);flex-wrap:wrap}
+.sbe-bar .sp,.auth-act .sp{flex:1}
+.sbe-btn{all:unset;cursor:pointer;font-size:14px;padding:8px 16px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg)}
+.sbe-btn.pri{background:var(--accent);border-color:var(--accent);color:var(--on-accent,#fff);font-weight:600}
+.sbe-btn:disabled{opacity:.5;cursor:default}
+.sbe-btn:focus-visible,.sbe-mini:focus-visible,.auth-link:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.auth-msg{margin:6px 0 0;font-size:13px;color:var(--muted);min-height:1.2em}
+.auth-msg.err{color:#c0392b}
+.sbe-saved{margin:0 0 10px;padding:8px 12px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-size:13px}
+.auth-dlg{width:min(460px,calc(100% - 32px))}
+.auth-dlg h2{font-size:18px;margin:0 0 12px}
+.auth-box{display:flex;flex-direction:column;gap:10px}
+.auth-box label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:500}
+.auth-act{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
+.auth-link{all:unset;cursor:pointer;font-size:12px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 @media (max-width:560px){.seqnote .go{display:none}.seqlist{padding-left:18px}}
 </style>
 
@@ -954,7 +978,9 @@ function renderSB(d){
   const all=el("button",{class:"chip",text:"ทั้งหมด"});all.addEventListener("click",()=>{F.forEach(([k])=>sbShow.add(k));apply()});fb.append(all);
   const cp=el("button",{class:"sb-copy",text:"คัดลอกส่วนที่แสดง"});
   cp.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(sbCopy(d));cp.textContent="คัดลอกแล้ว ✓"}catch(e){cp.textContent="คัดลอกไม่สำเร็จ"}setTimeout(()=>cp.textContent="คัดลอกส่วนที่แสดง",1600)});
-  fb.append(el("span",{class:"sp"}),cp);
+  const edb=el("button",{class:"sb-copy sb-edit",text:"✎ แก้ไข"});edb.addEventListener("click",()=>startEdit(d,box));
+  fb.append(el("span",{class:"sp"}),edb,cp);
+  if(SAVED[d.i])box.append(el("p",{class:"sbe-saved",text:`บันทึกขึ้น Git แล้ว (${SAVED[d.i]} น.) · หน้าเว็บบน GitHub อัปเดตภายใน 1–2 นาที`}));
   box.append(fb);apply();
   s.parts.forEach((p,k)=>{
     const a=p.scenes[0].no,z=p.scenes[p.scenes.length-1].no;
@@ -1015,6 +1041,203 @@ dseq.addEventListener("click",e=>{if(e.target===dseq)dseq.close()});
    DATA.filter(d=>d.w&&d.date&&cats.includes(d.cat)).forEach(d=>{const y=fy(d),m=short(d.m);if(!ys[y].includes(m))ys[y].push(m)});
    h+=`<tr><td class="t">${lab}</td>${ys.map(a=>a.length?`<td class="y">${a.join(" · ")}</td>`:'<td class="y no">–</td>').join("")}</tr>`})});
  tb.innerHTML=h+"</tbody>";})();
+/* ---- Storyboard editor: edit on page, commit to GitHub (password-protected token) ---- */
+const GH={owner:"Thanitinw",repo:"CGR_Awareness",branch:"main",key:"src/editor-key.json",rows:"src/rows9.json",page:"index.html"};
+const TE=new TextEncoder();
+const b64=u8=>{let s="";for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)};
+const unb64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+let GH_TOKEN=null;try{GH_TOKEN=sessionStorage.getItem("gia_tok")}catch(e){}
+const SAVED={};
+async function ghFetch(path,opt={},tok){
+  let r;
+  try{r=await fetch("https://api.github.com/repos/"+GH.owner+"/"+GH.repo+path,{cache:"no-store",...opt,headers:{Accept:"application/vnd.github+json",...(tok?{Authorization:"Bearer "+tok}:{}),...(opt.headers||{})}})}
+  catch(e){const x=new Error("เชื่อมต่อ GitHub ไม่ได้ (หน้านี้อาจเปิดจากที่ที่ไม่อนุญาตให้ติดต่อภายนอก ให้เปิดจากหน้าเว็บบน GitHub Pages หรือไฟล์ index.html)");x.net=1;throw x}
+  if(!r.ok){const x=new Error("GitHub ตอบกลับ "+r.status);x.status=r.status;throw x}
+  return r;
+}
+const ghRaw=async(file,ref,tok)=>(await ghFetch("/contents/"+file+"?ref="+(ref||GH.branch),{headers:{Accept:"application/vnd.github.raw+json"}},tok)).text();
+async function aesKey(pw,salt,iter){
+  const base=await crypto.subtle.importKey("raw",TE.encode(pw),"PBKDF2",false,["deriveKey"]);
+  return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:iter,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["encrypt","decrypt"]);
+}
+async function sealToken(tok,pw){
+  const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12)),iter=600000;
+  const ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},await aesKey(pw,salt,iter),TE.encode(tok)));
+  return JSON.stringify({v:1,kdf:"PBKDF2-SHA256",iter,salt:b64(salt),iv:b64(iv),ct:b64(ct)},null,1);
+}
+async function openToken(sealed,pw){
+  const k=JSON.parse(sealed);
+  const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:unb64(k.iv)},await aesKey(pw,unb64(k.salt),k.iter),unb64(k.ct));
+  return new TextDecoder().decode(pt);
+}
+async function commitFiles(tok,files,message){
+  const ref=await (await ghFetch("/git/ref/heads/"+GH.branch,{},tok)).json();const base=ref.object.sha;
+  const cm=await (await ghFetch("/git/commits/"+base,{},tok)).json();
+  const tree=[];
+  for(const f of files){
+    const content=typeof f.content==="function"?await f.content(base):f.content;
+    const b=await (await ghFetch("/git/blobs",{method:"POST",body:JSON.stringify({content:b64(TE.encode(content)),encoding:"base64"})},tok)).json();
+    tree.push({path:f.path,mode:"100644",type:"blob",sha:b.sha});
+  }
+  const t=await (await ghFetch("/git/trees",{method:"POST",body:JSON.stringify({base_tree:cm.tree.sha,tree})},tok)).json();
+  const c=await (await ghFetch("/git/commits",{method:"POST",body:JSON.stringify({message,tree:t.sha,parents:[base]})},tok)).json();
+  await ghFetch("/git/refs/heads/"+GH.branch,{method:"PATCH",body:JSON.stringify({sha:c.sha,force:false})},tok);
+  return c.sha;
+}
+/* password dialog: unlock with password, or first-time setup (token + new password) */
+function authDialog(){
+  return new Promise(resolve=>{
+    const msg=el("p",{class:"auth-msg"});
+    const pw=el("input",{type:"password",autocomplete:"current-password",placeholder:"รหัสผ่าน"});
+    const tk=el("input",{type:"password",autocomplete:"off",placeholder:"GitHub token (github_pat_…)"});
+    const p1=el("input",{type:"password",autocomplete:"new-password",placeholder:"ตั้งรหัสผ่านใหม่ (อย่างน้อย 12 ตัวอักษร)"});
+    const p2=el("input",{type:"password",autocomplete:"new-password",placeholder:"ยืนยันรหัสผ่านใหม่"});
+    const go=el("button",{class:"sbe-btn pri",text:"ปลดล็อก"}),cancel=el("button",{class:"sbe-btn",text:"ยกเลิก"});
+    const toSetup=el("button",{class:"auth-link",text:"ตั้งค่าครั้งแรก / เปลี่ยนรหัสผ่าน"});
+    const unlockBox=el("div",{class:"auth-box"},el("label",{},"รหัสผ่านสำหรับแก้ไข",pw));
+    const setupBox=el("div",{class:"auth-box",hidden:""},
+      el("p",{class:"muted small",text:"ใส่ GitHub token ที่มีสิทธิ์ Contents: Read and write เฉพาะ repo นี้ แล้วตั้งรหัสผ่านที่ทีมจะใช้ ระบบจะเข้ารหัส token ด้วยรหัสผ่านก่อนเก็บใน repo"}),
+      el("label",{},"GitHub token",tk),el("label",{},"รหัสผ่านใหม่",p1),el("label",{},"ยืนยันรหัสผ่าน",p2));
+    let mode="unlock";
+    const dlg=el("dialog",{class:"modal auth-dlg","aria-label":"รหัสผ่านสำหรับแก้ไขสตอรีบอร์ด"},
+      el("div",{class:"modal-bar"},el("span",{class:"eyebrow",text:"แก้ไขสตอรีบอร์ด"})),
+      el("h2",{text:"ใส่รหัสผ่าน"}),unlockBox,setupBox,msg,
+      el("div",{class:"auth-act"},toSetup,el("span",{class:"sp"}),cancel,go));
+    const done=v=>{dlg.close();dlg.remove();resolve(v)};
+    toSetup.addEventListener("click",()=>{mode=mode==="unlock"?"setup":"unlock";unlockBox.hidden=mode!=="unlock";setupBox.hidden=mode!=="setup";
+      dlg.querySelector("h2").textContent=mode==="unlock"?"ใส่รหัสผ่าน":"ตั้งค่าการแก้ไข";go.textContent=mode==="unlock"?"ปลดล็อก":"บันทึกการตั้งค่า";toSetup.textContent=mode==="unlock"?"ตั้งค่าครั้งแรก / เปลี่ยนรหัสผ่าน":"← กลับไปใส่รหัสผ่าน";msg.textContent=""});
+    cancel.addEventListener("click",()=>done(null));
+    dlg.addEventListener("cancel",e=>{e.preventDefault();done(null)});
+    const run=async()=>{
+      go.disabled=true;msg.className="auth-msg";msg.textContent="กำลังตรวจสอบ…";
+      try{
+        if(mode==="unlock"){
+          let sealed;try{sealed=await ghRaw(GH.key)}catch(e){if(e.status===404)throw new Error("ยังไม่ได้ตั้งค่า กด \"ตั้งค่าครั้งแรก\" ก่อน");throw e}
+          let tok;try{tok=await openToken(sealed,pw.value)}catch(e){throw new Error("รหัสผ่านไม่ถูกต้อง")}
+          done(tok);
+        }else{
+          if(p1.value.length<12)throw new Error("รหัสผ่านต้องยาวอย่างน้อย 12 ตัวอักษร");
+          if(p1.value!==p2.value)throw new Error("รหัสผ่านทั้งสองช่องไม่ตรงกัน");
+          const tok=tk.value.trim();if(!tok)throw new Error("กรุณาใส่ GitHub token");
+          const info=await (await ghFetch("",{},tok)).json();
+          if(!info.permissions||!info.permissions.push)throw new Error("token นี้ไม่มีสิทธิ์เขียน repo");
+          await commitFiles(tok,[{path:GH.key,content:await sealToken(tok,p1.value)}],"ตั้งค่ารหัสผ่านสำหรับแก้ไขสตอรีบอร์ด");
+          done(tok);
+        }
+      }catch(e){msg.className="auth-msg err";msg.textContent=e.status===401?"token ไม่ถูกต้องหรือหมดอายุ":e.message;go.disabled=false}
+    };
+    go.addEventListener("click",run);
+    [pw,p2].forEach(x=>x.addEventListener("keydown",e=>{if(e.key==="Enter")run()}));
+    document.body.append(dlg);try{dlg.showModal()}catch(e){dlg.setAttribute("open","")}pw.focus();
+  });
+}
+async function getToken(){
+  if(GH_TOKEN)return GH_TOKEN;
+  const t=await authDialog();if(!t)return null;
+  GH_TOKEN=t;try{sessionStorage.setItem("gia_tok",t)}catch(e){}
+  return t;
+}
+/* recompute times / est / script for an edited clip (durations scale with spoken length) */
+const tsec=t=>{const[a,b]=t.split(":").map(Number);return a*60+b};
+const fmtT=x=>`${Math.floor(Math.round(x)/60)}:${String(Math.round(x)%60).padStart(2,"0")}`;
+const alen=au=>(au||[]).reduce((n,[w,x])=>n+String(x).replace(/\s|[“”"]/g,"").length,0);
+function applyEdit(row,parts){
+  const old={};let oc=0,od=0;
+  (row.sb.parts||[]).forEach(p=>p.scenes.forEach(s=>{const[a,b]=s.time.split("–");const d=tsec(b)-tsec(a),l=alen(s.audio);old[s.no]={d,l};oc+=l;od+=d}));
+  const rate=oc&&od?oc/od:12;
+  let t=0,no=0;const L=[];
+  const out=parts.map(p=>{
+    const st=t;
+    const scenes=p.scenes.map(s=>{
+      const o=old[s.pno],l=alen(s.audio);
+      let d=o?(o.l?o.d*l/o.l:o.d):l/rate+1;d=Math.max(2,d);
+      const a=t;t+=d;no++;
+      const first=(s.audio[0]||["",""])[1].replace(/[“”"]/g,"");
+      return {no,time:fmtT(a)+"–"+fmtT(t),title:s.title||"ฉากใหม่",desc:(s.title||"ฉากใหม่")+": "+first.slice(0,90),visual:s.visual,audio:s.audio,screen:s.screen};
+    });
+    L.push(`[${fmtT(st)}–${fmtT(t)} | ${p.name}]`);
+    scenes.forEach(s=>{s.audio.forEach(([w,x])=>L.push(`${w}: ${x}`));s.screen.forEach(([w,x])=>L.push(`${w}: ${x}`))});
+    L.push("");
+    return {name:p.name,scenes};
+  });
+  row.sb.parts=out;row.est=Math.round(t);row.script=L.join("\n").trim();
+  return row;
+}
+async function saveClip(d,parts,tok){
+  const label=`${d.m} ${d.slot||""}`.trim();
+  let updated=null;
+  for(let k=0;k<3;k++){
+    try{
+      await commitFiles(tok,[
+        {path:GH.rows,content:async base=>{const D=JSON.parse(await ghRaw(GH.rows,base,tok));const row=D.find(x=>x.m===d.m&&x.w===d.w);if(!row)throw new Error("ไม่พบคลิปนี้ในข้อมูลบน GitHub");applyEdit(row,parts);updated=JSON.parse(JSON.stringify(row));saveClip._D=D;return JSON.stringify(D,null,1)}},
+        {path:GH.page,content:async base=>{const h=await ghRaw(GH.page,base,tok);const p=h.indexOf("const DATA = "),q=h.indexOf("\n",p);if(p<0||q<0)throw new Error("โครงไฟล์ index.html ไม่ตรงรูปแบบ");return h.slice(0,p)+"const DATA = "+JSON.stringify(saveClip._D).replace(/<\//g,"<\\/")+";"+h.slice(q)}}
+      ],`แก้สตอรีบอร์ด: ${label} – ${d.topic}`);
+      return updated;
+    }catch(e){if(e.status===422&&k<2)continue;throw e}
+  }
+}
+/* editor view */
+function sbEditor(d){
+  const esc=v=>v==null?"":String(v);
+  const box=el("div",{class:"sb sbe"});
+  box.append(el("div",{class:"sb-h"},el("h3",{text:"แก้ไขสตอรีบอร์ด"})),
+    el("p",{class:"muted small",text:"Keyword บนจอ: 1 บรรทัดต่อ 1 ข้อความ · เสียง: 1 บรรทัดต่อ 1 ประโยค รูปแบบ \"ผู้พูด: ข้อความ\" (บรรทัดที่ไม่มีผู้พูด = ผู้บรรยาย) · ทุกฉากต้องมีเสียง · ความยาวแต่ละฉากคำนวณใหม่อัตโนมัติตอนบันทึก"}));
+  const parts=d.sb.parts.map(p=>({name:p.name,rows:p.scenes.map(s=>({pno:s.no,title:s.title,visual:s.visual,screen:(s.screen||[]).map(x=>x[1]).join("\n"),audio:(s.audio||[]).map(([w,x])=>w+": "+x).join("\n")}))}));
+  const fit=t=>{t.style.height="auto";t.style.height=(t.scrollHeight+2)+"px"};
+  const ta=(v,cls,rows)=>{const t=el("textarea",{class:cls,rows:String(rows||3)});t.value=esc(v);t.addEventListener("input",()=>fit(t));return t};
+  const holder=el("div");
+  const draw=()=>{
+    holder.innerHTML="";let n=0;
+    parts.forEach((p,pi)=>{
+      const tb=el("table",{class:"sbt sbe-t"});
+      tb.append(el("thead",{},el("tr",{},el("th",{class:"no",text:"ฉาก"}),el("th",{text:"ภาพ"}),el("th",{text:"Keyword บนจอ"}),el("th",{text:"เสียง"}))));
+      const tbody=el("tbody");
+      p.rows.forEach((r,ri)=>{
+        n++;
+        const ti=el("input",{type:"text",class:"sbe-title","aria-label":"ชื่อฉาก"});ti.value=esc(r.title);ti.addEventListener("input",()=>r.title=ti.value);
+        const v=ta(r.visual,"sbe-v",2),s=ta(r.screen,"sbe-s",2),a=ta(r.audio,"sbe-a",2);
+        v.addEventListener("input",()=>r.visual=v.value);s.addEventListener("input",()=>r.screen=s.value);a.addEventListener("input",()=>r.audio=a.value);
+        const add=el("button",{class:"sbe-mini",title:"เพิ่มฉากถัดจากฉากนี้",text:"+ ฉาก"}),del=el("button",{class:"sbe-mini",title:"ลบฉากนี้",text:"ลบ"});
+        add.addEventListener("click",()=>{p.rows.splice(ri+1,0,{pno:null,title:"",visual:"",screen:"",audio:""});draw()});
+        del.addEventListener("click",()=>{if(p.rows.length<2){alert("แต่ละช่วงต้องมีอย่างน้อย 1 ฉาก");return}if(confirm("ลบฉากที่ "+(ri+1)+" ของช่วงนี้?")){p.rows.splice(ri,1);draw()}});
+        tbody.append(el("tr",{},el("td",{class:"no"},el("b",{text:"ฉากที่ "+n}),ti,el("div",{class:"sbe-ops"},add,del)),el("td",{},v),el("td",{},s),el("td",{},a)));
+      });
+      tb.append(tbody);
+      holder.append(el("section",{class:"sb-part"},el("h4",{},el("span",{class:"pn",text:pi+1}),p.name),el("div",{class:"sbt-wrap"},tb)));
+    });
+
+    const fitAll=()=>holder.querySelectorAll("textarea").forEach(fit);requestAnimationFrame(fitAll);setTimeout(fitAll,80);setTimeout(fitAll,400);try{document.fonts.ready.then(fitAll)}catch(e){}
+  };
+  draw();box.append(holder);
+  const msg=el("p",{class:"auth-msg"});
+  const save=el("button",{class:"sbe-btn pri",text:"บันทึกขึ้น Git"}),cancel=el("button",{class:"sbe-btn",text:"ยกเลิก"});
+  cancel.addEventListener("click",()=>{if(confirm("ยกเลิกการแก้ไขที่ยังไม่บันทึก?"))showScript(d.i)});
+  save.addEventListener("click",async()=>{
+    const out=parts.map(p=>({name:p.name,scenes:p.rows.map(r=>({pno:r.pno,title:(r.title||"").trim(),visual:(r.visual||"").trim(),
+      screen:(r.screen||"").split("\n").map(x=>x.trim()).filter(Boolean).map(x=>["ข้อความบนจอ",x]),
+      audio:(r.audio||"").split("\n").map(x=>x.trim()).filter(Boolean).map(x=>{const m=x.match(/^([^:“"]{1,40}):\s*(.+)$/);return m?[m[1].trim(),m[2].trim()]:["ผู้บรรยาย",x]})}))}));
+    const empty=[];let k=0;out.forEach(p=>p.scenes.forEach(s=>{k++;if(!s.audio.length)empty.push(k)}));
+    if(empty.length){msg.className="auth-msg err";msg.textContent="ฉากที่ "+empty.join(", ")+" ยังไม่มีเสียง (ทุกฉากต้องมีบทพูดหรือบรรยาย)";return}
+    const tok=await getToken();if(!tok)return;
+    save.disabled=cancel.disabled=true;msg.className="auth-msg";msg.textContent="กำลังบันทึกขึ้น GitHub…";
+    try{
+      const row=await saveClip(d,out,tok);
+      d.sb=row.sb;d.est=row.est;d.script=row.script;
+      SAVED[d.i]=new Date().toLocaleTimeString("th-TH",{hour:"2-digit",minute:"2-digit"});
+      showScript(d.i);
+    }catch(e){
+      if(e.status===401){GH_TOKEN=null;try{sessionStorage.removeItem("gia_tok")}catch(_){}}
+      msg.className="auth-msg err";msg.textContent="บันทึกไม่สำเร็จ: "+(e.status===401?"token หมดอายุหรือถูกยกเลิก ให้ตั้งค่าใหม่":e.message);
+      save.disabled=cancel.disabled=false;
+    }
+  });
+  box.append(el("div",{class:"sbe-bar"},msg,el("span",{class:"sp"}),cancel,save));
+  return box;
+}
+async function startEdit(d,box){
+  const tok=await getToken();if(!tok)return;
+  box.replaceWith(sbEditor(d));
+}
 setTab((location.hash||"").slice(1),false);
 window.addEventListener("hashchange",()=>setTab(location.hash.slice(1),false));
 </script>
