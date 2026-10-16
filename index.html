@@ -382,6 +382,7 @@ summary .m small{display:block;font-size:12px}
 .mtabs .mt[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .mtabs .mt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sb-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+.seqtbl .tno{display:inline-block;min-width:2.3em;color:var(--muted);font-variant-numeric:tabular-nums}
 .sb-ref{display:flex;flex-direction:column;gap:4px}.sb-ref .src{font-size:12.5px;color:var(--muted)}.sb-ref a{color:var(--accent);overflow-wrap:anywhere}
 .sb-ver{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
 .sb-ver button{all:unset;cursor:pointer;font-size:13px;padding:5px 14px;border-radius:999px}
@@ -1233,10 +1234,11 @@ dseq.addEventListener("click",e=>{if(e.target===dseq)dseq.close()});
   ["เรื่องเสริมตามลักษณะธุรกิจ",[["สัญญา",["กฎหมายและการบริหารสัญญา"]],["ความเสี่ยง / ควบคุมภายใน",["การควบคุมภายใน"]]]]];
  const fy=d=>d.date<"2027-10"?0:d.date<"2028-10"?1:2, short=m=>m.replace(/ 25(\d\d)$/," $1");
  let h='<thead><tr><th>หัวข้อ</th><th>ปีที่ 1<small>ต.ค. 69 – ก.ย. 70</small></th><th>ปีที่ 2<small>ต.ค. 70 – ก.ย. 71</small></th><th>ปีที่ 3<small>ต.ค. 71 – ก.ย. 72</small></th></tr></thead><tbody>';
+ let no=0;
  ROWS.forEach(([g,items])=>{h+=`<tr class="grp"><td colspan="4">${g}</td></tr>`;
-  items.forEach(([lab,cats])=>{const ys=[[],[],[]];
+  items.forEach(([lab,cats])=>{const ys=[[],[],[]];no++;
    DATA.filter(d=>d.w&&d.date&&cats.includes(d.cat)).forEach(d=>{const y=fy(d),m=short(d.m);if(!ys[y].includes(m))ys[y].push(m)});
-   h+=`<tr><td class="t">${lab}</td>${ys.map(a=>a.length?`<td class="y">${a.join(" · ")}</td>`:'<td class="y no">–</td>').join("")}</tr>`})});
+   h+=`<tr><td class="t"><span class="tno">${no}.</span>${lab}</td>${ys.map(a=>a.length?`<td class="y">${a.join(" · ")}</td>`:'<td class="y no">–</td>').join("")}</tr>`})});
  tb.innerHTML=h+"</tbody>";})();
 /* ---- Storyboard editor: edit on page, commit to GitHub (password-protected token) ---- */
 const GH={owner:"Thanitinw",repo:"CGR_Awareness",branch:"main",key:"src/editor-key.json",rows:"src/rows9.json",page:"index.html"};
