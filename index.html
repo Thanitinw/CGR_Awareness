@@ -663,7 +663,6 @@ summary .m small{display:block;font-size:12px}
 
   <nav class="tabs" role="tablist" aria-label="ส่วนของแผน">
     <button class="tab" role="tab" id="tab-intro" aria-controls="intro" data-t="intro">Introduction</button>
-    <button class="tab" role="tab" id="tab-roles" aria-controls="roles" data-t="roles">Responsibility</button>
     <button class="tab" role="tab" id="tab-series" aria-controls="series" data-t="series">Series ชั้น 12</button>
     <button class="tab" role="tab" id="tab-plan" aria-controls="plan" data-t="plan">Action Plan</button>
     <button class="tab" role="tab" id="tab-measure" aria-controls="measure" data-t="measure">Measurement</button>
@@ -733,17 +732,15 @@ summary .m small{display:block;font-size:12px}
         <div class="step"><h3>4. ดูผล</h3><p>จดตัวเลข "อ่านแล้ว" ในกลุ่ม LINE และสรุปสถิติ YouTube Studio ทุกเดือน และวัดความเข้าใจด้วยแบบทดสอบทุกเดือนพฤศจิกายน (รายละเอียดในแท็บ Measurement)</p></div>
       </div>
     </section>
-  </div>
 
-  <div class="tabpanel" id="roles" role="tabpanel" aria-labelledby="tab-roles" hidden>
-    <section>
+    <section id="roles">
       <div class="sec-head"><span class="eyebrow">ใครรับผิดชอบ</span><h2>ทีมงานโครงการ + เจ้าของเนื้อหาแต่ละกลุ่ม</h2><p class="muted">ทีมงานโครงการดูแลภาพรวม ส่วนเจ้าของเนื้อหาของแต่ละธีมตรวจสคริปต์ก่อนผลิต และเป็นจุดติดต่อที่สคริปต์แนะนำให้พนักงานปรึกษา</p></div>
       <div class="team">
         <div class="panel new"><h3>ทีมงานโครงการ</h3><p>ทำงานร่วมกันระหว่างหน่วยงานกำกับดูแลกิจการ (CG / Compliance) และ HR</p></div>
         <div class="panel"><h3>ทีมงานโครงการดูแล</h3><ul><li>วางแผน ร่างสคริปต์ และประสานเจ้าของเนื้อหา</li><li>ผลิตคลิป ส่งลิงก์ในกลุ่ม LINE และดูแลสมาชิกกลุ่ม</li><li>จัดแบบทดสอบประจำปี และสรุปผลตามแท็บ Measurement</li></ul></div>
       </div>
       <div class="owners" id="owners"></div>
-      <p class="mnote">เครื่องหมาย "/" = หน่วยงานใดหน่วยงานหนึ่งตามโครงสร้างของแต่ละบริษัท · หน่วยงานร่วมรายธีมดูได้ในการ์ดหมวด หน้า Introduction<br>รายชื่อในแต่ละกลุ่มสรุปจากเจ้าของเนื้อหารายธีม ซึ่งเป็นข้อมูลชุดเดียวกับที่แสดงในการ์ดหมวด หน้า Introduction และในสคริปต์แต่ละคลิป · "·" = กลุ่มนี้มีหลายธีมที่เจ้าของต่างกัน · รายชื่อหน่วยงานปรับตามโครงสร้างจริงของกลุ่มบริษัท</p>
+      <p class="mnote">เครื่องหมาย "/" = หน่วยงานใดหน่วยงานหนึ่งตามโครงสร้างของแต่ละบริษัท · หน่วยงานร่วมรายธีมดูได้ในการ์ดหมวดด้านบน<br>รายชื่อในแต่ละกลุ่มสรุปจากเจ้าของเนื้อหารายธีม ซึ่งเป็นข้อมูลชุดเดียวกับที่แสดงในการ์ดหมวดด้านบน และในสคริปต์แต่ละคลิป · "·" = กลุ่มนี้มีหลายธีมที่เจ้าของต่างกัน · รายชื่อหน่วยงานปรับตามโครงสร้างจริงของกลุ่มบริษัท</p>
     </section>
   </div>
 
@@ -1264,9 +1261,9 @@ render();
 })();
 
 // tabs
-const TABS=["intro","roles","series","plan","measure"];
+const TABS=["intro","series","plan","measure"];
 function setTab(id,push=true){
-  if(id==="scripts")id="plan";if(!TABS.includes(id))id="intro";
+  if(id==="scripts")id="plan";if(id==="roles"){id="intro";setTimeout(()=>{const r=document.getElementById("roles");if(r)r.scrollIntoView()},0)}if(!TABS.includes(id))id="intro";
   TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);b.setAttribute("aria-selected",String(x===id));b.tabIndex=x===id?0:-1});
   if(push){try{history.replaceState(null,"","#"+id)}catch(e){}}
 }

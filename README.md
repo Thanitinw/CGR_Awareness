@@ -5,7 +5,7 @@
 
 เปิดใช้งาน: ดับเบิลคลิก `index.html` (ไฟล์เดียว ไม่ต้องมี server)
 
-แท็บ: Introduction · Responsibility · Action Plan (ปฏิทิน + สตอรีบอร์ด/สคริปต์ทุกคลิป) · Measurement
+แท็บ: Introduction (รวมส่วนผู้รับผิดชอบไว้ท้ายแท็บ) · Series ชั้น 12 · Action Plan (ปฏิทิน + สตอรีบอร์ด/สคริปต์ทุกคลิป) · Measurement
 
 ## แก้ไขเนื้อหา
 
