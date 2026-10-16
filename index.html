@@ -734,15 +734,6 @@ summary .m small{display:block;font-size:12px}
         <div class="step"><h3>4. ดูผล</h3><p>จดตัวเลข "อ่านแล้ว" ในกลุ่ม LINE และสรุปสถิติ YouTube Studio ทุกเดือน และวัดความเข้าใจด้วยแบบทดสอบทุกเดือนพฤศจิกายน (รายละเอียดในแท็บ Measurement)</p></div>
       </div>
     </section>
-
-    <section id="roles">
-      <div class="sec-head"><span class="eyebrow">ใครรับผิดชอบ</span><h2>ทีมงานโครงการ + เจ้าของเนื้อหาแต่ละกลุ่ม</h2><p class="muted">ทีมงานโครงการดูแลภาพรวม ส่วนเจ้าของเนื้อหาของแต่ละธีมตรวจสคริปต์ก่อนผลิต และเป็นจุดติดต่อที่สคริปต์แนะนำให้พนักงานปรึกษา</p></div>
-      <div class="team">
-        <div class="panel new"><h3>ทีมงานโครงการ</h3><p>ทำงานร่วมกันระหว่างหน่วยงานกำกับดูแลกิจการ (CG / Compliance) และ HR</p></div>
-        <div class="panel"><h3>ทีมงานโครงการดูแล</h3><ul><li>วางแผน ร่างสคริปต์ และประสานเจ้าของเนื้อหา</li><li>ผลิตคลิป ส่งลิงก์ในกลุ่ม LINE และดูแลสมาชิกกลุ่ม</li><li>จัดแบบทดสอบประจำปี และสรุปผลตามแท็บ Measurement</li></ul></div>
-      </div>
-      <p class="mnote">เจ้าของเนื้อหาของแต่ละธีมแสดงใต้ชื่อธีมในการ์ดหมวดด้านบน กดชื่อธีมเพื่อดูหน่วยงานร่วมรายคลิป · เครื่องหมาย "/" = หน่วยงานใดหน่วยงานหนึ่งตามโครงสร้างของแต่ละบริษัท · รายชื่อหน่วยงานปรับตามโครงสร้างจริงของกลุ่มบริษัท</p>
-    </section>
   </div>
 
   <div class="tabpanel" id="series" role="tabpanel" aria-labelledby="tab-series" hidden>
@@ -1260,7 +1251,7 @@ render();
 // tabs
 const TABS=["intro","series","plan","measure"];
 function setTab(id,push=true){
-  if(id==="scripts")id="plan";if(id==="roles"){id="intro";setTimeout(()=>{const r=document.getElementById("roles");if(r)r.scrollIntoView()},0)}if(!TABS.includes(id))id="intro";
+  if(id==="scripts")id="plan";if(id==="roles"){id="intro";setTimeout(()=>{const r=document.getElementById("cats");if(r)r.scrollIntoView()},0)}if(!TABS.includes(id))id="intro";
   TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);b.setAttribute("aria-selected",String(x===id));b.tabIndex=x===id?0:-1});
   if(push){try{history.replaceState(null,"","#"+id)}catch(e){}}
 }
