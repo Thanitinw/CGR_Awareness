@@ -532,18 +532,18 @@ summary .m small{display:block;font-size:12px}
     <section>
       <div class="sec-head"><span class="eyebrow">ปฏิทินเผยแพร่</span><h2><span id="nclips">71</span> คลิป · อังคารที่ 1 และ 3 ของเดือน 17:00 น.</h2><p class="muted">เริ่ม อ. 20 ต.ค. 2569 (เดือนแรก 1 คลิป) · ตั้งแต่ พ.ย. 2569 เดือนละ 2 คลิป: เคสหลัก (อังคารที่ 1) · อีกมุมของเรื่อง (อังคารที่ 3)</p><p class="muted small">กดที่คลิปเพื่อเปิดสคริปต์</p></div>
       <div class="viewsw" role="group" aria-label="มุมมอง">
-        <button class="vs" data-v="ov" aria-pressed="true">ภาพรวม 3 ปี</button>
-        <button class="vs" data-v="detail" aria-pressed="false">รายเดือน (2 คลิป)</button>
+        <button class="vs" data-v="detail" aria-pressed="true">รายเดือน (2 คลิป)</button>
+        <button class="vs" data-v="ov" aria-pressed="false">ภาพรวม 3 ปี</button>
       </div>
       <div class="legend" id="legend"></div>
-      <div id="ov"></div>
-      <div id="detail" hidden>
+      <div id="ov" hidden></div>
+      <div id="detail">
         <div class="filters" id="yearf"></div>
         <div class="tl" id="cal"></div>
       </div>
     </section>
 
-    <section id="register" hidden>
+    <section id="register">
       <div class="sec-head"><span class="eyebrow">รายการคลิป</span><h2>หัวข้อ Key Message และหมายเหตุก่อนผลิต</h2><p class="muted">ใช้ตัวกรองปีงบประมาณเดียวกับปฏิทินด้านบน</p></div>
       <div class="filters" id="fmtf"></div>
       <div class="list" id="list"></div>
@@ -1031,8 +1031,7 @@ function showScript(i){
   prev.addEventListener("click",()=>showScript(CLIPS[idx-1].i));next.addEventListener("click",()=>showScript(CLIPS[idx+1].i));
   sheet.append(
     el("div",{class:"sheet-head"},
-      el("div",{class:"meta"},el("span",{class:"fmt "+d.cls,text:`${KIND[d.kind]} · ${d.dur}`}),d.est?el("span",{class:"num est",text:`ยาวประมาณ ${mmss(VIEW(d).est||d.est)} นาที`}):null,el("span",{class:"num",text:`คลิป ${idx+1} / ${CLIPS.length} · เผยแพร่ ${d.date_th}`}),d.holiday?el("span",{class:"hol",text:"ตรงวันหยุด: "+d.holiday}):null,el("span",{class:"pill",text:d.cat}),d.g!=="assess"?el("span",{class:"pill own",text:"เจ้าของเนื้อหา: "+(d.owner||ownerOf(d.cat))+(d.co?" · ร่วม: "+d.co:"")}):null,
-        d.review?el("span",{class:"flag",style:"font-size:12px;font-family:var(--font-data);color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:1px 6px",text:"ตรวจถ้อยคำก่อนผลิต"}):null),
+      el("div",{class:"meta"},el("span",{class:"fmt "+d.cls,text:`${KIND[d.kind]} · ${d.dur}`}),d.est?el("span",{class:"num est",text:`ยาวประมาณ ${mmss(VIEW(d).est||d.est)} นาที`}):null,el("span",{class:"num",text:`คลิป ${idx+1} / ${CLIPS.length} · เผยแพร่ ${d.date_th}`}),d.holiday?el("span",{class:"hol",text:"ตรงวันหยุด: "+d.holiday}):null,el("span",{class:"pill",text:d.cat}),d.g!=="assess"?el("span",{class:"pill own",text:"เจ้าของเนื้อหา: "+(d.owner||ownerOf(d.cat))+(d.co?" · ร่วม: "+d.co:"")}):null),
       el("h2",{id:"dlg-title",text:d.topic}),pairBtn),
     ...mtabs(d,storyEl,side),el("div",{class:"pager"},prev,next));
   if(!dlg.open){try{dlg.showModal()}catch(e){dlg.setAttribute("open","")}}
