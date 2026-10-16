@@ -318,7 +318,9 @@ if __name__ == '__main__':
         if not d.get('w') or not d.get('sb'): continue
         dr = build(d)
         if dr.get('est') is None: dr['est'] = d.get('est')
-        dr = apply_real(dr, (d['m'], d['w'])); add_gag(dr, (d['m'], d['w'])); dr = relabel(dr, (d['m'], d['w']), d['date']); dr['script'] = script_of(dr)
+        dr = apply_real(dr, (d['m'], d['w'])); add_gag(dr, (d['m'], d['w']))
+        if (d['m'], d['w']) in ARC: dr['arc'] = ARC[(d['m'], d['w'])].split(': ', 1)[1]
+        dr = relabel(dr, (d['m'], d['w']), d['date']); dr['script'] = script_of(dr)
         if dr.get('est') is None: dr['est'] = d.get('est')
         d['drama'] = dr; n += 1
     json.dump(D, open(path, 'w'), ensure_ascii=False, indent=1)

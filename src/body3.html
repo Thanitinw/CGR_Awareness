@@ -198,6 +198,40 @@ summary .m small{display:block;font-size:12px}
 .mtabs .mt[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .mtabs .mt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sb-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+/* series tab */
+.srs-dl{display:grid;grid-template-columns:170px minmax(0,1fr);margin:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.srs-dl dt,.srs-dl dd{margin:0;padding:10px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.srs-dl dt{font-weight:600;color:var(--muted);background:var(--sunk)}
+.srs-dl dt:last-of-type,.srs-dl dd:last-of-type{border-bottom:0}
+.srs-yrs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.srs-yr{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.srs-yr .lno{font-family:var(--font-data);font-size:12px;color:var(--muted)}
+.srs-yr h3{margin:0;font-family:var(--font-display);font-size:19px;font-weight:600}
+.srs-yr p{margin:0;font-size:14px;color:var(--muted)}
+.srs-beats{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.srs-beats b{display:block;font-family:var(--font-data);font-size:12px;font-weight:600;color:var(--accent)}
+.srs-p{font-size:14px;margin:0 0 14px;max-width:820px}
+.srs-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.srs-two ul{margin:0;padding-left:20px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.srs-two h3{margin:0;font-size:16px}
+.srs-chars{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.srs-c{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.srs-c h4{margin:0;font-family:var(--font-display);font-size:18px;font-weight:600}
+.srs-c .srs-who{font-family:var(--font-data);font-size:12px;color:var(--muted)}
+.srs-c p{margin:0;font-size:13px}
+.srs-c .lab{color:var(--muted)}
+.srs-c .n{margin-top:auto;font-size:12px;font-family:var(--font-data);color:var(--accent)}
+.srs-tbl td.srs-ep button{all:unset;cursor:pointer;color:var(--accent);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+.srs-tbl td.srs-ep button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+.srs-tbl{min-width:960px}.srs-ch{min-width:720px}
+.srs-tbl td.srs-ep{min-width:220px}
+.srs-tbl td.d{white-space:nowrap;font-family:var(--font-data);font-size:12px;color:var(--muted)}
+.srs-tbl td.ld{white-space:nowrap;font-weight:500}
+.srs-tbl td small{display:block;color:var(--muted);font-size:12px}
+.srs-tbl td.arc{color:var(--muted);font-size:12px;min-width:180px}
+.srs-ch td:first-child{white-space:nowrap;font-weight:600}
+@media (max-width:820px){.srs-yrs,.srs-two{grid-template-columns:1fr}}
+@media (max-width:640px){.srs-dl{grid-template-columns:1fr}.srs-dl dt{border-bottom:0;padding-bottom:4px}}
 .seqtbl .tno{display:inline-block;min-width:2.3em;color:var(--muted);font-variant-numeric:tabular-nums}
 .sb-ref{display:flex;flex-direction:column;gap:4px}.sb-ref .src{font-size:12.5px;color:var(--muted)}.sb-ref a{color:var(--accent);overflow-wrap:anywhere}
 .sb-ver{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
@@ -263,7 +297,7 @@ summary .m small{display:block;font-size:12px}
 .base b{font-family:var(--font-display);font-size:17px;font-weight:600}
 .base span{font-family:var(--font-data);font-size:12px;color:var(--muted)}
 .base p{font-size:13px;margin:0;color:var(--muted)}
-.anal{margin:0;padding-left:20px;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.anal{margin:0;padding-left:0;list-style:none;font-size:14px;display:flex;flex-direction:column;gap:4px}
 .cad{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
 .cad .r{display:grid;grid-template-columns:110px minmax(0,1.6fr) minmax(0,1fr);gap:16px;padding:14px 18px;border-top:1px solid var(--line);align-items:baseline}
 .cad .r:first-child{border-top:0}
@@ -446,6 +480,7 @@ summary .m small{display:block;font-size:12px}
   <nav class="tabs" role="tablist" aria-label="ส่วนของแผน">
     <button class="tab" role="tab" id="tab-intro" aria-controls="intro" data-t="intro">Introduction</button>
     <button class="tab" role="tab" id="tab-roles" aria-controls="roles" data-t="roles">Responsibility</button>
+    <button class="tab" role="tab" id="tab-series" aria-controls="series" data-t="series">Series ชั้น 12</button>
     <button class="tab" role="tab" id="tab-plan" aria-controls="plan" data-t="plan">Action Plan</button>
     <button class="tab" role="tab" id="tab-measure" aria-controls="measure" data-t="measure">Measurement</button>
   </nav>
@@ -525,6 +560,126 @@ summary .m small{display:block;font-size:12px}
       </div>
       <div class="owners" id="owners"></div>
       <p class="mnote">เครื่องหมาย "/" = หน่วยงานใดหน่วยงานหนึ่งตามโครงสร้างของแต่ละบริษัท · หน่วยงานร่วมรายธีมดูได้ในการ์ดหมวด หน้า Introduction<br>รายชื่อในแต่ละกลุ่มสรุปจากเจ้าของเนื้อหารายธีม ซึ่งเป็นข้อมูลชุดเดียวกับที่แสดงในการ์ดหมวด หน้า Introduction และในสคริปต์แต่ละคลิป · "·" = กลุ่มนี้มีหลายธีมที่เจ้าของต่างกัน · รายชื่อหน่วยงานปรับตามโครงสร้างจริงของกลุ่มบริษัท</p>
+    </section>
+  </div>
+
+  <div class="tabpanel" id="series" role="tabpanel" aria-labelledby="tab-series" hidden>
+    <section>
+      <div class="sec-head"><span class="eyebrow">ภาพรวมซีรีส์</span><h2>ชั้น 12: หัวข้อเดิม 71 ตอน เล่าเป็นละครจากเคสจริง</h2><p class="muted">ใช้หัวข้อ วันออกอากาศ และเจ้าของเนื้อหาเดิมทั้งหมด เปลี่ยนเฉพาะวิธีเล่า สลับดูได้ในหน้าต่างสตอรีบอร์ดของทุกคลิป</p></div>
+      <dl class="srs-dl">
+        <dt>ชื่อซีรีส์</dt><dd>"ชั้น 12" ตามชั้นสำนักงานที่ตัวละครทำงาน</dd>
+        <dt>รูปแบบ</dt><dd>ตัวละครประจำ 7 คน แต่ละตอนจบในตัว เส้นเรื่องรายปีเป็นฉากหลังไม่เกิน 10 วินาทีต่อตอน คนที่พลาดบางตอนยังดูรู้เรื่อง</dd>
+        <dt>การเรียกตัวละคร</dt><dd>เรียกตามหน้าที่ในตอนนั้น เช่น พี่ HR พี่จัดซื้อ พี่เซลส์ หัวหน้าไซต์ น้องใหม่ ไม่ใช้ชื่อ หน้าตาคงเดิมทุกตอนตาม Character sheet</dd>
+        <dt>โทน</dt><dd>ดราม่าสมจริง แทรกขำเบา ๆ จากนิสัยตัวละคร</dd>
+        <dt>ผู้อธิบายกติกา</dt><dd>พี่ Compliance อธิบายในเรื่องที่มุมกาแฟ ผู้บรรยายนอกจอใช้แค่เปิดเรื่อง หยุดคิด และปิดท้าย</dd>
+        <dt>ความยาว</dt><dd>ประมาณ 2 นาทีต่อตอน (1:54–2:16)</dd>
+        <dt>โครงแต่ละตอน</dt><dd>เปิดเรื่อง → สถานการณ์ → เคสจริง / ลองนึกต่อ → หยุดคิด 3 วินาที → พี่ Compliance อธิบาย → สัญญาณเตือน → สิ่งที่ควรทำ → ปิดท้ายพร้อมมุกท้ายตอน</dd>
+        <dt>อิงเคสจริง</dt><dd>ทุกตอนปรับร่างจากเคสที่เกิดขึ้นจริง ใช้เคสไทยก่อน ถ้าไม่มีจึงใช้เคสต่างประเทศ ในคลิปเล่าแบบไม่ระบุชื่อบริษัท ชื่อเคสและแหล่งข้อมูลอยู่ในช่อง "อ้างอิงเคสจริง" ของสตอรีบอร์ด</dd>
+        <dt>สาระ</dt><dd>ข้อเท็จจริง Red Flag สิ่งที่ควรทำ และนโยบายอ้างอิงมาจากเวอร์ชันเคสสั้นของตอนนั้น และให้เจ้าของเนื้อหาตรวจเหมือนเดิม</dd>
+        <dt>การผลิต</dt><dd>ผลิตด้วย AI ทั้งหมด ใช้ Character sheet และฉากประจำล็อกหน้าตาให้เหมือนกันทุกตอน</dd>
+      </dl>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">เส้นเรื่องรายปี</span><h2>3 ปี 3 เส้นเรื่อง เดินเป็นฉากหลังของแต่ละตอน</h2><p class="muted">ตอนเปิดปี จุดพีค และตอนปิดปี เป็นตอนที่เส้นเรื่องเด่นที่สุด</p></div>
+      <div class="srs-yrs">
+        <article class="srs-yr"><span class="lno">ปีที่ 1 · ต.ค. 69 – ก.ย. 70</span><h3>ปีแรกของน้องใหม่</h3><p>ครบ 11 หัวข้อหลักผ่านสายตาพนักงานใหม่</p>
+          <ul class="srs-beats"><li><b>เริ่ม · ต.ค. 69</b>วันแรกของน้องใหม่ เห็นทุกคนตัดสินใจเรื่องที่ดูเหมือนงานธรรมดา</li><li><b>จุดพีค · ก.พ. 70</b>พี่บัญชีแจ้งเบาะแสครั้งแรก และได้รู้ว่าเรื่องไปไหนต่อ</li><li><b>จบปี · ก.ย. 70</b>น้องใหม่ผ่านทดลองงาน แปะโน้ต 3 คำถามที่จอเอง</li></ul></article>
+        <article class="srs-yr"><span class="lno">ปีที่ 2 · ต.ค. 70 – ก.ย. 71</span><h3>ดีลใหญ่</h3><p>บริษัทได้ลูกค้ารายใหญ่ งานเพิ่ม แรงกดดันเพิ่ม</p>
+          <ul class="srs-beats"><li><b>เริ่ม · ต.ค. 70</b>หัวหน้าขึ้นเป็นผู้จัดการฝ่ายปฏิบัติการ คู่ค้าเริ่มสั่งงานนอกสัญญา</li><li><b>จุดพีค · ส.ค. 71</b>พี่วิศวกรแจ้งเบาะแสเรื่องในโครงการใหญ่ แล้วถูกกันออกจากงาน ก่อนได้กลับเข้าห้องประชุมโครงการ</li><li><b>จบปี · ก.ย. 71</b>ส่งมอบดีลใหญ่อย่างถูกต้อง ทีมชั้น 12 ปรบมือ</li></ul></article>
+        <article class="srs-yr"><span class="lno">ปีที่ 3 · ต.ค. 71 – ก.ย. 72</span><h3>ส่งไม้ต่อ</h3><p>คนที่เคยพลาดกลายเป็นคนสอน</p>
+          <ul class="srs-beats"><li><b>เริ่ม · ต.ค. 71</b>น้องใหม่รุ่นถัดไปเข้าทีม น้องใหม่ของปีแรกซึ่งตอนนี้เป็นพี่ดิจิทัล เป็นพี่เลี้ยง</li><li><b>จุดพีค · ม.ค. 72</b>มีเรื่องร้องเรียนในทีม คนในทีมอยากรู้ว่าใครแจ้ง</li><li><b>จบปี · ก.ย. 72</b>ทุกโต๊ะมีโน้ตคำถามก่อนตัดสินใจ แก้วกาแฟของหัวหน้ามีคำว่า "...อย่างถูกต้อง"</li></ul></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">บริษัทและฉากประจำ</span><h2>บริษัทสมมติขนาดกลาง ไม่ระบุชื่อหรืออุตสาหกรรม</h2></div>
+      <p class="srs-p">ในภาพใช้สัญลักษณ์กลาง ๆ คือป้าย "ชั้น 12" สีฟ้า ไม่มีชื่อหรือโลโก้จริง บริษัทมีสำนักงานใหญ่ คลังสินค้า และทีมบริการนอกสถานที่ เคสเดิมที่เป็นงานเฉพาะทางปรับให้กลาง เช่น "ดับไฟเพื่อต่อสาย" เป็น "หยุดระบบเพื่อซ่อมบำรุงเครื่องจักร" และ "น้ำมันหม้อแปลง" เป็น "น้ำมันเครื่องจักรหก"</p>
+      <div class="seqtbl-wrap"><table class="seqtbl">
+        <thead><tr><th>ฉาก</th><th>ใช้ในตอนแบบไหน</th><th>จุดจำ</th></tr></thead>
+        <tbody>
+          <tr><td>ออฟฟิศชั้น 12</td><td>ฉากหลักเกือบทุกตอน</td><td>โต๊ะแบบ Open plan หน้าต่างกระจกเห็นตึกฝั่งตรงข้าม</td></tr>
+          <tr><td>ห้องประชุม "ห้องกระจก"</td><td>คุยงาน ต่อรอง ตัดสินใจ</td><td>ผนังกระจก ไวต์บอร์ด</td></tr>
+          <tr><td>มุมกาแฟ</td><td>พี่ Compliance อธิบายแบบเป็นกันเอง ฉากคุยเล่น พักแทรกขำ</td><td>เครื่องชงกาแฟ กระดานโพสต์อิท</td></tr>
+          <tr><td>โต๊ะพี่ Compliance</td><td>ปรึกษา Compliance</td><td>โน้ต "3 คำถาม" แปะผนัง</td></tr>
+          <tr><td>คลังสินค้า ไลน์ผลิต และไซต์งาน</td><td>Safety, Environment, Human Rights, ผู้รับเหมา</td><td>หมวกนิรภัย เทปกั้นสีเหลือง</td></tr>
+          <tr><td>บ้านตัวละคร</td><td>Inside Information, Conflict of Interest ที่เกี่ยวกับครอบครัว</td><td>โต๊ะอาหาร โซฟา</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">กติกาตัวละครและมุกประจำ</span><h2>ไม่มีแผนกไหนเป็นตัวร้ายประจำ ขำได้แต่ไม่ล้อใคร</h2></div>
+      <div class="srs-two">
+        <div class="panel"><h3>กติกา</h3><ul>
+          <li>เรียกตัวละครตามหน้าที่ในตอนนั้น ไม่ใช้ชื่อ คนเดียวกันอาจเป็นพี่บัญชีในตอนหนึ่ง และพี่จัดซื้อในอีกตอน</li>
+          <li>ไม่มีแผนกไหนเป็นตัวร้ายประจำ ตัวเอกที่พลาดหมุนเวียนครบทุกคน</li>
+          <li>คนที่พลาดได้โอกาสแก้ไข ไม่ถูกประจาน ผลเสียเล่าเป็น "ลองนึกต่อ" ที่ติดป้ายภาพสมมติ</li>
+          <li>พี่ Compliance ไม่ต้องเป็นคนเตือนทุกครั้ง บางตอนเพื่อนร่วมงานทักกันเอง</li>
+          <li>มุกขำมาจากนิสัยตัวละคร ไม่ล้อเพศ อายุ ภูมิภาค หรือรูปร่าง และไม่ใช้มุกในเรื่องที่มีคนบาดเจ็บหรือถูกละเมิด</li>
+          <li>ผู้บริหารไม่เป็นตัวร้าย เคสจริงเล่าแบบไม่ระบุชื่อบริษัท</li>
+          <li>ทุกตอนบอกจุดติดต่อตามเจ้าของเนื้อหาเหมือนเวอร์ชันเคสสั้น</li>
+        </ul></div>
+        <div class="panel"><h3>มุกประจำ</h3><ul>
+          <li>แก้วกาแฟของหัวหน้าสลักว่า "งานต้องเดิน" ตอนจบซีรีส์มีคำเพิ่มว่า "...อย่างถูกต้อง"</li>
+          <li>โน้ต 3 คำถามของพี่ Compliance ค่อย ๆ ไปโผล่บนโต๊ะทุกคน</li>
+          <li>กล่องข้าวลายดอกไม้ที่ภรรยาทำให้พี่หน้างาน ใช้บอกว่าตอนนั้นเที่ยงแล้ว</li>
+          <li>ประโยคติดปากของพี่เซลส์ค่อย ๆ เปลี่ยนจาก "ได้ค่ะ ไม่มีปัญหา!" เป็น "ได้ค่ะ... ขอตรวจก่อนนะคะ"</li>
+          <li>มุกท้ายตอน: ทุกตอนปิดด้วยภาพขำสั้น ๆ จากนิสัยตัวเอกของตอน ไม่มีเสียงพูดเพิ่ม ความยาวคลิปจึงเท่าเดิม</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">ตัวละครหลัก</span><h2>7 คนประจำชั้น 12</h2><p class="muted">ป้ายแรกคือชื่อเรียกที่ใช้บ่อยที่สุด ป้ายถัดไปคือหน้าที่ที่ได้รับในตอนอื่น จำนวนตอนนับเฉพาะตอนที่เป็นตัวเอก</p></div>
+      <div class="srs-chars">
+        <article class="srs-c"><h4>พี่ Compliance</h4><span class="srs-who">หญิง · 39 · ฝ่าย Compliance</span><p>ผู้อธิบายกติกาประจำซีรีส์ ปรากฏทุกตอน</p><p class="lab">ใช้ป้ายนี้ทุกตอน</p><span class="n">อยู่ในทั้ง 71 ตอน</span></article>
+        <article class="srs-c"><h4>หัวหน้า</h4><span class="srs-who">ชาย · 43 · หัวหน้าฝ่ายปฏิบัติการ ขึ้นเป็นผู้จัดการในปีที่ 2</span><p>เจ้าของแก้ว "งานต้องเดิน"</p><p class="lab">ป้ายอื่น: พี่ PM · หัวหน้าไซต์ · หัวหน้าช่าง · หัวหน้าเซลส์ · หัวหน้าโครงการ · ผู้จัดการโรงงาน</p><span class="n">ตัวเอก 15 ตอน</span></article>
+        <article class="srs-c"><h4>พี่หน้างาน</h4><span class="srs-who">ชาย · 34 · ผู้ประสานงานโครงการ ทีมหน้างาน</span><p>เจ้าของกล่องข้าวลายดอกไม้</p><p class="lab">ป้ายอื่น: พี่วิศวกร · พี่ช่าง · หัวหน้าไซต์ · พี่เซฟตี้ · พี่โฟร์แมน · พี่บริการลูกค้า · พี่ฝ่ายผลิต</p><span class="n">ตัวเอก 13 ตอน</span></article>
+        <article class="srs-c"><h4>พี่เซลส์</h4><span class="srs-who">หญิง · 29 · ฝ่ายขาย</span><p>รับปากลูกค้าเก่ง กำลังฝึกพูด "ขอตรวจก่อน"</p><p class="lab">ป้ายอื่น: พี่การตลาด · พี่ฝ่ายธุรกิจ · พี่วิศวกร · พี่ PM · พี่ QC</p><span class="n">ตัวเอก 12 ตอน</span></article>
+        <article class="srs-c"><h4>พี่บัญชี</h4><span class="srs-who">หญิง · 51 · บัญชีและจัดซื้ออาวุโส</span><p>แม่ของออฟฟิศ แจกขนมทั้งโต๊ะ</p><p class="lab">ป้ายอื่น: พี่จัดซื้อ · พี่การเงิน · พี่วางแผนผลิต · พี่ Audit</p><span class="n">ตัวเอก 11 ตอน</span></article>
+        <article class="srs-c"><h4>น้องใหม่ → พี่ดิจิทัล</h4><span class="srs-who">หญิง · 24 · พนักงานใหม่ฝ่ายดิจิทัล</span><p>ปีที่ 1 เป็นน้องใหม่ ปีที่ 3 เป็นพี่เลี้ยงของน้องใหม่รุ่นถัดไป</p><p class="lab">ป้ายอื่น: น้องวิศวกร · น้อง IT · น้อง HR · น้องธุรการ · พี่วิศวกร · พี่ประสานงาน · พี่ธุรการ · พี่การตลาด · หัวหน้าทีม</p><span class="n">ตัวเอก 9 ตอน</span></article>
+        <article class="srs-c"><h4>พี่ HR</h4><span class="srs-who">ชาย · 37 · ฝ่ายทรัพยากรบุคคล</span><p>รู้จักทุกคนในบริษัท ดูแลเรื่องคนและข้อมูลพนักงาน</p><p class="lab">ใช้ป้ายนี้ทุกตอน</p><span class="n">ตัวเอก 2 ตอน · ร่วมแสดง 3 ตอน</span></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">ตัวละครหมุนเวียน</span><h2>เข้ามาตามช่วงของเส้นเรื่อง</h2></div>
+      <div class="seqtbl-wrap"><table class="seqtbl srs-ch">
+        <thead><tr><th>ตัวละคร</th><th>เป็นใคร</th><th>ป้ายที่ใช้</th><th>บทบาทในเรื่อง</th></tr></thead>
+        <tbody>
+          <tr><td>น้องเซลส์</td><td>ชาย · 27 · เซลส์ใหม่ เข้าทีมขายในปีที่ 1</td><td>น้องเซลส์ · น้องวิศวกร</td><td>ตัวเอก 2 ตอน: ไฟล์ราคาจากบริษัทเก่า (เม.ย. 70) และงานที่เขียนเองตอนลาออก (ก.ย. 71)</td></tr>
+          <tr><td>น้องใหม่ปีที่ 3</td><td>ชาย · 22 · เข้าทำงาน ต.ค. 71</td><td>น้องจัดซื้อ · น้องวิศวกร · น้องฝ่ายผลิต · น้อง HR · น้องนักวิเคราะห์</td><td>ตัวเอก 7 ตอน มีพี่ดิจิทัลเป็นพี่เลี้ยง ปิดซีรีส์ด้วยคำถามก่อนตัดสินใจ</td></tr>
+          <tr><td>ผู้บริหาร</td><td>ผู้บริหารระดับสูงของบริษัท</td><td>ผู้บริหาร · ผู้อนุมัติ</td><td>ปรากฏในตอนเรื่องอำนาจอนุมัติและการกำกับดูแล ไม่เป็นตัวร้ายประจำ</td></tr>
+          <tr><td>คนนอกบริษัท</td><td>ลูกค้า ซัพพลายเออร์ ผู้รับเหมา Vendor ที่ปรึกษา เจ้าหน้าที่รัฐ</td><td>เรียกตามบทบาท</td><td>ใช้คนละหน้าในแต่ละตอน</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">คาแรกเตอร์ตัวละคร</span><h2>นิสัย จุดพลาด และการเติบโตตลอด 3 ปี</h2><p class="muted">ทุกคนเคยพลาดและเคยทำถูก มุกท้ายตอนมาจากนิสัยในตารางนี้</p></div>
+      <div class="seqtbl-wrap"><table class="seqtbl srs-ch">
+        <thead><tr><th>ตัวละคร</th><th>คาแรกเตอร์</th><th>จุดที่ทำให้พลาด</th><th>ประโยคติดปาก</th><th>เติบโตตลอด 3 ปี</th><th>ตัวอย่างมุกท้ายตอน</th></tr></thead>
+        <tbody>
+          <tr><td>พี่ Compliance</td><td>เป็นกันเอง ไม่ดุ ชอบเปรียบเทียบใกล้ตัว เป็นพี่เลี้ยง ไม่ใช่ตำรวจ</td><td>ปีที่ 2 ต้องรักษาความลับผู้แจ้ง แม้คนใกล้ตัวกดดัน</td><td>"ลองถามตัวเองสามข้อก่อน"</td><td>ตอนจบ โน้ต 3 คำถามของเธออยู่บนโต๊ะทุกคน</td><td>–</td></tr>
+          <tr><td>หัวหน้า</td><td>พูดตรง งานต้องเสร็จ ใจดีกับลูกน้อง</td><td>ความกดดันเรื่องเวลา</td><td>"งานต้องเดิน"</td><td>ปีที่ 2 ต้องเลือกระหว่างเป้ากับขั้นตอน ปีที่ 3 เป็นหัวหน้าที่ลูกน้องกล้าทัก</td><td>เดินผ่านกระดานทีม ลบคำว่า "ด่วนมาก" ออกหนึ่งคำ</td></tr>
+          <tr><td>พี่หน้างาน</td><td>ขี้เล่น ขยัน มีลูกเล็กและภาระทางบ้าน</td><td>เรื่องเงิน งานเสริม ช่วยเพื่อนเกินขอบเขต</td><td>"นิดเดียวเอง ไม่มีใครเสียหาย"</td><td>ปีที่ 2 เป็นคนแจ้งเบาะแสเรื่องในโครงการใหญ่ และได้รับความคุ้มครอง</td><td>พึมพำ "นิดเดียวเอง..." แล้วรีบแก้เป็น "ถามก่อนดีกว่า"</td></tr>
+          <tr><td>พี่เซลส์</td><td>ร่าเริง เข้ากับลูกค้าเก่ง ไม่อยากทำให้ใครผิดหวัง</td><td>รับปากลูกค้าก่อนตรวจ</td><td>"ได้ค่ะ ไม่มีปัญหา!"</td><td>ประโยคติดปากค่อย ๆ เปลี่ยนเป็น "ได้ค่ะ... ขอตรวจก่อนนะคะ"</td><td>ซ้อมพูด "ขอตรวจก่อนนะคะ" กับกระจกในลิฟต์ แล้วสะดุ้งเมื่อประตูเปิด</td></tr>
+          <tr><td>พี่บัญชี</td><td>ละเอียด อบอุ่น เป็นเหมือนแม่ของออฟฟิศ</td><td>ไว้ใจคนที่รู้จักมานาน เกรงใจ</td><td>"พี่ทำงานกับเขามาสิบปีแล้วนะ"</td><td>เรียนรู้ว่าความไว้ใจกับการตรวจสอบไปด้วยกันได้</td><td>แปะโน้ต "สิบปีก็ยังต้องเทียบราคา" ไว้ข้างจอ</td></tr>
+          <tr><td>น้องใหม่ → พี่ดิจิทัล</td><td>ฉลาด ไว ช่างถาม ชอบลองเครื่องมือใหม่</td><td>ใช้ทางลัดด้วยเทคโนโลยีโดยไม่คิดเรื่องข้อมูล</td><td>"เดี๋ยวให้ AI ช่วย"</td><td>จากเด็กใหม่ที่ต้องถาม กลายเป็นพี่เลี้ยงของน้องใหม่ในปีที่ 3</td><td>เปลี่ยนชื่อโฟลเดอร์เป็น "ถามพี่ Compliance ก่อน"</td></tr>
+          <tr><td>พี่ HR</td><td>อารมณ์ดี รู้จักทุกคนในบริษัท เป็นที่ปรึกษาทั้งเรื่องงานและเรื่องชีวิต</td><td>อยากช่วยคนจนเผลอเปิดเผยข้อมูลส่วนตัว หรือเร่งเรื่องจนข้ามขั้นตอน</td><td>"เรื่องคน พี่จัดให้"</td><td>ปีที่ 3 รักษาความลับเรื่องร้องเรียนและข้อมูลสุขภาพ กลายเป็นคนที่ทุกคนไว้ใจเรื่องข้อมูล</td><td>รดน้ำต้นไม้บนโต๊ะที่ตั้งชื่อว่า "น้องนโยบาย"</td></tr>
+          <tr><td>น้องเซลส์</td><td>กระตือรือร้น อยากพิสูจน์ตัวเอง</td><td>เอางานหรือข้อมูลจากที่เก่ามาใช้โดยไม่คิดว่าเป็นของใคร</td><td>–</td><td>ปีที่ 1 เรียนรู้ว่าข้อมูลของบริษัทเก่าใช้ไม่ได้ ปีที่ 2 รู้ว่างานที่ทำให้บริษัทเอาไปไม่ได้เมื่อลาออก</td><td>ผูกเชือกรองเท้าผ้าใบคู่ใหม่ แล้ววิ่งตามทีมไปประชุม</td></tr>
+          <tr><td>น้องใหม่ปีที่ 3</td><td>ขยัน จดทุกอย่าง กล้าถาม</td><td>ยังไม่รู้ว่าเรื่องไหนต้องรายงานหรือต้องถามก่อน</td><td>–</td><td>จากคนที่ถูกสอน กลายเป็นคนที่แปะโน้ตคำถามก่อนตัดสินใจเอง</td><td>จดทุกอย่างลงสมุดเล่มเล็ก หน้าล่าสุดเขียนว่า "ถามก่อนทำ"</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section>
+      <div class="sec-head"><span class="eyebrow">ตัวเอกและเส้นเรื่องทั้ง 71 ตอน</span><h2>ใครเป็นตัวเอกตอนไหน อิงเคสอะไร</h2><p class="muted">กดชื่อตอนเพื่อเปิดสตอรีบอร์ดเวอร์ชันละคร ช่องเส้นเรื่องรายปีมีเฉพาะตอนที่มีฉากหลังของเส้นเรื่อง</p></div>
+      <div class="seqtbl-wrap"><table class="seqtbl srs-tbl">
+        <thead><tr><th>ออกอากาศ</th><th>ตอน</th><th>ตัวเอก</th><th>ตัวละครร่วม</th><th>เคสจริงที่อิง</th><th>เส้นเรื่องรายปี</th></tr></thead>
+        <tbody id="srs-eps"></tbody>
+      </table></div>
     </section>
   </div>
 
@@ -902,8 +1057,30 @@ function openRow(d){
 }
 render();
 
+// series tab: lead + arc for all 71 episodes (drama version)
+(function(){
+  const tb=document.getElementById("srs-eps");if(!tb)return;
+  const YR=[["2027-10","ปีที่ 1 · ต.ค. 2569 – ก.ย. 2570 · ปีแรกของน้องใหม่"],["2028-10","ปีที่ 2 · ต.ค. 2570 – ก.ย. 2571 · ดีลใหญ่"],["9999","ปีที่ 3 · ต.ค. 2571 – ก.ย. 2572 · ส่งไม้ต่อ"]];
+  let cur=null;
+  CLIPS.filter(d=>d.drama).forEach(d=>{
+    const dr=d.drama,y=YR.find(([u])=>d.date<u)[1];
+    if(y!==cur){cur=y;tb.append(el("tr",{class:"grp"},el("td",{colspan:"6",text:y})))}
+    const leadC=(dr.cast||[]).find(c=>c.startsWith(dr.lead+" ("))||dr.lead;
+    const others=(dr.cast||[]).filter(c=>c!==leadC&&!c.startsWith("พี่ Compliance"));
+    const b=el("button",{type:"button",text:dr.title||d.topic});
+    b.addEventListener("click",()=>{sbVer="drama";showScript(d.i)});
+    tb.append(el("tr",{},
+      el("td",{class:"d",text:d.date_th.split(" · ")[0]}),
+      el("td",{class:"srs-ep"},b,el("small",{text:d.cat})),
+      el("td",{class:"ld",text:leadC}),
+      el("td",{text:others.length?others.join(" · "):"–"}),
+      el("td",{text:dr.ref&&dr.ref.case?dr.ref.case:"–"}),
+      el("td",{class:"arc",text:dr.arc||""})));
+  });
+})();
+
 // tabs
-const TABS=["intro","roles","plan","measure"];
+const TABS=["intro","roles","series","plan","measure"];
 function setTab(id,push=true){
   if(id==="scripts")id="plan";if(!TABS.includes(id))id="intro";
   TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);b.setAttribute("aria-selected",String(x===id));b.tabIndex=x===id?0:-1});
