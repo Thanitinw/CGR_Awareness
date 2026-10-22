@@ -313,6 +313,7 @@
     "พี่บัญชี (ญ)",
     "หัวหน้า (ช)",
     "พี่วิศวกร (ช)",
+    "พี่ HR (ช)",
     "พี่ Compliance (ญ)"
    ],
    "lead": "น้องใหม่",
@@ -349,7 +350,7 @@
         "time": "0:09–0:20",
         "title": "รับปากลูกค้าก่อนตรวจสัญญา",
         "desc": "รับปากลูกค้าก่อนตรวจสัญญา",
-        "visual": "พี่ Compliance พาน้องใหม่เดินแนะนำออฟฟิศ หยุดที่โต๊ะพี่เซลส์ เคอร์เซอร์ค้างที่คำว่า \"ยืนยันเงื่อนไขทั้งหมด\" ใน Email ถึงลูกค้า",
+        "visual": "พี่ HR พาน้องใหม่เดินแนะนำออฟฟิศ หยุดที่โต๊ะพี่เซลส์ เคอร์เซอร์ค้างที่คำว่า \"ยืนยันเงื่อนไขทั้งหมด\" ใน Email ถึงลูกค้า",
         "audio": [
          [
           "พี่เซลส์",
@@ -363,7 +364,7 @@
         "time": "0:20–0:30",
         "title": "โยนไฟล์ขึ้นเว็บ AI",
         "desc": "โยนไฟล์ขึ้นเว็บ AI",
-        "visual": "สิบโมง พี่ Compliance พาน้องใหม่เดินต่อมาที่โต๊ะพี่วิศวกร พี่วิศวกรกำลังลากไฟล์ \"ราคาเสนอ_Final.xlsx\" ไปวางในเว็บ AI ฟรี มือพี่ Compliance แตะไหล่พี่วิศวกรพอดี น้องใหม่มองตาโต",
+        "visual": "สิบโมง พี่ HR พาน้องใหม่เดินต่อมาที่โต๊ะพี่วิศวกร พี่วิศวกรกำลังลากไฟล์ \"ราคาเสนอ_Final.xlsx\" ไปวางในเว็บ AI ฟรี มือพี่ HR แตะไหล่พี่วิศวกรพอดี น้องใหม่มองตาโต",
         "audio": [
          [
           "พี่วิศวกร",
@@ -592,12 +593,13 @@
      "f": "พี่วิศวกร",
      "h": "หัวหน้า",
      "n": "น้องใหม่",
+     "r": "พี่ HR",
      "s": "พี่เซลส์"
     },
     "x": {
      "sup": [
       "the supplier representative",
-      "Thai man, about 45, neat white long-sleeve shirt, grey trousers, holding a clipboard"
+      "Thai man, about 50, shaved bald head, thin goatee, beige short-sleeve shirt, brown trousers, holding a clipboard"
      ]
     },
     "sp": {
@@ -630,19 +632,19 @@
        [
         "wide",
         "lift",
-        "The elevator doors slide open on the 12th floor; {n} steps out holding a cardboard box of desk items, a blank new-staff ID card on her lanyard, looking around with excited, slightly nervous eyes; a round wall clock shows 9:00."
+        "The elevator doors slide open on the 12th floor; {n} steps out holding a cardboard box of desk items, a plain staff lanyard around her neck, looking around with excited, slightly nervous eyes; a round wall clock shows 9:00."
        ]
       ],
       "sfx": "elevator chime, soft office chatter"
      },
      {
       "no": 2,
-      "h": "08d0bbe8",
+      "h": "073e1955",
       "b": [
        [
         "trk",
         "office",
-        "{c} walks {n} through the open-plan office and stops beside {s}'s desk"
+        "{r} walks {n} through the open-plan office and stops beside {s}'s desk"
        ],
        [
         "ots",
@@ -655,7 +657,7 @@
      },
      {
       "no": 3,
-      "h": "520ec3c7",
+      "h": "b2cda609",
       "b": [
        [
         "med",
@@ -665,7 +667,7 @@
        [
         "cu",
         "office",
-        "{c}'s hand lands gently on {f}'s shoulder just before he drops the file; {f} freezes and looks up, while {n}, standing beside {c}, watches wide-eyed."
+        "{r}'s hand lands gently on {f}'s shoulder just before he drops the file; {f} freezes and looks up, while {n}, standing beside {r}, watches wide-eyed."
        ]
       ],
       "sfx": "mouse clicks",
@@ -3500,7 +3502,7 @@
     "x": {
      "it": [
       "the IT security officer",
-      "Thai man, about 32, short neat hair, dark-navy polo shirt without logo, black lanyard with a blank ID card"
+      "Thai man, about 29, hair tied in a small bun at the back, round black glasses, black zip jacket over a grey T-shirt, plain black lanyard"
      ]
     },
     "sp": {
@@ -6219,11 +6221,11 @@
     "x": {
      "legal": [
       "the legal counsel",
-      "Thai man, about 40, neatly combed black hair, black rectangular glasses, white shirt, dark-blue tie"
+      "Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie"
      ],
      "sup": [
       "the supplier",
-      "Thai man, about 50, slicked-back grey hair, light-blue shirt, seen on a video call from his own office"
+      "Thai man, about 50, slicked-back grey hair, maroon shirt, seen on a video call from his own office"
      ]
     },
     "sp": {
@@ -7578,7 +7580,7 @@
     "x": {
      "env": [
       "the project environmental officer",
-      "Thai woman, about 30, hair tied back, light-blue field shirt, khaki trousers, holding a tablet"
+      "Thai woman, about 38, short pixie haircut, olive-green field shirt with many pockets, khaki trousers, wide-brim hat in one hand, tablet in the other"
      ]
     },
     "sp": {
@@ -10313,7 +10315,7 @@
     "x": {
      "wife": [
       "the team head's wife",
-      "Thai woman, about 40, shoulder-length black hair, casual floral blouse"
+      "Thai woman, about 42, chin-length hair with a straight fringe, round friendly face, casual lilac floral blouse"
      ]
     },
     "sp": {
@@ -11656,7 +11658,7 @@
     "x": {
      "con": [
       "the contractor's boss",
-      "Thai man, about 50, stocky, sun-tanned, polo shirt with rolled sleeves, gold watch"
+      "Thai man, about 52, stocky, bushy moustache, faded orange polo shirt, olive cargo trousers, gold watch"
      ],
      "safe": [
       "the site safety officer",
@@ -14477,11 +14479,11 @@
     "x": {
      "bil": [
       "the procurement officer's brother-in-law",
-      "Thai man, about 45, cheerful, polo shirt, holding a glass of juice"
+      "Thai man, about 48, round belly, balding on top, yellow-and-white striped polo shirt, holding a glass of juice"
      ],
      "phead": [
       "the procurement manager",
-      "Thai man, about 50, neat grey hair, rimless glasses, light-blue shirt and dark tie"
+      "Thai man, about 52, neat grey hair, rimless glasses, lavender shirt and dark tie"
      ]
     },
     "sp": {
@@ -16586,7 +16588,7 @@
     "x": {
      "intern": [
       "the engineering intern",
-      "Thai woman, about 21, shoulder-length hair with a clip, white blouse, black skirt"
+      "Thai woman, about 21, shoulder-length hair with a straight fringe, thin silver-rimmed glasses, white blouse neatly tucked into a black skirt"
      ]
     },
     "sp": {
@@ -17291,7 +17293,7 @@
      ],
      "cpm": [
       "the client's project manager",
-      "Thai woman, about 45, sharp bob haircut, dark blazer, reading glasses"
+      "Thai woman, about 50, short curly hair, burgundy blazer, thin gold necklace"
      ]
     },
     "sp": {
@@ -17994,7 +17996,7 @@
     "x": {
      "cman": [
       "the contract manager",
-      "Thai man, about 48, neat side-parted hair, glasses, white shirt with rolled sleeves, a thick contract binder"
+      "Thai man, about 52, bald with a neat grey beard, pale-yellow shirt under a navy sweater vest, a thick contract binder"
      ]
     },
     "sp": {
@@ -18692,11 +18694,11 @@
      ],
      "kid": [
       "the executive's grown-up son",
-      "Thai man, about 25, casual shirt"
+      "Thai man, about 26, shoulder-length hair, small ear stud, plain black T-shirt under a denim jacket"
      ],
      "sup3": [
       "the supplier's sales director",
-      "Thai man, about 50, tanned, expensive polo shirt, car keys in hand"
+      "Thai man, about 50, tanned, dark-purple polo shirt, gold-rimmed sunglasses pushed up on his head, car keys in hand"
      ]
     },
     "sp": {
@@ -20078,7 +20080,7 @@
     "x": {
      "hd": [
       "the IT helpdesk officer",
-      "Thai man, about 28, headset, navy polo shirt"
+      "Thai man, about 27, slim, curly hair, orange T-shirt under an open checked shirt, headset"
      ]
     },
     "sp": {
@@ -20790,7 +20792,7 @@
     "x": {
      "ext": [
       "the external consultant",
-      "Thai woman, about 40, short hair, smart blazer"
+      "Thai woman, about 45, pixie cut with a grey streak, camel-brown blazer"
      ]
     },
     "sp": {
@@ -21485,7 +21487,7 @@
     "x": {
      "cli": [
       "the client's plant director",
-      "Thai man, about 55, round glasses, short grey hair, white shirt with rolled sleeves"
+      "Thai man, about 55, round glasses, short grey hair, light-pink shirt with rolled sleeves"
      ],
      "frd": [
       "a friend on the phone",
@@ -22857,11 +22859,11 @@
     "x": {
      "cust": [
       "the client's director",
-      "Thai man, about 55, grey hair, light-blue shirt"
+      "Thai man, about 56, grey hair, trimmed grey moustache, beige linen shirt"
      ],
      "legal2": [
       "the legal counsel",
-      "Thai woman, about 38, hair in a neat bun, black blazer, pearl earrings"
+      "Thai woman, about 45, long straight hair worn loose, emerald-green blazer, statement earrings"
      ]
     },
     "sp": {
@@ -23577,7 +23579,7 @@
     "x": {
      "legal": [
       "the legal counsel",
-      "Thai man, about 40, neatly combed black hair, black rectangular glasses, white shirt, dark-blue tie"
+      "Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie"
      ]
     },
     "sp": {
@@ -27024,7 +27026,7 @@
     "x": {
      "vnd": [
       "the software vendor's engineer",
-      "Thai man, about 35, messy hair, hoodie, headset, seen on a video call"
+      "Thai man, about 35, bleached blond hair tips, grey hoodie, headset, seen on a video call"
      ]
     },
     "sp": {
@@ -29113,11 +29115,11 @@
     "x": {
      "exe4": [
       "a senior executive",
-      "Thai woman, about 55, short grey bob, dark suit"
+      "Thai woman, about 57, silver hair swept back, dark suit, pearl necklace"
      ],
      "pmgr": [
       "the production manager",
-      "Thai man, about 50, stocky, white short-sleeve shirt, a factory cap tucked under his arm"
+      "Thai man, about 50, thick black moustache, grey factory uniform jacket, factory cap on his head"
      ]
     },
     "sp": {
@@ -31176,7 +31178,7 @@
     "x": {
      "sv": [
       "the engineering supervisor",
-      "Thai man, about 48, square jaw, short hair, dark polo shirt"
+      "Thai man, about 48, square jaw, wavy hair with long sideburns, maroon polo shirt"
      ]
     },
     "sp": {
@@ -31855,7 +31857,7 @@
     "x": {
      "seng": [
       "the site engineer",
-      "Thai man, about 33, tall, blue work shirt"
+      "Thai man, about 30, tall and lanky, thick black-framed glasses, light-grey work shirt with reflective strips, yellow helmet in hand"
      ]
     },
     "sp": {
@@ -32556,7 +32558,7 @@
     "x": {
      "speng": [
       "the supplier's engineer",
-      "Thai man, about 35, glasses, black polo shirt"
+      "Thai man, about 36, round tortoiseshell glasses, short beard, black polo shirt"
      ]
     },
     "sp": {
@@ -33929,7 +33931,7 @@
     "x": {
      "appr": [
       "the next-level approver",
-      "Thai woman, about 52, neat bob, travel blazer, pulling a carry-on suitcase"
+      "Thai woman, about 58, silver hair in a low chignon, beige trench coat, pulling a carry-on suitcase"
      ]
     },
     "sp": {
@@ -36007,7 +36009,7 @@
     "x": {
      "liaison": [
       "the community liaison",
-      "Thai woman, about 40, ponytail, plain polo shirt, clipboard"
+      "Thai woman, about 42, short hair with a cloth headband, batik-pattern shirt, clipboard"
      ],
      "sub": [
       "the subcontractor",
@@ -36703,7 +36705,7 @@
     "x": {
      "sub2": [
       "the subcontractor",
-      "Thai man, about 45, khaki work shirt, clipboard"
+      "Thai man, about 46, thick moustache, red bandana on his head, khaki work shirt, clipboard"
      ]
     },
     "sp": {
@@ -39433,7 +39435,7 @@
     "x": {
      "subl": [
       "the subcontractor's crew leader",
-      "Thai man, about 40, wiry, tool belt"
+      "Thai man, about 40, wiry, deeply tanned, towel around his neck, baseball cap, tool belt"
      ]
     },
     "sp": {
@@ -40118,7 +40120,7 @@
     "x": {
      "so": [
       "the safety officer",
-      "Thai woman, about 35, hair in a low bun, notebook in hand"
+      "Thai woman, about 45, short curly hair with grey streaks, sporty sunglasses pushed up on her head, notebook in hand"
      ]
     },
     "sp": {
@@ -42187,7 +42189,7 @@
     "x": {
      "ro": [
       "the risk officer",
-      "Thai woman, about 35, straight shoulder-length hair, glasses, grey cardigan"
+      "Thai woman, about 36, hair in a high bun, black cat-eye glasses, burgundy blouse"
      ]
     },
     "sp": {
@@ -43552,7 +43554,7 @@
     "x": {
      "smgr": [
       "the supplier's factory manager",
-      "Thai man, about 50, stern, white short-sleeve shirt"
+      "Thai man, about 50, stern, combed-back black hair, dark-green short-sleeve shirt, thick gold watch"
      ],
      "wk": [
       "a migrant worker",
@@ -46315,7 +46317,7 @@
     "x": {
      "esg": [
       "the ESG officer",
-      "Thai woman, about 32, short wavy hair, green cardigan, reusable water bottle"
+      "Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle"
      ]
     },
     "sp": {
@@ -47007,7 +47009,7 @@
     "x": {
      "esg": [
       "the ESG officer",
-      "Thai woman, about 32, short wavy hair, green cardigan, reusable water bottle"
+      "Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle"
      ]
     },
     "sp": {
@@ -49914,7 +49916,7 @@
     "x": {
      "sup6": [
       "the supplier's sales rep",
-      "Thai man, about 40, smart polo shirt, holding a glossy invitation card"
+      "Thai man, about 40, gelled spiky hair, dark-red polo shirt, holding a glossy invitation card"
      ]
     },
     "sp": {

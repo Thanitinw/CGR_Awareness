@@ -15,14 +15,14 @@
 # cam: wide full med two cu ecu ots ins trk high pull pov
 
 x@ dpo [DPO] = the data protection officer: Thai woman, about 45, short layered black hair, charcoal blazer, pearl stud earrings, slim grey folder
-x@ legal [Legal|ฝ่ายกฎหมาย|พี่กฎหมาย|นิติกร] = the legal counsel: Thai man, about 40, neatly combed black hair, black rectangular glasses, white shirt, dark-blue tie
-x@ it [IT Security|IT|พี่ IT] = the IT security officer: Thai man, about 32, short neat hair, dark-navy polo shirt without logo, black lanyard with a blank ID card
+x@ legal [Legal|ฝ่ายกฎหมาย|พี่กฎหมาย|นิติกร] = the legal counsel: Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie
+x@ it [IT Security|IT|พี่ IT] = the IT security officer: Thai man, about 29, hair tied in a small bun at the back, round black glasses, black zip jacket over a grey T-shirt, plain black lanyard
 
 ## 2026-11-03
-x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai man, about 45, neat white long-sleeve shirt, grey trousers, holding a clipboard
-1 | lift | wide | The elevator doors slide open on the 12th floor; {n} steps out holding a cardboard box of desk items, a blank new-staff ID card on her lanyard, looking around with excited, slightly nervous eyes; a round wall clock shows 9:00. | elevator chime, soft office chatter
-2 | office | trk | {c} walks {n} through the open-plan office and stops beside {s}'s desk // [ots] Over {s}'s shoulder: an email draft on her monitor, the cursor blinking on one highlighted line (blurred); {s} glances up with a bright, confident smile, smartphone in her other hand. | keyboard clicks, office murmur | g: ข้อความ "ยืนยันเงื่อนไขทั้งหมด" บนจอ Email
-3 | office | med | Ten o'clock. {f} sits at his desk and drags a spreadsheet file into a free public AI chat website in his browser (screen blurred) // [cu] {c}'s hand lands gently on {f}'s shoulder just before he drops the file; {f} freezes and looks up, while {n}, standing beside {c}, watches wide-eyed. | mouse clicks | g: ชื่อไฟล์ "ราคาเสนอ_Final.xlsx"
+x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai man, about 50, shaved bald head, thin goatee, beige short-sleeve shirt, brown trousers, holding a clipboard
+1 | lift | wide | The elevator doors slide open on the 12th floor; {n} steps out holding a cardboard box of desk items, a plain staff lanyard around her neck, looking around with excited, slightly nervous eyes; a round wall clock shows 9:00. | elevator chime, soft office chatter
+2 | office | trk | {r} walks {n} through the open-plan office and stops beside {s}'s desk // [ots] Over {s}'s shoulder: an email draft on her monitor, the cursor blinking on one highlighted line (blurred); {s} glances up with a bright, confident smile, smartphone in her other hand. | keyboard clicks, office murmur | g: ข้อความ "ยืนยันเงื่อนไขทั้งหมด" บนจอ Email
+3 | office | med | Ten o'clock. {f} sits at his desk and drags a spreadsheet file into a free public AI chat website in his browser (screen blurred) // [cu] {r}'s hand lands gently on {f}'s shoulder just before he drops the file; {f} freezes and looks up, while {n}, standing beside {r}, watches wide-eyed. | mouse clicks | g: ชื่อไฟล์ "ราคาเสนอ_Final.xlsx"
 4 | office | med | Eleven o'clock. {a} holds a paper invoice in one hand and a desk-phone receiver in the other, speaking politely but uneasily; her monitor shows an accounting system with a quarter-end date highlighted (blurred). | phone line hum, paper rustle
 5 | wh | wide | One o'clock in the company warehouse. {f} snaps shut his pink floral lunch box while, nearby, {sup} hands a delivery-acceptance form and a pen to {h} beside a new industrial machine with a red hanging tag // [cu] {h} holds the pen above the signature line, hesitating, then shrugs. | distant forklift beeps, warehouse fans | g: ป้าย "รอทดสอบ" บนเครื่องจักร
 6 | EDIT | แบ่งจอ 2×2 แนวตั้ง ใช้ภาพหยุดนิ่งจากฉาก 2, 3, 4, 5 (Email, เว็บ AI, ใบแจ้งหนี้, ปากกาเหนือใบรับมอบ) + วงนับถอยหลัง 3 วินาที
@@ -133,7 +133,7 @@ x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai
 12 | office | cu | {f} reads a reply email on his monitor and exhales with relief // [cu] {f} opens his pink floral lunch box and finds a handwritten note from his wife tucked inside; he smiles. | lunch-box lid click
 
 ## 2027-03-02
-x sup [Supplier] = the supplier: Thai man, about 50, slicked-back grey hair, light-blue shirt, seen on a video call from his own office
+x sup [Supplier] = the supplier: Thai man, about 50, slicked-back grey hair, maroon shirt, seen on a video call from his own office
 1 | office | ins | Close-up of a monitor: an email with a short subject line; a finger clicks send (blurred). | click, email whoosh
 2 | office | med | {s} types an email very fast, smiling, smartphone wedged between ear and shoulder. | fast typing
 3 | office | ins | A desk calendar's pages flip forward two weeks // [ins] A new email arrives with a marked-up contract draft attached (blurred). | calendar pages flutter
@@ -161,7 +161,7 @@ x sup [Supplier] = the supplier: Thai man, about 50, slicked-back grey hair, lig
 11 | office | med | {a} sets down a stack of pink folders and smiles with relief as a colleague hands her a coffee // [med] {a} files the pink folders into a cabinet in colour order, then hands out snacks to everyone at the nearby desks. | g: การ์ดสรุปซ้อนบนภาพ
 
 ## 2027-04-06
-x env [เจ้าหน้าที่สิ่งแวดล้อมโครงการ] = the project environmental officer: Thai woman, about 30, hair tied back, light-blue field shirt, khaki trousers, holding a tablet
+x env [เจ้าหน้าที่สิ่งแวดล้อมโครงการ] = the project environmental officer: Thai woman, about 38, short pixie haircut, olive-green field shirt with many pockets, khaki trousers, wide-brim hat in one hand, tablet in the other
 1 | site | wide | A construction site right beside a village: a dusty red-dirt road, concrete mixer trucks queuing, a primary school across the road. | trucks rumbling, children's voices in the distance
 2 | site | two | {h} talks with {env} in front of the site-office container, impatient, tapping his watch // [cu] {env} answers firmly, holding up her tablet // [two] {h} rubs his neck, frustrated, while {env} waits for his answer.
 3 | site | med | {h} points toward the quiet village beyond the site fence // [cu] {env} shakes her head slightly as she replies.
@@ -220,7 +220,7 @@ x rival [ตัวแทนคู่แข่ง] = the competitor's sales direc
 12 | glass | med | {j} presents to the sales team in the meeting room, gesturing at a whiteboard while the wall screen stays off // [ins@office] {j} ties the laces of his brand-new brown leather shoes, then jogs off after the team. | footsteps
 
 ## 2027-06-01
-x wife = the team head's wife: Thai woman, about 40, shoulder-length black hair, casual floral blouse
+x wife = the team head's wife: Thai woman, about 42, chin-length hair with a straight fringe, round friendly face, casual lilac floral blouse
 1 | home | med | At the family dinner table, {wife} smiles and shows a stock-trading app on her phone (screen blurred). | cutlery, quiet evening
 2 | home | two | {wife} hands her phone to {h}; a share-price chart glows green on the screen (blurred) and {h}'s smile freezes.
 3 | office | trk | The next morning, {h} walks over to {c}'s desk holding his plain white mug, looking unsure.
@@ -249,7 +249,7 @@ x wife = the team head's wife: Thai woman, about 40, shoulder-length black hair,
 12 | office | ins | Close-up: {a}'s finger taps the buy button in a trading app (screen blurred) // [cu] {a} sticks a handwritten note beside her monitor and smiles to herself. | g: โน้ต "สิบปีก็ยังต้องเทียบราคา"
 
 ## 2027-07-06
-x con [Contractor] = the contractor's boss: Thai man, about 50, stocky, sun-tanned, polo shirt with rolled sleeves, gold watch
+x con [Contractor] = the contractor's boss: Thai man, about 52, stocky, bushy moustache, faded orange polo shirt, olive cargo trousers, gold watch
 x safe [Safety Officer] = the site safety officer: Thai woman, about 35, hair in a low bun, white helmet, high-visibility vest, notebook in hand
 1 | ~a factory electrical-installation site at night: bright floodlights, workers on ladders and cable trays | wide | Eight in the evening: the installation site is lit by floodlights and workers are still up on ladders running cables. | machinery hum, distant voices | g: ปฏิทินบนบอร์ดวงวันส่งมอบสีแดง
 2 | sitebox | med | {con} strides into the site meeting room smiling confidently and leans on the table in front of {h}.
@@ -310,8 +310,8 @@ x off [เจ้าหน้าที่] = the counter official: Thai man, abou
 12 | gov | med | {f} receives his permit documents in the normal queue together with an official fee receipt // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
 
 ## 2027-09-07
-x bil = the procurement officer's brother-in-law: Thai man, about 45, cheerful, polo shirt, holding a glass of juice
-x phead [หัวหน้าจัดซื้อ] = the procurement manager: Thai man, about 50, neat grey hair, rimless glasses, light-blue shirt and dark tie
+x bil = the procurement officer's brother-in-law: Thai man, about 48, round belly, balding on top, yellow-and-white striped polo shirt, holding a glass of juice
+x phead [หัวหน้าจัดซื้อ] = the procurement manager: Thai man, about 52, neat grey hair, rimless glasses, lavender shirt and dark tie
 1 | office | ins | In the procurement department, a monitor shows a scoring table for four electrical-equipment suppliers (blurred).
 2 | ~a lively Thai family dinner at home: a long table of dishes, relatives chatting | med | At a family gathering, {bil} proudly talks about his business while {a} listens politely, her smile slowly fading. | family chatter, laughter
 3 | office | trk | Monday morning, {a} walks over to {phead}'s desk holding a folder // [two] {phead} looks up and answers thoughtfully.
@@ -356,7 +356,7 @@ x mc [Main Contractor] = the main contractor's manager: Thai man, about 50, heav
 12 | site | wide | A new morning: workers arrive for their shift following a schedule posted on the site board // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
 
 ## 2027-10-19
-x intern [นักศึกษาฝึกงาน] = the engineering intern: Thai woman, about 21, shoulder-length hair with a clip, white blouse, black skirt
+x intern [นักศึกษาฝึกงาน] = the engineering intern: Thai woman, about 21, shoulder-length hair with a straight fringe, thin silver-rimmed glasses, white blouse neatly tucked into a black skirt
 1 | ~inside a passenger van on the way to a work site | ins | Close-up of a phone screen: a team group chat floods with laughing stickers and a mocking photo (blurred). | message pings
 2 | ~inside a passenger van on the way to a work site | cu | {intern} sits in the van looking at her phone with a forced, tight smile. | van engine, road noise
 3 | site | two | At lunch under a tent by the site, {intern} speaks quietly to {f} // [cu] {f} answers, laughing it off.
@@ -372,7 +372,7 @@ x intern [นักศึกษาฝึกงาน] = the engineering intern: 
 
 ## 2027-11-02
 x ceng [วิศวกรลูกค้า] = the client's site engineer: Thai man, about 35, short hair, plain blue work shirt
-x cpm [ผู้จัดการฝั่งลูกค้า] = the client's project manager: Thai woman, about 45, sharp bob haircut, dark blazer, reading glasses
+x cpm [ผู้จัดการฝั่งลูกค้า] = the client's project manager: Thai woman, about 50, short curly hair, burgundy blazer, thin gold necklace
 1 | plant | med | Electrical installation inside a client's factory: {h} holds his phone as a chat notification pops up. | notification ping, factory hum
 2 | plant | ins | Close-up: a chat message from the client's site engineer on {h}'s phone (screen blurred) // [cu] {h} replies with a voice message, agreeing casually.
 3 | plant | wide | Over several weeks, the crew keeps pulling extra cables and the pile of materials shrinks. | cable pulling, ratchets
@@ -387,7 +387,7 @@ x cpm [ผู้จัดการฝั่งลูกค้า] = the client's
 12 | ~a client's meeting room in a factory office: long table, project files | ins | The client's authorised manager signs a change order // [wide@plant] The crew resumes work // [ins@office] A nameplate on {h}'s desk shows a new title and the team board has a fresh note (text blurred) // [cu@office] {h} lets out a long sigh, then sips from his plain white mug. | g: ป้ายชื่อ "ผู้จัดการฝ่ายปฏิบัติการ" + กระดาน "ดีลใหญ่ เริ่มแล้ว" + แก้ว "งานต้องเดิน"
 
 ## 2027-11-16
-x cman [Contract Manager] = the contract manager: Thai man, about 48, neat side-parted hair, glasses, white shirt with rolled sleeves, a thick contract binder
+x cman [Contract Manager] = the contract manager: Thai man, about 52, bald with a neat grey beard, pale-yellow shirt under a navy sweater vest, a thick contract binder
 1 | site | wide | A work site at a standstill, waiting for revised drawings // [ins@sitebox] A wall calendar in the site office with three weeks crossed out. | wind over an idle site
 2 | sitebox | ins | Close-up of a phone screen: a project group chat with one message marked as read by twelve people (blurred). | g: ข้อความ "แบบแก้ไขยังไม่มา งานรอ" + "อ่านแล้ว 12"
 3 | office | trk | {s} walks over to {cman}'s desk holding her phone // [two] {cman} takes off his glasses and answers seriously.
@@ -402,9 +402,9 @@ x cman [Contract Manager] = the contract manager: Thai man, about 48, neat side-
 12 | office | med | {s} lines up the notice letters and receipts in the project binder and closes it with confidence // [med@lift] {s} rehearses a polite sentence to her reflection in the elevator mirror, then jumps as the doors slide open. | elevator chime
 
 ## 2027-12-07
-x sup3 [Supplier] = the supplier's sales director: Thai man, about 50, tanned, expensive polo shirt, car keys in hand
+x sup3 [Supplier] = the supplier's sales director: Thai man, about 50, tanned, dark-purple polo shirt, gold-rimmed sunglasses pushed up on his head, car keys in hand
 x exe [ผู้บริหาร] = the senior executive: Thai man, about 58, silver hair, dark suit, rimless glasses
-x kid = the executive's grown-up son: Thai man, about 25, casual shirt
+x kid = the executive's grown-up son: Thai man, about 26, shoulder-length hair, small ear stud, plain black T-shirt under a denim jacket
 1 | glass | wide | Contract-renewal season: a supplier-evaluation binder lies on the table in the procurement meeting room.
 2 | ~an office car park with rows of cars under a covered roof | trk | After the meeting, {sup3} walks beside {a} through the car park, chatting warmly // [cu] {a} answers carefully, clutching her folder. | footsteps, distant traffic
 3 | ~a bright car showroom with new cars on display | med | At a car showroom, {kid} receives a set of car keys while a quotation sits on the desk (blurred). | showroom ambience | g: ช่อง "ส่วนลดพิเศษ"
@@ -433,7 +433,7 @@ x kid = the executive's grown-up son: Thai man, about 25, casual shirt
 12 | glass | ins | The hamper and voucher envelope, with the report form attached, are placed on the gift committee's table // [cu@office] {a} sticks a handwritten note beside her monitor and smiles to herself. | g: โน้ต "สิบปีก็ยังต้องเทียบราคา"
 
 ## 2028-01-04
-x hd = the IT helpdesk officer: Thai man, about 28, headset, navy polo shirt
+x hd = the IT helpdesk officer: Thai man, about 27, slim, curly hair, orange T-shirt under an open checked shirt, headset
 1 | office | med | 4:55 pm during month-end close: {a} packs her things to go home, a wall clock behind her.
 2 | office | ins | An urgent-looking email pops up on {a}'s monitor with a fake company logo (blurred). | notification ping | g: หัวข้อ "ด่วน: บัญชีของคุณจะถูกระงับภายใน 2 ชั่วโมง"
 3 | office | ots | Over {a}'s shoulder: her mouse hovers over a big button in the email // [two] {n} leans over from the next desk to look, frowning.
@@ -448,7 +448,7 @@ x hd = the IT helpdesk officer: Thai man, about 28, headset, navy polo shirt
 12 | office | med | {a} shuts down her computer and heads home // [ins@~an IT helpdesk room with several monitors] An IT dashboard shows the fake email blocked company-wide (blurred) // [two@coffee] {a} offers a box of Thai pastries to {c} as a thank-you; {c} laughs.
 
 ## 2028-01-18
-x ext = the external consultant: Thai woman, about 40, short hair, smart blazer
+x ext = the external consultant: Thai woman, about 45, pixie cut with a grey streak, camel-brown blazer
 1 | office | ots | In the engineering department, {n} opens the project folder on her monitor, showing dozens of subfolders (blurred).
 2 | office | ins | An email from an external consultant arrives on {n}'s monitor asking for a drawing urgently (blurred). | notification ping
 3 | office | ins | Close-up: {n} opens the share menu and selects the widest sharing option (blurred) // [two] {h} walks past, stops and leans in // [cu] {n} answers, a bit unsure.
@@ -463,7 +463,7 @@ x ext = the external consultant: Thai woman, about 40, short hair, smart blazer
 12 | ~a consultant's small office with a desk and a laptop | med | {ext} opens the single drawing she received on her laptop (blurred) // [ins@office] {n} renames a folder on her monitor and grins (text blurred). | g: ชื่อโฟลเดอร์ "ถามพี่ Compliance ก่อน"
 
 ## 2028-02-01
-x cli [ลูกค้า] = the client's plant director: Thai man, about 55, round glasses, short grey hair, white shirt with rolled sleeves
+x cli [ลูกค้า] = the client's plant director: Thai man, about 55, round glasses, short grey hair, light-pink shirt with rolled sleeves
 x frd [เพื่อน] = a friend on the phone: Thai man, about 30, heard but not seen
 1 | client | med | In a meeting room at a client's food factory, {s} takes notes while {cli} points out of the window at the factory roof.
 2 | client | two | After the agenda, {cli} chats casually with {s}, gesturing at the roof.
@@ -493,8 +493,8 @@ x frd [เพื่อน] = a friend on the phone: Thai man, about 30, heard bu
 12 | carpark | wide | Monday morning: a company pickup drives out to a customer site with a work order // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
 
 ## 2028-03-07
-x legal2 [Legal] = the legal counsel: Thai woman, about 38, hair in a neat bun, black blazer, pearl earrings
-x cust = the client's director: Thai man, about 55, grey hair, light-blue shirt
+x legal2 [Legal] = the legal counsel: Thai woman, about 45, long straight hair worn loose, emerald-green blazer, statement earrings
+x cust = the client's director: Thai man, about 56, grey hair, trimmed grey moustache, beige linen shirt
 1 | glass | ins | In a small meeting room, a laptop shows a quotation for control panels with one margin figure highlighted in green (blurred).
 2 | glass | med | {h} walks in holding a draft contract, beaming.
 3 | glass | two | {h} points at a highlighted clause; {legal2} leans in to read along.
@@ -583,7 +583,7 @@ x exe2 [ผู้บริหาร] = the senior executive: Thai man, about 55,
 12 | site | wide | A materials truck arrives at the site in the morning; {h} and {n} check the delivery together // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: คำว่า "ด่วนมาก"
 
 ## 2028-06-06
-x vnd [Vendor] = the software vendor's engineer: Thai man, about 35, messy hair, hoodie, headset, seen on a video call
+x vnd [Vendor] = the software vendor's engineer: Thai man, about 35, bleached blond hair tips, grey hoodie, headset, seen on a video call
 1 | itroom | med | Nine at night in the IT room: an error message on the time-attendance system and {vnd} on a video call on {n}'s monitor.
 2 | itroom | ots | Over {n}'s shoulder: {vnd} talks fast on the video call.
 3 | itroom | cu | {n} glances at the clock, then clicks an export menu (blurred).
@@ -628,8 +628,8 @@ x exe3 = the managing director: Thai woman, about 55, short silver hair, dark-re
 12 | board | med | {exe3} reviews the two-column report and approves extra resources for the project // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
 
 ## 2028-07-18
-x pmgr [ผู้จัดการฝ่ายผลิต] = the production manager: Thai man, about 50, stocky, white short-sleeve shirt, a factory cap tucked under his arm
-x exe4 = a senior executive: Thai woman, about 55, short grey bob, dark suit
+x pmgr [ผู้จัดการฝ่ายผลิต] = the production manager: Thai man, about 50, thick black moustache, grey factory uniform jacket, factory cap on his head
+x exe4 = a senior executive: Thai woman, about 57, silver hair swept back, dark suit, pearl necklace
 1 | plant | wide | Quarter-end at the control-panel factory: a production board beside the line shows the month's output (blurred). | factory hum | g: บอร์ดยอดผลิต 92% ของเป้า
 2 | office | two | {pmgr} stands beside {a}'s desk in the planning office and leans in, speaking in a low, persuasive voice.
 3 | office | cu | {a} hesitates, her hands frozen above the keyboard, and answers carefully // [cu] {pmgr} replies, pressing her.
@@ -673,7 +673,7 @@ x grp [เพื่อนในกลุ่ม LINE] = a school friend in the gr
 12 | home | ins | The friends' group chat moves on to planning a class reunion (blurred) // [ins@office] {s} crosses out a phrase on a sticky note and writes a new one (handwriting blurred).
 
 ## 2028-09-05
-x sv [หัวหน้างาน] = the engineering supervisor: Thai man, about 48, square jaw, short hair, dark polo shirt
+x sv [หัวหน้างาน] = the engineering supervisor: Thai man, about 48, square jaw, wavy hair with long sideburns, maroon polo shirt
 1 | glass | wide | In the glass meeting room the project team holds a new kick-off meeting; one chair stands empty.
 2 | office | med | {f} sits at his desk watching the meeting through the glass; the calendar on his monitor is empty (blurred).
 3 | ~a small quiet interview room with a round table | two | {f} sits talking with {r} in a small room, his voice low // [cu] {r} listens and answers kindly.
@@ -688,7 +688,7 @@ x sv [หัวหน้างาน] = the engineering supervisor: Thai man, ab
 12 | glass | wide | The project team meets with every chair filled // [cu@office] {f} opens his pink floral lunch box and finds a handwritten note from his wife; he smiles.
 
 ## 2028-09-19
-x seng [Site Engineer] = the site engineer: Thai man, about 33, tall, blue work shirt
+x seng [Site Engineer] = the site engineer: Thai man, about 30, tall and lanky, thick black-framed glasses, light-grey work shirt with reflective strips, yellow helmet in hand
 1 | ~a power-transmission line construction site: tall steel lattice towers, workers in harnesses | wide | Morning at a transmission-line site: workers in safety harnesses climb a tall steel lattice tower. | wind, metal clinks
 2 | ~a power-transmission line construction site: tall steel lattice towers, workers in harnesses | ins | Close-up: {f} holds a harness-inspection sheet with every box signed (text blurred).
 3 | ~a site tent beside a transmission tower | two | Under the site tent, {f} talks to {seng} with a worried face // [cu] {seng} answers, unbothered.
@@ -703,7 +703,7 @@ x seng [Site Engineer] = the site engineer: Thai man, about 33, tall, blue work 
 12 | ~a power-transmission line construction site: tall steel lattice towers, workers in harnesses | wide | A new inspection sheet with a time column; workers climb the tower safely // [med@glass] {f} walks into the big project meeting, where the once-empty chair is now taken // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
 
 ## 2028-10-03
-x speng [Supplier Engineer] = the supplier's engineer: Thai man, about 35, glasses, black polo shirt
+x speng [Supplier Engineer] = the supplier's engineer: Thai man, about 36, round tortoiseshell glasses, short beard, black polo shirt
 1 | lab | ins | In the test lab, a prototype EV-charger control unit sits on the bench, all its status lights green. | soft electrical hum
 2 | lab | two | {n} and {speng} shake hands in front of the prototype that has just worked for the first time.
 3 | lab | med | {n} points at the drawings and requirement documents on the bench.
@@ -733,7 +733,7 @@ x speng [Supplier Engineer] = the supplier's engineer: Thai man, about 35, glass
 12 | office | two | {j} shakes hands with {h} to say goodbye, holding only his box of personal things; behind them the team claps at the board // [ins] {j} ties the laces of his brand-new brown leather shoes, then jogs off after the team. | applause | g: กระดานทีม "ส่งมอบดีลใหญ่ ✓"
 
 ## 2028-11-07
-x appr = the next-level approver: Thai woman, about 52, neat bob, travel blazer, pulling a carry-on suitcase
+x appr = the next-level approver: Thai woman, about 58, silver hair in a low chignon, beige trench coat, pulling a carry-on suitcase
 1 | office | ins | In procurement, a purchase-order screen shows the total next to an approval-limit table (blurred). | g: ยอดรวม 1.8 ล้านบาท / ผู้จัดการฝ่าย ไม่เกิน 1 ล้านบาท (ตัวเลขสมมติ)
 2 | office | two | {a} stands beside {p}'s desk and suggests something in a low voice // [cu] {p} answers, unsure.
 3 | office | ins | Close-up: the next-level approver's calendar on a monitor shows two weeks blocked out (blurred). | g: "เดินทางต่างประเทศ 2 สัปดาห์"
@@ -778,7 +778,7 @@ x cons2 [Consultant] = the consultant: Thai man, about 55, heard over a speakerp
 12 | ~a community event in a Thai village temple ground, a sponsor board without logos | wide | The company's community activity in a village, with a sponsor board shown openly (no readable text) // [cu@office] {s} gives the camera a quick thumbs-up, then hurries to answer a client's call. | festive community chatter
 
 ## 2028-12-19
-x liaison [เจ้าหน้าที่ประสานชุมชน] = the community liaison: Thai woman, about 40, ponytail, plain polo shirt, clipboard
+x liaison [เจ้าหน้าที่ประสานชุมชน] = the community liaison: Thai woman, about 42, short hair with a cloth headband, batik-pattern shirt, clipboard
 x sub [ผู้รับเหมาช่วง] = the subcontractor: Thai man, about 45, gold chain, loud floral shirt
 1 | ~a roadside in front of a work site during local elections, a row of blank campaign boards | wide | Local-election season: blank campaign boards line the road in front of the site. | passing traffic
 2 | carpark | two | {liaison} walks over to talk with {f} in the site car park // [cu] {f} answers, a little awkward.
@@ -794,7 +794,7 @@ x sub [ผู้รับเหมาช่วง] = the subcontractor: Thai man
 12 | ~a site new-year party under string lights with folding tables | wide | At the site's new-year party, the team and subcontractors raise their glasses to thank one another // [two] {f} offers his pink floral lunch box to a colleague to taste his wife's cooking. | party chatter, clinking glasses
 
 ## 2029-01-02
-x sub2 [ผู้รับเหมาช่วง] = the subcontractor: Thai man, about 45, khaki work shirt, clipboard
+x sub2 [ผู้รับเหมาช่วง] = the subcontractor: Thai man, about 46, thick moustache, red bandana on his head, khaki work shirt, clipboard
 1 | sitebox | ins | At the electrical-installation site, the subcontractor slides a handover certificate across the table; a desk calendar shows a due date circled twenty days ago (text blurred).
 2 | sitebox | two | {sub2} holds out a pen to {f} with a big smile // [cu] {f} hesitates and replies.
 3 | sitebox | med | {h} walks in and waves at {f} to just sign it.
@@ -852,7 +852,7 @@ x cl2 [ลูกค้า] = the client: Thai man, about 50, heard on the phone,
 12 | ~a corridor outside a closed meeting room | med | {h} walks into the hearing room carrying his binder // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
 
 ## 2029-03-06
-x subl [หัวหน้าทีมผู้รับเหมาช่วง] = the subcontractor's crew leader: Thai man, about 40, wiry, tool belt
+x subl [หัวหน้าทีมผู้รับเหมาช่วง] = the subcontractor's crew leader: Thai man, about 40, wiry, deeply tanned, towel around his neck, baseball cap, tool belt
 1 | site | ins | Afternoon in the maintenance area: a countdown timer on a control truck shows forty minutes of shutdown left (blurred). | g: "เหลือเวลาหยุดระบบ 40 นาที"
 2 | site | two | {subl} walks up to {f} and points at the steel structure // [cu] {f} answers, glancing at his watch.
 3 | site | wide | The crew waits at the foot of a ladder, glancing at the clock; {subl} calls out to hurry.
@@ -867,7 +867,7 @@ x subl [หัวหน้าทีมผู้รับเหมาช่วง
 12 | site | wide | At dusk the whole team walks off site together, everyone accounted for // [cu@office] {f} opens his pink floral lunch box and finds a handwritten note from his wife; he smiles.
 
 ## 2029-03-20
-x so [เจ้าหน้าที่ความปลอดภัย] = the safety officer: Thai woman, about 35, hair in a low bun, notebook in hand
+x so [เจ้าหน้าที่ความปลอดภัย] = the safety officer: Thai woman, about 45, short curly hair with grey streaks, sporty sunglasses pushed up on her head, notebook in hand
 1 | plant | wide | In the control-panel factory, an overhead crane lifts a steel cabinet frame; a safety-record board hangs by the line (blurred). | crane motor whine | g: ป้าย "ไม่มีอุบัติเหตุ 179 วัน"
 2 | plant | med | A sling slips off one side of the hook and the steel frame swings past {p}, missing him by a hand's width; he jumps back with a cry. | metal clang, a sharp gasp
 3 | plant | two | {h} glances at the safety-record board and talks to {p} // [cu] {p} answers, still shaken.
@@ -912,7 +912,7 @@ x grp2 [เพื่อนในกลุ่ม LINE] = a friend in the group ch
 12 | office | wide | The team delivers the site drawings to the client on time // [cu] {n} secretly types a question to the company AI, then giggles to herself.
 
 ## 2029-05-01
-x ro [Risk Officer] = the risk officer: Thai woman, about 35, straight shoulder-length hair, glasses, grey cardigan
+x ro [Risk Officer] = the risk officer: Thai woman, about 36, hair in a high bun, black cat-eye glasses, burgundy blouse
 1 | glass | ins | In the project meeting room, a risk dashboard on the screen turns two status lights red (blurred). | soft alert tone
 2 | glass | two | {h} talks with {ro} in front of the screen // [cu] {ro} answers carefully, pointing at the data.
 3 | glass | cu | {h} looks at a cost chart creeping above the budget line (blurred), worried.
@@ -941,7 +941,7 @@ x ro [Risk Officer] = the risk officer: Thai woman, about 35, straight shoulder-
 12 | ~a transmission-line construction site after rain | wide | A backup supplier's material truck drives onto the site and the team updates the plan on a board // [ins] {p} writes everything down in his pocket notebook.
 
 ## 2029-06-05
-x smgr [Supplier Manager] = the supplier's factory manager: Thai man, about 50, stern, white short-sleeve shirt
+x smgr [Supplier Manager] = the supplier's factory manager: Thai man, about 50, stern, combed-back black hair, dark-green short-sleeve shirt, thick gold watch
 x wk [แรงงาน] = a migrant worker: man, about 30, slim, faded blue work uniform
 1 | ~a steel-fabrication factory of a supplier: welding sparks, steel frames, workers in uniforms | wide | At a supplier's steel-fabrication plant, our audit team walks through the production area. | welding, grinding
 2 | ~a supervisor's office in a supplier factory with a steel cabinet | ins | Close-up: a steel cabinet in the supervisor's office packed with workers' passports // [two] {a} asks a question and {smgr} answers smoothly.
@@ -1002,7 +1002,7 @@ x caller [ผู้โทรเข้ามา] = the caller: Thai man, about 35
 12 | office | med | {dpo} sends a redacted copy of the records to a verified email address (screen blurred) // [ins] {p} writes everything down in his pocket notebook.
 
 ## 2029-08-07
-x@ esg [เจ้าหน้าที่ ESG] = the ESG officer: Thai woman, about 32, short wavy hair, green cardigan, reusable water bottle
+x@ esg [เจ้าหน้าที่ ESG] = the ESG officer: Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle
 1 | office | ins | In marketing, a draft trade-show brochure on a monitor carries a big green headline (blurred). | g: พาดหัว "Carbon Neutral ลดคาร์บอนได้หมื่นตันต่อปี"
 2 | office | two | {s} turns her monitor toward {esg}, proud of the draft // [cu] {esg} answers, raising her eyebrows // [two] {s} gestures at the headline, insisting, while {esg} shakes her head.
 3 | office | med | {s} shrugs and opens a saved web page on her monitor (blurred).
@@ -1076,7 +1076,7 @@ x sup5 [Supplier] = the supplier: Thai man, about 50, heard over a speakerphone,
 12 | glass | wide | A whiteboard split into three columns as the team moves forward properly (writing blurred) // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: ไวต์บอร์ด หยุด / เปิดเผย / ยกระดับ
 
 ## 2029-10-16
-x sup6 = the supplier's sales rep: Thai man, about 40, smart polo shirt, holding a glossy invitation card
+x sup6 = the supplier's sales rep: Thai man, about 40, gelled spiky hair, dark-red polo shirt, holding a glossy invitation card
 1 | sitebox | wide | {p}'s first week on site: a shelf in the site meeting room holds a row of policy binders.
 2 | sitebox | two | {p} hugs a stack of policy binders and talks with {n} // [cu] {n} answers with a warm smile.
 3 | sitebox | cu | {n} smiles and holds up six fingers // [cu] {p} asks again, surprised.
