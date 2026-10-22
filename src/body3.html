@@ -105,6 +105,9 @@ summary .m small{display:block;font-size:12px}
 .gref summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 .grefs{margin:4px 0 0;padding-left:18px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .sec-head p.small{font-size:13px}
+/* let headings and their notes use the full content width (no early line breaks), and avoid one-word last lines */
+.sec-head{max-width:none}
+li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
 .line.scr .who{color:var(--muted);font-weight:500}
 .line.scr .say{background:var(--sunk);border-radius:6px;padding:8px 12px;font-size:14px;gap:4px}
 .line.dir .who{color:var(--muted);font-weight:500}
@@ -198,6 +201,55 @@ summary .m small{display:block;font-size:12px}
 .mtabs .mt[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .mtabs .mt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .sb-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+/* flow guide */
+.fg-map{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.fg-map li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;font-size:13px}
+.fg-map b{font-size:18px;color:var(--accent)}.fg-map small{color:var(--muted);font-size:12px}
+.fg-phase{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px}
+.fg-phase>h3{margin:0 0 10px;font-size:17px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fg-phase>h3 em{font-style:normal;font-weight:400;font-size:13px;color:var(--muted)}
+.fg-n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--surface);font-size:14px;flex:none}
+.fg-lead{margin:0 0 10px;font-size:14px}
+.fg-steps{margin:0 0 12px;padding-left:24px;font-size:14px;display:flex;flex-direction:column;gap:8px;line-height:1.6}
+.fg-steps b{display:block}
+.fg code{font-family:var(--font-data);font-size:12.5px;background:var(--sunk);padding:1px 5px;border-radius:4px}
+.fg .cs-common{margin:4px 0 12px}
+.fg-box{background:var(--sunk);border-radius:10px;padding:12px 16px;font-size:14px;margin-bottom:4px}
+.fg-box h4{margin:0 0 6px;font-size:14px}.fg-box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}.fg-box p{margin:0}
+.fg-check{list-style:none;padding-left:0!important}.fg-check li::before{content:"☐ ";color:var(--accent)}
+.fg-trouble{margin:0 0 14px;background:var(--surface);border:1px solid var(--line)}
+.fg-trouble dl{margin:0;display:grid;grid-template-columns:minmax(160px,240px) 1fr;gap:8px 16px}.fg-trouble dt{font-weight:600}.fg-trouble dd{margin:0}
+.fg-more{font-size:13px;font-weight:400;margin-left:8px}
+@media (max-width:720px){.fg-map{grid-template-columns:1fr 1fr}.fg-trouble dl{grid-template-columns:1fr}.fg-trouble dd{margin-bottom:6px}.fg .cs-common{grid-template-columns:1fr}.fg-phase{padding:14px}}
+.fx-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.fx-list li{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13.5px;padding:2px 0;border-bottom:1px dashed var(--line)}.fx-list li:last-child{border-bottom:0}
+.fx-list .cs-copy{padding:3px 10px;align-self:center!important}
+.fx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 12px}
+.fx-card{border:1px solid var(--line);border-radius:10px;padding:12px;min-width:0}.fx-card h4{margin:0 0 8px;font-size:14px;display:flex;align-items:center;gap:6px}
+.fx-card .sw{width:10px;height:10px;border-radius:50%;background:var(--cc);display:inline-block}
+.fg-sub{margin:4px 0 8px;font-size:14px}
+@media (max-width:900px){.fx-grid{grid-template-columns:1fr 1fr}}@media (max-width:560px){.fx-grid{grid-template-columns:1fr}}
+/* character sheet */
+.cs-steps{margin:0 0 16px;padding-left:22px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.cs-steps b{margin-right:6px}
+.cs-common{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.cs-common>div,.cs-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.cs-common h3{margin:0;font-size:15px}
+.cs-p{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--font-data);font-size:12px;line-height:1.55;background:var(--sunk);border-radius:8px;padding:10px 12px;color:var(--fg)}
+.cs-card .cs-copy,.cs-common .cs-copy{align-self:flex-start}
+.cs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(400px,100%),1fr));gap:14px;margin-bottom:12px}
+.cs-n{margin:0;font-size:12px;font-family:var(--font-data);color:var(--accent)}
+.cs-card h4.cs-sub{margin:8px 0 0;padding-top:8px;border-top:1px solid var(--line);font-size:13px;color:var(--accent)}
+.cs-h{font-size:16px;margin:20px 0 10px}
+.cs-note{margin:0 0 8px}
+.cs-card{border-top:4px solid var(--cc)}
+.cs-card h3{margin:0;font-family:var(--font-display);font-size:18px;display:flex;align-items:center;gap:8px}
+.cs-card h3 .sw{width:14px;height:14px;border-radius:50%;background:var(--cc);border:1px solid var(--line)}
+.cs-card .meta{font-family:var(--font-data);font-size:12px;color:var(--muted);margin:0}
+.cs-card dl{margin:0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 10px;font-size:13px}
+.cs-card dt{color:var(--muted)}.cs-card dd{margin:0}
+.cs-card h4{margin:6px 0 0;font-size:13px}
+@media (max-width:820px){.cs-common{grid-template-columns:1fr}}
 /* series tab */
 .srs-dl{display:grid;grid-template-columns:170px minmax(0,1fr);margin:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
 .srs-dl dt,.srs-dl dd{margin:0;padding:10px 16px;border-bottom:1px solid var(--line);font-size:14px}
@@ -210,7 +262,7 @@ summary .m small{display:block;font-size:12px}
 .srs-yr p{margin:0;font-size:14px;color:var(--muted)}
 .srs-beats{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px}
 .srs-beats b{display:block;font-family:var(--font-data);font-size:12px;font-weight:600;color:var(--accent)}
-.srs-p{font-size:14px;margin:0 0 14px;max-width:820px}
+.srs-p{font-size:14px;margin:0 0 14px}
 .srs-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .srs-two ul{margin:0;padding-left:20px;font-size:14px;display:flex;flex-direction:column;gap:6px}
 .srs-two h3{margin:0;font-size:16px}
@@ -234,6 +286,33 @@ summary .m small{display:block;font-size:12px}
 @media (max-width:640px){.srs-dl{grid-template-columns:1fr}.srs-dl dt{border-bottom:0;padding-bottom:4px}}
 .seqtbl .tno{display:inline-block;min-width:2.3em;color:var(--muted);font-variant-numeric:tabular-nums}
 .sb-ref{display:flex;flex-direction:column;gap:4px}.sb-ref .src{font-size:12.5px;color:var(--muted)}.sb-ref a{color:var(--accent);overflow-wrap:anywhere}
+.sb-sw{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.sb-ver button:disabled{opacity:.45;cursor:not-allowed}
+.fl-head{background:var(--sunk);border-radius:10px;padding:12px 14px;margin:0 0 16px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.fl-head p{margin:0}.fl-head h4{margin:6px 0 0;font-size:14px}.fl-n{color:var(--muted);font-size:13px}
+.fl-ing{display:flex;flex-wrap:wrap;gap:6px}
+.fl-chip{display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:5px 10px}
+.fl-chip.x{flex-basis:100%}.fl-chip .fl-copy{padding:3px 8px;font-size:12px;margin-left:auto}
+.fl-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.fl-part{font-size:15px;margin:18px 0 8px}
+.fl-sc{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 10px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.fl-sc.edit{background:var(--sunk)}
+.fl-sc .fl-hd{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:14px}
+.fl-sc .fl-hd .num{color:var(--muted);font-size:12.5px}.fl-sc .fl-hd .stt{color:var(--muted)}
+.fl-tag{margin-left:auto;font-size:12px;border-radius:999px;padding:2px 10px;background:var(--line);color:var(--fg)}
+.fl-tag.g{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.fl-th{margin:0;font-size:13.5px;color:var(--muted)}
+.fl-e{margin:0;font-size:14px}
+.fl-warn{margin:0;font-size:13px;color:#b45309}
+.fl-shot h5{margin:4px 0 6px;font-size:13px;font-weight:600}
+.fl-pp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:10px}
+.fl-pp>div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fl-k{font-size:12px;color:var(--muted);font-weight:600}
+.fl-p{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--font-data);font-size:12px;line-height:1.55;background:var(--sunk);border-radius:8px;padding:10px 12px;color:var(--fg);max-height:320px;overflow:auto}
+.fl-sc.edit .fl-p{background:var(--surface)}
+.fl .fl-copy{align-self:flex-start}
+.fl-post{margin:0;font-size:13.5px}
+.fl-au{font-size:13.5px;display:flex;flex-direction:column;gap:2px}.fl-au p{margin:0}
 .sb-ver{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:var(--surface)}
 .sb-ver button{all:unset;cursor:pointer;font-size:13px;padding:5px 14px;border-radius:999px}
 .sb-ver button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
@@ -462,6 +541,8 @@ summary .m small{display:block;font-size:12px}
 .auth-msg.err{color:#c0392b}
 .sbe-saved{margin:0 0 10px;padding:8px 12px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-size:13px}
 .auth-dlg{width:min(460px,calc(100% - 32px))}
+/* storyboard window: use most of the screen on desktop */
+@media (min-width:721px){#dlg{width:min(1400px,calc(100% - 40px));max-height:calc(100% - 32px)}}
 .auth-dlg h2{font-size:18px;margin:0 0 12px}
 .auth-box{display:flex;flex-direction:column;gap:10px}
 .auth-box label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:500}
@@ -476,12 +557,14 @@ summary .m small{display:block;font-size:12px}
     <h1>Governance in Action</h1>
     <p class="tagline">การกำกับดูแลกิจการที่ดีและความยั่งยืน ในงานทุกวัน</p>
     <p class="lead">คลิปสั้นส่งทาง LINE ทุก 2 สัปดาห์ เล่าสถานการณ์จริงในงาน ให้พนักงานทุกคนในกลุ่มบริษัทรู้ว่าเรื่องสัญญา ข้อมูล กฎหมาย และจรรยาบรรณ ต้องทำอย่างไร</p>
-    <span class="period">เริ่ม อ. 20 ต.ค. 2569 · อังคารที่ 1 และ 3 ของเดือน 17:00 น. · ถึง ก.ย. 2572</span>
+    <span class="period">เริ่ม อ. 3 พ.ย. 2569 · อังคารที่ 1 และ 3 ของเดือน 17:00 น. · ถึง ต.ค. 2572</span>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="ส่วนของแผน">
     <button class="tab" role="tab" id="tab-intro" aria-controls="intro" data-t="intro">Introduction</button>
-    <button class="tab" role="tab" id="tab-series" aria-controls="series" data-t="series">Series ชั้น 12</button>
+    <button class="tab" role="tab" id="tab-series" aria-controls="series" data-t="series">ภาพรวมซีรีส์ ชั้น 12</button>
+    <button class="tab" role="tab" id="tab-chars" aria-controls="chars" data-t="chars">Character sheet</button>
+    <button class="tab" role="tab" id="tab-flowguide" aria-controls="flowguide" data-t="flowguide">คู่มือ Flow</button>
     <button class="tab" role="tab" id="tab-plan" aria-controls="plan" data-t="plan">Action Plan</button>
     <button class="tab" role="tab" id="tab-measure" aria-controls="measure" data-t="measure">Measurement</button>
   </nav>
@@ -527,7 +610,7 @@ summary .m small{display:block;font-size:12px}
     </section>
 
     <section>
-      <div class="sec-head"><span class="eyebrow">เนื้อหาครอบคลุมอะไร</span><h2>6 หมวด · 14 กลุ่ม · 36 ธีม · 71 คลิป</h2><p class="muted">จัดกลุ่มตามคำถามง่าย ๆ ว่า "เรื่องนี้ปกป้องใคร" (แนวคิดผู้มีส่วนได้เสียตาม CG Code และเกณฑ์ CGR)</p></div>
+      <div class="sec-head"><span class="eyebrow">เนื้อหาครอบคลุมอะไร</span><h2>6 หมวด · 14 กลุ่ม · 36 ธีม · 72 คลิป</h2><p class="muted">จัดกลุ่มตามคำถามง่าย ๆ ว่า "เรื่องนี้ปกป้องใคร" (แนวคิดผู้มีส่วนได้เสียตาม CG Code และเกณฑ์ CGR)</p></div>
       <div class="kpis sumk" id="sumk"></div>
       <div class="charts">
         <figure class="chart"><figcaption><b>แต่ละปีเน้นหมวดไหน</b><span>ตัวเลขในแถบ = จำนวนเรื่องของหมวดนั้นในปี (ปีละ 12 ธีม) · ยอดรวม 3 ปีของแต่ละหมวดอยู่ในการ์ดด้านล่าง</span></figcaption><div class="chlg" id="ch-lg"></div><div id="ch-year"></div></figure>
@@ -554,11 +637,11 @@ summary .m small{display:block;font-size:12px}
 
   <div class="tabpanel" id="series" role="tabpanel" aria-labelledby="tab-series" hidden>
     <section>
-      <div class="sec-head"><span class="eyebrow">ภาพรวมซีรีส์</span><h2>ชั้น 12: หัวข้อเดิม 71 ตอน เล่าเป็นละครจากเคสจริง</h2><p class="muted">ใช้หัวข้อ วันออกอากาศ และเจ้าของเนื้อหาเดิมทั้งหมด เปลี่ยนเฉพาะวิธีเล่า สลับดูได้ในหน้าต่างสตอรีบอร์ดของทุกคลิป</p></div>
+      <div class="sec-head"><span class="eyebrow">ภาพรวมซีรีส์</span><h2>ชั้น 12: หัวข้อเดิม 72 ตอน เล่าเป็นละครจากเคสจริง</h2><p class="muted">ใช้หัวข้อ วันออกอากาศ และเจ้าของเนื้อหาเดิมทั้งหมด เปลี่ยนเฉพาะวิธีเล่า สลับดูได้ในหน้าต่างสตอรีบอร์ดของทุกคลิป</p></div>
       <dl class="srs-dl">
         <dt>ชื่อซีรีส์</dt><dd>"ชั้น 12" ตามชั้นสำนักงานที่ตัวละครทำงาน</dd>
         <dt>รูปแบบ</dt><dd>ตัวละครประจำ 7 คน แต่ละตอนจบในตัว เส้นเรื่องรายปีเป็นฉากหลังไม่เกิน 10 วินาทีต่อตอน คนที่พลาดบางตอนยังดูรู้เรื่อง</dd>
-        <dt>การเรียกตัวละคร</dt><dd>เรียกตามหน้าที่ในตอนนั้น เช่น พี่ HR พี่จัดซื้อ พี่เซลส์ หัวหน้าไซต์ น้องใหม่ ไม่ใช้ชื่อ หน้าตาคงเดิมทุกตอนตาม Character sheet</dd>
+        <dt>การเรียกตัวละคร</dt><dd>เรียกตามหน้าที่ในตอนนั้น เช่น พี่ HR พี่จัดซื้อ พี่เซลส์ หัวหน้าไซต์ น้องใหม่ ไม่ใช้ชื่อ หน้าตาคงเดิมทุกตอน นิสัยและหน้าตาของทุกตัวละครอยู่ในแท็บ <a href="#chars" class="go-chars">Character sheet</a></dd>
         <dt>โทน</dt><dd>ดราม่าสมจริง แทรกขำเบา ๆ จากนิสัยตัวละคร</dd>
         <dt>ผู้อธิบายกติกา</dt><dd>พี่ Compliance อธิบายในเรื่องที่มุมกาแฟ ผู้บรรยายนอกจอใช้แค่เปิดเรื่อง หยุดคิด และปิดท้าย</dd>
         <dt>ความยาว</dt><dd>ประมาณ 2 นาทีต่อตอน (1:54–2:16)</dd>
@@ -572,12 +655,12 @@ summary .m small{display:block;font-size:12px}
     <section>
       <div class="sec-head"><span class="eyebrow">เส้นเรื่องรายปี</span><h2>3 ปี 3 เส้นเรื่อง เดินเป็นฉากหลังของแต่ละตอน</h2><p class="muted">ตอนเปิดปี จุดพีค และตอนปิดปี เป็นตอนที่เส้นเรื่องเด่นที่สุด</p></div>
       <div class="srs-yrs">
-        <article class="srs-yr"><span class="lno">ปีที่ 1 · ต.ค. 69 – ก.ย. 70</span><h3>ปีแรกของน้องใหม่</h3><p>ครบ 11 หัวข้อหลักผ่านสายตาพนักงานใหม่</p>
-          <ul class="srs-beats"><li><b>เริ่ม · ต.ค. 69</b>วันแรกของน้องใหม่ เห็นทุกคนตัดสินใจเรื่องที่ดูเหมือนงานธรรมดา</li><li><b>จุดพีค · ก.พ. 70</b>พี่บัญชีแจ้งเบาะแสครั้งแรก และได้รู้ว่าเรื่องไปไหนต่อ</li><li><b>จบปี · ก.ย. 70</b>น้องใหม่ผ่านทดลองงาน แปะโน้ต 3 คำถามที่จอเอง</li></ul></article>
-        <article class="srs-yr"><span class="lno">ปีที่ 2 · ต.ค. 70 – ก.ย. 71</span><h3>ดีลใหญ่</h3><p>บริษัทได้ลูกค้ารายใหญ่ งานเพิ่ม แรงกดดันเพิ่ม</p>
-          <ul class="srs-beats"><li><b>เริ่ม · ต.ค. 70</b>หัวหน้าขึ้นเป็นผู้จัดการฝ่ายปฏิบัติการ คู่ค้าเริ่มสั่งงานนอกสัญญา</li><li><b>จุดพีค · ส.ค. 71</b>พี่วิศวกรแจ้งเบาะแสเรื่องในโครงการใหญ่ แล้วถูกกันออกจากงาน ก่อนได้กลับเข้าห้องประชุมโครงการ</li><li><b>จบปี · ก.ย. 71</b>ส่งมอบดีลใหญ่อย่างถูกต้อง ทีมชั้น 12 ปรบมือ</li></ul></article>
-        <article class="srs-yr"><span class="lno">ปีที่ 3 · ต.ค. 71 – ก.ย. 72</span><h3>ส่งไม้ต่อ</h3><p>คนที่เคยพลาดกลายเป็นคนสอน</p>
-          <ul class="srs-beats"><li><b>เริ่ม · ต.ค. 71</b>น้องใหม่รุ่นถัดไปเข้าทีม น้องใหม่ของปีแรกซึ่งตอนนี้เป็นพี่ดิจิทัล เป็นพี่เลี้ยง</li><li><b>จุดพีค · ม.ค. 72</b>มีเรื่องร้องเรียนในทีม คนในทีมอยากรู้ว่าใครแจ้ง</li><li><b>จบปี · ก.ย. 72</b>ทุกโต๊ะมีโน้ตคำถามก่อนตัดสินใจ แก้วกาแฟของหัวหน้ามีคำว่า "...อย่างถูกต้อง"</li></ul></article>
+        <article class="srs-yr"><span class="lno">ปีที่ 1 · พ.ย. 69 – ต.ค. 70</span><h3>ปีแรกของน้องใหม่</h3><p>ครบ 11 หัวข้อหลักผ่านสายตาพนักงานใหม่</p>
+          <ul class="srs-beats"><li><b>เริ่ม · พ.ย. 69</b>วันแรกของน้องใหม่ เห็นทุกคนตัดสินใจเรื่องที่ดูเหมือนงานธรรมดา</li><li><b>จุดพีค · มี.ค. 70</b>พี่บัญชีแจ้งเบาะแสครั้งแรก และได้รู้ว่าเรื่องไปไหนต่อ</li><li><b>จบปี · ต.ค. 70</b>น้องใหม่ผ่านทดลองงาน แปะโน้ต 3 คำถามที่จอเอง</li></ul></article>
+        <article class="srs-yr"><span class="lno">ปีที่ 2 · พ.ย. 70 – ต.ค. 71</span><h3>ดีลใหญ่</h3><p>บริษัทได้ลูกค้ารายใหญ่ งานเพิ่ม แรงกดดันเพิ่ม</p>
+          <ul class="srs-beats"><li><b>เริ่ม · พ.ย. 70</b>หัวหน้าขึ้นเป็นผู้จัดการฝ่ายปฏิบัติการ คู่ค้าเริ่มสั่งงานนอกสัญญา</li><li><b>จุดพีค · ก.ย. 71</b>พี่วิศวกรแจ้งเบาะแสเรื่องในโครงการใหญ่ แล้วถูกกันออกจากงาน ก่อนได้กลับเข้าห้องประชุมโครงการ</li><li><b>จบปี · ต.ค. 71</b>ส่งมอบดีลใหญ่อย่างถูกต้อง ทีมชั้น 12 ปรบมือ</li></ul></article>
+        <article class="srs-yr"><span class="lno">ปีที่ 3 · พ.ย. 71 – ต.ค. 72</span><h3>ส่งไม้ต่อ</h3><p>คนที่เคยพลาดกลายเป็นคนสอน</p>
+          <ul class="srs-beats"><li><b>เริ่ม · พ.ย. 71</b>น้องใหม่รุ่นถัดไปเข้าทีม น้องใหม่ของปีแรกซึ่งตอนนี้เป็นพี่ดิจิทัล เป็นพี่เลี้ยง</li><li><b>จุดพีค · ก.พ. 72</b>มีเรื่องร้องเรียนในทีม คนในทีมอยากรู้ว่าใครแจ้ง</li><li><b>จบปี · ต.ค. 72</b>ทุกโต๊ะมีโน้ตคำถามก่อนตัดสินใจ แก้วกาแฟของหัวหน้ามีคำว่า "...อย่างถูกต้อง"</li></ul></article>
       </div>
     </section>
 
@@ -596,6 +679,7 @@ summary .m small{display:block;font-size:12px}
         </tbody>
       </table></div>
     </section>
+
 
     <section>
       <div class="sec-head"><span class="eyebrow">กติกาตัวละครและมุกประจำ</span><h2>ไม่มีแผนกไหนเป็นตัวร้ายประจำ ขำได้แต่ไม่ล้อใคร</h2></div>
@@ -618,63 +702,146 @@ summary .m small{display:block;font-size:12px}
         </ul></div>
       </div>
     </section>
+  </div>
 
+  <div class="tabpanel" id="chars" role="tabpanel" aria-labelledby="tab-chars" hidden>
     <section>
-      <div class="sec-head"><span class="eyebrow">ตัวละครหลัก</span><h2>7 คนประจำชั้น 12</h2><p class="muted">ป้ายแรกคือชื่อเรียกที่ใช้บ่อยที่สุด ป้ายถัดไปคือหน้าที่ที่ได้รับในตอนอื่น จำนวนตอนนับเฉพาะตอนที่เป็นตัวเอก</p></div>
-      <div class="srs-chars">
-        <article class="srs-c"><h4>พี่ Compliance</h4><span class="srs-who">หญิง · 39 · ฝ่าย Compliance</span><p>ผู้อธิบายกติกาประจำซีรีส์ ปรากฏทุกตอน</p><p class="lab">ใช้ป้ายนี้ทุกตอน</p><span class="n">อยู่ในทั้ง 71 ตอน</span></article>
-        <article class="srs-c"><h4>หัวหน้า</h4><span class="srs-who">ชาย · 43 · หัวหน้าฝ่ายปฏิบัติการ ขึ้นเป็นผู้จัดการในปีที่ 2</span><p>เจ้าของแก้ว "งานต้องเดิน"</p><p class="lab">ป้ายอื่น: พี่ PM · หัวหน้าไซต์ · หัวหน้าช่าง · หัวหน้าเซลส์ · หัวหน้าโครงการ · ผู้จัดการโรงงาน</p><span class="n">ตัวเอก 15 ตอน</span></article>
-        <article class="srs-c"><h4>พี่หน้างาน</h4><span class="srs-who">ชาย · 34 · ผู้ประสานงานโครงการ ทีมหน้างาน</span><p>เจ้าของกล่องข้าวลายดอกไม้</p><p class="lab">ป้ายอื่น: พี่วิศวกร · พี่ช่าง · หัวหน้าไซต์ · พี่เซฟตี้ · พี่โฟร์แมน · พี่บริการลูกค้า · พี่ฝ่ายผลิต</p><span class="n">ตัวเอก 13 ตอน</span></article>
-        <article class="srs-c"><h4>พี่เซลส์</h4><span class="srs-who">หญิง · 29 · ฝ่ายขาย</span><p>รับปากลูกค้าเก่ง กำลังฝึกพูด "ขอตรวจก่อน"</p><p class="lab">ป้ายอื่น: พี่การตลาด · พี่ฝ่ายธุรกิจ · พี่วิศวกร · พี่ PM · พี่ QC</p><span class="n">ตัวเอก 12 ตอน</span></article>
-        <article class="srs-c"><h4>พี่บัญชี</h4><span class="srs-who">หญิง · 51 · บัญชีและจัดซื้ออาวุโส</span><p>แม่ของออฟฟิศ แจกขนมทั้งโต๊ะ</p><p class="lab">ป้ายอื่น: พี่จัดซื้อ · พี่การเงิน · พี่วางแผนผลิต · พี่ Audit</p><span class="n">ตัวเอก 11 ตอน</span></article>
-        <article class="srs-c"><h4>น้องใหม่ → พี่ดิจิทัล</h4><span class="srs-who">หญิง · 24 · พนักงานใหม่ฝ่ายดิจิทัล</span><p>ปีที่ 1 เป็นน้องใหม่ ปีที่ 3 เป็นพี่เลี้ยงของน้องใหม่รุ่นถัดไป</p><p class="lab">ป้ายอื่น: น้องวิศวกร · น้อง IT · น้อง HR · น้องธุรการ · พี่วิศวกร · พี่ประสานงาน · พี่ธุรการ · พี่การตลาด · หัวหน้าทีม</p><span class="n">ตัวเอก 9 ตอน</span></article>
-        <article class="srs-c"><h4>พี่ HR</h4><span class="srs-who">ชาย · 37 · ฝ่ายทรัพยากรบุคคล</span><p>รู้จักทุกคนในบริษัท ดูแลเรื่องคนและข้อมูลพนักงาน</p><p class="lab">ใช้ป้ายนี้ทุกตอน</p><span class="n">ตัวเอก 2 ตอน · ร่วมแสดง 3 ตอน</span></article>
+      <div class="sec-head"><span class="eyebrow">Character sheet</span><h2>ตัวละคร 9 คน: นิสัย หน้าตา และคำสั่งสร้างภาพใน Google Flow</h2><p class="muted">ทุกคนเป็นคนสมมติ ไม่อิงหน้าตาพนักงานหรือบุคคลจริง ป้ายแรกคือชื่อเรียกที่ใช้บ่อยที่สุด ในตอนอื่นอาจเรียกตามหน้าที่ในตอนนั้น</p></div>
+      <div class="cs-grid" id="cs-grid"></div>
+      <p class="mnote cs-note">ตัวละครรอง เช่น ผู้บริหาร ลูกค้า ซัพพลายเออร์ ผู้รับเหมา และ DPO ใช้คนละหน้าในแต่ละตอน คำสั่งภาพอ้างอิงของตัวละครรองอยู่ในหน้า Prompt สำหรับ Flow ของตอนนั้น</p>
+      <h3 class="cs-h">วิธีใช้ใน Google Flow <a class="fg-more" href="#flowguide">ดูคู่มือแบบละเอียดทีละขั้น →</a></h3>
+      <ol class="cs-steps">
+        <li><b>สร้างภาพอ้างอิง</b>คัดลอกคำสั่ง "ภาพอ้างอิง" ของตัวละครไปสร้างภาพใน Flow สร้างหลายครั้งแล้วเลือกภาพที่ใช่ที่สุด 1 ภาพ บันทึกเป็น Ingredient ตั้งชื่อตามป้ายตัวละคร</li>
+        <li><b>สร้างมุมเสริม</b>ใช้ภาพที่เลือกเป็นต้นแบบ สร้างภาพครึ่งตัวมุม 3/4 และสีหน้าหลักตามที่ระบุ เก็บไว้ในโฟลเดอร์เดียวกัน</li>
+        <li><b>ใช้ในแต่ละฉาก</b>เปิดสตอรีบอร์ดของตอน เลือกเวอร์ชันละคร แล้วกด "Prompt สำหรับ Flow" คำสั่งทุกช็อตใส่หน้าตาตัวละครไว้แล้ว ให้แนบ Ingredient ของตัวละครที่อยู่ในช็อตนั้น (ไม่เกิน 3 คน)</li>
+        <li><b>ข้อความในภาพ</b>ป้าย "ชั้น 12" ข้อความบนแก้ว และโน้ตภาษาไทย ให้ใส่ตอนตัดต่อ ไม่ต้องให้ AI เขียน เพราะตัวอักษรไทยมักเพี้ยน</li>
+      </ol>
+      <div class="cs-common">
+        <div><h3>สไตล์ภาพที่ใช้ร่วมกันทุกคำสั่ง</h3><pre class="cs-p" id="cs-style"></pre><button type="button" class="sb-copy cs-copy" data-for="cs-style">คัดลอก</button></div>
+        <div><h3>ฉากประจำ (Ingredient ฉาก)</h3><pre class="cs-p" id="cs-set"></pre><button type="button" class="sb-copy cs-copy" data-for="cs-set">คัดลอก</button></div>
       </div>
     </section>
+  </div>
 
-    <section>
-      <div class="sec-head"><span class="eyebrow">ตัวละครหมุนเวียน</span><h2>เข้ามาตามช่วงของเส้นเรื่อง</h2></div>
-      <div class="seqtbl-wrap"><table class="seqtbl srs-ch">
-        <thead><tr><th>ตัวละคร</th><th>เป็นใคร</th><th>ป้ายที่ใช้</th><th>บทบาทในเรื่อง</th></tr></thead>
-        <tbody>
-          <tr><td>น้องเซลส์</td><td>ชาย · 27 · เซลส์ใหม่ เข้าทีมขายในปีที่ 1</td><td>น้องเซลส์ · น้องวิศวกร</td><td>ตัวเอก 2 ตอน: ไฟล์ราคาจากบริษัทเก่า (เม.ย. 70) และงานที่เขียนเองตอนลาออก (ก.ย. 71)</td></tr>
-          <tr><td>น้องใหม่ปีที่ 3</td><td>ชาย · 22 · เข้าทำงาน ต.ค. 71</td><td>น้องจัดซื้อ · น้องวิศวกร · น้องฝ่ายผลิต · น้อง HR · น้องนักวิเคราะห์</td><td>ตัวเอก 7 ตอน มีพี่ดิจิทัลเป็นพี่เลี้ยง ปิดซีรีส์ด้วยคำถามก่อนตัดสินใจ</td></tr>
-          <tr><td>ผู้บริหาร</td><td>ผู้บริหารระดับสูงของบริษัท</td><td>ผู้บริหาร · ผู้อนุมัติ</td><td>ปรากฏในตอนเรื่องอำนาจอนุมัติและการกำกับดูแล ไม่เป็นตัวร้ายประจำ</td></tr>
-          <tr><td>คนนอกบริษัท</td><td>ลูกค้า ซัพพลายเออร์ ผู้รับเหมา Vendor ที่ปรึกษา เจ้าหน้าที่รัฐ</td><td>เรียกตามบทบาท</td><td>ใช้คนละหน้าในแต่ละตอน</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+  <div class="tabpanel" id="flowguide" role="tabpanel" aria-labelledby="tab-flowguide" hidden>
+    <section class="fg">
+      <div class="sec-head"><span class="eyebrow">คู่มือ Google Flow</span><h2>ทำละคร "ชั้น 12" ใน Google Flow ทีละขั้น</h2><p class="muted">ทำ 5 ช่วงตามลำดับ ช่วงที่ 1–2 ทำครั้งเดียวใช้ทั้งซีรีส์ ช่วงที่ 3–5 ทำทุกตอน คำสั่งทั้งหมดอยู่ในเว็บนี้แล้ว คัดลอกไปวางได้เลย</p></div>
 
-    <section>
-      <div class="sec-head"><span class="eyebrow">คาแรกเตอร์ตัวละคร</span><h2>นิสัย จุดพลาด และการเติบโตตลอด 3 ปี</h2><p class="muted">ทุกคนเคยพลาดและเคยทำถูก มุกท้ายตอนมาจากนิสัยในตารางนี้</p></div>
-      <div class="seqtbl-wrap"><table class="seqtbl srs-ch">
-        <thead><tr><th>ตัวละคร</th><th>คาแรกเตอร์</th><th>จุดที่ทำให้พลาด</th><th>ประโยคติดปาก</th><th>เติบโตตลอด 3 ปี</th><th>ตัวอย่างมุกท้ายตอน</th></tr></thead>
-        <tbody>
-          <tr><td>พี่ Compliance</td><td>เป็นกันเอง ไม่ดุ ชอบเปรียบเทียบใกล้ตัว เป็นพี่เลี้ยง ไม่ใช่ตำรวจ</td><td>ปีที่ 2 ต้องรักษาความลับผู้แจ้ง แม้คนใกล้ตัวกดดัน</td><td>"ลองถามตัวเองสามข้อก่อน"</td><td>ตอนจบ โน้ต 3 คำถามของเธออยู่บนโต๊ะทุกคน</td><td>–</td></tr>
-          <tr><td>หัวหน้า</td><td>พูดตรง งานต้องเสร็จ ใจดีกับลูกน้อง</td><td>ความกดดันเรื่องเวลา</td><td>"งานต้องเดิน"</td><td>ปีที่ 2 ต้องเลือกระหว่างเป้ากับขั้นตอน ปีที่ 3 เป็นหัวหน้าที่ลูกน้องกล้าทัก</td><td>เดินผ่านกระดานทีม ลบคำว่า "ด่วนมาก" ออกหนึ่งคำ</td></tr>
-          <tr><td>พี่หน้างาน</td><td>ขี้เล่น ขยัน มีลูกเล็กและภาระทางบ้าน</td><td>เรื่องเงิน งานเสริม ช่วยเพื่อนเกินขอบเขต</td><td>"นิดเดียวเอง ไม่มีใครเสียหาย"</td><td>ปีที่ 2 เป็นคนแจ้งเบาะแสเรื่องในโครงการใหญ่ และได้รับความคุ้มครอง</td><td>พึมพำ "นิดเดียวเอง..." แล้วรีบแก้เป็น "ถามก่อนดีกว่า"</td></tr>
-          <tr><td>พี่เซลส์</td><td>ร่าเริง เข้ากับลูกค้าเก่ง ไม่อยากทำให้ใครผิดหวัง</td><td>รับปากลูกค้าก่อนตรวจ</td><td>"ได้ค่ะ ไม่มีปัญหา!"</td><td>ประโยคติดปากค่อย ๆ เปลี่ยนเป็น "ได้ค่ะ... ขอตรวจก่อนนะคะ"</td><td>ซ้อมพูด "ขอตรวจก่อนนะคะ" กับกระจกในลิฟต์ แล้วสะดุ้งเมื่อประตูเปิด</td></tr>
-          <tr><td>พี่บัญชี</td><td>ละเอียด อบอุ่น เป็นเหมือนแม่ของออฟฟิศ</td><td>ไว้ใจคนที่รู้จักมานาน เกรงใจ</td><td>"พี่ทำงานกับเขามาสิบปีแล้วนะ"</td><td>เรียนรู้ว่าความไว้ใจกับการตรวจสอบไปด้วยกันได้</td><td>แปะโน้ต "สิบปีก็ยังต้องเทียบราคา" ไว้ข้างจอ</td></tr>
-          <tr><td>น้องใหม่ → พี่ดิจิทัล</td><td>ฉลาด ไว ช่างถาม ชอบลองเครื่องมือใหม่</td><td>ใช้ทางลัดด้วยเทคโนโลยีโดยไม่คิดเรื่องข้อมูล</td><td>"เดี๋ยวให้ AI ช่วย"</td><td>จากเด็กใหม่ที่ต้องถาม กลายเป็นพี่เลี้ยงของน้องใหม่ในปีที่ 3</td><td>เปลี่ยนชื่อโฟลเดอร์เป็น "ถามพี่ Compliance ก่อน"</td></tr>
-          <tr><td>พี่ HR</td><td>อารมณ์ดี รู้จักทุกคนในบริษัท เป็นที่ปรึกษาทั้งเรื่องงานและเรื่องชีวิต</td><td>อยากช่วยคนจนเผลอเปิดเผยข้อมูลส่วนตัว หรือเร่งเรื่องจนข้ามขั้นตอน</td><td>"เรื่องคน พี่จัดให้"</td><td>ปีที่ 3 รักษาความลับเรื่องร้องเรียนและข้อมูลสุขภาพ กลายเป็นคนที่ทุกคนไว้ใจเรื่องข้อมูล</td><td>รดน้ำต้นไม้บนโต๊ะที่ตั้งชื่อว่า "น้องนโยบาย"</td></tr>
-          <tr><td>น้องเซลส์</td><td>กระตือรือร้น อยากพิสูจน์ตัวเอง</td><td>เอางานหรือข้อมูลจากที่เก่ามาใช้โดยไม่คิดว่าเป็นของใคร</td><td>–</td><td>ปีที่ 1 เรียนรู้ว่าข้อมูลของบริษัทเก่าใช้ไม่ได้ ปีที่ 2 รู้ว่างานที่ทำให้บริษัทเอาไปไม่ได้เมื่อลาออก</td><td>ผูกเชือกรองเท้าผ้าใบคู่ใหม่ แล้ววิ่งตามทีมไปประชุม</td></tr>
-          <tr><td>น้องใหม่ปีที่ 3</td><td>ขยัน จดทุกอย่าง กล้าถาม</td><td>ยังไม่รู้ว่าเรื่องไหนต้องรายงานหรือต้องถามก่อน</td><td>–</td><td>จากคนที่ถูกสอน กลายเป็นคนที่แปะโน้ตคำถามก่อนตัดสินใจเอง</td><td>จดทุกอย่างลงสมุดเล่มเล็ก หน้าล่าสุดเขียนว่า "ถามก่อนทำ"</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+      <ol class="fg-map">
+        <li><b>1</b><span>ตั้งโปรเจกต์</span><small>ครั้งเดียว</small></li>
+        <li><b>2</b><span>ภาพอ้างอิงตัวละครและฉาก</span><small>ครั้งเดียว</small></li>
+        <li><b>3</b><span>สร้างช็อตของตอน</span><small>ทุกตอน</small></li>
+        <li><b>4</b><span>เสียง</span><small>ทุกตอน</small></li>
+        <li><b>5</b><span>ตัดต่อและตรวจ</span><small>ทุกตอน</small></li>
+      </ol>
 
-    <section>
-      <div class="sec-head"><span class="eyebrow">ตัวเอกและเส้นเรื่องทั้ง 71 ตอน</span><h2>ใครเป็นตัวเอกตอนไหน อิงเคสอะไร</h2><p class="muted">กดชื่อตอนเพื่อเปิดสตอรีบอร์ดเวอร์ชันละคร ช่องเส้นเรื่องรายปีมีเฉพาะตอนที่มีฉากหลังของเส้นเรื่อง</p></div>
-      <div class="seqtbl-wrap"><table class="seqtbl srs-tbl">
-        <thead><tr><th>ออกอากาศ</th><th>ตอน</th><th>ตัวเอก</th><th>ตัวละครร่วม</th><th>เคสจริงที่อิง</th><th>เส้นเรื่องรายปี</th></tr></thead>
-        <tbody id="srs-eps"></tbody>
-      </table></div>
+      <div class="fg-phase">
+        <h3><span class="fg-n">1</span>ตั้งโปรเจกต์ใน Flow <em>ทำครั้งเดียว</em></h3>
+        <ol class="fg-steps">
+          <li><b>เปิด Flow</b>เข้า <a href="https://labs.google/flow" target="_blank" rel="noopener">labs.google/flow</a> ด้วยบัญชี Google ที่ทีมใช้ สร้างโปรเจกต์ใหม่ชื่อ "ชั้น 12"</li>
+          <li><b>ตั้งแนวตั้ง</b>ในการตั้งค่าของกล่องคำสั่ง เลือก Aspect ratio เป็นแนวตั้ง 9:16 ทั้งภาพนิ่งและวิดีโอ เพราะคำสั่งทุกช็อตเขียนไว้สำหรับจอมือถือ</li>
+          <li><b>แยก Collection</b>สร้าง Collection "ตัวละคร" และ "ฉากประจำ" ไว้เก็บภาพอ้างอิง ส่วนงานของแต่ละตอนสร้าง Collection ตามวันเผยแพร่ เช่น "3 พ.ย. 69" จะหาไฟล์ง่ายตอนตัดต่อ</li>
+        </ol>
+      </div>
+
+      <div class="fg-phase">
+        <h3><span class="fg-n">2</span>สร้างภาพอ้างอิง (Ingredient) <em>ทำครั้งเดียว ใช้ทั้งซีรีส์</em></h3>
+        <p class="fg-lead">ภาพอ้างอิงคือหน้าตาที่ Flow จะยึดไว้ทุกช็อต ถ้าภาพนี้ดี ตัวละครจะหน้าเดิมทั้ง 72 ตอน ใช้เวลากับขั้นนี้ให้คุ้ม</p>
+        <ol class="fg-steps">
+          <li><b>คัดลอกคำสั่ง</b>เปิดแท็บ <a href="#chars">Character sheet</a> ที่การ์ดตัวละคร กด "คัดลอก" ใต้ "คำสั่งภาพอ้างอิง (Ingredient)"</li>
+          <li><b>สร้างภาพ</b>ใน Flow กดชื่อโมเดลในกล่องคำสั่ง เลือกโหมดสร้างภาพ วางคำสั่ง แล้วกดสร้าง ทำซ้ำ 3–4 รอบ ให้มีภาพให้เลือกอย่างน้อย 8 ภาพ</li>
+          <li><b>เลือก 1 ภาพ</b>ใช้เกณฑ์ในกล่อง "เลือกภาพอย่างไร" ด้านล่าง ภาพที่ไม่เลือกลบทิ้ง จะได้ไม่เผลอใช้ผิดภาพ</li>
+          <li><b>ตั้งชื่อตามป้าย</b>ตั้งชื่อภาพที่เลือกตามป้ายตัวละคร เช่น "พี่หน้างาน" "พี่ HR" แล้วเพิ่มเข้า Collection "ตัวละคร" ชื่อนี้คือชื่อที่จะพิมพ์ <code>@</code> เรียกใช้ทีหลัง</li>
+          <li><b>สร้างมุม 3/4</b>แนบภาพต้นแบบ (พิมพ์ <code>@ชื่อตัวละคร</code> หรือกด Add) แล้วกดคัดลอก "มุม 3/4 ครึ่งตัว" ในการ์ดของตัวละครนั้นที่แท็บ <a href="#chars">Character sheet</a> ตั้งชื่อ "พี่หน้างาน · 3/4"</li>
+          <li><b>สร้างสีหน้าหลัก</b>แนบภาพต้นแบบอีกครั้ง แล้วกดคัดลอกคำสั่งสีหน้าในการ์ดของตัวละครนั้น ทำทีละสีหน้า (คนละ 3 สีหน้า) ตั้งชื่อ เช่น "พี่หน้างาน · ลังเล"</li>
+          <li><b>ทำให้ครบ 9 คน</b>ทำข้อ 1–6 ให้ครบตัวละครหลักทั้ง 9 คน น้องใหม่ทำชุดปีที่ 3 (มีเบลเซอร์) เพิ่มอีก 1 ภาพจากคำสั่งด้านล่าง ตั้งชื่อ "น้องใหม่ · ปีที่ 3" ส่วนพี่หน้างานและหัวหน้าทำ "ชุดหน้างาน" (หมวกนิรภัย เสื้อกั๊กสะท้อนแสง รองเท้าเซฟตี้) เพิ่มอีกคนละ 1 ภาพจากการ์ด ตั้งชื่อ "พี่หน้างาน · หน้างาน" และ "หัวหน้า · หน้างาน" ตัวละครรองไม่ต้องทำตอนนี้ ทำในช่วงที่ 3 ของตอนที่มีเขา</li>
+          <li><b>ฉากประจำ</b>คัดลอก "ฉากประจำ (Ingredient ฉาก)" ใน Character sheet ไปสร้างภาพ เลือก 1 ภาพ ตั้งชื่อ "ฉาก · ชั้น 12" เก็บใน Collection "ฉากประจำ"</li>
+        </ol>
+                <div class="cs-common">
+          <div><h3>น้องใหม่ชุดปีที่ 3 (ทำแยกอีกภาพ)</h3><pre class="cs-p" id="fg-n3">Same single person as the attached reference image, identical face and hairstyle, now one year older and more confident, wearing a light-grey blazer over the same mint-green shirt, black trousers, white sneakers, holding a laptop covered with small stickers. Full body, front view, standing relaxed, plain light-grey studio background, soft even lighting, photorealistic, fictional person, no logos, no text.</pre><button type="button" class="sb-copy cs-copy" data-for="fg-n3">คัดลอก</button></div>
+        </div>
+        <div class="fg-box">
+          <h4>เลือกภาพอย่างไร</h4>
+          <ul>
+            <li>ชุดตรงกับ "การแต่งตัว" ในการ์ด โดยเฉพาะสี เช่น พี่หน้างานโปโลสีน้ำเงินกับกางเกงคาร์โก้สีดำ หัวหน้าเชิ้ตขาวกับกางเกงสีดำ</li>
+            <li>หน้าไม่คล้ายดาราหรือคนดังที่รู้จัก ถ้าคล้ายให้ทิ้ง</li>
+            <li>ไม่มีตัวอักษร โลโก้ หรือลายที่อ่านเป็นคำได้บนเสื้อและพื้นหลัง</li>
+            <li>มือ นิ้ว และตาปกติ ไม่บิดเบี้ยว</li>
+            <li>เห็นทั้งตัว หน้าชัด ไม่มีอะไรบัง เพราะภาพนี้จะเป็นต้นแบบทุกมุม</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fg-phase">
+        <h3><span class="fg-n">3</span>สร้างช็อตของแต่ละตอน <em>ทำทุกตอน</em></h3>
+        <ol class="fg-steps">
+          <li><b>เปิดคำสั่งของตอน</b>ไปที่แท็บ <a href="#plan">Action Plan</a> กดที่คลิป เลื่อนลงไปที่สตอรีบอร์ด เลือก "ละครซีรีส์ "ชั้น 12"" แล้วกด "Prompt สำหรับ Flow"</li>
+          <li><b>ดูภาพรวม</b>บรรทัดบนสุดบอกจำนวนช็อตที่ต้องสร้าง และจำนวนฉากที่ "ทำในขั้นตัดต่อ" ฉากแบบหลังไม่ต้องสร้างใน Flow</li>
+          <li><b>เตรียมตัวละครรอง</b>ในกล่อง "Ingredient ที่ใช้ในตอนนี้" ถ้ามีตัวละครรอง (ผู้บริหาร ลูกค้า ผู้รับเหมา ฯลฯ) กด "คัดลอกคำสั่งภาพอ้างอิง" ไปสร้างภาพอ้างอิงแบบช่วงที่ 2 ข้อ 2–4 เก็บใน Collection ของตอนนั้น</li>
+          <li><b>สร้างภาพนิ่งของช็อต</b>กด "คัดลอก" ใต้ "ภาพนิ่ง" ของช็อต 1 ใน Flow เลือกโหมดสร้างภาพ แนบ Ingredient ของตัวละครที่อยู่ในช็อต (ไม่เกิน 3 คน) ถ้าช็อตอยู่ที่ไซต์ โรงงาน หรือคลังสินค้า ให้แนบภาพ "ชุดหน้างาน" ของพี่หน้างานและหัวหน้าแทนภาพในออฟฟิศ และฉากถ้าเป็นชั้น 12 วางคำสั่ง แล้วสร้าง 2–4 ภาพ เลือกภาพที่หน้าและชุดตรงที่สุด</li>
+          <li><b>ทำเป็นวิดีโอ</b>กดชื่อโมเดล เลือก Video แล้วเลือก Frames ลากภาพนิ่งที่เลือกไปที่ "+ Add start frame" กลับมาที่เว็บ กด "คัดลอก" ใต้ "วิดีโอ" ของช็อตเดียวกัน วางในกล่องคำสั่ง ตั้งความยาวตามที่ช็อตระบุ (4, 6 หรือ 8 วินาที) แล้วกด Generate</li>
+          <li><b>ตรวจผล</b>ดูว่าหน้า ชุด และท่าตรงคำสั่ง ถ้าตัวละครพูด ฟังว่าปากขยับตรงเสียง ถ้าไม่ผ่านกดสร้างใหม่ 1–2 รอบ ถ้ายังไม่ผ่านดูกล่อง "แก้ปัญหาที่เจอบ่อย"</li>
+          <li><b>ช็อตที่ยาวกว่า 8 วินาที</b>ถ้าใต้ช็อตเขียนว่าให้ต่อด้วย Extend ใช้คำสั่ง Extend ต่อจากคลิปที่ได้ หรือถ้าเขียนว่าให้ค้างภาพสุดท้าย ให้ทำตอนตัดต่อ</li>
+          <li><b>ทำจนครบทุกช็อต</b>ทำข้อ 4–7 ทีละช็อตตามลำดับ ช็อตที่ตามกันในฉากเดียว ใช้เฟรมสุดท้ายของช็อตก่อนเป็นภาพเริ่มของช็อตถัดไปได้ ภาพจะต่อเนื่องกว่า</li>
+          <li><b>ดาวน์โหลด</b>ดาวน์โหลดคลิปทั้งหมด ตั้งชื่อไฟล์ตามเลขฉากและเลขช็อต เช่น <code>s04-2.mp4</code> จะเรียงถูกเองในโปรแกรมตัดต่อ</li>
+        </ol>
+        <div class="fg-box fg-alt">
+          <h4>ทางเลือก: สร้างวิดีโอโดยไม่ทำภาพนิ่งก่อน</h4>
+          <p>กดชื่อโมเดล เลือก Video แล้วเลือก Ingredients แนบตัวละครด้วย <code>@ชื่อ</code> วางคำสั่ง "วิดีโอ" แล้วกด Generate เร็วกว่า แต่คุมองค์ภาพได้น้อยกว่า เหมาะกับช็อตกว้างหรือช็อตแทรกที่ไม่เน้นหน้า</p>
+        </div>
+      </div>
+
+      <div class="fg-phase">
+        <h3><span class="fg-n">4</span>เสียง <em>ทำทุกตอน · เลือกทางใดทางหนึ่งหรือใช้ผสม</em></h3>
+        <ol class="fg-steps">
+          <li><b>ทาง A: ให้ AI พูดในวิดีโอ</b>คำสั่งวิดีโอมีบทพูดภาษาไทยอยู่แล้ว วิดีโอที่ได้จึงมีเสียงพูด ฟังทุกช็อตว่าออกเสียงไทยถูก ไม่มีคำแปลก และเสียงคนเดิมเหมือนกันทุกช็อต</li>
+          <li><b>ทาง B: อัดเสียงแยก</b>กด "คัดลอกบทอัดเสียง (ไฟล์เสียงแยก)" ส่งให้ผู้พากย์หรือใช้โปรแกรมเสียง อัดไฟล์ละ 1 ฉาก ตั้งชื่อตามเลขฉาก แล้ววางทับในตัดต่อ ปิดเสียงพูดจากวิดีโอในช่วงนั้น</li>
+          <li><b>ผู้บรรยายและเสียงยาว</b>ช็อตที่เขียนว่า "เสียงบรรยายช่วงนี้ยาวเกินช็อต" หรือ "เสียงฉากนี้ใช้จากไฟล์เสียงแยก" ต้องใช้ทาง B สำหรับช่วงนั้นเสมอ</li>
+        </ol>
+        <p class="mnote">ถ้าเสียงตัวละครเปลี่ยนไปมาระหว่างช็อต ลองใช้ Voices ใน Ingredients ของ Flow เลือกเสียงให้ตัวละครแล้วเรียกด้วย <code>@Voice</code> (ใช้ได้เฉพาะการสร้างแบบ Ingredients) หรือเปลี่ยนไปใช้ทาง B ทั้งตอน</p>
+      </div>
+
+      <div class="fg-phase">
+        <h3><span class="fg-n">5</span>ตัดต่อและตรวจก่อนเผยแพร่ <em>ทำทุกตอน</em></h3>
+        <ol class="fg-steps">
+          <li><b>เรียงคลิป</b>วางคลิปตามเลขฉากและเวลาในสตอรีบอร์ด ความยาวรวม Main Story ประมาณ 2 นาที คลิปอังคารที่ 3 ไม่เกิน 1 นาที</li>
+          <li><b>ใส่ข้อความภาษาไทย</b>ป้าย "ชั้น 12" ข้อความบนแก้ว โน้ตภาษาไทย "ข้อความบนจอ" และ "ข้อความท้ายคลิป" ใส่ในโปรแกรมตัดต่อทั้งหมด ไม่ให้ AI เขียน เพราะตัวอักษรไทยมักเพี้ยน รายการที่ต้องใส่อยู่ในบรรทัด "ใส่ตอนตัดต่อ" ใต้แต่ละฉาก</li>
+          <li><b>ทำฉากตัดต่อ</b>ฉากที่ขึ้นว่า "ทำในขั้นตัดต่อ" เช่น ภาพหยุดนิ่ง วงนับถอยหลัง ธงแดง ทำด้วยกราฟิกในโปรแกรมตัดต่อ</li>
+          <li><b>ใส่ดนตรีและเสียงประกอบ</b>ตามช่อง "ดนตรี" ของตอน ใช้เพลงที่มีสิทธิ์ใช้เท่านั้น</li>
+          <li><b>ตรวจรอบสุดท้าย</b>ใช้รายการในกล่อง "ตรวจก่อนส่ง" ด้านล่าง แล้วส่งให้เจ้าของเนื้อหาของธีมตรวจก่อนเผยแพร่</li>
+        </ol>
+        <div class="fg-box">
+          <h4>ตรวจก่อนส่ง</h4>
+          <ul class="fg-check">
+            <li>ตัวละครหน้าเดิมและชุดตรงการ์ดทุกช็อต</li>
+            <li>ไม่มีชื่อบริษัท โลโก้ หรือชื่อคนจริงในภาพ รวมถึงเคสจริงที่เล่าในคลิป</li>
+            <li>ไม่มีตัวอักษรเพี้ยนจาก AI หลงเหลือในภาพ (ป้าย จอคอม เอกสาร)</li>
+            <li>ข้อความไทยสะกดถูก ตรงกับสคริปต์</li>
+            <li>เสียงพูดชัด ตรงปาก และตรงบท</li>
+            <li>ข้อความท้ายคลิปและช่องทางแจ้งเรื่องถูกต้อง</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="fg-box fg-trouble">
+        <h4>แก้ปัญหาที่เจอบ่อย</h4>
+        <dl>
+          <dt>หน้าตัวละครเปลี่ยนระหว่างช็อต</dt><dd>สร้างภาพนิ่งก่อนแล้วใช้ Frames ทุกครั้ง แนบทั้งภาพต้นแบบและมุม 3/4 และใช้เฟรมสุดท้ายของช็อตก่อนเป็นภาพเริ่ม</dd>
+          <dt>ชุดผิดสี</dt><dd>แนบภาพต้นแบบที่ชุดถูก แล้วสร้างใหม่ ถ้ายังผิด ใช้ภาพนิ่งที่ชุดถูกเป็นเฟรมแรก</dd>
+          <dt>มีตัวละครในช็อตมากกว่า 3 คน</dt><dd>แนบเฉพาะคนที่เห็นหน้าชัด คนที่อยู่ไกลหรือหันหลังไม่ต้องแนบ หรือแยกเป็น 2 ช็อต</dd>
+          <dt>มีตัวอักษรมั่วในภาพ</dt><dd>สร้างใหม่ หรือบังด้วยกราฟิกตอนตัดต่อ อย่าปล่อยไว้</dd>
+          <dt>คลิปสั้นกว่าเวลาในสตอรีบอร์ด</dt><dd>ใช้ Extend หรือค้างภาพสุดท้ายตามที่ช็อตบอกไว้</dd>
+          <dt>ภาพของฉากถูกแก้หลังเขียนคำสั่ง</dt><dd>ถ้าเห็นคำเตือนนี้ในหน้า Prompt อ่านช่องภาพในสตอรีบอร์ดก่อน แล้วปรับคำสั่งให้ตรงก่อนสร้าง</dd>
+        </dl>
+      </div>
+
+      <p class="mnote">ชื่อเมนูใน Flow อิงจากหน้าช่วยเหลือของ Google ณ ต.ค. 2569 ถ้า Flow ปรับหน้าตา ชื่อปุ่มอาจเปลี่ยน แต่ลำดับงานยังเหมือนเดิม · อ้างอิง: <a href="https://support.google.com/flow/answer/16353334?hl=en" target="_blank" rel="noopener">Create videos in Flow</a> · <a href="https://support.google.com/flow/answer/16935718?hl=en" target="_blank" rel="noopener">Edit videos &amp; build scenes in Google Flow</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-updates-february-2026/" target="_blank" rel="noopener">New ways to create and refine content in Flow</a></p>
     </section>
   </div>
 
   <div class="tabpanel" id="plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
     <section>
-      <div class="sec-head"><span class="eyebrow">ปฏิทินเผยแพร่</span><h2><span id="nclips">71</span> คลิป · อังคารที่ 1 และ 3 ของเดือน 17:00 น.</h2><p class="muted">เริ่ม อ. 20 ต.ค. 2569 (เดือนแรก 1 คลิป) · ตั้งแต่ พ.ย. 2569 เดือนละ 2 คลิป: เคสหลัก (อังคารที่ 1) · อีกมุมของเรื่อง (อังคารที่ 3)</p><p class="muted small">กดที่คลิปเพื่อเปิดสคริปต์</p></div>
+      <div class="sec-head"><span class="eyebrow">ปฏิทินเผยแพร่</span><h2><span id="nclips">71</span> คลิป · อังคารที่ 1 และ 3 ของเดือน 17:00 น.</h2><p class="muted">เริ่ม อ. 3 พ.ย. 2569 · เดือนละ 2 คลิป: เคสหลัก (อังคารที่ 1) · อีกมุมของเรื่อง (อังคารที่ 3)</p><p class="muted small">กดที่คลิปเพื่อเปิดสคริปต์</p></div>
       <div class="viewsw" role="group" aria-label="มุมมอง">
         <button class="vs" data-v="detail" aria-pressed="true">รายเดือน (2 คลิป)</button>
         <button class="vs" data-v="ov" aria-pressed="false">ภาพรวม 3 ปี</button>
@@ -688,7 +855,7 @@ summary .m small{display:block;font-size:12px}
     </section>
 
     <section id="register">
-      <div class="sec-head"><span class="eyebrow">รายการคลิป</span><h2>หัวข้อ Key Message และหมายเหตุก่อนผลิต</h2><p class="muted">ใช้ตัวกรองปีงบประมาณเดียวกับปฏิทินด้านบน</p></div>
+      <div class="sec-head"><span class="eyebrow">รายการคลิป</span><h2>หัวข้อ Key Message และหมายเหตุก่อนผลิต</h2><p class="muted">ใช้ตัวกรองปีเดียวกับปฏิทินด้านบน</p></div>
       <div class="filters" id="fmtf"></div>
       <div class="list" id="list"></div>
     </section>
@@ -742,8 +909,8 @@ summary .m small{display:block;font-size:12px}
       </div>
       <h3 class="cats-h">เทียบผลกับปีแรก</h3>
       <div class="base">
-        <div><span>พ.ย. 2569</span><b>ตั้งฐาน (baseline)</b><p>เพิ่งออกคลิป 3 ตัว ใช้เป็นจุดตั้งต้น</p></div>
-        <div><span>พ.ย. 2570</span><b>วัดผลปีที่ 1</b><p>เทียบกับฐาน รายกลุ่มและรายหน่วยงาน</p></div>
+        <div><span>พ.ย. 2569</span><b>ตั้งฐาน (baseline)</b><p>เดือนเดียวกับคลิปเปิดตัว ใช้เป็นจุดตั้งต้น</p></div>
+        <div><span>พ.ย. 2570</span><b>วัดผลปีที่ 1</b><p>หลังจบปีที่ 1 (ต.ค. 2570) เทียบกับฐาน รายกลุ่มและรายหน่วยงาน</p></div>
         <div><span>พ.ย. 2571</span><b>วัดผลปีที่ 2</b><p>ดูแนวโน้มต่อเนื่อง ใช้วางแผนรอบถัดไป</p></div>
       </div>
       <h3 class="cats-h">วิเคราะห์อะไร</h3>
@@ -772,28 +939,28 @@ summary .m small{display:block;font-size:12px}
   <dialog class="modal msm" id="dlg-seq" aria-labelledby="seq-title">
     <div class="modal-bar"><span class="eyebrow">หมายเหตุ</span><button class="modal-x" id="seq-x" aria-label="ปิดหลักการจัดลำดับเรื่อง">ปิด ✕</button></div>
     <h2 id="seq-title">หลักการจัดลำดับเรื่อง</h2>
-    <p class="lead">ใช้วางลำดับคลิปทั้ง 71 คลิป ตั้งแต่ ต.ค. 2569 ถึง ก.ย. 2572</p>
+    <p class="lead">ใช้วางลำดับคลิปทั้ง 72 คลิป ตั้งแต่ พ.ย. 2569 ถึง ต.ค. 2572</p>
     <ol class="seqlist">
       <li><b>1 เดือน 1 เรื่อง</b><p>อังคารที่ 1 เปิดประเด็นด้วยเคสหลัก อังคารที่ 3 เล่าอีกมุมของเรื่องเดียวกัน พนักงานได้เห็นเรื่องเดียวกัน 2 ครั้งในเดือนเดียว จึงจำได้ดีกว่าเปลี่ยนเรื่องทุก 2 สัปดาห์</p></li>
       <li><b>ไม่ซ้ำติดกัน และเว้นระยะก่อนทวน</b><p>เรื่องเดียวกันไม่อยู่เดือนติดกัน และถ้ากลับมาอีกต้องห่างอย่างน้อย 4 เดือน เพื่อไม่ให้คนดูเบื่อ และได้ทวนเป็นระยะจนจำได้จริง</p></li>
       <li class="span"><b>หัวข้อหลักพื้นฐาน 11 เรื่อง ครอบคลุมเรื่องที่ CGR / ESG Rating กำหนด</b><p>ปีแรกครบทั้ง 11 เรื่อง · ในตาราง = เดือนที่ปล่อยคลิปเรื่องนั้น</p>
         <div class="seqtbl-wrap"><table class="seqtbl" id="seqtbl"></table></div></li>
       <li><b>ปล่อยตรงจังหวะงานจริง</b><p>ปล่อยแต่ละเรื่องในช่วงที่พนักงานกำลังจะเจอสถานการณ์นั้น</p>
-        <ul><li>ของขวัญและต่อต้านทุจริต: เดือน พ.ย. ก่อนปีใหม่</li>
-        <li>PDPA: เดือน ม.ค. (Data Privacy Day) และ มิ.ย. (ครบรอบที่ PDPA บังคับใช้ทั้งฉบับ)</li>
+        <ul><li>ของขวัญและต่อต้านทุจริต: เดือน ธ.ค. ก่อนปีใหม่</li>
+        <li>PDPA: เดือน ก.พ. (หลัง Data Privacy Day 28 ม.ค.) และ ก.ค. (หลังครบรอบที่ PDPA บังคับใช้ทั้งฉบับ 1 มิ.ย.)</li>
         <li>ข้อมูลภายใน: ใกล้ช่วงห้ามซื้อขาย (Blackout) ก่อนประกาศงบ ตามนโยบายฯ คือ 30 วันก่อนเปิดเผยงบ ถึง 24 ชม. หลังเปิดเผย</li>
-        <li>ควบคุมภายใน: ช่วงปิดงบครึ่งปี</li>
-        <li>สัญญาและการเซ็นรับมอบงาน: ช่วงเร่งส่งงานปลายปี</li>
-        <li>สิทธิมนุษยชนในห่วงโซ่ผู้รับเหมา: ช่วงวันแรงงาน</li></ul></li>
+        <li>ควบคุมภายใน: หลังปิดงบครึ่งปี</li>
+        <li>สัญญาและการเซ็นรับมอบงาน: ช่วงเคลียร์งานส่งมอบข้ามปี</li>
+        <li>สิทธิมนุษยชนในห่วงโซ่ผู้รับเหมา: เดือน มิ.ย. ต่อจากวันแรงงาน</li></ul></li>
       <li><b>ปูพื้นก่อน แล้วค่อยลงลึก</b>
         <ul><li>ปีแรก: หัวข้อหลักครบ 11 เรื่อง ด้วยเคสที่ทุกคนเจอบ่อย</li>
         <li>ปีถัดไป: เคสที่ซับซ้อนขึ้นหรือเฉพาะตามตำแหน่งงาน และเรื่องเสริม</li>
-        <li>เปิดและปิดซีรีส์: ต.ค. 2569 เปิดด้วย "CG และ Code of Conduct คืออะไร" · ก.ย. 2572 ปิดด้วยการรวม Red Flag และคำถาม 3 ข้อก่อนตัดสินใจ</li></ul></li>
+        <li>เปิดและปิดซีรีส์: พ.ย. 2569 เปิดด้วย "CG และ Code of Conduct คืออะไร" · ต.ค. 2572 ปิดด้วยการรวม Red Flag และคำถาม 3 ข้อก่อนตัดสินใจ</li></ul></li>
       <li><b>รอบการปล่อยคลิป</b><p>ทุกวันอังคารสัปดาห์ที่ 1 และ 3 เวลา 17:00 น. ถ้าตรงวันหยุดนักขัตฤกษ์ พิจารณาเลื่อนเป็นวันทำการถัดไป</p></li>
     </ol>
   </dialog>
 
-  <footer>ที่มา: Governance in Action – แผนสื่อสาร 3 ปี แบบทุก 2 สัปดาห์ (ต.ค. 2569 – ก.ย. 2572)</footer>
+  <footer>ที่มา: Governance in Action – แผนสื่อสาร 3 ปี แบบทุก 2 สัปดาห์ (พ.ย. 2569 – ต.ค. 2572)</footer>
 </div>
 
 <script>
@@ -808,7 +975,7 @@ const GROUPS = [
   {id:"g3",name:"ความเป็นธรรมต่อผู้ลงทุนและตลาด",cats:["ข้อมูลภายในและการซื้อขายหลักทรัพย์","การแข่งขันทางการค้าอย่างเป็นธรรม"],
    protects:"ผู้ถือหุ้นและผู้ลงทุนให้ได้รับข้อมูลอย่างเท่าเทียม และคู่แข่งกับลูกค้าให้ได้ตลาดที่แข่งขันกันจริง",
    refs:["พ.ร.บ. หลักทรัพย์และตลาดหลักทรัพย์ พ.ศ. 2535 (มาตรา 59 การรายงานการถือหลักทรัพย์ และข้อห้ามใช้ข้อมูลภายใน)","CGR หมวด Rights and Equitable Treatment of Shareholders","พ.ร.บ. การแข่งขันทางการค้า พ.ศ. 2560"]},
-  {id:"g4",name:"สัญญาและทรัพย์สินทางธุรกิจ",cats:["กฎหมายและการบริหารสัญญา","ทรัพย์สินทางปัญญา"],
+  {id:"g4",name:"สัญญาและทรัพย์สินทางธุรกิจ",cats:["การบริหารสัญญา","ทรัพย์สินทางปัญญา"],
    protects:"รายได้ ต้นทุน และสิทธิของบริษัทเองเมื่อทำธุรกิจกับคู่ค้า ทั้งเงื่อนไขสัญญาและผลงานหรือนวัตกรรมที่บริษัทเป็นเจ้าของ",
    refs:["ประมวลกฎหมายแพ่งและพาณิชย์ ว่าด้วยนิติกรรมสัญญา","พ.ร.บ. ลิขสิทธิ์ พ.ศ. 2537 · พ.ร.บ. สิทธิบัตร พ.ศ. 2522","CG Code 2560 หลักปฏิบัติ 5 (นวัตกรรมและการประกอบธุรกิจอย่างรับผิดชอบ)"]},
   {id:"g5",name:"ข้อมูลและความปลอดภัยดิจิทัล",cats:["การคุ้มครองข้อมูลส่วนบุคคล","ความมั่นคงปลอดภัยสารสนเทศและ AI"],
@@ -825,14 +992,14 @@ const ownerOf=c=>OWNER[c]||"ทีมงานโครงการ";
 const ownerList=c=>{const n={};DATA.filter(d=>d.cat===c&&d.owner&&!/กิจกรรม/.test(d.slot||"")).forEach(d=>n[d.owner]=(n[d.owner]||0)+1);return Object.entries(n).sort((a,b)=>b[1]-a[1]).map(x=>x[0])};
 const groupOf=c=>c===ASSESS?null:GROUPS.find(g=>g.cats.includes(c));
 const colorOf=c=>c===ASSESS?"var(--assess)":`var(--${groupOf(c).id})`;
-const MONTHS=["ต.ค.","พ.ย.","ธ.ค.","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย."];
-const SHORT={"สิ่งแวดล้อมและสภาพภูมิอากาศ":"สิ่งแวดล้อม/Climate","กฎหมายและการบริหารสัญญา":"กฎหมาย/สัญญา","การต่อต้านการทุจริตคอร์รัปชัน":"ต่อต้านคอร์รัปชัน","การควบคุมภายใน":"ควบคุมภายใน","ความขัดแย้งทางผลประโยชน์":"COI","การแข่งขันทางการค้าอย่างเป็นธรรม":"แข่งขันเป็นธรรม","การคุ้มครองข้อมูลส่วนบุคคล":"PDPA","ความมั่นคงปลอดภัยสารสนเทศและ AI":"InfoSec & AI","การแจ้งเบาะแสและข้อร้องเรียน":"แจ้งเบาะแส","ทรัพย์สินทางปัญญา":"IP","สิทธิมนุษยชน":"สิทธิมนุษยชน","ข้อมูลภายในและการซื้อขายหลักทรัพย์":"Insider","ความปลอดภัย อาชีวอนามัย และสภาพแวดล้อมการทำงาน":"OHS","ธรรมาภิบาลและการตัดสินใจเชิงจริยธรรม":"ธรรมาภิบาล"};
+const MONTHS=["พ.ย.","ธ.ค.","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค."];
+const SHORT={"สิ่งแวดล้อมและสภาพภูมิอากาศ":"สิ่งแวดล้อม/Climate","การบริหารสัญญา":"การบริหารสัญญา","การต่อต้านการทุจริตคอร์รัปชัน":"ต่อต้านคอร์รัปชัน","การควบคุมภายใน":"ควบคุมภายใน","ความขัดแย้งทางผลประโยชน์":"COI","การแข่งขันทางการค้าอย่างเป็นธรรม":"แข่งขันเป็นธรรม","การคุ้มครองข้อมูลส่วนบุคคล":"PDPA","ความมั่นคงปลอดภัยสารสนเทศและ AI":"InfoSec & AI","การแจ้งเบาะแสและข้อร้องเรียน":"แจ้งเบาะแส","ทรัพย์สินทางปัญญา":"IP","สิทธิมนุษยชน":"สิทธิมนุษยชน","ข้อมูลภายในและการซื้อขายหลักทรัพย์":"Insider","ความปลอดภัย อาชีวอนามัย และสภาพแวดล้อมการทำงาน":"OHS","ธรรมาภิบาลและการตัดสินใจเชิงจริยธรรม":"ธรรมาภิบาล"};
 const shortCat=c=>SHORT[c]||c;
 const el=(t,a={},...k)=>{const e=document.createElement(t);for(const[x,v]of Object.entries(a)){if(x==="style")e.style.cssText=v;else if(x==="text")e.textContent=v;else e.setAttribute(x,v)}k.forEach(c=>c!=null&&e.append(c));return e};
 GROUPS.forEach(g=>g.cats.forEach(c=>OWNER[c]=ownerList(c).join(" · ")));
 DATA.forEach((d,i)=>{
   d.i=i; const[mon,yr]=d.m.split(" "); d.mi=MONTHS.indexOf(mon);
-  d.fy=d.mi<=2?+yr:+yr-1;   // ปีงบตั้งชื่อตามปีที่เริ่ม: ต.ค. 2569 – ก.ย. 2570 = ปีงบ 2569
+  d.fy=d.mi<=1?+yr:+yr-1;   // ปีของแผนนับ พ.ย.–ต.ค. ตั้งชื่อตามปีที่เริ่ม: พ.ย. 2569 – ต.ค. 2570 = ปีที่ 1 (fy 2569)
   d.w=d.slot==="กิจกรรมประจำปี"?0:+d.slot.replace(/\D/g,"");
   d.kind=["assess","main","myth","story","rule"][d.w];
   if(d.kindx)d.kind=d.kindx;
@@ -853,19 +1020,25 @@ const PAIR=new Map();
   if(!m)m=MAINS.filter(x=>x.cat===s.cat&&x.date<s.date&&!hasPair(x)).sort((a,b)=>a.date<b.date?1:-1)[0];
   if(m)PAIR.set(m,s)});}
 const FYS=[...new Set(DATA.map(d=>d.fy))];
+const YL=fy=>"ปีที่ "+(FYS.indexOf(fy)+1), YR=fy=>`พ.ย. ${fy} – ต.ค. ${fy+1}`;
 const KIND={special:"คลิปพิเศษ",overview:"ภาพรวม CG",main:"เคสหลัก",myth:"เข้าใจผิดบ่อย",story:"อีกมุมของเรื่อง",rule:"กติกาที่ต้องจำ",assess:"Assessment"};
 const WKS=[1,3];
 const monthOf=d=>DATA.filter(x=>x.m===d.m&&x.w).sort((a,b)=>a.w-b.w);
 
 // KPIs
-[[CLIPS.length,"คลิปตลอด 3 ปี"],[MAINS.length+" × 2","ธีม × คลิปต่อเดือน"],["อ. 17:00 น.","อังคารที่ 1 และ 3 · เริ่ม 20 ต.ค. 2569"],[DATA.filter(d=>d.kind==="assess").length,"รอบ CGR Awareness Assessment"]]
+[[CLIPS.length,"คลิปตลอด 3 ปี"],[MAINS.length+" × 2","ธีม × คลิปต่อเดือน"],["อ. 17:00 น.","อังคารที่ 1 และ 3 · เริ่ม 3 พ.ย. 2569"],[DATA.filter(d=>d.kind==="assess").length,"รอบ CGR Awareness Assessment"]]
   .forEach(([n,l])=>document.getElementById("kpis").append(el("div",{class:"kpi"},el("b",{text:n}),el("span",{text:l}))));
 
-[[GROUPS.length,"หมวด","จัดตามว่าเรื่องนี้ปกป้องใคร"],[GROUPS.reduce((a,g)=>a+g.cats.length,0),"กลุ่ม","แบ่งตามหัวข้อ/นโยบายที่เกี่ยวข้องในแต่ละหมวด"],[MAINS.length,"ธีม","เดือนละ 1 ธีม"],[CLIPS.length,"คลิป","ธีมละ 2 คลิป (ต.ค. 2569 มีคลิปเปิดตัว 1 คลิป)"]]
+[[GROUPS.length,"หมวด","จัดตามว่าเรื่องนี้ปกป้องใคร"],[GROUPS.reduce((a,g)=>a+g.cats.length,0),"กลุ่ม","แบ่งตามหัวข้อ/นโยบายที่เกี่ยวข้องในแต่ละหมวด"],[MAINS.length,"ธีม","เดือนละ 1 ธีม"],[CLIPS.length,"คลิป","ธีมละ 2 คลิป (เดือนแรกเปิดตัวด้วยธีม CG และจรรยาบรรณ)"]]
   .forEach(([n,u,l])=>document.getElementById("sumk").append(el("div",{class:"kpi"},el("b",{},String(n),el("small",{text:" "+u})),el("span",{text:l}))));
 document.getElementById("nclips").textContent=CLIPS.length;document.getElementById("rv").textContent=MAINS.filter(d=>d.review).length;
 
 // categories: one card per group with what it protects, EP link and references
+/* co-owners of a theme row = both clips of the pair, without repeats */
+const coBoth=(d,p)=>[...new Set([d,p].filter(Boolean).flatMap(x=>(x.co||"").split(",").map(t=>t.trim()).filter(Boolean)))].filter(t=>t!==d.owner).join(", ");
+/* owner line under a theme: one unit, or each unit with how many of the themes it owns */
+const ownerSummary=c=>{const n={};MAINS.filter(d=>d.cat===c).forEach(d=>{const o=d.owner||ownerOf(c);n[o]=(n[o]||0)+1});
+  const e=Object.entries(n).sort((a,b)=>b[1]-a[1]);return e.length<2?(e[0]?e[0][0]:ownerOf(c)):e.map(([o,k])=>`${o} ${k} ธีม`).join(" · ")};
 const max=Math.max(...GROUPS.flatMap(g=>g.cats.map(c=>MAINS.filter(d=>d.cat===c).length)));
 GROUPS.forEach(g=>{
   const tot=MAINS.filter(d=>d.g===g.id).length;
@@ -882,12 +1055,12 @@ GROUPS.forEach(g=>{
         el("span",{class:"when",text:d.m+(d.kind==="special"?" · คลิปพิเศษ":"")}),
         el("button",{class:"tt",text:d.topic}),
         pair?el("button",{class:"tt2",text:"อีกมุม: "+pair.topic}):null,
-        el("span",{class:"own"},el("b",{text:"เจ้าของเนื้อหา: "+(d.owner||ownerOf(d.cat))}),d.co?" · ร่วม: "+d.co:""));
+        el("span",{class:"own"},el("b",{text:"เจ้าของเนื้อหา: "+(d.owner||ownerOf(d.cat))}),coBoth(d,pair)?" · ร่วม: "+coBoth(d,pair):""));
       r.querySelector(".tt").addEventListener("click",()=>showScript(d.i));
       if(pair)r.querySelector(".tt2").addEventListener("click",()=>showScript(pair.i));
       tl.append(r)});
     box.append(el("details",{class:"catx"},
-      el("summary",{class:"bar-row","aria-label":`${c} ${n} ธีม เจ้าของเนื้อหา ${ownerOf(c)} กดเพื่อดูรายละเอียด`},el("span",{class:"cxw"},el("span",{class:"cx"},c),el("small",{class:"cown",text:ownerOf(c)})),el("div",{class:"track"},el("div",{class:"fill",style:`width:${n/max*100}%;background:var(--${g.id})`})),el("span",{class:"n",text:n})),tl));});
+      el("summary",{class:"bar-row","aria-label":`${c} ${n} ธีม เจ้าของเนื้อหา ${ownerSummary(c)} กดเพื่อดูรายละเอียด`},el("span",{class:"cxw"},el("span",{class:"cx"},c),el("small",{class:"cown",text:ownerSummary(c)})),el("div",{class:"track"},el("div",{class:"fill",style:`width:${n/max*100}%;background:var(--${g.id})`})),el("span",{class:"n",text:n})),tl));});
   const ul=el("ul",{class:"grefs"});g.refs.forEach(r=>ul.append(el("li",{text:r})));
   box.append(el("details",{class:"gref"},el("summary",{text:"อ้างอิง ("+g.refs.length+")"}),ul));
   document.getElementById("cats").append(box);
@@ -902,12 +1075,12 @@ GROUPS.forEach(g=>{
   FYS.forEach(fy=>{
     const ms=MAINS.filter(d=>d.fy===fy), stk=el("div",{class:"stk"});
     GROUPS.forEach(g=>{const n=ms.filter(d=>d.g===g.id).length;if(!n)return;
-      stk.append(el("span",{style:`flex:${n};background:var(--${g.id})`,title:`ปีงบ ${fy} · ${g.name}: ${n} เรื่อง\n`+ms.filter(d=>d.g===g.id).map(d=>"• "+(d.fmt.includes("เปิดตัว")?"คลิปเปิดตัว":shortCat(d.cat))+" ("+MONTHS[d.mi]+")").join("\n"),text:n}))});
-    y3.append(el("div",{class:"row"},el("b",{text:`ปีงบ ${fy}`}),stk));
+      stk.append(el("span",{style:`flex:${n};background:var(--${g.id})`,title:`${YL(fy)} (${YR(fy)}) · ${g.name}: ${n} เรื่อง\n`+ms.filter(d=>d.g===g.id).map(d=>"• "+(d.fmt.includes("เปิดตัว")?"คลิปเปิดตัว":shortCat(d.cat))+" ("+MONTHS[d.mi]+")").join("\n"),text:n}))});
+    y3.append(el("div",{class:"row"},el("b",{text:YL(fy)}),stk));
   });
   document.getElementById("ch-year").append(y3,el("p",{class:"ch-note",text:"ปีแรกเน้นเรื่องที่กระทบธุรกิจโดยตรง (สัญญา PDPA AI IP) ก่อน แล้วค่อยลงลึกเรื่องทุจริตและการควบคุมภายในในปีถัดไป"}));
   const TOT=CLIPS.length,cnt=(g,f)=>CLIPS.filter(d=>d.g===g&&(f==null||d.fy===f)).length;
-  const tb=el("table"),hr=el("tr",{},el("th",{text:"หมวด"}),...FYS.map(f=>el("th",{class:"n fy",text:"ปีงบ "+f})),el("th",{class:"n",text:"รวม"}),el("th",{class:"n",text:"สัดส่วน"}));
+  const tb=el("table"),hr=el("tr",{},el("th",{text:"หมวด"}),...FYS.map(f=>el("th",{class:"n fy",text:YL(f)})),el("th",{class:"n",text:"รวม"}),el("th",{class:"n",text:"สัดส่วน"}));
   tb.append(hr);
   const cc=(c,f)=>CLIPS.filter(d=>d.cat===c&&(f==null||d.fy===f)).length, pct=n=>(Math.round(n/TOT*1000)/10)+"%";
   GROUPS.forEach(g=>{
@@ -916,7 +1089,7 @@ GROUPS.forEach(g=>{
   });
   tb.append(el("tr",{class:"tot"},el("td",{text:"รวม"}),...FYS.map(f=>el("td",{class:"n fy",text:CLIPS.filter(d=>d.fy===f).length})),el("td",{class:"n",text:TOT}),el("td",{class:"n",text:"100%"})));
   tb.classList.add("wtbl");
-  document.getElementById("ch-table").append(el("p",{class:"ch-note",text:"นับเป็นจำนวนคลิป (เดือนละ 2 คลิป: เคสหลัก + อีกมุมของเรื่อง) · ต.ค. 2569 มีคลิปเปิดตัว 1 คลิป · % คิดจากจำนวนคลิปทั้งหมด"}),tb);
+  document.getElementById("ch-table").append(el("p",{class:"ch-note",text:"นับเป็นจำนวนคลิป (เดือนละ 2 คลิป: เคสหลัก + อีกมุมของเรื่อง) · % คิดจากจำนวนคลิปทั้งหมด"}),tb);
 })();
 // legend
 const lg=document.getElementById("legend");
@@ -938,13 +1111,13 @@ function drawOv(){
   ov.innerHTML="";
   const g=el("div",{class:"ovg"});
   g.append(el("div"));
-  FYS.forEach(fy=>g.append(el("div",{class:"yh"},el("b",{text:`ปีงบ ${fy}`}),el("small",{text:`ต.ค. ${fy} – ก.ย. ${fy+1}`}))));
+  FYS.forEach(fy=>g.append(el("div",{class:"yh"},el("b",{text:YL(fy)}),el("small",{text:YR(fy)}))));
   MONTHS.forEach((m,mi)=>{
     g.append(el("div",{class:"mh",text:m}));
     FYS.forEach(fy=>{
       const d=DATA.find(x=>x.fy===fy&&x.mi===mi&&x.kind==="main");
       if(!d){g.append(el("div"));return}
-      const yr=mi<=2?fy:fy+1, mo=monthOf(d), kick=d.fmt.includes("เปิดตัว");
+      const yr=mi<=1?fy:fy+1, mo=monthOf(d), kick=d.fmt.includes("เปิดตัว");
       const as=DATA.find(x=>x.fy===fy&&x.mi===mi&&x.kind==="assess");
       const c=el("button",{class:"ovc",style:`--c:${colorOf(d.cat)}`,title:`${m} ${yr}\n`+mo.map(x=>`${x.date_th.split(" · ")[0]} · ${KIND[x.kind]}: ${x.topic}`).join("\n"),
         "aria-label":`${m} ${yr} ${kick?"คลิปเปิดตัว":shortCat(d.cat)}: ${d.topic}`},
@@ -975,12 +1148,12 @@ function drawCal(){
   cal.innerHTML="";
   FYS.filter(fy=>fYear==="all"||fy===fYear).forEach(fy=>{
     const blk=el("div",{class:"yr"});
-    blk.append(el("div",{class:"yr-h"},el("b",{text:`ปีงบประมาณ ${fy}`}),el("span",{text:`ต.ค. ${fy} – ก.ย. ${fy+1} · ${CLIPS.filter(x=>x.fy===fy).length} คลิป`})));
+    blk.append(el("div",{class:"yr-h"},el("b",{text:YL(fy)}),el("span",{text:`${YR(fy)} · ${CLIPS.filter(x=>x.fy===fy).length} คลิป`})));
     blk.append(el("div",{class:"tl-head"},el("div",{text:"เดือน / ปี"}),...WKS.map(w=>el("div",{},el("b",{text:"อังคารที่ "+w}),[" ","เคสหลัก · 2 นาที","","อีกมุมของเรื่อง · 2 นาที",""][w]))));
     MONTHS.forEach((m,mi)=>{
       const items=DATA.filter(d=>d.fy===fy&&d.mi===mi);
       if(!items.length)return;
-      const yr=mi<=2?fy:fy+1;
+      const yr=mi<=1?fy:fy+1;
       const date=el("div",{class:"tl-date"},el("span",{class:"mm",text:m}),el("span",{class:"yy",text:String(yr)}));
       const as=items.find(d=>d.kind==="assess");
       if(as){const b=el("button",{class:"as",text:"CGR Awareness Assessment"});b.addEventListener("click",()=>openRow(as));date.append(b)}
@@ -1016,7 +1189,7 @@ function chips(id,opts,get,set){
 }
 function yl(a,b){const s=el("span",{class:"yl"},el("b",{text:a}),el("small",{text:b}));return s}
 function render(){
-  chips("yearf",[["all",yl("ทั้ง 3 ปี",`ต.ค. ${FYS[0]} – ก.ย. ${FYS[FYS.length-1]+1}`)],...FYS.map(f=>[f,yl(`ปีงบ ${f}`,`ต.ค. ${f} – ก.ย. ${f+1}`)])],()=>fYear,v=>fYear=v);
+  chips("yearf",[["all",yl("ทั้ง 3 ปี",`พ.ย. ${FYS[0]} – ต.ค. ${FYS[FYS.length-1]+1}`)],...FYS.map(f=>[f,yl(YL(f),YR(f))])],()=>fYear,v=>fYear=v);
   chips("fmtf",[["all","ทุกรูปแบบ"],["main","อังคารที่ 1 · เคสหลัก"],["story","อังคารที่ 3 · อีกมุม"],["special","คลิปพิเศษ"],["assess","Assessment"]],()=>fFmt,v=>fFmt=v);
   const list=document.getElementById("list");list.innerHTML="";
   const rows=DATA.filter(d=>(fYear==="all"||d.fy===fYear)&&(fFmt==="all"||d.kind===fFmt)&&(ovG==="all"||d.g===ovG||d.kind==="assess"));
@@ -1042,30 +1215,76 @@ function openRow(d){
 }
 render();
 
-// series tab: lead + arc for all 71 episodes (drama version)
+
+// character sheet for Google Flow
+const CS=(function(){
+  const STYLE="Photorealistic cinematic still of a modern Thai corporate office drama. Natural soft daylight from large windows, warm neutral colour grade, shallow depth of field, 35mm lens, realistic skin texture, everyday business-casual clothing. All people are fictional and must not resemble any real person. No logos, no brand names, no readable text.";
+  const SET="Open-plan office on the 12th floor of a mid-size Thai company: light wood desks, grey task chairs, glass windows overlooking the building across the street, potted plants, a small glass-walled meeting room, and a coffee corner with an espresso machine and a corkboard full of sticky notes. Clean, modern, no logos, no readable text.";
+  const REF="Character reference of ONE single person only, full body, front view, standing relaxed, plain light-grey studio background, soft even lighting, photorealistic, fictional person, no logos, no text. ";
+  const C=[
+   {l:"พี่ Compliance",per:{"k": "เป็นกันเอง ไม่ดุ ชอบเปรียบเทียบใกล้ตัว เป็นพี่เลี้ยง ไม่ใช่ตำรวจ", "f": "ปีที่ 2 ต้องรักษาความลับผู้แจ้ง แม้คนใกล้ตัวกดดัน", "q": "“ลองถามตัวเองสามข้อก่อน”", "gr": "ตอนจบ โน้ต 3 คำถามของเธออยู่บนโต๊ะทุกคน", "gag": "–", "lab": "ใช้ป้ายนี้ทุกตอน", "n": "อยู่ในทั้ง 72 ตอน"},m:"หญิง · 39 · Compliance · ผู้อธิบายกติกาประจำทุกตอน",c:"#2f4a7a",col:"กรมท่า + เหลือง",look:"ผมบ็อบดำตรงยาวระบ้า แว่นกรอบทองบางทรงกลม ยิ้มอบอุ่น",wear:"เบลเซอร์สีกรมท่าทับเสื้อเชิ้ตขาว กางเกงสแล็กดำ สายคล้องบัตรพนักงาน",props:"สมุดโน้ตเล่มเล็กแปะโพสต์อิทสีเหลือง (โน้ต 3 คำถาม) แก้วกาแฟ",face:"ยิ้มอบอุ่น · ตั้งใจฟัง · อธิบายพร้อมยกนิ้ว",
+    p:"A fictional Thai woman, 39, warm and approachable, shoulder-length straight black bob, thin round gold-rimmed glasses, navy blazer over a white blouse, black slacks, plain lanyard with a blank ID card, holding a small notebook with yellow sticky notes.",t:"the Compliance mentor: Thai woman, 39, black bob, thin round gold glasses, navy blazer, white blouse, yellow sticky-note notebook"},
+   {l:"หัวหน้า",per:{"k": "พูดตรง งานต้องเสร็จ ใจดีกับลูกน้อง", "f": "ความกดดันเรื่องเวลา", "q": "“งานต้องเดิน”", "gr": "ปีที่ 2 ต้องเลือกระหว่างเป้ากับขั้นตอน ปีที่ 3 เป็นหัวหน้าที่ลูกน้องกล้าทัก", "gag": "เดินผ่านกระดานทีม ลบคำว่า “ด่วนมาก” ออกหนึ่งคำ", "lab": "พี่ PM · หัวหน้าไซต์ · หัวหน้าช่าง · หัวหน้าเซลส์ · หัวหน้าโครงการ · ผู้จัดการโรงงาน", "n": "ตัวเอก 15 ตอน"},m:"ชาย · 43 · หัวหน้าฝ่ายปฏิบัติการ (เป็น พี่ PM / หัวหน้าไซต์ ฯลฯ ในบางตอน)",c:"#2e3238",col:"ขาว + ดำ",look:"ร่างหนา ผมสั้นเกรียน เริ่มมีผมขาวที่ขมับ หน้าเข้ม แต่ตาใจดี",wear:"เสื้อเชิ้ตแขนสั้นสีขาว ปากกาในกระเป๋าเสื้อ กางเกงสแล็กสีดำ หน้างานสวมหมวกนิรภัยสีขาว เสื้อกั๊กสะท้อนแสงทับเชิ้ต และรองเท้าเซฟตี้",props:"แก้วกาแฟสีขาว (ใส่คำว่า “งานต้องเดิน” ตอนตัดต่อ) แฟ้มเอกสาร",face:"เร่งรีบ · ถอนหายใจ · พยักหน้ายอมรับ",
+    p:"A fictional Thai man, 43, sturdy build, very short crew-cut hair with grey at the temples, firm but kind face, white short-sleeve shirt with pens in the breast pocket, black trousers, black leather shoes, holding a plain white coffee mug.",t:"the team head: Thai man, 43, sturdy, short crew cut greying at the temples, white short-sleeve shirt, black trousers, plain white mug"},
+   {l:"พี่หน้างาน",per:{"k": "ขี้เล่น ขยัน มีลูกเล็กและภาระทางบ้าน", "f": "เรื่องเงิน งานเสริม ช่วยเพื่อนเกินขอบเขต", "q": "“นิดเดียวเอง ไม่มีใครเสียหาย”", "gr": "ปีที่ 2 เป็นคนแจ้งเบาะแสเรื่องในโครงการใหญ่ และได้รับความคุ้มครอง", "gag": "พึมพำ “นิดเดียวเอง...” แล้วรีบแก้เป็น “ถามก่อนดีกว่า”", "lab": "พี่วิศวกร · พี่ช่าง · หัวหน้าไซต์ · พี่เซฟตี้ · พี่โฟร์แมน · พี่บริการลูกค้า · พี่ฝ่ายผลิต", "n": "ตัวเอก 14 ตอน"},m:"ชาย · 34 · ผู้ประสานงานโครงการ ทีมหน้างาน (เป็น พี่วิศวกร / พี่ช่าง ฯลฯ ในบางตอน)",c:"#1d4fbf",col:"น้ำเงิน + ส้มสะท้อนแสง",look:"ผิวแทน ผมสั้นยุ่งนิด ๆ ยิ้มกว้าง ขี้เล่น",wear:"เสื้อโปโลสีน้ำเงินไม่มีโลโก้ กางเกงคาร์โก้สีดำ รองเท้าเซฟตี้ หน้างานใส่เสื้อกั๊กสะท้อนแสงทับโปโล",props:"กล่องข้าวลายดอกไม้สีชมพู (ภรรยาทำให้) วิทยุสื่อสาร",face:"หัวเราะ · ลังเล · จริงจัง",
+    p:"A fictional Thai man, 34, tanned skin, short slightly messy black hair, cheerful wide smile, royal-blue polo shirt without logo, black cargo trousers, safety boots, holding a pink floral-pattern lunch box.",t:"the field coordinator: Thai man, 34, tanned, short messy hair, royal-blue polo, black cargo trousers, pink floral lunch box (on site: white helmet and high-vis vest over the polo)"},
+   {l:"พี่เซลส์",per:{"k": "ร่าเริง เข้ากับลูกค้าเก่ง ไม่อยากทำให้ใครผิดหวัง", "f": "รับปากลูกค้าก่อนตรวจ", "q": "“ได้ค่ะ ไม่มีปัญหา!”", "gr": "ประโยคติดปากค่อย ๆ เปลี่ยนเป็น “ได้ค่ะ... ขอตรวจก่อนนะคะ”", "gag": "ซ้อมพูด “ขอตรวจก่อนนะคะ” กับกระจกในลิฟต์ แล้วสะดุ้งเมื่อประตูเปิด", "lab": "พี่การตลาด · พี่ฝ่ายธุรกิจ · พี่วิศวกร · พี่ PM · พี่ QC", "n": "ตัวเอก 12 ตอน"},m:"หญิง · 29 · ฝ่ายขาย (เป็น พี่การตลาด / พี่ฝ่ายธุรกิจ ฯลฯ ในบางตอน)",c:"#e0664f",col:"คอรัล",look:"ผมยาวลอนสีน้ำตาลเข้ม รวบครึ่งหัว ยิ้มสดใส",wear:"เสื้อเบลาส์สีคอรัล กระโปรงทรงสอบสีครีม รองเท้าส้นเตี้ย",props:"สมาร์ตโฟนในมือแทบตลอด แท็บเล็ตนำเสนองาน",face:"ยิ้มรับปาก · ลังเล · ซ้อมพูดหน้ากระจก",
+    p:"A fictional Thai woman, 29, bright and friendly, long wavy dark-brown hair in a half-up style, coral blouse, cream pencil skirt, low heels, holding a smartphone.",t:"the sales lead: Thai woman, 29, long wavy dark-brown half-up hair, coral blouse, smartphone in hand"},
+   {l:"พี่บัญชี",per:{"k": "ละเอียด อบอุ่น เป็นเหมือนแม่ของออฟฟิศ", "f": "ไว้ใจคนที่รู้จักมานาน เกรงใจ", "q": "“พี่ทำงานกับเขามาสิบปีแล้วนะ”", "gr": "เรียนรู้ว่าความไว้ใจกับการตรวจสอบไปด้วยกันได้", "gag": "แปะโน้ต “สิบปีก็ยังต้องเทียบราคา” ไว้ข้างจอ", "lab": "พี่จัดซื้อ · พี่การเงิน · พี่วางแผนผลิต · พี่ Audit", "n": "ตัวเอก 11 ตอน"},m:"หญิง · 51 · บัญชีและจัดซื้ออาวุโส (เป็น พี่จัดซื้อ / พี่การเงิน ฯลฯ ในบางตอน)",c:"#d98aa6",col:"ชมพูพาสเทล",look:"ผมสั้นดัดลอน แว่นสายตาห้อยสร้อยลูกปัด หน้าอบอุ่นแบบแม่ของออฟฟิศ",wear:"คาร์ดิแกนสีชมพูพาสเทลทับเสื้อขาว กางเกงสแล็กสีกรม",props:"แฟ้มสีชมพู กล่องขนมแบ่งเพื่อน",face:"ยิ้มใจดี · เกรงใจ · มั่นใจ",
+    p:"A fictional Thai woman, 51, warm motherly face, short permed black hair, reading glasses on a beaded chain, pastel-pink cardigan over a white blouse, navy trousers, holding pink document folders.",t:"the senior accountant: Thai woman, 51, short permed hair, reading glasses on a beaded chain, pastel-pink cardigan, pink folders"},
+   {l:"น้องใหม่ → พี่ดิจิทัล",per:{"k": "ฉลาด ไว ช่างถาม ชอบลองเครื่องมือใหม่", "f": "ใช้ทางลัดด้วยเทคโนโลยีโดยไม่คิดเรื่องข้อมูล", "q": "“เดี๋ยวให้ AI ช่วย”", "gr": "จากเด็กใหม่ที่ต้องถาม กลายเป็นพี่เลี้ยงของน้องใหม่ในปีที่ 3", "gag": "เปลี่ยนชื่อโฟลเดอร์เป็น “ถามพี่ Compliance ก่อน”", "lab": "น้องวิศวกร · น้อง IT · น้อง HR · น้องธุรการ · พี่วิศวกร · พี่ประสานงาน · พี่ธุรการ · พี่การตลาด · หัวหน้าทีม", "n": "ตัวเอก 9 ตอน"},m:"หญิง · 24 · พนักงานใหม่ฝ่ายดิจิทัล (ปีที่ 3 เป็นพี่เลี้ยง)",c:"#5bb5a2",col:"มินต์",look:"ผมดำตรงมัดหางม้า หน้าตาสดใส ตาไว ช่างสังเกต",wear:"เสื้อเชิ้ตสีมินต์ กางเกงสแล็กสีดำ รองเท้าผ้าใบขาว ปีที่ 3 เพิ่มเบลเซอร์สีเทาอ่อน",props:"แล็ปท็อปติดสติกเกอร์ โพสต์อิทมีสติกเกอร์แมว",face:"สงสัย · ตื่นเต้น · ยิ้มภูมิใจ",
+    p:"A fictional Thai woman, 24, bright curious eyes, straight black hair in a high ponytail, mint-green button-up shirt, black trousers, white sneakers, holding a laptop covered with small stickers.",t:"the new hire: Thai woman, 24, black high ponytail, mint-green shirt, black trousers, white sneakers, sticker-covered laptop"},
+   {l:"พี่ HR",per:{"k": "อารมณ์ดี รู้จักทุกคนในบริษัท เป็นที่ปรึกษาทั้งเรื่องงานและเรื่องชีวิต", "f": "อยากช่วยคนจนเผลอเปิดเผยข้อมูลส่วนตัว หรือเร่งเรื่องจนข้ามขั้นตอน", "q": "“เรื่องคน พี่จัดให้”", "gr": "ปีที่ 3 รักษาความลับเรื่องร้องเรียนและข้อมูลสุขภาพ กลายเป็นคนที่ทุกคนไว้ใจเรื่องข้อมูล", "gag": "รดน้ำต้นไม้บนโต๊ะที่ตั้งชื่อว่า “น้องนโยบาย”", "lab": "ใช้ป้ายนี้ทุกตอน", "n": "ตัวเอก 2 ตอน · ร่วมแสดง 4 ตอน"},m:"ชาย · 37 · ฝ่ายทรัพยากรบุคคล",c:"#2a5fc4",col:"น้ำเงิน (โปโลบริษัท) + ดำ",look:"ร่างท้วม ผมหวีแสกข้างเรียบร้อย หน้ายิ้มแย้ม",wear:"เสื้อโปโลสีน้ำเงินของบริษัท กางเกงสแล็กสีดำ",props:"กระถางต้นไม้เล็กบนโต๊ะ (น้องนโยบาย) คู่มือ HR",face:"อารมณ์ดี · ตั้งใจรับฟัง · จริงจังเรื่องความลับ",
+    p:"A fictional Thai man, 37, slightly chubby, neat side-parted black hair, friendly smile, royal-blue company polo shirt without logo, black trousers, holding a small potted plant.",t:"the HR officer: Thai man, 37, slightly chubby, neat side part, royal-blue company polo, black trousers, small potted plant"},
+   {l:"น้องเซลส์",per:{"k": "กระตือรือร้น อยากพิสูจน์ตัวเอง", "f": "เอางานหรือข้อมูลจากที่เก่ามาใช้โดยไม่คิดว่าเป็นของใคร", "q": "–", "gr": "ปีที่ 1 เรียนรู้ว่าข้อมูลของบริษัทเก่าใช้ไม่ได้ ปีที่ 2 รู้ว่างานที่ทำให้บริษัทเอาไปไม่ได้เมื่อลาออก", "gag": "ผูกเชือกรองเท้าหนังคู่ใหม่ แล้ววิ่งตามทีมไปประชุม", "lab": "น้องเซลส์ · น้องวิศวกร", "n": "ตัวเอก 2 ตอน (พ.ค. 70 · ต.ค. 71)"},m:"ชาย · 31 · เซลส์ใหม่ ย้ายมาจากบริษัทอื่น (ตัวละครหมุนเวียน)",c:"#7fb3e0",col:"ฟ้า + เทาเข้ม",look:"ผอมสูง หน้ายาว กรามชัด ผิวแทนนิด ๆ แว่นกรอบโลหะทรงเหลี่ยม ผมทำสีน้ำตาลหม่น หวีเสยแสกข้าง เคราบาง ๆ ที่คาง ท่าทางมั่นใจ นาฬิกาสายเงิน",wear:"เสื้อเชิ้ตสีฟ้าแขนยาว ใส่ในกางเกง เข็มขัดดำ กางเกงสแล็กสีเทาเข้มเข้ารูป รองเท้าหนังสีน้ำตาลคู่ใหม่",props:"กระเป๋าเอกสารหนังสีดำ มือถือ",face:"มั่นใจเกินตัว · ลังเล · รู้สึกผิด",
+    p:"A fictional Thai man, 31, lean build, long narrow face with a sharp jawline and high cheekbones, slightly tanned skin, thin metal-rimmed rectangular glasses, ash-brown dyed hair slicked back with a neat side part, light neat stubble on the chin, confident grin, thin silver wristwatch, neatly pressed sky-blue long-sleeve shirt tucked in, black belt, slim charcoal-grey trousers, brand-new brown leather lace-up shoes, carrying a black leather document bag.",t:"the junior salesman: Thai man, 31, long narrow face, metal-rimmed rectangular glasses, ash-brown dyed slicked-back side-parted hair, light stubble, neat tucked-in sky-blue shirt, charcoal trousers, new brown leather shoes, black document bag"},
+   {l:"น้องใหม่ปีที่ 3",per:{"k": "ขยัน จดทุกอย่าง กล้าถาม", "f": "ยังไม่รู้ว่าเรื่องไหนต้องรายงานหรือต้องถามก่อน", "q": "–", "gr": "จากคนที่ถูกสอน กลายเป็นคนที่แปะโน้ตคำถามก่อนตัดสินใจเอง", "gag": "จดทุกอย่างลงสมุดเล่มเล็ก หน้าล่าสุดเขียนว่า “ถามก่อนทำ”", "lab": "น้องจัดซื้อ · น้องวิศวกร · น้องฝ่ายผลิต · น้อง HR · น้องนักวิเคราะห์", "n": "ตัวเอก 7 ตอน (เริ่ม พ.ย. 71)"},m:"ชาย · 21 · น้องใหม่ปีที่ 3 (ตัวละครหมุนเวียน)",c:"#4b5563",col:"ขาว + ดำ",look:"หน้าตี๋ ตาชั้นเดียว ผิวขาว หน้าเด็ก ยิ้มง่าย ผมดำสั้นเรียบ ไม่ใส่แว่น",wear:"เสื้อเชิ้ตขาวพับแขนถึงข้อศอก ปลดกระดุมบน กางเกงสแล็กสีดำ รองเท้าผ้าใบสีขาว เป้สีดำ",props:"สมุดจดเล่มเล็ก ปากกา",face:"กระตือรือร้น · เก้อเขิน · รู้สึกผิด",
+    p:"A fictional Thai man, 21, fair skin, Thai-Chinese features with single-lidded eyes, boyish friendly face, easy smile, short neat black hair, no glasses, white button-up shirt with sleeves rolled to the elbows and the top button open, black trousers, white sneakers, black backpack on both shoulders.",t:"the year-3 new hire: Thai man, 21, fair skin, Thai-Chinese single-lidded eyes, short neat black hair, white shirt with rolled sleeves, black trousers, white sneakers, black backpack"}
+  ];
+  return {STYLE,SET,REF,C};
+})();
 (function(){
-  const tb=document.getElementById("srs-eps");if(!tb)return;
-  const YR=[["2027-10","ปีที่ 1 · ต.ค. 2569 – ก.ย. 2570 · ปีแรกของน้องใหม่"],["2028-10","ปีที่ 2 · ต.ค. 2570 – ก.ย. 2571 · ดีลใหญ่"],["9999","ปีที่ 3 · ต.ค. 2571 – ก.ย. 2572 · ส่งไม้ต่อ"]];
-  let cur=null;
-  CLIPS.filter(d=>d.drama).forEach(d=>{
-    const dr=d.drama,y=YR.find(([u])=>d.date<u)[1];
-    if(y!==cur){cur=y;tb.append(el("tr",{class:"grp"},el("td",{colspan:"6",text:y})))}
-    const leadC=(dr.cast||[]).find(c=>c.startsWith(dr.lead+" ("))||dr.lead;
-    const others=(dr.cast||[]).filter(c=>c!==leadC&&!c.startsWith("พี่ Compliance"));
-    const b=el("button",{type:"button",text:dr.title||d.topic});
-    b.addEventListener("click",()=>{sbVer="drama";showScript(d.i)});
-    tb.append(el("tr",{},
-      el("td",{class:"d",text:d.date_th.split(" · ")[0]}),
-      el("td",{class:"srs-ep"},b,el("small",{text:d.cat})),
-      el("td",{class:"ld",text:leadC}),
-      el("td",{text:others.length?others.join(" · "):"–"}),
-      el("td",{text:dr.ref&&dr.ref.case?dr.ref.case:"–"}),
-      el("td",{class:"arc",text:dr.arc||""})));
+  const g=document.getElementById("cs-grid");if(!g)return;
+  const {STYLE,SET,REF,C}=CS;
+  document.getElementById("cs-style").textContent=STYLE;document.getElementById("cs-set").textContent=SET;
+  const copyBtn=(get)=>{const b=el("button",{type:"button",class:"sb-copy cs-copy",text:"คัดลอก"});b.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(get());b.textContent="คัดลอกแล้ว ✓"}catch(e){b.textContent="คัดลอกไม่ได้"}setTimeout(()=>b.textContent="คัดลอก",1500)});return b};
+  const FX={
+    "พี่ Compliance":[["ยิ้มอบอุ่น","a warm, reassuring smile, eyes soft and friendly"],["ตั้งใจฟัง","listening attentively, head slightly tilted, calm focused eyes, lips closed"],["อธิบายพร้อมยกนิ้ว","explaining something kindly, one index finger raised beside her face, mouth mid-word"]],
+    "หัวหน้า":[["เร่งรีบ","in a hurry, brows drawn together, glancing at his wristwatch"],["ถอนหายใจ","sighing heavily, eyes half-closed, shoulders dropping"],["พยักหน้ายอมรับ","nodding in acceptance, a small approving smile"]],
+    "พี่หน้างาน":[["หัวเราะ","laughing heartily, eyes crinkled, wide open smile"],["ลังเล","hesitant, biting his lower lip, eyes glancing to the side"],["จริงจัง","serious and focused, steady gaze, mouth set firmly"]],
+    "พี่เซลส์":[["ยิ้มรับปาก","a confident, eager smile as if saying yes to a client"],["ลังเล","hesitant, uncertain glance, slight frown"],["ซ้อมพูดหน้ากระจก","rehearsing a speech, determined look, lips mid-word, chin up"]],
+    "พี่บัญชี":[["ยิ้มใจดี","a kind, gentle motherly smile"],["เกรงใจ","politely apologetic and reluctant, hands clasped together, awkward smile"],["มั่นใจ","calm and confident, chin slightly raised, steady eyes"]],
+    "น้องใหม่ → พี่ดิจิทัล":[["สงสัย","curious, head tilted, eyebrows raised"],["ตื่นเต้น","excited, bright wide eyes, open smile"],["ยิ้มภูมิใจ","a proud, satisfied smile"]],
+    "พี่ HR":[["อารมณ์ดี","cheerful, friendly grin"],["ตั้งใจรับฟัง","listening attentively, gentle nod, kind eyes"],["จริงจังเรื่องความลับ","serious, one finger near his lips signalling confidentiality"]],
+    "น้องเซลส์":[["มั่นใจเกินตัว","overconfident grin, chin up, one eyebrow slightly raised"],["ลังเล","hesitant, uncertain glance to the side, lips pursed"],["รู้สึกผิด","guilty, eyes downcast, lips pressed together"]],
+    "น้องใหม่ปีที่ 3":[["กระตือรือร้น","eager and enthusiastic, leaning slightly forward, bright eyes"],["เก้อเขิน","embarrassed, awkward smile, one hand rubbing the back of his neck"],["รู้สึกผิด","guilty, eyes downcast, lips pressed together"]]
+  };
+  const fxPrompt=(x,e)=>`Same single person as the attached reference image (${x.l}), identical face, hairstyle and outfit. Chest-up portrait, front view, facial expression: ${e}. Plain light-grey studio background, soft even lighting, photorealistic, fictional person, no logos, no text.`;
+  const angPrompt=x=>`Same single person as the attached reference image (${x.l}), identical face, hairstyle, body shape and outfit. Half-body portrait, three-quarter view, standing relaxed, plain light-grey studio background, soft even lighting, photorealistic, fictional person, no logos, no text.`;
+  const SITE={"พี่หน้างาน":"now in his on-site outfit: a white safety helmet and a reflective high-visibility vest worn over the same royal-blue polo, black cargo trousers, safety boots, holding a handheld radio","หัวหน้า":"now in his on-site outfit: a white safety helmet, a reflective high-visibility vest worn over the same white short-sleeve shirt, black trousers, safety boots instead of leather shoes, holding a clipboard"};
+  const sitePrompt=x=>`Same single person as the attached reference image (${x.l}), identical face, hairstyle and body shape, ${SITE[x.l]}. Full body, front view, standing relaxed, plain light-grey studio background, soft even lighting, photorealistic, fictional person, no logos, no text.`;
+  const fxList=x=>{const L=[["มุม 3/4 ครึ่งตัว",null]].concat(SITE[x.l]?[["ชุดหน้างาน (ทำแยกอีกภาพ)","SITE"]]:[]).concat(FX[x.l]||[]);
+    return el("ul",{class:"fx-list"},...L.map(([th,en])=>{const pr=en==="SITE"?sitePrompt(x):en?fxPrompt(x,en):angPrompt(x);
+      const cb=copyBtn(()=>pr);cb.title=pr;return el("li",{},el("span",{class:"fx-l",text:(en&&en!=="SITE"?"สีหน้า: ":"")+th}),cb)}))};
+  C.forEach(x=>{
+    const ref=REF+x.p;
+    const P=x.per||{};
+    g.append(el("article",{class:"cs-card",style:"--cc:"+x.c},
+      el("h3",{},el("span",{class:"sw"}),x.l),el("p",{class:"meta",text:x.m}),el("p",{class:"cs-n",text:P.n||""}),
+      el("h4",{class:"cs-sub",text:"นิสัย"}),
+      el("dl",{},el("dt",{text:"คาแรกเตอร์"}),el("dd",{text:P.k}),el("dt",{text:"จุดที่พลาด"}),el("dd",{text:P.f}),el("dt",{text:"ติดปาก"}),el("dd",{text:P.q}),el("dt",{text:"เติบโต 3 ปี"}),el("dd",{text:P.gr}),el("dt",{text:"มุกท้ายตอน"}),el("dd",{text:P.gag}),el("dt",{text:"ป้ายในตอนอื่น"}),el("dd",{text:P.lab})),
+      el("h4",{class:"cs-sub",text:"หน้าตา"}),
+      el("dl",{},el("dt",{text:"หน้าตา"}),el("dd",{text:x.look}),el("dt",{text:"การแต่งตัว"}),el("dd",{text:x.wear}),el("dt",{text:"สีประจำตัว"}),el("dd",{text:x.col}),el("dt",{text:"ของติดตัว"}),el("dd",{text:x.props}),el("dt",{text:"สีหน้าหลัก"}),el("dd",{text:x.face})),
+      el("h4",{text:"คำสั่งภาพอ้างอิง (Ingredient)"}),el("pre",{class:"cs-p",text:ref}),copyBtn(()=>ref),
+      el("h4",{text:"คำสั่งมุมเสริมและสีหน้า (แนบภาพอ้างอิงก่อน)"}),fxList(x),
+      el("h4",{text:"คำอธิบายสั้น ใช้เมื่อเขียนคำสั่งเอง"}),el("pre",{class:"cs-p",text:x.t}),copyBtn(()=>x.t)));
   });
+  document.querySelectorAll("button.cs-copy[data-for]").forEach(b=>b.replaceWith(copyBtn(()=>document.getElementById(b.dataset.for).textContent)));
 })();
 
+document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a.go-chars");if(a){e.preventDefault();setTab("chars");window.scrollTo({top:0})}});
 // tabs
-const TABS=["intro","series","plan","measure"];
+const TABS=["intro","series","chars","flowguide","plan","measure"];
 function setTab(id,push=true){
   if(id==="scripts")id="plan";if(id==="roles"){id="intro";setTimeout(()=>{const r=document.getElementById("cats");if(r)r.scrollIntoView()},0)}if(!TABS.includes(id))id="intro";
   TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);b.setAttribute("aria-selected",String(x===id));b.tabIndex=x===id?0:-1});
@@ -1110,8 +1329,8 @@ const mmss=s=>`${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;
 function sbText(d){
   const s=d.sb;if(!s)return d.script;const N=s.parts.reduce((a,p)=>a+p.scenes.length,0);
   let t=`# ${d.topic}\n${KIND[d.kind]} · เผยแพร่ ${d.date_th}\n\nโครงสร้างเนื้อหา\n- ความยาวรวม: ประมาณ ${mmss(d.est)} นาที (${N} ฉาก / ฉากละประมาณ ${Math.round(d.est/N)} วินาที)\n- กลุ่มเป้าหมาย: ${s.audience}\n- ธีมการเล่าเรื่อง: ${s.theme}\n`+(s.music?`- ดนตรีประกอบ: ${s.music}\n`:"")+"\n";
-  s.parts.forEach((p,k)=>{const a=p.scenes[0].no,z=p.scenes[p.scenes.length-1].no;t+=`${k+1}. ${p.name} (ฉากที่ ${a}${z>a?"-"+z:""})\n`;
-    p.scenes.forEach(c=>{t+=`   * ฉากที่ ${c.no} (${c.title}) [${c.time}]: ${c.desc}\n     ภาพ: ${c.visual}\n`;
+  s.parts.forEach((p,k)=>{const a=p.scenes[0].no,z=p.scenes[p.scenes.length-1].no;t+=`${k+1}. ${p.name} (ฉาก ${a}${z>a?"-"+z:""})\n`;
+    p.scenes.forEach(c=>{t+=`   ${c.no}. ${c.title} [${c.time}]${c.desc&&c.desc!==c.title?": "+c.desc:""}\n     ภาพ: ${c.visual}\n`;
       (c.audio||[]).forEach(([w,x])=>t+=`     เสียง (${w}): ${x}\n`);(c.screen||[]).forEach(([w,x])=>t+=`     บนจอ: ${x}\n`)});t+="\n"});
   t+=`Key Message: ${d.keyMsg}\n`;if(d.action)t+=`สิ่งที่พนักงานควรทำ:\n${d.action}\n`;
   return t;
@@ -1120,8 +1339,8 @@ function groupAu(au){const o=[];au.forEach(([w,x])=>{const l=o[o.length-1];if(l&
 function sbCopy(d){
   const s=d.sb,on=k=>sbShow.has(k);
   let t=`# ${d.topic}\n${KIND[d.kind]} · เผยแพร่ ${d.date_th}\n`+(s.music?`ดนตรีประกอบ: ${s.music}\n`:"")+(d.drama&&d.sb===d.drama.sb&&d.drama.ref?`อ้างอิงเคสจริง: ${d.drama.ref.case}\n`:"")+"\n";
-  s.parts.forEach((p,k)=>{t+=`${k+1}. ${p.name}\n`;
-    p.scenes.forEach(c=>{t+=`ฉากที่ ${c.no} [${c.time}] ${c.title}\n`;
+  s.parts.forEach((p,k)=>{t+=`[${p.name}]\n`;
+    p.scenes.forEach(c=>{t+=`${c.no}. ${c.title} [${c.time}]\n`;
       if(on("visual"))t+=`  ภาพ: ${c.visual}\n`;
       if(on("screen"))(c.screen||[]).forEach(([w,x])=>t+=`  บนจอ: ${x}\n`);
       if(on("audio"))groupAu(c.audio||[]).forEach(([w,x])=>t+=w.includes("ผู้บรรยาย")?`  เสียงบรรยาย: ${x}\n`:`  เสียง (${w}): ${x}\n`);});t+="\n"});
@@ -1129,6 +1348,7 @@ function sbCopy(d){
 }
 const sbShow=new Set(["audio","visual","screen"]);
 let sbVer="case";
+let sbMode="table";
 const VIEW=d=>sbVer==="drama"&&d.drama?d.drama:d;
 function renderSB(d){
   const V=VIEW(d),drama=V!==d,s=V.sb;if(!s)return renderScript(d.script);
@@ -1138,7 +1358,9 @@ function renderSB(d){
   const meta=el("dl",{class:"sb-meta"},
       el("dt",{text:"ความยาวรวม"}),el("dd",{text:`ประมาณ ${mmss(V.est)} นาที (${N} ฉาก / ฉากละประมาณ ${Math.round(V.est/N)} วินาที)`}),
       ...(drama&&V.title&&V.title!==d.topic?[el("dt",{text:"ชื่อตอน"}),el("dd",{text:V.title})]:[]),
-      ...(drama?[el("dt",{text:"ตัวละคร"}),el("dd",{text:V.cast.join(" · ")})]:[]),
+      ...(drama?(()=>{const lc=(V.cast||[]).find(c=>c.startsWith(V.lead+" ("))||V.lead;const oth=(V.cast||[]).filter(c=>c!==lc);
+        return [el("dt",{text:"ตัวเอก"}),el("dd",{text:lc}),el("dt",{text:"ตัวละครร่วม"}),el("dd",{text:oth.join(" · ")||"–"})]})():[]),
+      ...(drama&&V.arc?[el("dt",{text:"เส้นเรื่องรายปี"}),el("dd",{text:V.arc})]:[]),
       ...(drama&&V.ref?[el("dt",{text:"อ้างอิงเคสจริง"}),el("dd",{class:"sb-ref"},el("b",{text:V.ref.case}),el("span",{text:V.ref.use}),el("span",{class:"src"},"แหล่งข้อมูล: ",...V.ref.sources.flatMap(([t,u],k)=>{const a=el("a",{href:u,target:"_blank",rel:"noopener",text:t});return k?[" · ",a]:[a]})))]:[]),
       el("dt",{text:"กลุ่มเป้าหมาย"}),el("dd",{text:s.audience}),
       el("dt",{text:"ธีมการเล่าเรื่อง"}),el("dd",{text:s.theme}),
@@ -1146,7 +1368,9 @@ function renderSB(d){
   if(d.cls==="main"&&!drama){parseStory(d.story).forEach(([k,v])=>{if(k&&/ตัวละคร|จุดตัดสินใจ|คำถาม/.test(k))meta.append(el("dt",{text:k.replace(" / คำถาม","")}),el("dd",{text:v}))})}
   const ver=el("div",{class:"sb-ver",role:"group","aria-label":"เลือกเวอร์ชันสตอรีบอร์ด"});
   [["case","เคสสั้น"],["drama","ละครซีรีส์ \"ชั้น 12\""]].forEach(([k,l])=>{const b=el("button",{type:"button","aria-pressed":String((drama?"drama":"case")===k),text:l});b.disabled=k==="drama"&&!d.drama;b.addEventListener("click",()=>{if(sbVer===k)return;sbVer=k;box.replaceWith(renderSB(d));const e=document.querySelector("#dlg .sheet-head .est");if(e&&VIEW(d).est)e.textContent=`ยาวประมาณ ${mmss(VIEW(d).est)} นาที`});ver.append(b)});
-  const box=el("div",{class:"sb"+(drama?" drama":"")},el("div",{class:"sb-h"},el("h3",{text:"โครงสร้างเนื้อหา"}),ver),meta);
+  const mode=el("div",{class:"sb-ver sb-mode",role:"group","aria-label":"เลือกมุมมอง"});
+  [["table","สตอรีบอร์ด"],["flow","Prompt สำหรับ Flow"]].forEach(([k,l])=>{const b=el("button",{type:"button","aria-pressed":String((drama&&V.fl?sbMode:"table")===k),text:l});b.disabled=k==="flow"&&!(drama&&V.fl);if(b.disabled)b.title=d.drama?"ตอนนี้ยังไม่มีคำสั่ง":"มีเฉพาะเวอร์ชันละคร \"ชั้น 12\"";b.addEventListener("click",()=>{if(sbMode===k)return;sbMode=k;box.replaceWith(renderSB(d))});mode.append(b)});
+  const box=el("div",{class:"sb"+(drama?" drama":"")},el("div",{class:"sb-h"},el("h3",{text:"โครงสร้างเนื้อหา"}),el("div",{class:"sb-sw"},ver,mode)),meta);
   const F=[["visual","ภาพ"],["screen","Keyword บนจอ"],["audio","เสียง"]];
   const fb=el("div",{class:"sb-filter",role:"group","aria-label":"เลือกคอลัมน์ที่จะแสดงและคัดลอก"},el("span",{class:"muted",text:"แสดง:"}));
   const apply=()=>{F.forEach(([k])=>box.classList.toggle("hide-"+k,!sbShow.has(k)));fb.querySelectorAll("button[data-f]").forEach(x=>x.setAttribute("aria-pressed",String(sbShow.has(x.dataset.f))))};
@@ -1157,6 +1381,7 @@ function renderSB(d){
   const edb=el("button",{class:"sb-copy sb-edit",text:"✎ แก้ไข"});edb.addEventListener("click",()=>startEdit(d,box));
   fb.append(el("span",{class:"sp"}),edb,cp);
   if(SAVED[d.i])box.append(el("p",{class:"sbe-saved",text:`บันทึกขึ้น Git แล้ว (${SAVED[d.i]} น.) · หน้าเว็บบน GitHub อัปเดตภายใน 1–2 นาที`}));
+  if(drama&&V.fl&&sbMode==="flow"){box.append(renderFlow(d));return box}
   box.append(fb);apply();
   s.parts.forEach((p,k)=>{
     const a=p.scenes[0].no,z=p.scenes[p.scenes.length-1].no;
@@ -1166,13 +1391,231 @@ function renderSB(d){
     p.scenes.forEach(c=>{
       const au=c.audio||[], scr=c.screen||[];
       tbody.append(el("tr",{},
-        el("td",{class:"no",title:c.desc},el("b",{text:"ฉากที่ "+c.no}),el("span",{class:"num",text:c.time}),el("span",{class:"stt",text:c.title})),
+        el("td",{class:"no",title:c.desc},el("b",{text:c.no+". "+c.title}),el("span",{class:"num",text:c.time})),
         el("td",{"data-k":"visual"},el("span",{class:"ml",text:"ภาพ"}),c.visual),
         el("td",{"data-k":"screen"},el("span",{class:"ml",text:"บนจอ"}),scr.length?el("div",{class:"sb-au kw"},...scr.map(([w,x])=>el("p",{text:x}))):el("span",{class:"muted",text:"–"})),
         el("td",{"data-k":"audio"},el("span",{class:"ml",text:"เสียง"}),au.length?el("div",{class:"sb-au"},...groupAu(au).map(([w,x])=>w.includes("ผู้บรรยาย")?el("p",{class:"narp",text:x}):el("p",{},el("b",{class:"dia",text:w+": "}),x))):el("span",{class:"muted",text:"–"}))));
     });
     tb.append(tbody);
-    box.append(el("section",{class:"sb-part"},el("h4",{},el("span",{class:"pn",text:k+1}),p.name,el("small",{text:` · ฉากที่ ${a}${z>a?"–"+z:""}`})),el("div",{class:"sbt-wrap"},tb)));
+    box.append(el("section",{class:"sb-part"},el("h4",{},el("span",{class:"pn",text:k+1}),p.name,el("small",{text:` · ฉาก ${a}${z>a?"–"+z:""}`})),el("div",{class:"sbt-wrap"},tb)));
+  });
+  return box;
+}
+/* ---- Google Flow prompts per scene (drama "ชั้น 12"): still frame + video per shot, vertical 9:16 ---- */
+const FLW=(()=>{
+  const CH={c:0,h:1,f:2,s:3,a:4,n:5,r:6,j:7,p:8};
+  const VOICE={c:"warm, calm female voice, late 30s",h:"deep, firm male voice, early 40s",f:"cheerful, slightly husky male voice, mid 30s",s:"bright, upbeat female voice, late 20s",a:"soft, motherly female voice, early 50s",n:"clear, lively young female voice, mid 20s",r:"friendly, warm male voice, late 30s",j:"eager, smooth male voice, early 30s",p:"polite, slightly shy young male voice, early 20s"};
+  const VTH={c:"หญิงวัยปลาย 30 น้ำเสียงอบอุ่น ใจเย็น",h:"ชายวัยต้น 40 เสียงทุ้ม หนักแน่น",f:"ชายวัยกลาง 30 เสียงร่าเริง แหบนิด ๆ",s:"หญิงวัยปลาย 20 เสียงสดใส กระตือรือร้น",a:"หญิงวัยต้น 50 เสียงนุ่ม อบอุ่นแบบแม่",n:"หญิงวัยกลาง 20 เสียงใส มีชีวิตชีวา",r:"ชายวัยปลาย 30 เสียงเป็นมิตร อบอุ่น",j:"ชายวัยต้น 30 เสียงกระตือรือร้น ลื่นไหล",p:"ชายวัยต้น 20 เสียงสุภาพ ขี้อายนิด ๆ"};
+  const NARR="calm, friendly Thai male narrator in his mid 40s, documentary tone", NARR_TH="ชายวัยกลาง 40 น้ำเสียงสงบ เป็นมิตร แบบสารคดี";
+  const ROLE={"พี่ Compliance":"the Compliance officer","หัวหน้า":"the team head","พี่บัญชี":"the senior accountant","พี่ HR":"the HR officer","พี่เซลส์":"the sales lead","พี่หน้างาน":"the field coordinator","น้องเซลส์":"the junior salesman","น้องใหม่":"the new hire","น้องดิจิทัล":"the junior digital officer","พี่ดิจิทัล":"the digital officer","น้องวิศวกร":"the junior engineer","น้อง HR":"the junior HR officer","พี่การตลาด":"the marketing lead","พี่บริการลูกค้า":"the customer-service officer","พี่ PM":"the project manager","พี่ช่าง":"the technician","หัวหน้าไซต์":"the site manager","พี่ฝ่ายธุรกิจ":"the business-development officer","พี่วิศวกร":"the engineer","พี่จัดซื้อ":"the procurement officer","หัวหน้าช่าง":"the head technician","หัวหน้าเซลส์":"the sales manager","หัวหน้าทีม":"the team leader","น้องธุรการ":"the junior admin officer","น้อง IT":"the junior IT officer","พี่วางแผนผลิต":"the production planner","พี่ฝ่ายผลิต":"the production officer","พี่ QC":"the QC officer","พี่เซฟตี้":"the safety officer","น้องจัดซื้อ":"the junior procurement officer","พี่ประสานงาน":"the project coordinator","พี่โฟร์แมน":"the foreman","พี่ Audit":"the internal auditor","น้องฝ่ายผลิต":"the junior production worker","หัวหน้าไลน์":"the line supervisor","หัวหน้าซ่อมบำรุง":"the maintenance supervisor","พี่ธุรการ":"the admin officer","ผู้จัดการโรงงาน":"the plant manager","น้องนักวิเคราะห์":"the junior analyst","พี่การเงิน":"the finance officer","หัวหน้าโครงการ":"the project head"};
+  const LOC={
+    office:"the open-plan office on the 12th floor of a mid-size Thai company: light wood desks, grey task chairs, large windows overlooking the building across the street, potted plants",
+    glass:"a small glass-walled meeting room on the 12th floor: white table, grey chairs, a switched-off wall screen, city view through the window",
+    coffee:"the coffee corner of the 12th-floor office: an espresso machine, a high table, a corkboard full of sticky notes and a small whiteboard",
+    lift:"the 12th-floor elevator lobby: brushed-steel elevator doors and a round wall clock",
+    lobby:"the bright ground-floor reception lobby of a Thai office building: stone floor, a reception desk without logos",
+    exec:"a senior executive's corner office: dark wood desk, leather chair, bookshelf, city view",
+    board:"a boardroom: long dark table, leather chairs, a large switched-off screen",
+    wh:"the company warehouse: tall steel racks of boxed stock, painted floor lanes, a forklift, roll-up loading doors",
+    site:"a Thai construction site: a concrete-frame building in progress, scaffolding, rebar, a site-office container, workers in white helmets and high-visibility vests",
+    plant:"a clean Thai factory floor: production machines, a conveyor line, yellow safety lines on the floor, workers in uniforms and caps",
+    lab:"a quality-control lab beside the factory floor: white benches, measuring instruments, sample parts in trays",
+    yard:"an outdoor equipment yard and loading dock: pallets, cable drums, a parked truck, bright tropical daylight",
+    car:"inside a car parked on a city street, daylight through the windscreen",
+    rest:"a casual Thai restaurant: wooden tables, warm lights, shared dishes",
+    home:"a small, tidy Thai home in the evening: dining table, sofa, warm lamp light",
+    sitebox:"a site-office container: folding table, plans pinned on the wall, a standing fan, fluorescent light",
+    cafe:"a quiet coffee shop near the office: wooden tables, leather armchairs, warm light",
+    street:"a quiet Thai housing estate: two-storey houses, potted plants, cars in the driveways, bright daylight",
+    expo:"a busy electrical-industry trade-show hall: booths, machinery displays, visitors with lanyards",
+    assoc:"an industry-association meeting room: U-shaped table, fictional company name cards, a projector screen",
+    itroom:"a small IT office at night: glowing monitors, a desk lamp, blinking server-rack lights",
+    carpark:"a company car park: a row of white pickup trucks under a covered roof, a key cabinet on the wall by the door",
+    breakroom:"a technicians' break room: lockers, a small table, a water cooler, a desktop computer",
+    hotel:"a hotel conference foyer during a coffee break: round standing tables, coffee urns, people in business attire",
+    client:"a client's modern meeting room: glass table, potted plant, view over the city",
+    gov:"a Thai government service counter: queue desks, plastic chairs, fluorescent light, no readable signs",
+    desk:"a light wood office desk on the 12th floor"};
+  const SFX={office:"soft office ambience, quiet keyboard clicks, air-conditioning hum",glass:"quiet meeting-room ambience, muffled office beyond the glass",coffee:"coffee-corner ambience, espresso machine hum, cups clinking",lift:"elevator-lobby ambience",lobby:"lobby ambience, footsteps on stone",exec:"quiet office ambience, clock ticking",board:"quiet boardroom ambience",wh:"warehouse ambience, distant forklift beeps",site:"construction-site ambience, distant hammering and machinery",plant:"factory-floor ambience, steady machine hum",lab:"quiet lab ambience, soft instrument beeps",yard:"outdoor ambience, distant traffic, a truck engine idling",car:"muffled street traffic outside the car",rest:"restaurant chatter, cutlery",home:"quiet evening at home, a ceiling fan",sitebox:"site-office ambience, a standing fan whirring, distant machinery",hotel:"conference coffee-break chatter, cups and saucers",cafe:"coffee-shop chatter, cups clinking, soft espresso hiss",street:"birds, a distant motorbike, a quiet neighbourhood",breakroom:"quiet break-room ambience, a water cooler bubbling",carpark:"car-park ambience, a distant engine starting",expo:"trade-show crowd ambience",assoc:"quiet meeting-room murmur, a projector fan",itroom:"server fans humming, keyboard clicks",client:"quiet meeting-room ambience",gov:"busy service-counter ambience, a queue-number chime",desk:"soft office ambience"};
+  const CAM={wide:["wide shot, full figures with space around them","wide shot with a slow, gentle push-in"],full:["full-body shot","full-body shot, static camera"],med:["medium shot from the waist up, eye level","medium shot at eye level, subtle handheld movement"],two:["medium two-shot, both faces visible","medium two-shot, static camera with a slight drift"],cu:["close-up on the face, shallow depth of field","close-up on the face, very slow push-in"],ecu:["extreme close-up","extreme close-up, static camera"],ots:["over-the-shoulder shot","over-the-shoulder shot with a slow drift"],ins:["insert close-up on hands and objects, shallow depth of field","insert close-up with a slow push-in on the detail"],trk:["medium-wide shot of the characters walking","tracking shot following the characters as they walk"],high:["high-angle shot looking down","high-angle shot with a slow crane down"],pull:["close shot that will widen","the camera starts close, then pulls back and rises to reveal the wider space"],pov:["point-of-view shot","handheld point-of-view shot"]};
+  const LOOK={c:"Thai woman, 39, shoulder-length straight black bob, thin round gold-rimmed glasses, navy blazer over a white blouse, black slacks",h:"Thai man, 43, sturdy build, very short crew cut greying at the temples, white short-sleeve shirt with pens in the breast pocket, black trousers",f:"Thai man, 34, tanned skin, short slightly messy black hair, cheerful wide smile, royal-blue polo shirt without logo, black cargo trousers, safety boots",s:"Thai woman, 29, long wavy dark-brown hair in a half-up style, coral blouse, cream pencil skirt",a:"Thai woman, 51, warm motherly face, short permed black hair, reading glasses on a beaded chain, pastel-pink cardigan over a white blouse",n:"Thai woman, 24, bright curious eyes, straight black hair in a high ponytail, mint-green button-up shirt, black trousers, white sneakers",r:"Thai man, 37, slightly chubby, neat side-parted black hair, friendly smile, royal-blue company polo shirt without logo, black trousers",j:"Thai man, 31, lean build, long narrow face with a sharp jawline and high cheekbones, slightly tanned skin, thin metal-rimmed rectangular glasses, ash-brown dyed hair slicked back with a neat side part, light neat stubble on the chin, confident grin, thin silver wristwatch, neatly pressed sky-blue long-sleeve shirt tucked in, black belt, slim charcoal-grey trousers, brand-new brown leather shoes",p:"Thai man, 21, fair skin, Thai-Chinese features with single-lidded eyes, boyish friendly face, easy smile, short neat black hair, no glasses, white button-up shirt with sleeves rolled to the elbows and the top button open, black trousers, white sneakers, black backpack"};
+  const GEAR={site:", wearing a white safety helmet, a high-visibility vest and safety boots",plant:", wearing a white safety helmet, a high-visibility vest and safety boots",yard:", wearing a white safety helmet, a high-visibility vest and safety boots",wh:", wearing a high-visibility vest"};
+  const ALT={wide:"med",trk:"med",pull:"med",high:"med",full:"med",med:"cu",two:"cu",ots:"cu",pov:"cu",cu:"med",ins:"med",ecu:"med"};
+  const IMG="Photorealistic cinematic still from a Thai workplace drama series. Natural soft lighting, warm neutral colour grade, shallow depth of field, realistic skin texture, everyday business-casual clothing. All people are fictional and must not resemble any real person. No logos, no brand names, no readable text.";
+  const VID="Photorealistic cinematic footage from a Thai workplace drama series. Natural soft lighting, warm neutral colour grade, shallow depth of field, realistic movement and skin texture. All people are fictional and must not resemble any real person. No logos, no brand names, no readable text.";
+  const fnv=s=>{let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,"0")};
+  const cap=t=>t.charAt(0).toUpperCase()+t.slice(1);
+  const dot=t=>/[.!?)]$/.test(t)?t:t+".";
+  const clean=t=>String(t).replace(/[“”"]/g,"").trim();
+  const sec=t=>{const[a,b]=t.split(":").map(Number);return a*60+b};
+  const gen=x=>x<=4?4:x<=6?6:8;
+  const split=(t,m)=>{if(m<=1)return [t];const w=t.split(" ");if(w.length<2)return [t];const tot=t.length,out=[];let cur="",done=0;
+    w.forEach((x,i)=>{cur=cur?cur+" "+x:x;if(out.length<m-1&&i<w.length-1&&done+cur.length>=tot*(out.length+1)/m){out.push(cur);done+=cur.length+1;cur=""}});
+    out.push(cur);return out};
+  function ctx(d,V){
+    const F=V.fl,y3=d.date>="2028-11";
+    const role=k=>k in CH?(ROLE[F.lab[k]]||F.lab[k]||"a colleague"):(F.x[k]?F.x[k][0]:"a colleague");
+    const y=d.date<"2027-11"?1:d.date<"2028-11"?2:3;
+    const look=(k,loc)=>{if(k in CH){let l=LOOK[k];if(k==="n"&&y>1)l=l.replace("Thai woman, 24","Thai woman, "+(23+y))+(y3?", now with a light-grey blazer over the mint-green shirt":"");return l+(GEAR[loc]||"")}return F.x[k]?F.x[k][1]:""};
+    const fill=t=>t.replace(/\{(\w+)\}/g,(m,k)=>role(k)).replace(/(^|[.!?]\s+)(the|a|an) /g,(m,p,w)=>p+cap(w)+" ");
+    const thLab=k=>k in CH?F.lab[k]:(Object.keys(F.sp).find(w=>F.sp[w][0]===k)||(F.x[k]?cap(F.x[k][0].replace(/^(the|a|an) /,"")):k));
+    return {F,role,look,fill,thLab};
+  }
+  function shots(d,V,s,o,C){
+    const [a,b]=s.time.split("–"),dur=Math.max(1,sec(b)-sec(a));
+    const DC=(s.audio||[]).filter(([w])=>!w.includes("ผู้บรรยาย")).reduce((n,[w,x])=>n+clean(x).replace(/\s/g,"").length,0);
+    const B=o.b,N=o.n?Math.min(o.n,B.length)||1:B.length===1&&dur<=10&&DC<=MAXC?1:Math.max(B.length,Math.ceil(dur/8),B.length===1&&DC>MAXC?2:1),len=o.n?Math.min(8,dur/N):dur/N;
+    const B2=o.n&&B.length>N?B.slice(0,N):B;
+    let S=[];
+    for(let k=0;k<N;k++){
+      let [cam,loc,t]=B2[Math.min(k,B2.length-1)];
+      if(k>=B2.length){cam=ALT[S[k-1].cam]||"med";const m=t.match(/\{(\w+)\}/);t=(m?`A few seconds later, a closer angle on {${m[1]}}, who carries on the moment naturally (speaking or reacting). Earlier in this scene: `:"A few seconds later, a slightly different angle on the same detail. Earlier in this scene: ")+t}
+      const ids=[...new Set([...t.matchAll(/\{(\w+)\}/g)].map(m=>m[1]))];
+      S.push({cam,loc,t,ids,len,gen:gen(len),say:[]});
+    }
+    const au=(s.audio||[]).map(([w,x])=>({w,x:clean(x)}));
+    const narr=au.filter(e=>e.w.includes("ผู้บรรยาย")),dia=au.filter(e=>!e.w.includes("ผู้บรรยาย"));
+    let ptr=0;
+    dia.forEach((e,i)=>{
+      const m=C.F.sp[e.w],id=m?m[0]:null,idx=S.map((x,k)=>k);
+      let cand=id?idx.filter(k=>k>=ptr&&S[k].ids[0]===id):[];
+      if(id&&!cand.length)cand=idx.filter(k=>k>=ptr&&S[k].ids.includes(id));
+      if(!cand.length)cand=idx.filter(k=>k>=Math.min(ptr,N-1));
+      const more=!!id&&dia.slice(i+1).some(f=>(C.F.sp[f.w]||[])[0]===id);
+      const use=more?[cand[0]]:cand.filter((k,j)=>j===0||k===cand[j-1]+1);
+      split(e.x,use.length).forEach((t,j)=>{if(t)S[use[j]].say.push({w:e.w,id,th:m?m[1]:0,t})});
+      ptr=use[use.length-1];
+    });
+    S=splitLong(S);
+    if(narr.length)split(narr.map(e=>e.x).join(" "),S.length).forEach((t,k)=>{if(t)S[k].say.push({narr:1,t})});
+    S.forEach(x=>{const dc=x.say.filter(y=>!y.narr).reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0),nc=x.say.filter(y=>y.narr).reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);
+      if(nc&&dc+nc>8*12){x.say=x.say.filter(y=>!y.narr);x.narrOut=1}});
+    S.forEach(x=>{x.chars=x.say.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);x.gen=gen(Math.max(x.len,x.chars/11));x.img=imgPrompt(x,o,C);x.vid=vidPrompt(x,o,C)});
+    return S;
+  }
+  const MAXC=88;  // Thai characters a character can say clearly in one 8-second shot
+  const nch=a=>a.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);
+  function splitLong(S){const out=[];
+    S.forEach(x=>{const dia=x.say,dc=nch(dia);
+      const toks=[];dia.forEach(y=>y.t.split(" ").forEach(w=>toks.push({y,w})));
+      const k=Math.min(Math.ceil(dc/MAXC),toks.length);
+      if(dc<=MAXC||k<2){out.push(x);return}
+      const tot=toks.reduce((n,t)=>n+t.w.length,0),G=[[]];let acc=0;
+      toks.forEach(t=>{if(G.length<k&&G[G.length-1].length&&acc>=tot*G.length/k)G.push([]);G[G.length-1].push(t);acc+=t.w.length});
+      G.forEach((g,j)=>{const say=[];g.forEach(t=>{const l=say[say.length-1];if(l&&l._s===t.y)l.t+=" "+t.w;else say.push(Object.assign({},t.y,{_s:t.y,t:t.w}))});say.forEach(y=>delete y._s);
+        if(!j){out.push(Object.assign({},x,{say,len:x.len/G.length}));return}
+        const who=say.find(y=>y.id&&x.ids.includes(y.id)),sub=who?who.id:x.ids[0];
+        out.push(Object.assign({},x,{say,len:x.len/G.length,cam:ALT[x.cam]||"cu",t:(sub?`A moment later, a closer angle on {${sub}}, who keeps talking. Earlier in this shot: `:"A moment later, a slightly different angle. Earlier in this shot: ")+x.t.replace(/^(A few seconds later|A moment later)[^:]*: /,"")}))});
+    });return out}
+  const locOf=l=>l.startsWith("~")?l.slice(1):(LOC[l]||l);
+  function people(x,C,video){return x.ids.map(k=>"- "+cap(C.role(k))+" — "+C.look(k,x.loc)+(video?"; voice: "+(VOICE[k]||"a natural voice that fits the description"):""))}
+  function imgPrompt(x,o,C){
+    const P=people(x,C,false);
+    return ["Vertical 9:16 still image, the first frame of a video shot. "+IMG,
+      "Setting: "+locOf(x.loc)+".",
+      ...(P.length?["In frame:",...P]:[]),
+      "Moment: "+dot(C.fill(x.t)),
+      "Framing: "+CAM[x.cam][0]+". Keep the subject centred and the top and bottom fifth of the frame calm, leaving room for Thai captions added in editing."].join("\n");
+  }
+  function vidPrompt(x,o,C){
+    const P=people(x,C,true);
+    const L=x.say.map(y=>{
+      if(y.narr)return `- Off-screen narrator (${NARR}) says in Thai: "${y.t}"`;
+      if(!y.id)return `- An off-screen voice (${y.w}) says in Thai: "${y.t}"`;
+      const r=cap(C.role(y.id));
+      if(y.th)return `- ${r}'s inner thought, heard as a voice-over while the lips stay closed, in Thai: "${y.t}"`;
+      return x.ids.includes(y.id)?`- ${r} says in Thai: "${y.t}"`:`- ${r}, off-screen, says in Thai: "${y.t}"`;
+    });
+    const sfx=o.sfx||SFX[x.loc]||"natural ambient sound of the location";
+    return [`Vertical 9:16 video, ${x.gen} seconds, one continuous shot. `+VID,
+      "Setting: "+locOf(x.loc)+".",
+      ...(P.length?["Characters:",...P]:[]),
+      "Action: "+dot(C.fill(x.t)),
+      "Camera: "+CAM[x.cam][1]+".",
+      ...(L.length?["Speech in Thai with natural lip-sync, spoken clearly at a natural pace:",...L]:["No dialogue."]),
+      "Sound: "+sfx+". No background music.",
+      "No subtitles, no captions, no on-screen text."].join("\n");
+  }
+  function build(d){
+    const V=d.drama;if(!V||!V.fl)return null;
+    const C=ctx(d,V),byH={},byNo={};
+    V.fl.s.forEach(o=>{byH[o.h]=o;byNo[o.no]=o});
+    const scenes=V.sb.parts.flatMap(p=>p.scenes.map(s=>({p,s})));
+    const out=scenes.map(({p,s})=>{
+      let o=byH[fnv(s.visual)],stale=false;
+      if(!o){o=byNo[s.no];stale=!!o}
+      const r={s,part:p.name,o,stale};
+      if(o&&!o.e)r.shots=shots(d,V,s,o,C);
+      return r;
+    });
+    const ids=[...new Set(V.fl.s.flatMap(o=>(o.b||[]).flatMap(b=>[...b[2].matchAll(/\{(\w+)\}/g)].map(m=>m[1]))))];
+    const speakers=[...new Set(V.sb.parts.flatMap(p=>p.scenes.flatMap(s=>(s.audio||[]).map(a=>a[0]))))];
+    return {C,V,out,ids,speakers};
+  }
+  function allText(d,R){
+    const L=[`ชั้น 12 · ${d.date_th.split(" · ")[0]} · ${R.V.title} — Prompt สำหรับ Google Flow (แนวตั้ง 9:16)`,
+      "ตัวละครในตอนนี้ (Ingredient): "+R.ids.map(k=>R.C.thLab(k)+" = "+R.C.role(k)).join(" · "),""];
+    R.out.forEach(({s,o,shots})=>{
+      L.push(`=== ${s.no}. ${s.title} · ${s.time} ===`);
+      if(!o){L.push("(ยังไม่มีคำสั่ง)","");return}
+      if(o.e){L.push("[ทำในขั้นตัดต่อ] "+o.e);}
+      (shots||[]).forEach((x,k)=>{L.push(`--- ช็อต ${k+1}/${shots.length} · ใช้จริงประมาณ ${Math.round(x.len)} วินาที (สร้าง ${x.gen} วินาที) ---`,"[ภาพนิ่ง]",x.img,"","[วิดีโอ]",x.vid,"")});
+      const ed=edits(s,o);if(ed.length)L.push("[ใส่ตอนตัดต่อ] "+ed.join(" · "));
+      L.push("");
+    });
+    return L.join("\n").trim();
+  }
+  function edits(s,o){const g=(s.visual.match(/ภาพประกอบ:\s*(.+?)(?: · |$)/)||[])[1];
+    return [...(s.screen||[]).map(([w,x])=>"ข้อความบนจอ: "+x),...(g?["กราฟิก: "+g]:[]),...(o&&o.g?["เพิ่มเติม: "+o.g]:[]),...(o&&o.e&&(s.audio||[]).length?["เสียงฉากนี้ใช้จากไฟล์เสียงแยก"]:[])]}
+  function voText(d,R){
+    const W=R.speakers;
+    const vo=w=>{if(w.includes("ผู้บรรยาย"))return NARR_TH;const m=R.C.F.sp[w];if(m&&VTH[m[0]])return VTH[m[0]]+(m[1]?" (เสียงความคิด)":"");
+      const g=m&&R.C.F.x[m[0]]?R.C.F.x[m[0]][1].match(/\b(woman|man)\b,\s*(?:about\s*)?(\d+)/):null;return g?`${g[1]==="woman"?"หญิง":"ชาย"}วัยประมาณ ${g[2]} ปี`:"ตามลักษณะตัวละคร"};
+    const L=[`ชั้น 12 · ${d.date_th.split(" · ")[0]} · ${R.V.title} — บทอัดเสียง (ไฟล์เสียงแยก)`,"","ผู้พูดและลักษณะเสียง:",...W.map(w=>`- ${w}: ${vo(w)}`),""];
+    R.out.forEach(({s})=>{(s.audio||[]).forEach(([w,x])=>L.push(`[ฉาก ${s.no} · ${s.time}] ${w}: ${clean(x)}`))});
+    L.push("","หมายเหตุ: อัดแยกเป็นไฟล์ละ 1 ฉาก ตั้งชื่อไฟล์ตามเลขฉาก แล้ววางให้ตรงเวลาในตัดต่อ ดนตรีประกอบใส่ตอนตัดต่อ");
+    return L.join("\n");
+  }
+  return {build,allText,voText,edits,REF:()=>CS.REF};
+})();
+function flCopy(get,label){const b=el("button",{type:"button",class:"sb-copy fl-copy",text:label||"คัดลอก"});b.addEventListener("click",async()=>{const l=b.textContent;try{await navigator.clipboard.writeText(get());b.textContent="คัดลอกแล้ว ✓"}catch(e){b.textContent="คัดลอกไม่ได้"}setTimeout(()=>b.textContent=l,1500)});return b}
+function renderFlow(d){
+  const R=FLW.build(d);const box=el("div",{class:"fl"});
+  if(!R){box.append(el("p",{class:"muted",text:"ตอนนี้ยังไม่มีคำสั่งสำหรับ Flow"}));return box}
+  const ing=el("div",{class:"fl-ing"},...R.ids.map(k=>{
+    if(k in {c:1,h:1,f:1,s:1,a:1,n:1,r:1,j:1,p:1})return el("span",{class:"fl-chip"},el("b",{text:R.C.thLab(k)}),el("span",{class:"muted",text:" · Character sheet"}));
+    const ref=FLW.REF()+"A fictional "+R.C.look(k)+".";
+    return el("span",{class:"fl-chip x"},el("b",{text:R.C.thLab(k)}),el("span",{class:"muted",text:" · "+R.C.look(k)}),flCopy(()=>ref,"คัดลอกคำสั่งภาพอ้างอิง"));
+  }));
+  const nShots=R.out.reduce((n,x)=>n+(x.shots?x.shots.length:0),0),nEdit=R.out.filter(x=>x.o&&x.o.e).length;
+  box.append(el("div",{class:"fl-head"},
+    el("p",{},el("b",{text:"ตั้งค่า Flow: "}),"แนวตั้ง 9:16 · Veo 3.1 · ความยาวตามที่ระบุในแต่ละช็อต (ใช้ได้ไม่เกิน 8 วินาทีต่อครั้ง)"),
+    el("p",{},el("b",{text:"ลำดับงาน: "}),"สร้างภาพนิ่งจากคำสั่ง \"ภาพนิ่ง\" โดยแนบ Ingredient ของตัวละครในช็อต แล้วใช้ภาพนั้นเป็นเฟรมแรกใน Frames to Video และวางคำสั่ง \"วิดีโอ\" ข้อความบนจอ ดนตรี และกราฟิกใส่ตอนตัดต่อ"),
+    el("p",{},el("b",{text:"เสียง: "}),"คำสั่งวิดีโอมีบทพูดภาษาไทยให้ AI พูดเลย และมีบทอัดเสียงแยกไว้ทำไฟล์เสียงอีกชุด ใช้ชุดไหนก็ได้ตอนตัดต่อ"),
+    el("p",{class:"fl-n",text:`ตอนนี้มี ${nShots} ช็อตที่ต้องสร้าง และ ${nEdit} ฉากที่ทำในขั้นตัดต่อ`}),
+    el("h4",{text:"Ingredient ที่ใช้ในตอนนี้"}),ing,
+    el("div",{class:"fl-acts"},flCopy(()=>FLW.allText(d,R),"คัดลอกคำสั่งทั้งตอน"),flCopy(()=>FLW.voText(d,R),"คัดลอกบทอัดเสียง (ไฟล์เสียงแยก)"))));
+  let part=null;
+  R.out.forEach(({s,part:pn,o,stale,shots})=>{
+    if(pn!==part){part=pn;box.append(el("h4",{class:"fl-part",text:pn}))}
+    const au=(s.audio||[]).map(([w,x])=>el("p",{},el("b",{text:w+": "}),String(x)));
+    const ed=FLW.edits(s,o);
+    const card=el("article",{class:"fl-sc"+(o&&o.e?" edit":"")},
+      el("div",{class:"fl-hd"},el("b",{text:s.no+". "+s.title}),el("span",{class:"num",text:s.time}),o&&o.e?el("span",{class:"fl-tag",text:"ทำในขั้นตัดต่อ"}):shots?el("span",{class:"fl-tag g",text:shots.length+" ช็อต"}):null),
+      el("p",{class:"fl-th",text:s.visual}),
+      stale?el("p",{class:"fl-warn",text:"ภาพของฉากนี้ถูกแก้หลังเขียนคำสั่ง ตรวจคำสั่งก่อนใช้"}):null,
+      !o?el("p",{class:"fl-warn",text:"ฉากนี้ยังไม่มีคำสั่ง"}):null,
+      o&&o.e?el("p",{class:"fl-e",text:o.e}):null,
+      ...(shots||[]).map((x,k)=>el("div",{class:"fl-shot"},
+        el("h5",{text:`ช็อต ${k+1}/${shots.length} · ใช้จริงประมาณ ${Math.round(x.len)} วินาที · สร้าง ${x.gen} วินาที`+(x.len>x.gen+0.5?` แล้วต่อด้วย Extend หรือค้างภาพสุดท้ายอีก ${Math.round(x.len-x.gen)} วินาที`:"")+(x.chars>x.gen*12?" · บทพูดยาวเกินช็อต ให้ต่อด้วย Extend":"")}),
+        el("div",{class:"fl-pp"},
+          el("div",{},el("span",{class:"fl-k",text:"ภาพนิ่ง"}),el("pre",{class:"fl-p",text:x.img}),flCopy(()=>x.img)),
+          el("div",{},el("span",{class:"fl-k",text:"วิดีโอ"}),el("pre",{class:"fl-p",text:x.vid}),flCopy(()=>x.vid))),
+        x.narrOut?el("p",{class:"fl-warn",text:"เสียงบรรยายช่วงนี้ยาวเกินช็อต จึงไม่ได้ใส่ในคำสั่งวิดีโอ ให้ใช้จากไฟล์เสียงแยก"}):null)),
+      (()=>{if(!shots)return null;const[t0,t1]=s.time.split("–"),tm=x=>{const[a,b]=x.split(":").map(Number);return a*60+b},hold=Math.round(tm(t1)-tm(t0)-shots.reduce((n,x)=>n+x.len,0));return hold>=2?el("p",{class:"fl-post",text:`ฉากนี้ยาวกว่าช็อตที่สร้าง ${hold} วินาที ให้ค้างภาพสุดท้าย ต่อด้วย Extend หรือใส่กราฟิกตอนตัดต่อ`}):null})(),
+      ed.length?el("p",{class:"fl-post"},el("b",{text:"ใส่ตอนตัดต่อ: "}),ed.join(" · ")):null,
+      au.length?el("div",{class:"fl-au"},el("span",{class:"fl-k",text:"เสียง"}),...au):null);
+    box.append(card);
   });
   return box;
 }
@@ -1208,9 +1651,9 @@ dseq.addEventListener("click",e=>{if(e.target===dseq)dseq.close()});
 (function(){const tb=document.getElementById("seqtbl");if(!tb)return;
  const ROWS=[["หัวข้อหลัก · มีทุกปี",[["Governance / Code of Conduct",["ธรรมาภิบาลและการตัดสินใจเชิงจริยธรรม"]],["Anti-Corruption",["การต่อต้านการทุจริตคอร์รัปชัน"]],["Inside Information / การซื้อขายหลักทรัพย์",["ข้อมูลภายในและการซื้อขายหลักทรัพย์"]],["PDPA / Information Security",["การคุ้มครองข้อมูลส่วนบุคคล","ความมั่นคงปลอดภัยสารสนเทศและ AI"]],["Whistleblowing",["การแจ้งเบาะแสและข้อร้องเรียน"]]]],
   ["หัวข้อหลัก · ปีแรก แล้วกลับมาทวนอีก 1 ครั้ง",[["Conflict of Interest",["ความขัดแย้งทางผลประโยชน์"]],["Safety",["ความปลอดภัย อาชีวอนามัย และสภาพแวดล้อมการทำงาน"]],["Fair Competition",["การแข่งขันทางการค้าอย่างเป็นธรรม"]],["Human Rights",["สิทธิมนุษยชน"]],["Environment",["สิ่งแวดล้อมและสภาพภูมิอากาศ"]],["ทรัพย์สินทางปัญญา",["ทรัพย์สินทางปัญญา"]]]],
-  ["เรื่องเสริมตามลักษณะธุรกิจ",[["สัญญา",["กฎหมายและการบริหารสัญญา"]],["ความเสี่ยง / ควบคุมภายใน",["การควบคุมภายใน"]]]]];
- const fy=d=>d.date<"2027-10"?0:d.date<"2028-10"?1:2, short=m=>m.replace(/ 25(\d\d)$/," $1");
- let h='<thead><tr><th>หัวข้อ</th><th>ปีที่ 1<small>ต.ค. 69 – ก.ย. 70</small></th><th>ปีที่ 2<small>ต.ค. 70 – ก.ย. 71</small></th><th>ปีที่ 3<small>ต.ค. 71 – ก.ย. 72</small></th></tr></thead><tbody>';
+  ["เรื่องเสริมตามลักษณะธุรกิจ",[["สัญญา",["การบริหารสัญญา"]],["ความเสี่ยง / ควบคุมภายใน",["การควบคุมภายใน"]]]]];
+ const fy=d=>d.date<"2027-11"?0:d.date<"2028-11"?1:2, short=m=>m.replace(/ 25(\d\d)$/," $1");
+ let h='<thead><tr><th>หัวข้อ</th><th>ปีที่ 1<small>พ.ย. 69 – ต.ค. 70</small></th><th>ปีที่ 2<small>พ.ย. 70 – ต.ค. 71</small></th><th>ปีที่ 3<small>พ.ย. 71 – ต.ค. 72</small></th></tr></thead><tbody>';
  let no=0;
  ROWS.forEach(([g,items])=>{h+=`<tr class="grp"><td colspan="4">${g}</td></tr>`;
   items.forEach(([lab,cats])=>{const ys=[[],[],[]];no++;
@@ -1351,7 +1794,7 @@ function sbEditor(d){
         const add=el("button",{class:"sbe-mini",title:"เพิ่มฉากถัดจากฉากนี้",text:"+ ฉาก"}),del=el("button",{class:"sbe-mini",title:"ลบฉากนี้",text:"ลบ"});
         add.addEventListener("click",()=>{p.rows.splice(ri+1,0,{pno:null,title:"",visual:"",screen:"",audio:""});draw()});
         del.addEventListener("click",()=>{if(p.rows.length<2){alert("แต่ละช่วงต้องมีอย่างน้อย 1 ฉาก");return}if(confirm("ลบฉากที่ "+(ri+1)+" ของช่วงนี้?")){p.rows.splice(ri,1);draw()}});
-        tbody.append(el("tr",{},el("td",{class:"no"},el("b",{text:"ฉากที่ "+n}),ti,el("div",{class:"sbe-ops"},add,del)),el("td",{},v),el("td",{},s),el("td",{},a)));
+        tbody.append(el("tr",{},el("td",{class:"no"},el("b",{text:n+"."}),ti,el("div",{class:"sbe-ops"},add,del)),el("td",{},v),el("td",{},s),el("td",{},a)));
       });
       tb.append(tbody);
       holder.append(el("section",{class:"sb-part"},el("h4",{},el("span",{class:"pn",text:pi+1}),p.name),el("div",{class:"sbt-wrap"},tb)));
