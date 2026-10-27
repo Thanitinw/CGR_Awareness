@@ -49,20 +49,26 @@ def parse(path=os.path.join(HERE, 'flow_en.txt')):
             k, v = parse_x(line); cur['x'][k] = v; continue
         f = [t.strip() for t in line.split(' | ')]
         no = int(f[0])
-        if f[1] == 'EDIT':
-            cur['s'][no] = dict(e=f[2]); continue
+        if f[1] == 'EDIT':   # optional  | still: [cam@loc] English  = one plain still image for a freeze-frame scene
+            e = dict(e=f[2])
+            st = next((t[6:].strip() for t in f[3:] if t.startswith('still:')), '')
+            if st:
+                m = re.match(r'\[(\w+)@([^\]]+)\]\s*(.*)$', st); assert m, line
+                e['st'] = [m.group(1), m.group(2), m.group(3)]
+            cur['s'][no] = e; continue
         loc, cam, act = f[1], f[2], f[3]
         rest = f[4:]
         g = next((t[2:].strip() for t in rest if t.startswith('g:')), '')
-        ns = next((int(t[2:]) for t in rest if re.match(r'n:\d+$', t)), 0)
-        sfx = next((t for t in rest if t and not t.startswith('g:') and not re.match(r'n:\d+$', t)), '')
+        ns = next((int(t[2:].rstrip('+')) for t in rest if re.match(r'n:\d+\+?$', t)), 0)
+        np = any(re.match(r'n:\d+\+$', t) for t in rest)   # n:1+ = keep one clip even if the narration runs a little long
+        sfx = next((t for t in rest if t and not t.startswith('g:') and not re.match(r'n:\d+\+?$', t)), '')
         beats = []
         for k, b in enumerate(act.split(' // ')):
             bc, bl = cam, loc
             m = re.match(r'\[(\w+)(?:@([^\]]+))?\]\s*(.*)$', b)
             if m: bc, bl, b = m.group(1), m.group(2) or loc, m.group(3)
             beats.append([bc, bl, b.strip()])
-        cur['s'][no] = dict(b=beats, sfx=sfx, g=g, n=ns)
+        cur['s'][no] = dict(b=beats, sfx=sfx, g=g, n=ns, np=np)
     return G, E
 
 
@@ -89,7 +95,17 @@ def attach(D, path=None, report=True):
             if not e:
                 probs.append(f"{d['date']} scene {s['no']}: missing"); continue
             o = dict(no=s['no'], h=fnv(s['visual']))
-            if 'e' in e: o['e'] = e['e']
+            if 'e' in e:
+                o['e'] = e['e']
+                if 'st' in e:
+                    cam, loc, t = e['st']
+                    if cam not in CAMS: probs.append(f"{d['date']} {s['no']}: cam {cam}")
+                    if loc not in LOCS and not loc.startswith('~'): probs.append(f"{d['date']} {s['no']}: loc {loc}")
+                    for k in PH.findall(t):
+                        if k in MAIN: used.add(k)
+                        elif k in X or k in G: used.add(k); X.setdefault(k, G.get(k))
+                        else: probs.append(f"{d['date']} {s['no']}: unknown {{{k}}}")
+                    o['st'] = e['st']
             else:
                 for cam, loc, t in e['b']:
                     if cam not in CAMS: probs.append(f"{d['date']} {s['no']}: cam {cam}")
@@ -102,6 +118,7 @@ def attach(D, path=None, report=True):
                 if e['sfx']: o['sfx'] = e['sfx']
                 if e['g']: o['g'] = e['g']
                 if e['n']: o['n'] = e['n']
+                if e.get('np'): o['np'] = 1
             out.append(o); n_ok += 1
         extra = [no for no in ep['s'] if no not in {s['no'] for s in scenes}]
         if extra: probs.append(f"{d['date']}: scenes not in storyboard {extra}")

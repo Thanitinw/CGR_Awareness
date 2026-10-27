@@ -8,6 +8,7 @@
 #   no | loc | cam | beat // [cam@loc] beat ... | sfx | g: Thai note for editing
 #   optional n:1 caps the number of generated shots (the rest of the scene is held or extended in editing)
 #   no | EDIT | Thai note                                          scene assembled in editing (freeze, split screen, graphics)
+#   no | EDIT | Thai note | still: [cam@loc] beat                  freeze-frame scene that also gets one plain still-image prompt
 #
 # In beats, {c} {h} {f} {s} {a} {n} {r} {j} {p} are the 9 main characters (see Character sheet) and {key} an extra.
 # The first placeholder of a beat is the subject: that character's lines go into that shot.
@@ -20,49 +21,49 @@ x@ it [IT Security|IT|พี่ IT] = the IT security officer: Thai man, about 2
 
 ## 2026-11-03
 x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai man, about 50, shaved bald head, thin goatee, beige short-sleeve shirt, brown trousers, holding a clipboard
-1 | lift | wide | The elevator doors slide open on the 12th floor; {n} steps out holding a cardboard box of desk items, a plain staff lanyard around her neck, looking around with excited, slightly nervous eyes; a round wall clock shows 9:00. | elevator chime, soft office chatter
-2 | office | trk | {r} walks {n} through the open-plan office and stops beside {s}'s desk // [ots] Over {s}'s shoulder: an email draft on her monitor, the cursor blinking on one highlighted line (blurred); {s} glances up with a bright, confident smile, smartphone in her other hand. | keyboard clicks, office murmur | g: ข้อความ "ยืนยันเงื่อนไขทั้งหมด" บนจอ Email
-3 | office | med | Ten o'clock. {f} sits at his desk and drags a spreadsheet file into a free public AI chat website in his browser (screen blurred) // [cu] {r}'s hand lands gently on {f}'s shoulder just before he drops the file; {f} freezes and looks up, while {n}, standing beside {r}, watches wide-eyed. | mouse clicks | g: ชื่อไฟล์ "ราคาเสนอ_Final.xlsx"
+1 | lift | wide | The elevator doors slide open on the 12th floor; {n} steps out with a tote bag over her shoulder, holding a printed code-of-conduct booklet with a plain cover against her chest, a plain staff lanyard around her neck, looking around with excited, slightly nervous eyes; a round wall clock shows 9:00. | elevator chime, soft office chatter
+2 | office | trk | {r} walks {n} through the open-plan office to the desk of {s}, who sits alone at her desk typing an email; they stop beside her desk and {r} turns to face {s}, looking straight at her with a friendly smile as he speaks to her, one hand gesturing toward her // [med] Same desk, same moment: {s} stays seated, turns her chair toward {r} and {n} and answers with a bright, confident smile, smartphone in one hand; her monitor beside her shows the email draft with one highlighted line (blurred). She appears only once; no duplicate of her anywhere in the shot. | keyboard clicks, office murmur | g: ข้อความ "ยืนยันเงื่อนไขทั้งหมด" บนจอ Email
+3 | office | med | Half past nine. {r} leads {n} to the desk of {f}, who is dragging a spreadsheet file into a free public AI chat website in his browser (screen blurred); {r} rests a friendly hand on {f}'s shoulder and, looking straight at {f}'s face, asks him what he is doing // [cu] {f} looks up and answers quickly, while {n}, standing beside {r}, stares wide-eyed at the screen. | mouse clicks | g: ชื่อไฟล์ "ราคาเสนอ_Final.xlsx"
 4 | office | med | Eleven o'clock. {a} holds a paper invoice in one hand and a desk-phone receiver in the other, speaking politely but uneasily; her monitor shows an accounting system with a quarter-end date highlighted (blurred). | phone line hum, paper rustle
-5 | wh | wide | One o'clock in the company warehouse. {f} snaps shut his pink floral lunch box while, nearby, {sup} hands a delivery-acceptance form and a pen to {h} beside a new industrial machine with a red hanging tag // [cu] {h} holds the pen above the signature line, hesitating, then shrugs. | distant forklift beeps, warehouse fans | g: ป้าย "รอทดสอบ" บนเครื่องจักร
-6 | EDIT | แบ่งจอ 2×2 แนวตั้ง ใช้ภาพหยุดนิ่งจากฉาก 2, 3, 4, 5 (Email, เว็บ AI, ใบแจ้งหนี้, ปากกาเหนือใบรับมอบ) + วงนับถอยหลัง 3 วินาที
-7 | coffee | two | At the coffee corner {c} hands {n} a cup of coffee, then picks up a marker and writes on a small whiteboard (writing blurred) while {n} watches, curious. | espresso machine hiss, cups clinking
+5 | wh | wide | One o'clock in the company warehouse. {sup} hands a delivery-acceptance form and a pen to {h} beside a new industrial machine with a red hanging tag, while {f}, a few steps away, snaps shut his pink floral lunch box // [cu] {h} holds the pen above the signature line, hesitating, while {sup} checks his watch. | distant forklift beeps, warehouse fans
+6 | wh | cu | One continuous shot that starts as a close-up of {h}'s hand holding a pen just above the signature line of a delivery-acceptance form, the pen trembling slightly but never touching the paper, the red tag of the new machine blurred behind; the camera then pulls back very slowly to a medium shot as {h} looks up from the form, torn, while {sup} waits with folded arms and {f} watches from a few steps away; nobody moves, only a slow breath, as if time has stopped. | warehouse fans, a soft clock tick | n:1+
+7 | coffee | two | [med] {n} walks up to {c} at the coffee corner holding a plain code-of-conduct booklet and asks her a question // At the coffee corner {c} hands {n} a cup of coffee, then picks up a marker and writes on a small whiteboard (writing blurred) while {n} watches, curious. | espresso machine hiss, cups clinking
 8 | office | med | {c} stands with {n} at the edge of the open-plan office and points to colleagues at their desks one by one, explaining; {n} follows each point with her eyes. | g: ป้ายชื่อด้านลอยขึ้นเหนือหัวทีละคน
 9 | desk | ins | Close-up: {c}'s hand opens a printed code-of-conduct booklet with a plain cover on a light wood desk; the pages fan gently. | page flip | g: หัวข้อในคู่มือลอยขึ้นทีละหัวข้อ
 10 | office | med | {c} sticks a yellow sticky note onto the edge of {n}'s monitor and taps it with a smile; {n} leans in to read it (handwriting blurred). | g: โน้ตเหลือง 3 คำถาม
-11 | EDIT | ภาพแบ่งจอ 4 ช่องจากฉาก 6 หยุดนิ่ง แล้วปักธงแดง 3 อัน (กราฟิก)
-12 | office | ins | {s} deletes one highlighted line from her email draft (screen blurred) // [med] {f} closes the public AI website and opens the company-approved AI tool // [med] {a} enters the invoice into the system with a calm nod // [med@wh] {h} puts the pen down and points at the red tag on the new machine. | quick whooshes between cuts
-13 | office | cu | {n} looks at the yellow sticky note on her monitor and smiles // [pull] The camera pulls back and rises to reveal the whole bright 12th-floor office, colleagues at work. | g: ป้ายซีรีส์ "ชั้น 12" มุมจอ
+11 | office | wide | Wide view across the open-plan office, each person at a different desk, all pausing to think at the same moment: {s} looks at her email draft, {f} looks at the public AI website on his laptop, {a} holds an invoice, and {h}, just back from the warehouse, holds the unsigned delivery-acceptance form and a pen.
+12 | office | cu | {n} looks at the yellow sticky note on her monitor and smiles // [pull] The camera pulls back and rises to reveal the whole bright 12th-floor office, colleagues at work.
 
 ## 2026-11-17
-1 | office | trk | Monday morning in early November: {r} walks from desk to desk on the 12th floor, reminding everyone to finish the annual awareness quiz; monitors show the quiz page with a tick box at the end (blurred). | office murmur
-2 | office | ots | Over {n}'s shoulder: the code-of-conduct handbook is open at page one on her monitor (blurred) // [two] {f} leans over from behind with a grin, pointing at the screen.
-3 | office | two | {n} turns her chair to ask {f} a question, serious // [cu] {f} shrugs and picks up his pink floral lunch box, answering lightly.
-4 | ~the boardroom of an overseas aircraft manufacturer: long table, city skyline behind the windows | wide | Mock news reconstruction: board members sit around a long boardroom table at an overseas aircraft company, faces serious, no logos anywhere // [ins@office] Back on {n}'s monitor, the acknowledgement tick box (blurred). | quiet boardroom, a camera shutter
-5 | office | ins | Close-up: {n}'s cursor rests above the acknowledgement tick box on her monitor (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} shows {f} and {n} the acknowledgement form on a tablet, tracing each line with her finger (blurred).
-7 | coffee | ins | Close-up: the code-of-conduct booklet open at the duties-and-responsibilities page, two lines highlighted in yellow (text blurred) // [med] {c} explains, tapping the page.
-8 | coffee | med | {c} flips to the whistleblower-protection page and turns it toward {f} // [cu] {f} stops mid-sip, surprised.
-9 | EDIT | ภาพช่องติ๊กรับทราบ (ฉาก 5) หยุดนิ่ง แล้วปักธงแดง 3 อัน (กราฟิก)
-10 | office | ins | Close-up: {n} opens the handbook's table of contents and picks the sections that match her job (blurred) // [cu] {n} writes her questions on a yellow sticky note.
-11 | glass | med | {h} opens the morning team meeting in the glass room, plain white mug in hand, and speaks to the team // [two] {f} raises his hand to ask a question.
-12 | ~a staff canteen at lunchtime: long tables, trays of rice and curry | med | At lunch {f} reads the handbook on his phone, his pink floral lunch box open beside him, then taps to acknowledge // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
+x vis [ผู้มาติดต่อ] = the visitor: Thai man, about 40, neat side-parted hair, navy polo shirt, a red VISITOR badge on a lanyard, smartphone in hand
+1 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | wide | Wednesday morning in a crowded elevator going up: {a} hugs a thick meeting binder with a blurred cover to her chest, {f} and {n} stand beside her, and {vis} stands just behind them looking at his phone. | elevator hum, soft chime
+2 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | two | {f} points at the thick binder in {a}'s arms and asks a question // [med] {a} answers proudly, a little too loudly, while behind her {vis} looks up from his phone, listening. | elevator hum
+3 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | med | The elevator doors open on floor 8 and {vis} steps out, typing on his phone // [two] {n} watches him go, then leans close and whispers to {a}, whose smile fades. | elevator chime, doors sliding
+4 | ~the boardroom of an overseas investment bank: long dark table, city skyline behind the windows | wide | Mock news reconstruction: board members sit around a long boardroom table, faces serious, no logos anywhere // [med] A man in a grey suit steps out into the corridor and quickly raises a phone to his ear, glancing back at the boardroom door. | quiet boardroom, footsteps
+5 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | cu | Close-up: {a} hugs the thick binder tightly to her chest, staring at the elevator doors that have just closed, worried. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [med] {a} walks up to {c} at the coffee corner with {n} beside her and speaks, worried // {c} listens, then answers calmly, holding her coffee cup. | espresso machine hiss
+7 | coffee | med | {c} draws a large circle on a sheet of paper, then a small circle inside it, and taps the small circle with her pen while she explains. | pen on paper
+8 | coffee | two | {f} walks in holding a coffee cup and asks {c} a question // [med] {c} answers seriously, looking at both {f} and {a}. | cups clinking
+9 | lift | med | In the 12th-floor elevator lobby an employee talks loudly on the phone with a meeting binder tucked openly under his arm, its blurred cover facing out, while people walk past.
+10 | glass | med | That afternoon in the small glass-walled meeting room with the door closed, {a} slides documents out of an opaque brown envelope and goes through them with {h}, just the two of them. | door click, paper rustle
+11 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | two | That evening in the elevator going down, {a} holds an opaque brown envelope; {f} asks her a question with a curious grin // [cu] {a} smiles and shakes her head as she answers. | elevator hum
+12 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | med | {f} mimes zipping his lips shut, {n} laughs, and the elevator doors slowly slide closed. | elevator chime
 
 ## 2026-12-01
 1 | glass | trk | {s} strides quickly into the small glass-walled meeting room holding a tablet that shows a client folder full of files (screen blurred). | door swish, quick footsteps | g: ไฟล์ "NDA.pdf" ในโฟลเดอร์
-2 | glass | ins | Close-up: {s}'s finger selects the entire client folder on the tablet and hovers over a share button (interface blurred) // [cu] {s} smiles confidently, ready to tap. | g: ปุ่ม "แชร์ให้ Vendor"
+2 | glass | ins | Close-up: {s}'s finger selects the entire client folder on the tablet and hovers over a share button (interface blurred) // [two] {s} smiles confidently and turns to {n}, who sits beside her, ready to tap. | g: ปุ่ม "แชร์ให้ Vendor"
 3 | glass | two | {n} leans in toward {s} and points at one particular file on the tablet with a worried look // [med] {s} waves a hand breezily and smiles.
 4 | ~outside a modern courthouse in a foreign city, stone steps, reporters with cameras | wide | Mock news reconstruction: reporters and camera crews gather on the courthouse steps, no logos anywhere // [cu@glass] Back in the meeting room, {s} stares at the tablet as her smile fades. | camera shutters, city traffic | g: หัวข่าวจำลอง
-5 | EDIT | หยุดภาพที่นิ้วพี่เซลส์เหนือปุ่มแชร์ (เฟรมจากฉาก 2) + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} draws two overlapping circles on a sheet of paper with a pen while {s} watches, holding her coffee. | g: วงกลม 2 วง "ใครรับได้" กับ "ใช้เพื่ออะไร"
+5 | glass | ins | Close-up: {s}'s finger hovers just above the share button on a tablet showing the whole client folder selected (interface blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {s} and {n} walk up to {c} at the coffee corner and {s} asks her a question // At the coffee corner {c} draws two overlapping circles on a sheet of paper with a pen while {s} watches, holding her coffee. | g: วงกลม 2 วง "ใครรับได้" กับ "ใช้เพื่ออะไร"
 7 | desk | ins | Close-up: rolled engineering drawings, a thick specification binder and pages of technical figures on a desk are wrapped with a steel chain; a brass padlock clicks shut. | padlock click
 8 | desk | ins | Close-up: a printed code-of-conduct booklet open on a desk; a hand runs a yellow highlighter across one section heading (text blurred). | highlighter squeak | g: หัวข้อทรัพย์สินทางปัญญา
-9 | EDIT | ภาพโฟลเดอร์ไฟล์จากฉาก 1–2 หยุดนิ่ง แล้วปักธงแดง 3 อัน (กราฟิก)
+9 | glass | ins | Close-up of a tablet on the meeting table: a whole client folder selected, the share menu open (interface blurred).
 10 | glass | med | {s} opens the NDA on her tablet and highlights one clause with her finger // [ins] {s} types an email to the client on a laptop, focused and calm (screen blurred). | typing | g: ข้อ "ผู้รับข้อมูล"
 11 | office | med | {n} sits at her desk and carefully selects only three files from a folder on her monitor // [ins] {n} attaches a blank NDA form to a new email for the vendor (screen blurred). | mouse clicks
 12 | office | ots | Over {n}'s shoulder: she renames a folder on her monitor (text blurred) // [two] {s}, standing behind {n}, bursts out laughing and gives her a playful pat on the shoulder. | g: ชื่อโฟลเดอร์ "ส่งทั้งชุด" → "ส่งเท่าที่จำเป็น"
 
-## 2026-12-15
+## 2027-01-05
 1 | office | med | {s} talks on her smartphone with a wide smile but tense eyes; with her other hand she flips open a printed contract on her desk. | muffled voice on the phone | g: ข้อความในสัญญา "ส่งมอบเป็น PDF"
 2 | office | two | {s} hangs up and swivels her chair toward {n}, who is opening a design file on her monitor. | chair creak
 3 | office | ins | Close-up of {n}'s monitor: a design file opens and its layer panel expands, layer names blurred // [cu] {n} glances back at {s} with a puzzled look. | g: ชั้นข้อมูล "Template บริษัท" และ "Library ทีม"
@@ -70,50 +71,50 @@ x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai
 5 | office | ins | Close-up: {n}'s hand on the mouse, the cursor hovering over a send button on the monitor (blurred), then everything holds still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
 6 | office | two | {c} walks by holding a coffee mug, stops behind {n} and points at the layer panel on her monitor. | footsteps
 7 | desk | ins | Close-up: the code-of-conduct booklet open at one section, two lines highlighted in yellow (text blurred), a coffee mug beside it. | g: หัวข้อทรัพย์สินทางปัญญา ไฮไลต์ 2 บรรทัด
-8 | EDIT | กราฟิก: ไฟล์แก้ไขได้แตกออกเป็นหลายสำเนา ลูกศรชี้กลับมาที่บริษัท
-9 | EDIT | ภาพสัญญาและไฟล์จากฉาก 1 และ 3 หยุดนิ่ง แล้วปักธงแดง 3 อัน (กราฟิก)
+8 | office | ins | Close-up of a monitor: an editable drawing file is copied again and again into many folders (screen blurred).
+9 | desk | ins | Close-up: a printed contract open at the deliverables clause beside a laptop showing the source design files (blurred).
 10 | office | med | {n} opens a new email draft and types carefully (screen blurred) // [two] {s} leans over {n}'s shoulder to read it, nodding slowly. | typing
 11 | coffee | med | At the coffee corner {s} stands in front of a glass panel, rehearsing a polite sentence to her reflection with small hand gestures // [wide] Across the room, {c} secretly gives her a thumbs-up. | espresso machine hum
 12 | office | med | {s} clicks send on the email with determination // [two] {s} turns and smiles at {n}, who smiles back. | email whoosh
 
-## 2027-01-05
+## 2026-12-15
 1 | office | med | {n} sits at her monitor with a very long tender document open on one side and a technical drawing on the other; another browser tab shows a public AI chat website (all blurred). | keyboard clicks
 2 | office | ins | Close-up: {n} drags the long document file into the public AI chat window (screen blurred) // [med] {n} turns her chair and calls out to {it}, who is walking past her desk. | mouse clicks
 3 | office | two | {it} stops and leans over to look at {n}'s screen, eyebrows raised // [cu] {n} answers, a little defensive.
 4 | ~a sleek open-plan office of an overseas electronics company, rows of desks with large monitors | wide | Mock news reconstruction: employees at an overseas electronics company read an internal notice on their monitors and close their AI tabs (screens blurred) // [ins@office] Back at {n}'s desk: the cursor hovers over an upload button (blurred). | g: ประกาศภายใน "ระงับการใช้ AI ภายนอกบนเครื่องของบริษัท"
-5 | EDIT | หยุดภาพเคอร์เซอร์เหนือปุ่ม Upload (เฟรมจากฉาก 4) + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, counting points on her fingers while {n} listens, holding a cup.
+5 | office | ins | Close-up of {n}'s monitor: the mouse cursor hovers over an upload button on a public AI chat website, a long tender document ready to drop in (screen blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, counting points on her fingers while {n} listens, holding a cup.
 7 | coffee | ots | Over {n}'s shoulder: {c} shows her a printed page of the company AI regulation and taps one highlighted section (text blurred).
 8 | coffee | med | {c} gestures left and then right with open hands, as if describing two different paths, while {n} nods.
-9 | EDIT | ภาพหน้าเว็บ AI สาธารณะจากฉาก 2 หยุดนิ่ง แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | office | ins | Close-up of a monitor: a public AI chat website with a long tender document half uploaded (screen blurred).
 10 | office | med | {n} closes the public AI website and opens the company's approved AI tool on her monitor (blurred) // [two] {it} passes by {n}'s desk again and gives her a quick nod of approval. | g: โลโก้ "Approved" บนเครื่องมือ AI ของบริษัท
-11 | EDIT | ป้ายคำถามกลางจอ (กราฟิก) บนพื้นหลังเบลอจากฉาก 10
+11 | office | med | {n} sits back from her monitor, thinking, then closes the public AI tab and opens the company-approved AI tool.
 12 | office | med | {n} reads a neat summary on her monitor and exhales with relief, finishing on time // [cu] {n} secretly types a question to the company AI, then giggles to herself.
 
-## 2027-01-19
+## 2027-02-02
 1 | office | ins | Close-up of a monitor in the HR department: an email inbox with hundreds of job applications scrolling past (blurred). | soft mouse-wheel clicks
 2 | office | two | {n} turns her monitor toward {r} to show a ranked table of candidate scores produced by AI (blurred); {r} rolls his chair closer.
 3 | office | med | {r} scrolls slowly down to the bottom of the ranking list, frowning thoughtfully.
 4 | office | ins | Close-up: {r}'s finger points at one application near the bottom of the list, an electrician's licence card attached (blurred) // [two] {n} and {r} exchange a surprised look.
-5 | EDIT | ภาพใบสมัครอันดับ 150 ขยายเต็มจอ (เฟรมจากฉาก 4) + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, calm and friendly, turning her coffee mug as she thinks.
+5 | office | ins | Close-up: one job application near the bottom of a long ranked list on a monitor, an electrician's licence card attached (blurred), a finger resting beside it. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, calm and friendly, turning her coffee mug as she thinks.
 7 | coffee | med | {c} counts on her fingers while explaining; {n} writes notes in a small notebook.
 8 | coffee | ots | Over {n}'s shoulder: {c} taps {n}'s own name badge with a smile, making a point about who is responsible.
-9 | EDIT | ตารางอันดับและร่าง Email (ภาพจากฉาก 2) แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up of a monitor: an AI-ranked list of job applicants beside a draft rejection email (blurred).
 10 | glass | two | {n} and {r} sit together in the glass meeting room reviewing printed applications against a criteria checklist, the laptop with the AI ranking pushed to one side.
 11 | office | ins | Close-up: an email with an employment-terms attachment is sent to the legal team; a short note line at the bottom of the email (all text blurred). | email whoosh | g: บรรทัด "ใช้ AI ช่วยจัดทำ"
 12 | ~a small Thai electrical repair workshop with tools and cable reels | med | A Thai electrician in his late thirties, in a work shirt, answers his phone in his workshop and breaks into a smile // [cu@office] {n} glances at the yellow sticky note on her monitor, which now has a second cat sticker on it, and grins. | phone ringtone
 
-## 2027-02-02
+## 2027-01-19
 1 | office | ins | Close-up of a monitor showing a warranty-registration system with thousands of customer rows (blurred), beside a promotional poster of a new home inverter on the wall (no text).
 2 | glass | med | {s} smiles eagerly and points at the customer list on a laptop screen in the meeting room.
 3 | glass | two | {dpo} sits across the table from {s} and calmly opens a privacy-notice document // [cu] {s}'s eager smile turns uncertain as she listens.
 4 | glass | ots | {dpo} turns a tablet toward {s} to show a mock news article about an airline fined for consent emails (screen blurred). | g: ข่าวจำลอง "สายการบินถูกปรับจาก Email ขอความยินยอม 3.3 ล้านฉบับ"
-5 | EDIT | หน้าจอรายชื่อลูกค้า (ฉาก 1) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} explains something to {s}, sliding two coffee cups apart on the counter to show they must stay separate.
+5 | office | ins | Close-up of a monitor showing a warranty-registration system with thousands of customer rows (blurred), the mouse cursor resting on an export button. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} explains something to {s}, sliding two coffee cups apart on the counter to show they must stay separate.
 7 | coffee | med | {c} raises three fingers one at a time while {s} nods along.
 8 | coffee | cu | {c} speaks gently but seriously; {s} looks concerned, then thoughtful.
-9 | EDIT | ไฟล์รายชื่อที่กำลังถูก Export (ภาพหน้าจอจากฉาก 1) แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up of a monitor: a customer list being exported from the warranty system, a progress bar filling (blurred).
 10 | glass | two | {dpo} and {s} filter the customer list together on a laptop, ticking off rows (blurred).
 11 | office | med | {s} nods to herself and rewrites the campaign plan on a whiteboard, erasing one section (writing blurred). | marker squeak
 12 | ~a bright Thai home living room with a sofa | med | A satisfied Thai woman in her forties opens a newsletter email on her phone on the sofa and smiles // [med@lift] {s} rehearses a polite sentence to her reflection in the elevator mirror, then jumps as the doors slide open. | elevator chime
@@ -124,11 +125,11 @@ x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai
 3 | office | ots | Over {h}'s shoulder: he opens the attached file, a spreadsheet with hundreds of rows of names and phone numbers (blurred) // [two] {h} and {f} look at each other.
 4 | office | med | {h} immediately picks up his phone and starts dialing, serious.
 5 | office | ins | Close-up of a round wall clock showing 5:40 in the evening as the office lights dim slightly. | clock ticking | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks to {f}, tracing two imaginary paths along the counter with her finger.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks to {f}, tracing two imaginary paths along the counter with her finger.
 7 | coffee | med | {c} taps her wristwatch while speaking, stressing that time matters.
 8 | coffee | ots | {c} writes a short checklist in a small notebook while {f} watches.
 9 | coffee | cu | {c} explains calmly; {f} nods slowly.
-10 | EDIT | หน้าจอ Email (ฉาก 1) และปฏิทินวันจันทร์ แล้วปักธงแดง (กราฟิก)
+10 | office | ins | Close-up: a phone showing a sent email beside a desk calendar with Monday circled.
 11 | office | med | {h} makes a brief, clear phone call // [med] {f} types a factual email summary with an attachment (screen blurred). | typing
 12 | office | cu | {f} reads a reply email on his monitor and exhales with relief // [cu] {f} opens his pink floral lunch box and finds a handwritten note from his wife tucked inside; he smiles. | lunch-box lid click
 
@@ -138,11 +139,11 @@ x sup [Supplier] = the supplier: Thai man, about 50, slicked-back grey hair, mar
 2 | office | med | {s} types an email very fast, smiling, smartphone wedged between ear and shoulder. | fast typing
 3 | office | ins | A desk calendar's pages flip forward two weeks // [ins] A new email arrives with a marked-up contract draft attached (blurred). | calendar pages flutter
 4 | office | ots | Over {s}'s shoulder: on a video call on her monitor, {sup} holds up a printout of the original email to his camera, insisting.
-5 | EDIT | Email ฉบับเดิมขยายเต็มจอ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} lines up sugar packets on the counter like dominoes and tips the first one over while {s} watches. | soft dominoes tapping | g: ป้าย Email, PO, Quotation, LOI บนโดมิโน
+5 | office | ins | Close-up of a monitor: a short one-line email reply confirming an order fills the screen (text blurred), the send time circled. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} lines up sugar packets on the counter like dominoes and tips the first one over while {s} watches. | soft dominoes tapping | g: ป้าย Email, PO, Quotation, LOI บนโดมิโน
 7 | coffee | med | {c} holds out both hands like the pans of a balance scale, weighing two invisible documents.
 8 | coffee | ots | {c} shows {s} a printed organisation chart, tracing a line upward with her pen (text blurred). | g: ผังอำนาจอนุมัติ (DOA)
-9 | EDIT | ภาพ Email, PO และ LOI แล้วปักธงแดงทีละใบ (กราฟิก)
+9 | desk | ins | Close-up: a printed email, a purchase order and a letter of intent laid side by side on a desk, a pen beside them.
 10 | office | med | {s} types a new email, then sets one line at the top in bold (screen blurred). | typing
 11 | desk | ins | Close-up: a one-page document on a desk is signed by an executive's hand with a fountain pen. | pen scratch
 12 | glass | two | {s} and {legal} review an email on a laptop together, relaxed // [ins] {s} crosses out a phrase on a sticky note and writes a new one (handwriting blurred).
@@ -151,11 +152,11 @@ x sup [Supplier] = the supplier: Thai man, about 50, slicked-back grey hair, mar
 1 | cafe | med | {a} sits alone at a small table, staring at her phone with a worried face, her coffee untouched. | coffee-shop chatter, cups clinking
 2 | office | ots | Over {a}'s shoulder: a spreadsheet on her monitor lists many invoices from one supplier, each amount just below the same limit (blurred) // [cu] {a} narrows her eyes behind her reading glasses, uneasy. | mouse clicks
 3 | office | two | {a} leans toward {f} beside her desk and speaks in a low voice, glancing around // [cu] {f} answers quietly, scratching the back of his head // [two] {a} grips her phone and hesitates while {f} shrugs, unsure.
-4 | EDIT | ภาพโทรศัพท์ในมือพี่บัญชี (เฟรมจากฉาก 3) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-5 | coffee | two | At the coffee corner {c} talks with {a}, holding up three fingers one by one while {a} listens closely // [cu] {c} smiles reassuringly as she continues.
+4 | office | cu | Close-up: {a}'s hand grips her phone above her desk, her thumb hovering, a paper invoice beside it. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+5 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, holding up three fingers one by one while {a} listens closely // [cu] {c} smiles reassuringly as she continues.
 6 | coffee | med | {c} sketches a simple timeline with arrows on a paper napkin as she explains; {a} nods.
 7 | coffee | cu | {c} speaks gently and firmly, one hand over her heart as if promising to keep a secret; {a}'s shoulders relax.
-8 | EDIT | ภาพร้านกาแฟ (ฉาก 1) และกลุ่มแชท แล้วปักธงแดง (กราฟิก)
+8 | cafe | ins | Close-up: a phone on a cafe table showing a chat thread (blurred), two coffee cups beside it.
 9 | office | ots | Over {a}'s shoulder: she fills in an online form on her monitor and attaches an invoice file (screen blurred) // [cu] {a} types carefully, calm and focused. | typing
 10 | office | ins | Close-up: {a}'s finger clicks a submit button (screen blurred) // [cu] A few days later, {a} reads a short reply email on her monitor and nods with relief. | click
 11 | office | med | {a} sets down a stack of pink folders and smiles with relief as a colleague hands her a coffee // [med] {a} files the pink folders into a cabinet in colour order, then hands out snacks to everyone at the nearby desks. | g: การ์ดสรุปซ้อนบนภาพ
@@ -166,41 +167,41 @@ x env [เจ้าหน้าที่สิ่งแวดล้อมโค�
 2 | site | two | {h} talks with {env} in front of the site-office container, impatient, tapping his watch // [cu] {env} answers firmly, holding up her tablet // [two] {h} rubs his neck, frustrated, while {env} waits for his answer.
 3 | site | med | {h} points toward the quiet village beyond the site fence // [cu] {env} shakes her head slightly as she replies.
 4 | ~a roadside noodle shop with a trench dug in front of it for canal works, dust and mud covering the entrance | wide | Reconstruction: a roadside noodle shop with empty tables, dust and mud piled at its entrance from roadworks // [wide@site] Back at our site, a water-spraying truck sits parked and idle. | dust blowing, distant excavator
-5 | EDIT | รถฉีดน้ำจอดนิ่ง (เฟรมจากฉาก 4) หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, tapping a printed environmental-measures document on the counter (text blurred).
+5 | site | wide | A water-spraying truck sits parked and idle at the edge of a dusty construction site, fine dust drifting in the afternoon light. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, tapping a printed environmental-measures document on the counter (text blurred).
 7 | coffee | med | {c} spreads her arms wide as if describing the houses, school and rice fields around the site; {h} listens, arms crossed.
 8 | coffee | ots | Over {h}'s shoulder: {c} flips through a binder of monthly measurement reports and stops at an empty sleeve.
-9 | EDIT | ภาพรถฉีดน้ำ เครื่องวัดฝุ่น และหมู่บ้าน แล้วปักธงแดง (กราฟิก)
+9 | site | wide | An idle water-spraying truck, a dust monitor on a pole and village houses beyond the site fence, fine dust drifting.
 10 | site | two | {env} unfolds a printed schedule on the bonnet of a pickup truck and walks {h} through it; {h} nods.
 11 | sitebox | med | {h} sends a report email with an attached corrective plan from the site office (screen blurred), serious but calm. | typing
 12 | site | wide | A water-spraying truck drives along the road in front of the site while students walk into the school; a technician sets up a dust monitor on a tripod // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a new sticky note stuck to it (handwriting blurred). | water spraying, school bell | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
 
-## 2027-04-20
+## 2027-05-04
 x comm [ตัวแทนชุมชน] = the village representative: Thai man, about 60, weathered face, short grey hair, faded blue farmer's shirt
 1 | site | wide | A work site in the middle of rice fields: a crane lifts an old transformer onto a truck. | crane motor, chains clanking
 2 | site | ins | Close-up: black oil seeps into the soil next to a drainage channel; {f} crouches and points at it // [cu] {h} frowns and answers.
 3 | site | med | {f} follows the drainage channel with his eyes to where it flows out into the rice field next to the site, worried. | water trickling, wind over the fields
 4 | site | med | Three days later, {comm} stands at the site gate holding up a plastic bottle of canal water with an oily film.
 5 | site | ins | Close-up: a shovel full of sand hovers above the oil stain, then everything holds still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, showing him the site emergency plan on her tablet (screen blurred).
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, showing him the site emergency plan on her tablet (screen blurred).
 7 | coffee | med | {c} uses her hands to show liquid sinking down through layers of soil as she explains; {f} winces.
 8 | coffee | cu | {c} speaks warmly about sitting down with the village to talk openly; {f} nods slowly.
-9 | EDIT | ภาพกองทราย รถขน และประตูไซต์ แล้วปักธงแดง (กราฟิก)
+9 | site | wide | A mound of sand by the drainage channel, a loaded truck waiting and the site gate behind.
 10 | site | wide | Flashback to the day of the spill: the crew lays yellow absorbent booms across the drainage channel and shovels contaminated soil into sealed drums // [med] {h} gives clear instructions to the crew.
 11 | site | med | {h} fills in an incident report on a clipboard and photographs the spill area with his phone.
 12 | site | wide | Sealed drums of contaminated soil are loaded onto a licensed waste-disposal truck // [wide@~an open-sided village pavilion with wooden benches beside rice fields] A company representative sits talking with {comm} under the village pavilion // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
 
-## 2027-05-04
+## 2027-04-20
 x rival [ตัวแทนคู่แข่ง] = the competitor's sales director: Thai man, about 45, slicked-back hair, dark suit, holding a coffee cup
 1 | hotel | wide | Coffee break at an industry-association conference in a hotel: representatives from several companies stand chatting in small groups.
 2 | hotel | med | {rival} holds his coffee cup and speaks in a low voice to a small circle that includes {s}.
 3 | hotel | cu | {s} stands in the circle and gives a small nod without saying anything, uneasy.
 4 | office | ins | A week later: an email from the association with a survey form attached opens on {s}'s monitor (blurred). | notification ping
-5 | EDIT | ภาพวงกาแฟ (ฉาก 2) หยุดนิ่ง ตัดสลับกับแบบสำรวจบนจอ (ฉาก 4) + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, her expression serious, tapping a printed price list on the counter (blurred).
+5 | office | ins | Close-up of {s}'s monitor: an email from the association with a survey form attached, the cursor resting on the send button (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, her expression serious, tapping a printed price list on the counter (blurred).
 7 | coffee | med | {c} draws a line down the middle of a napkin, ticking one side and crossing out the other; {s} leans in.
 8 | coffee | cu | {c} speaks firmly about the penalties; {s}'s eyes widen.
-9 | EDIT | ภาพวงกาแฟและแบบสำรวจ แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | office | ins | Close-up of {s}'s monitor: an association survey asking for next-quarter prices per company (blurred), the cursor on the send button.
 10 | hotel | med | Back in the coffee circle, {s} puts down her cup, says something clearly and walks away from the group.
 11 | office | med | {s} sends an email with the survey attached to the legal team (screen blurred), composed. | typing
 12 | ~a hotel conference hall with rows of chairs facing a speaker at a lectern | med | {s} slips back into the conference hall during a technical talk and takes a seat // [cu] {s} gives the camera a quick thumbs-up, then hurries out to answer a client's call. | lecture echo, soft applause
@@ -210,11 +211,11 @@ x rival [ตัวแทนคู่แข่ง] = the competitor's sales direc
 2 | office | two | {j} eagerly hands a USB flash drive to {s} with a proud smile.
 3 | office | ots | Over {s}'s shoulder: a quarterly sales chart on her monitor falls short of the target line (blurred) // [cu] {s} hesitates, the flash drive in her hand // [cu] {j} keeps talking, eager to help.
 4 | ~a dark, empty office at night lit only by a laptop screen | wide | Mock news reconstruction: in an empty office at night, a laptop copies thousands of files to an external drive, the progress bar racing (screen blurred) // [ins@~a wood-panelled courtroom] A judge's gavel strikes the block // [ins@office] Back on the desk, the flash drive lies beside {s}'s keyboard. | gavel bang
-5 | EDIT | Flash Drive บนโต๊ะ (เฟรมจากฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks kindly with {j}, who holds his coffee nervously.
+5 | office | ins | Close-up: a small USB flash drive lies on a light wood desk next to a closed laptop. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {s} brings {j} to the coffee corner and asks {c} a question while {j} holds his coffee nervously // [med] {c} talks kindly with {s} and {j}.
 7 | coffee | med | {c} holds up two fingers, explaining two separate points; {j} listens carefully.
 8 | coffee | cu | {c} smiles warmly as she explains that his experience is welcome; {j} relaxes a little.
-9 | EDIT | ภาพ Flash Drive และกลุ่มแชททีมขาย แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a USB flash drive on a desk beside a phone showing the sales-team group chat (blurred).
 10 | office | two | {s} hands the flash drive back to {j} and speaks to him calmly, with a friendly hand on his shoulder.
 11 | glass | two | {s} and {j} browse a public government procurement website showing published award prices on a laptop (screen blurred).
 12 | glass | med | {j} presents to the sales team in the meeting room, gesturing at a whiteboard while the wall screen stays off // [ins@office] {j} ties the laces of his brand-new brown leather shoes, then jogs off after the team. | footsteps
@@ -225,41 +226,41 @@ x wife = the team head's wife: Thai woman, about 42, chin-length hair with a str
 2 | home | two | {wife} hands her phone to {h}; a share-price chart glows green on the screen (blurred) and {h}'s smile freezes.
 3 | office | trk | The next morning, {h} walks over to {c}'s desk holding his plain white mug, looking unsure.
 4 | office | med | {c} opens a binder listing the people who must report their holdings and runs her finger down the page (text blurred) // [two] {c} looks up at {h} and explains calmly.
-5 | EDIT | ภาพแอปซื้อขายหุ้นในมือภรรยา (ฉาก 2) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
+5 | home | ins | Close-up: a woman's hand holds a phone showing a green share-price chart in a stock-trading app (blurred), a warm living room behind. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
 6 | coffee | two | At the coffee corner {c} draws a simple family tree on a napkin for {h}, circling three small figures together.
 7 | coffee | med | {c} taps her wristwatch and holds up a form, explaining the deadline; {h} listens, frowning.
 8 | coffee | ots | Over {h}'s shoulder: {c} points to a desk calendar with a block of dates shaded red.
-9 | EDIT | ภาพแอปซื้อขายหุ้นและปฏิทินประกาศงบ แล้วปักธงแดง (กราฟิก)
+9 | home | ins | Close-up: a phone with a stock-trading app (blurred) next to a wall calendar with the results-announcement date circled.
 10 | office | two | {h} fills in a reporting form at {c}'s desk while she points to the right boxes (text blurred).
 11 | home | two | At home, {h} explains something to {wife}; they look at a calendar on the fridge together.
 12 | home | ins | Close-up: a calendar on the fridge with a span of dates circled in red marker // [cu@office] {h} lets out a long sigh, then takes a sip from his plain white mug. | g: แก้ว "งานต้องเดิน"
 
-## 2027-06-15
+## 2027-07-06
 1 | office | med | The accounting team's corner during quarter-end close: stacks of documents and trial-balance spreadsheets on the monitors (blurred), staff working intently.
-2 | office | med | During her lunch break, {a} scrolls through a stock chart on her phone at her desk, a lunch box open beside her.
-3 | office | ots | Over {c}'s shoulder: she opens a list of staff with access to the financial statements on her monitor (names blurred) and stops at one row // [cu] {c} glances across the office toward {a}.
+2 | office | med | During her lunch break, {a} walks over to the desk of {c}, phone in hand showing a stock chart (blurred), and asks her a question.
+3 | office | ots | Over {c}'s shoulder: she opens a list of staff with access to the financial statements on her monitor (names blurred) and stops at one row // [cu] {c} looks up at {a}, who stands beside her desk.
 4 | office | two | {a} thinks aloud, half-joking, phone in hand // [cu] {c} shakes her head gently and answers.
 5 | office | ins | Close-up: a stock chart on {a}'s phone screen (blurred), held still in her hand. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
 6 | coffee | two | At the coffee corner {c} talks with {a}, drawing a line on the counter with her finger to show two sides.
 7 | coffee | med | {c} counts off three numbers on her fingers while {a} writes them down in a small notebook.
 8 | coffee | ots | Over {a}'s shoulder: {c} shows her a pre-clearance form and points at the expiry box (blurred).
-9 | EDIT | ภาพปฏิทินและใบแจ้งซื้อขาย แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a desk calendar with the blackout days shaded and a share-trading notice form beside it.
 10 | office | ins | Close-up: {a} writes the results-announcement date on her desk calendar, then circles a date after it.
 11 | office | med | After buying the shares, {a} immediately sends a report email to {c}, who gives her a thumbs-up from across the office.
 12 | office | ins | Close-up: {a}'s finger taps the buy button in a trading app (screen blurred) // [cu] {a} sticks a handwritten note beside her monitor and smiles to herself. | g: โน้ต "สิบปีก็ยังต้องเทียบราคา"
 
-## 2027-07-06
+## 2027-06-15
 x con [Contractor] = the contractor's boss: Thai man, about 52, stocky, bushy moustache, faded orange polo shirt, olive cargo trousers, gold watch
 x safe [Safety Officer] = the site safety officer: Thai woman, about 35, hair in a low bun, white helmet, high-visibility vest, notebook in hand
 1 | ~a factory electrical-installation site at night: bright floodlights, workers on ladders and cable trays | wide | Eight in the evening: the installation site is lit by floodlights and workers are still up on ladders running cables. | machinery hum, distant voices | g: ปฏิทินบนบอร์ดวงวันส่งมอบสีแดง
 2 | sitebox | med | {con} strides into the site meeting room smiling confidently and leans on the table in front of {h}.
 3 | sitebox | ins | Close-up: {h} looks over the late-delivery penalty table in the contract (text blurred) // [cu] {h} rubs his temple, under pressure.
 4 | sitebox | med | {safe} places a near-miss logbook on the table and opens it to a page with several entries underlined in red (text blurred).
-5 | EDIT | ภาพสมุด Near Miss บนโต๊ะ (ฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, tapping her temple to show how tiredness dulls focus.
+5 | sitebox | ins | Close-up: a near-miss logbook lies open on a site-office table, several entries underlined in red (text blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, tapping her temple to show how tiredness dulls focus.
 7 | coffee | med | {c} draws a pyramid on a napkin, adding many small dots at its base; {h} studies it.
 8 | coffee | cu | {c} holds out both hands like a balance scale, one hand dropping lower; {h} looks down, thinking.
-9 | EDIT | ภาพตารางกะและสมุด Near Miss แล้วปักธงแดง (กราฟิก)
+9 | sitebox | ins | Close-up: a shift roster with long hours marked beside an open near-miss logbook (text blurred).
 10 | sitebox | two | {h} and {safe} rewrite the shift roster on a whiteboard, adding clear rest breaks (writing blurred). | marker squeak
 11 | sitebox | med | {h} talks on the phone with the client, a printed near-miss summary in his other hand, calm and clear.
 12 | ~a factory electrical-installation site in the morning, workers in white helmets and high-visibility vests | wide | A fresh shift of workers arrives looking alert while the night shift walks off to rest // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: คำว่า "ด่วนมาก" บนกระดาน
@@ -271,10 +272,10 @@ x sup2 [ผู้ควบคุมงาน Contractor] = the contractor's site
 3 | site | trk | {f} puts on his white helmet and asks questions as he walks quickly toward the power-isolation point, {sup2} hurrying beside him. | boots on gravel
 4 | site | two | {f} hands the permit back to {sup2} and speaks firmly but politely.
 5 | site | ins | Close-up: the unsigned work permit on a clipboard, a pen resting beside the empty signature box (text blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, tapping the signature line on a printed permit form (blurred).
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, tapping the signature line on a printed permit form (blurred).
 7 | coffee | med | {c} counts three points on her fingers; {f} nods along.
 8 | coffee | cu | {c} stacks three sugar packets like layers of protection and pulls one out to show the gap; {f} watches seriously.
-9 | EDIT | ภาพใบอนุญาตที่กรอกครึ่งเดียว (ฉาก 2) แล้วปักธงแดง (กราฟิก)
+9 | site | ins | Close-up: a work permit on a clipboard, signed at the bottom but with half its checklist still empty.
 10 | site | wide | {f} assigns trained technicians to start the first section while new technicians sit through a short safety briefing nearby.
 11 | site | med | {f} phones the project manager to adjust the shutdown work plan, focused.
 12 | site | ins | Close-up: {f} signs a fully completed work permit after the site check (text blurred) // [two] {f} offers his pink floral lunch box to a colleague to taste his wife's cooking.
@@ -286,30 +287,30 @@ x cons [Consultant] = the consultant: Thai man, about 55, slicked-back greying h
 3 | cafe | two | {cons} speaks confidently across a small table and slides a business card toward {f} // [cu] {f} hesitates and asks a question // [cu] {cons} leans back with a knowing smile and answers.
 4 | ~a sleek corporate office overseas | ins | Mock news reconstruction: a monthly consulting contract lies on a desk and an envelope slides across to another pair of hands // [ins] A heavy rubber stamp comes down on a document. | stamp thud | g: ลูกศรโยงบริษัท → "ที่ปรึกษา" ป้ายเจ้าหน้าที่รัฐ + ตรา "ปรับ 16 ล้านดอลลาร์"
 5 | cafe | ins | Close-up: an invoice lies on the table next to a cup of coffee (text blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, tracing a path with her finger from one sugar packet to another and stopping at a gap.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, tracing a path with her finger from one sugar packet to another and stopping at a gap.
 7 | coffee | med | {c} raises an eyebrow and repeats phrases with air quotes; {f} grimaces.
 8 | coffee | ots | Over {f}'s shoulder: {c} shows him a short checklist in her notebook (blurred).
-9 | EDIT | ภาพข้อเสนอของ Consultant (ฉาก 3) แล้วปักธงแดงทีละข้อ (กราฟิก)
+9 | cafe | ins | Close-up: the consultant's one-page proposal on a cafe table, a large success fee figure circled in pen (text blurred).
 10 | office | med | {f} types a polite reply email to the consultant (screen blurred), decisive. | typing
 11 | office | ots | Over {f}'s shoulder: he joins an online meeting on his laptop, {c} on the video call beside a partner due-diligence form (blurred).
 12 | gov | wide | The project team submits additional documents at a government service counter through the normal channel // [ins@office] {f} opens his pink floral lunch box and finds a handwritten note from his wife inside; he smiles.
 
-## 2027-08-17
+## 2027-09-07
 x off [เจ้าหน้าที่] = the counter official: Thai man, about 50, fictional civil servant in a plain khaki shirt without insignia, glasses
 1 | gov | wide | At a local government office counter, {f} holds a permit-application folder while a long queue fills the room. | queue-number chime, murmuring crowd
 2 | gov | two | {off} points at a tall stack of files on the counter and speaks quietly to {f}, eyebrows raised meaningfully.
 3 | ~outside a local government office building, motorbikes parked in front | med | {f} steps outside and phones the project manager, pacing // [cu] {f} listens to the reply, rubbing his forehead. | street traffic
 4 | ~a coastal port on the Gulf of Thailand with cranes and large crates | wide | Mock news reconstruction: at a coastal port, a crane lifts a large power-plant component off a ship // [ins] An envelope changes hands between two people in shirts, faces out of frame // [ins@gov] Back at the government office, a purple Thai banknote sits in {f}'s open wallet. | port cranes, gulls
-5 | EDIT | ธนบัตรในมือพี่วิศวกร (เฟรมจากฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, crossing her forearms in an X to signal that it is not allowed.
+5 | gov | ins | Close-up: a hand holds a folded purple Thai banknote low beside a government service counter, the face out of frame. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, crossing her forearms in an X to signal that it is not allowed.
 7 | coffee | med | {c} explains the penalties seriously, tapping the counter twice; {f} swallows.
 8 | coffee | cu | {c} smiles reassuringly as she explains that the project can absorb a short delay; {f} looks relieved.
-9 | EDIT | ภาพเคาน์เตอร์ กระเป๋าสตางค์ และโทรศัพท์ แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | gov | ins | Close-up: a government service counter, an open wallet and a phone left beside a stack of forms.
 10 | gov | two | Back at the counter, {f} speaks politely to {off}, his wallet back in his pocket.
 11 | gov | ins | Close-up: {f} writes the date, time and place in a small notebook // [ins] {f} sends a text message to his project manager on his phone (screen blurred).
 12 | gov | med | {f} receives his permit documents in the normal queue together with an official fee receipt // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
 
-## 2027-09-07
+## 2027-08-17
 x bil = the procurement officer's brother-in-law: Thai man, about 48, round belly, balding on top, yellow-and-white striped polo shirt, holding a glass of juice
 x phead [หัวหน้าจัดซื้อ] = the procurement manager: Thai man, about 52, neat grey hair, rimless glasses, lavender shirt and dark tie
 1 | office | ins | In the procurement department, a monitor shows a scoring table for four electrical-equipment suppliers (blurred).
@@ -317,40 +318,40 @@ x phead [หัวหน้าจัดซื้อ] = the procurement manager: 
 3 | office | trk | Monday morning, {a} walks over to {phead}'s desk holding a folder // [two] {phead} looks up and answers thoughtfully.
 4 | ~a plain office with a family-tree diagram drawn in marker on a glass wall | wide | Mock news reconstruction: a family-tree diagram on a glass wall links an officer to relatives who work for a vendor (names blurred) // [ins@office] Back on {a}'s monitor: the supplier scoring table (blurred).
 5 | office | ins | Close-up: the cursor hovers over a score cell in the supplier table on {a}'s monitor (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, weighing two invisible things in her open hands.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, weighing two invisible things in her open hands.
 7 | coffee | med | {c} lays four sugar packets in a row and taps the first three; {a} watches.
 8 | coffee | ots | Over {a}'s shoulder: {c} hands her a blank conflict-of-interest declaration form (blurred) and a pen.
-9 | EDIT | แผนภาพขั้นตอนจัดซื้อ (กราฟิกจากฉาก 7) แล้วปักธงแดงทีละจุด
+9 | office | ins | Close-up: a printed procurement flowchart on a desk, a finger tracing from the requirement step to the scoring step.
 10 | office | two | {a} fills in the declaration form and hands it to {phead}.
 11 | office | med | {phead} reassigns the scoring task to another officer and files a note in the procurement folder.
 12 | glass | wide | The supplier-selection meeting continues in the glass room // [med@office] {a} works on other tasks at her own desk // [two@coffee] {a} offers a box of Thai pastries to {c} as a thank-you; {c} laughs.
 
-## 2027-09-21
+## 2027-10-05
 x nb [เพื่อนบ้าน] = the neighbour: Thai man, about 55, round face, white singlet and loose shorts, friendly
 1 | street | med | On a Saturday morning, {f} chats with {nb} in front of a house; {nb} points up at his roof.
 2 | street | two | {nb} holds up a quotation on our company's letterhead (fictional logo, blurred) and talks to {f}.
 3 | street | med | {f} steps aside and phones the head technician // [cu] {f} listens, then nods slowly.
 4 | breakroom | ins | Reconstruction: a work calendar on a computer screen with many slots in orange (blurred) // [ins@street] Close-up: the team van's keys in {f}'s hand.
-5 | EDIT | มือพี่ช่างถือกุญแจรถของทีม (เฟรมจากฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, placing two printed quotations side by side on the counter (blurred).
+5 | street | ins | Close-up: the team van's keys rest in {f}'s open palm. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, placing two printed quotations side by side on the counter (blurred).
 7 | coffee | med | {c} ticks off items on her fingers one by one; {f} scratches his head.
 8 | coffee | ots | Over {f}'s shoulder: {c} circles one line on an equipment quotation with a red pen (blurred).
-9 | EDIT | ภาพใบเสนอราคา กุญแจรถ และใบส่วนลด แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | breakroom | ins | Close-up: a customer quotation, the team van keys and a supplier discount slip lying together on a break-room table.
 10 | breakroom | two | {h} sits with {f} in the team break room and talks with him calmly.
 11 | breakroom | ins | Close-up: {f} enters his neighbour's details as a sales lead in the CRM system (screen blurred).
 12 | street | wide | The sales team arrives to survey the neighbour's roof, {f} carrying a ladder with the installation crew // [two] {f} offers his pink floral lunch box to a colleague to taste his wife's cooking.
 
-## 2027-10-05
+## 2027-09-21
 x mc [Main Contractor] = the main contractor's manager: Thai man, about 50, heavy-set, short-sleeve checked shirt, two phones on his belt
 1 | site | wide | A construction site at night: workers are still at work under floodlights. | machinery hum, crickets
 2 | site | trk | {h} walks through the site checking the work // [med] {h} stops short: a worker is asleep, sitting against a pile of cable drums.
 3 | site | two | {h} confronts {mc} in front of the site-office container // [cu] {mc} shrugs and answers dismissively.
 4 | ~a shrimp-peeling shed with a padlocked steel door and a conveyor of plain export boxes | wide | Mock news reconstruction: the steel door of a shrimp-peeling shed is padlocked while plain export boxes move along a conveyor // [med@site] Back at our site, the worker is still asleep against the cable drums.
-5 | EDIT | คนงานนั่งพิงกองสายไฟใต้สปอตไลต์ (เฟรมจากฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, laying out a row of sugar packets as a chain from the company down to the workers.
+5 | site | med | At night on the site, a tired worker sits asleep against large cable drums under a single floodlight. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, laying out a row of sugar packets as a chain from the company down to the workers.
 7 | coffee | med | {c} moves her hand down step by step to show wages shrinking at each layer; {h} frowns.
 8 | coffee | cu | {c} speaks firmly about writing labour terms into the contract; {h} nods.
-9 | EDIT | แผนภาพห่วงโซ่ผู้รับเหมา (กราฟิก) แล้วปักธงแดงทีละชั้น
+9 | site | wide | At night on the site, layers of subcontracted workers in different uniforms pass the cable drums under floodlights, tired.
 10 | sitebox | med | {h} signs a corrective-action request letter with a deadline and hands it across the table to {mc}.
 11 | office | ins | Close-up: a subcontracting contract template on a monitor gets a new section added (text blurred). | typing
 12 | site | wide | A new morning: workers arrive for their shift following a schedule posted on the site board // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
@@ -361,11 +362,11 @@ x intern [นักศึกษาฝึกงาน] = the engineering intern: 
 2 | ~inside a passenger van on the way to a work site | cu | {intern} sits in the van looking at her phone with a forced, tight smile. | van engine, road noise
 3 | site | two | At lunch under a tent by the site, {intern} speaks quietly to {f} // [cu] {f} answers, laughing it off.
 4 | ~a glass-walled office of an overseas tech company | ins | Reconstruction: a chat window on a laptop at an overseas tech company; one message gets struck through (blurred) // [cu@site] Back at the site, {intern} sits alone on a bench.
-5 | EDIT | สติกเกอร์หัวเราะในกลุ่ม LINE (ฉาก 1) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, her expression serious.
+5 | ~inside a passenger van on the way to a work site | ins | Close-up of a phone screen: a team group chat full of laughing stickers (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, her expression serious.
 7 | coffee | med | {c} holds one hand above her head like an umbrella covering everyone; {f} listens.
 8 | coffee | ots | {f} scrolls back through old group-chat messages on his phone, thoughtful, while {c} waits.
-9 | EDIT | ข้อความในกลุ่ม LINE (ฉาก 1) แล้วปักธงแดงทีละข้อความ (กราฟิก)
+9 | ~inside a passenger van on the way to a work site | ins | Close-up of a phone screen: a team group chat full of laughing stickers and a mocking photo (blurred).
 10 | site | ins | Close-up: {f} types a message in the team group chat on his phone (screen blurred) // [cu] {f} hits send, serious.
 11 | site | trk | {f} walks {intern} over to meet the site supervisor.
 12 | site | ins | The team group chat is back to work talk; a question gets a quick reply (screen blurred) // [med@office] {n} opens an email on her monitor and sticks a yellow note with three questions on her screen, smiling // [cu] {f} opens his pink floral lunch box and finds a handwritten note from his wife; he smiles.
@@ -377,31 +378,31 @@ x cpm [ผู้จัดการฝั่งลูกค้า] = the client's
 2 | plant | ins | Close-up: a chat message from the client's site engineer on {h}'s phone (screen blurred) // [cu] {h} replies with a voice message, agreeing casually.
 3 | plant | wide | Over several weeks, the crew keeps pulling extra cables and the pile of materials shrinks. | cable pulling, ratchets
 4 | ~a client's meeting room in a factory office: long table, project files | med | {cpm} places an invoice for the extra work on the meeting table in front of {h}.
-5 | EDIT | ใบแจ้งหนี้งานเพิ่มบนโต๊ะประชุม (ฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, drawing a box on a napkin with small shapes sprouting outside it.
+5 | ~a client's meeting room in a factory office: long table, project files | ins | Close-up: an invoice for extra work lies on a meeting table beside a pen and a project file. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, drawing a box on a napkin with small shapes sprouting outside it.
 7 | coffee | ots | Over {h}'s shoulder: {c} opens a printed contract at one clause and taps a highlighted line (blurred).
 8 | coffee | med | {c} reads out a short sample sentence from her notebook; {h} writes it down.
-9 | EDIT | ข้อความ LINE (ฉาก 2) และกองสายเคเบิล (ฉาก 3) แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | plant | ins | Close-up: a phone showing the client's chat request beside a pile of newly laid cable at the warehouse building.
 10 | plant | ins | Flashback to the first day: {h} types a careful written reply on his phone (screen blurred) // [cu] {h} rereads it before sending.
 11 | office | ins | Close-up: an email with a variation-request form and a folder of site photos attached is sent (screen blurred). | email whoosh
 12 | ~a client's meeting room in a factory office: long table, project files | ins | The client's authorised manager signs a change order // [wide@plant] The crew resumes work // [ins@office] A nameplate on {h}'s desk shows a new title and the team board has a fresh note (text blurred) // [cu@office] {h} lets out a long sigh, then sips from his plain white mug. | g: ป้ายชื่อ "ผู้จัดการฝ่ายปฏิบัติการ" + กระดาน "ดีลใหญ่ เริ่มแล้ว" + แก้ว "งานต้องเดิน"
 
-## 2027-11-16
+## 2027-12-07
 x cman [Contract Manager] = the contract manager: Thai man, about 52, bald with a neat grey beard, pale-yellow shirt under a navy sweater vest, a thick contract binder
 1 | site | wide | A work site at a standstill, waiting for revised drawings // [ins@sitebox] A wall calendar in the site office with three weeks crossed out. | wind over an idle site
 2 | sitebox | ins | Close-up of a phone screen: a project group chat with one message marked as read by twelve people (blurred). | g: ข้อความ "แบบแก้ไขยังไม่มา งานรอ" + "อ่านแล้ว 12"
 3 | office | trk | {s} walks over to {cman}'s desk holding her phone // [two] {cman} takes off his glasses and answers seriously.
 4 | office | ins | Reconstruction: a monthly report with one line circled in red (blurred) // [ins] Back on {s}'s phone, the client has replied to her chat message with a thumbs-up (blurred).
-5 | EDIT | คำว่า "อ่านแล้ว" ใต้ข้อความ LINE (ฉาก 2) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, tapping four points on a printed contract clause (blurred).
+5 | sitebox | ins | Close-up of a phone screen: a project group chat with one message marked as read by many people (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, tapping four points on a printed contract clause (blurred).
 7 | coffee | med | {c} crosses off three items in her notebook one by one; {s} winces.
 8 | coffee | cu | {c} holds up her phone in one hand and a formal letter in the other, comparing them; {s} nods slowly.
-9 | EDIT | ภาพกลุ่ม LINE (ฉาก 2) และปฏิทินกำหนดเวลา (ฉาก 1) แล้วปักธงแดง (กราฟิก)
+9 | sitebox | ins | Close-up: a phone with a project group chat marked as read, next to a wall calendar with a deadline circled (blurred).
 10 | office | two | {cman} and {s} draft a formal delay-notice letter together on a laptop (screen blurred). | typing
 11 | office | ins | Close-up: a delivery receipt for the letter is scanned into the project file (text blurred). | scanner whirr
 12 | office | med | {s} lines up the notice letters and receipts in the project binder and closes it with confidence // [med@lift] {s} rehearses a polite sentence to her reflection in the elevator mirror, then jumps as the doors slide open. | elevator chime
 
-## 2027-12-07
+## 2027-11-16
 x sup3 [Supplier] = the supplier's sales director: Thai man, about 50, tanned, dark-purple polo shirt, gold-rimmed sunglasses pushed up on his head, car keys in hand
 x exe [ผู้บริหาร] = the senior executive: Thai man, about 58, silver hair, dark suit, rimless glasses
 x kid = the executive's grown-up son: Thai man, about 26, shoulder-length hair, small ear stud, plain black T-shirt under a denim jacket
@@ -410,10 +411,10 @@ x kid = the executive's grown-up son: Thai man, about 26, shoulder-length hair, 
 3 | ~a bright car showroom with new cars on display | med | At a car showroom, {kid} receives a set of car keys while a quotation sits on the desk (blurred). | showroom ambience | g: ช่อง "ส่วนลดพิเศษ"
 4 | exec | cu | {exe} sits looking at his son's car quotation, hesitant.
 5 | exec | ins | Close-up: a car key and a home-renovation quotation lie side by side on a desk (text blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, tracing a loop on the counter with her finger that comes back to where it started.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, tracing a loop on the counter with her finger that comes back to where it started.
 7 | coffee | med | {c} holds up one finger, then two, asking two questions; {a} thinks.
 8 | coffee | ots | Over {a}'s shoulder: {c} points to two dates in the same week on a desk calendar.
-9 | EDIT | ใบเสนอราคาและปฏิทินต่อสัญญา แล้วปักธงแดง (กราฟิก)
+9 | exec | ins | Close-up: a renovation quotation with a large discount beside a contract-renewal calendar on an executive desk.
 10 | office | med | {a} phones the supplier, polite but firm.
 11 | exec | med | {exe} sends a disclosure email and hands the renewal file to another executive (screen blurred).
 12 | glass | wide | In the procurement meeting room, a committee with no conflict of interest reviews the renewal file // [med@office] {a} files pink folders into a cabinet in colour order, then hands out snacks to everyone at the desk.
@@ -423,11 +424,11 @@ x kid = the executive's grown-up son: Thai man, about 26, shoulder-length hair, 
 2 | office | ins | {a} opens a hamper and finds a gift-voucher envelope tucked under a jar of honey. | cellophane crinkle
 3 | office | trk | {a} carries the envelope over to {h} // [two] {h} looks at it and answers thoughtfully.
 4 | ~a storage shed with new TV boxes and car tyres stacked inside | wide | Mock news reconstruction: brand-new TV boxes and car tyres stacked inside a storage shed // [ins@office] Back on {a}'s desk, the voucher envelope lies inside the hamper.
-5 | EDIT | ซองบัตรกำนัลข้างกระเช้า (ฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, pointing at the price tag on a gift hamper.
+5 | office | ins | Close-up: a voucher envelope tucked inside a New Year gift hamper on {a}'s desk, beside a jar of honey. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, pointing at the price tag on a gift hamper.
 7 | coffee | med | {c} shakes her head and pushes an imaginary envelope away with one hand.
 8 | coffee | ots | Over {a}'s shoulder: {c} shows her a gift-report form on a tablet and taps a highlighted line (blurred).
-9 | EDIT | ภาพซองบัตรกำนัล ป้ายราคา และปฏิทินประมูล แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a voucher envelope, a price tag and a bidding calendar on {a}'s desk.
 10 | office | two | {h} and {a} fill in a gift-report form together at his desk (text blurred).
 11 | office | med | {a} sends a thank-you email to the supplier (screen blurred), smiling politely. | typing
 12 | glass | ins | The hamper and voucher envelope, with the report form attached, are placed on the gift committee's table // [cu@office] {a} sticks a handwritten note beside her monitor and smiles to herself. | g: โน้ต "สิบปีก็ยังต้องเทียบราคา"
@@ -438,31 +439,31 @@ x hd = the IT helpdesk officer: Thai man, about 27, slim, curly hair, orange T-s
 2 | office | ins | An urgent-looking email pops up on {a}'s monitor with a fake company logo (blurred). | notification ping | g: หัวข้อ "ด่วน: บัญชีของคุณจะถูกระงับภายใน 2 ชั่วโมง"
 3 | office | ots | Over {a}'s shoulder: her mouse hovers over a big button in the email // [two] {n} leans over from the next desk to look, frowning.
 4 | office | ins | Mock reconstruction: a fake login page identical to the real one except for one letter in the web address (blurred) // [ins] {a}'s finger hovers above the mouse button.
-5 | EDIT | เคอร์เซอร์ค้างบนปุ่ม "ยืนยันรหัสผ่าน" (ฉาก 3) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, miming a racing heartbeat with a hand on her chest.
+5 | office | ins | Close-up of {a}'s monitor: the mouse cursor hovers over a big confirm-password button in an email (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, miming a racing heartbeat with a hand on her chest.
 7 | coffee | ots | Over {a}'s shoulder: {c} zooms in on a sender's address on her phone and points at it (blurred).
 8 | coffee | med | {c} draws one key linked to three boxes on a napkin; {a} nods.
-9 | EDIT | ภาพ Email (ฉาก 2) แล้วปักธงแดงที่ชื่อผู้ส่ง หัวข้อ ลิงก์ และช่องรหัสผ่าน (กราฟิก)
+9 | office | ins | Close-up of a monitor: a suspicious email with an odd sender address and a password box (blurred).
 10 | office | med | {a} clicks the report-phishing button and forwards the email to IT (screen blurred). | click
 11 | ~an IT helpdesk room with several monitors | med | {hd} takes the report, resets a password and checks the account logs on his monitors (blurred). | headset beep, typing
 12 | office | med | {a} shuts down her computer and heads home // [ins@~an IT helpdesk room with several monitors] An IT dashboard shows the fake email blocked company-wide (blurred) // [two@coffee] {a} offers a box of Thai pastries to {c} as a thank-you; {c} laughs.
 
-## 2028-01-18
+## 2028-02-01
 x ext = the external consultant: Thai woman, about 45, pixie cut with a grey streak, camel-brown blazer
 1 | office | ots | In the engineering department, {n} opens the project folder on her monitor, showing dozens of subfolders (blurred).
 2 | office | ins | An email from an external consultant arrives on {n}'s monitor asking for a drawing urgently (blurred). | notification ping
 3 | office | ins | Close-up: {n} opens the share menu and selects the widest sharing option (blurred) // [two] {h} walks past, stops and leans in // [cu] {n} answers, a bit unsure.
 4 | ~a long corridor of storerooms in an office building | wide | Reconstruction: a single key opens every storeroom door down a long corridor at once // [ins@office] Back on {n}'s monitor, the cursor rests on the share button (blurred). | doors clicking open one after another
-5 | EDIT | ปุ่ม "แชร์" บนจอ (ฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, stacking four sugar packets into a small tower.
+5 | office | ins | Close-up of {n}'s monitor: the cursor rests on the share button of a whole project folder (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, stacking four sugar packets into a small tower.
 7 | coffee | med | {c} holds up two keys from her key ring as she explains; {n} listens.
 8 | coffee | cu | {c} explains who approves sharing; {n} nods.
-9 | EDIT | เมนูแชร์และไฟล์ในโฟลเดอร์ (ฉาก 3) แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | office | ins | Close-up of a monitor: the share menu set to anyone with the link, over a folder of many files (blurred).
 10 | office | ots | Over {n}'s shoulder: she copies one drawing into a new shared folder and sets view-only access for one email address (blurred) // [two] {h} nods approvingly.
 11 | office | ins | Close-up: an approval button is clicked on a monitor (blurred) // [cu] {n} sends a restricted link, satisfied.
 12 | ~a consultant's small office with a desk and a laptop | med | {ext} opens the single drawing she received on her laptop (blurred) // [ins@office] {n} renames a folder on her monitor and grins (text blurred). | g: ชื่อโฟลเดอร์ "ถามพี่ Compliance ก่อน"
 
-## 2028-02-01
+## 2028-01-18
 x cli [ลูกค้า] = the client's plant director: Thai man, about 55, round glasses, short grey hair, light-pink shirt with rolled sleeves
 x frd [เพื่อน] = a friend on the phone: Thai man, about 30, heard but not seen
 1 | client | med | In a meeting room at a client's food factory, {s} takes notes while {cli} points out of the window at the factory roof.
@@ -470,24 +471,24 @@ x frd [เพื่อน] = a friend on the phone: Thai man, about 30, heard bu
 3 | car | med | After the meeting, {s} sits in her car and phones a friend, excited // [cu] {s} listens to the friend's reply and hesitates. | muffled street traffic
 4 | ~an archive photo table | ins | Reconstruction: an old black-and-white photograph of a 1930s soft-drink factory lies on a table // [ins@office] Back at the office, a friend's business-plan draft is open on {s}'s monitor (blurred).
 5 | office | ins | Close-up: {s}'s notebook lying open with names and requirements (handwriting blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, drawing arrows that point backward on a napkin.
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, drawing arrows that point backward on a napkin.
 7 | coffee | med | {c} quotes a line from the code of conduct, tapping the booklet; {s} looks down.
 8 | coffee | cu | {c} flips a small card over on the counter and asks a pointed question; {s} pauses.
-9 | EDIT | สมุดจด โทรศัพท์ และรายชื่อลูกค้า แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a notebook, a phone and a printed client contact list on a desk.
 10 | board | med | {s} presents the opportunity to the management team in the boardroom, confident.
 11 | office | med | {s} sends an email to Compliance asking for advice (screen blurred). | typing
 12 | board | wide | The management team assigns a study team for an energy-storage project, with {s} on it // [ins@office] {s} crosses out a phrase on a sticky note and writes a new one (handwriting blurred).
 
 ## 2028-02-15
 1 | carpark | med | Friday evening at the company car park: {f} looks at the pickup keys hanging in the key cabinet.
-2 | ~a tool storeroom with shelves of power tools and labelled bins | two | In the tool storeroom, {f} chats casually with {h}, gesturing toward the trucks outside.
+2 | ~a tool storeroom with shelves of power tools and labelled bins | two | In the tool storeroom, {f} chats casually with {h}, gesturing toward the trucks outside // [cu] {h} pauses, unconvinced, and answers carefully.
 3 | car | cu | {f} sits thinking in his car, his reflection in the window // [med@carpark] A memory: a teammate drives off in a company pickup on a weekend.
 4 | ~a company vehicle workshop | wide | Reconstruction: a private car parked inside the company workshop while a mechanic spray-paints it // [ins@carpark] Close-up: the company pickup keys in {f}'s hand. | spray-gun hiss
-5 | EDIT | กุญแจรถกระบะในมือพี่ช่าง (ฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, pointing at his laptop bag and tool belt.
+5 | carpark | ins | Close-up: the company pickup's keys in {f}'s hand, the pickup out of focus behind. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, pointing at his laptop bag and tool belt.
 7 | coffee | med | {c} counts three points on her fingers; {f} scratches his chin.
 8 | coffee | cu | {c} smiles and suggests another option; {f} nods slowly.
-9 | EDIT | กุญแจรถ Notebook และตู้เครื่องมือ แล้วปักธงแดง (กราฟิก)
+9 | carpark | ins | Close-up: the company pickup keys, a company laptop and an open tool case on the pickup's tailgate.
 10 | carpark | two | {h} hangs the keys back in the cabinet and talks with {f} in a friendly way.
 11 | street | med | On Saturday morning, {f} loads his own tools into his own car.
 12 | carpark | wide | Monday morning: a company pickup drives out to a customer site with a work order // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
@@ -500,40 +501,40 @@ x cust = the client's director: Thai man, about 56, grey hair, trimmed grey mous
 3 | glass | two | {h} points at a highlighted clause; {legal2} leans in to read along.
 4 | glass | cu | {legal2} looks up and asks a question // [cu] {h} goes quiet, thinking.
 5 | glass | ins | Close-up: a pen hovers above the signature box of a contract (text blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, holding one hand low and the other high to compare sizes.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, holding one hand low and the other high to compare sizes.
 7 | coffee | ots | Over {h}'s shoulder: {c} runs her pen down a list of clause headings in a draft contract (blurred).
 8 | coffee | med | {c} explains, tapping an insurance-policy booklet; {h} listens closely.
-9 | EDIT | ข้อสัญญาที่ไฮไลต์ (ฉาก 3) แล้วปักธงแดงทีละจุด (กราฟิก)
+9 | glass | ins | Close-up: a contract page with the unlimited-liability clause highlighted in yellow.
 10 | glass | two | {h} and {legal2} build a worst-case table on a laptop together (screen blurred).
 11 | office | med | {h} talks confidently with the client on the phone, a proposal open on his monitor (blurred).
 12 | client | two | {h} shakes hands with {cust} over a signed contract // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: คำว่า "ด่วนมาก"
 
-## 2028-03-21
+## 2028-04-04
 1 | office | ins | A wall clock shows three in the afternoon // [ins] On a monitor, an email waits to be sent with drawings, a price list and an installation plan attached (blurred). | clock ticking
 2 | office | med | {s} holds her phone to her chest and turns to ask {n} something, eager.
 3 | office | cu | {n} stops typing and turns to ask a question // [cu] {s} answers breezily.
 4 | office | ins | Three months later: a tender-result announcement on a monitor shows a rival bid with drawings that look like ours (blurred).
 5 | office | ins | Back to the moment: the cursor rests on the email's send button (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, drawing a thick arrow and a thin line on a napkin.
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, drawing a thick arrow and a thin line on a napkin.
 7 | coffee | med | {c} fans out several photocopies of the same page; {s} frowns.
 8 | coffee | ots | Over {s}'s shoulder: {c} opens an NDA document and ticks five headings with a pen (blurred).
 9 | coffee | cu | {c} gestures three steps up with her hand like a staircase; {s} nods.
-10 | EDIT | ภาพหน้าจอ Email (ฉาก 1) แล้วปักธงแดงทีละจุด (กราฟิก)
+10 | office | ins | Close-up of a monitor: an email with full drawings and price files attached, the cursor on send (blurred).
 11 | office | ots | Over {s}'s shoulder: she sends the company's standard NDA to the contractor with a one-page spec summary (blurred) // [two] {n} leans over and points approvingly at the attachment.
 12 | glass | med | {legal} reads the NDA sent back by the other side and circles an unbalanced clause with a red pen (text blurred).
 13 | office | ins | A one-page spec file is sent with a padlock icon (blurred) // [cu] {s} gives the camera a quick thumbs-up, then hurries to answer a client's call.
 
-## 2028-04-04
+## 2028-03-21
 x rv2 [คู่แข่ง] = the competitor's sales manager: Thai man, about 42, slick undercut hair, slim grey suit, a lanyard with a blank exhibitor badge
 1 | expo | wide | A busy electrical-industry trade show, one week before a site tender is due.
 2 | expo | two | {rv2} strolls over to {s} at the corner of her booth and speaks in a low voice.
 3 | expo | cu | {s} stands thinking, looking at a tender notice on her phone (screen blurred); her inner voice is heard.
 4 | ~a table stacked with dozens of case files | ins | Mock news reconstruction: dozens of case files stacked on a table beside a chart of companies taking turns to win (blurred) // [ins@office] Back at the office, the rival's proposal is open on {s}'s monitor (blurred).
 5 | expo | ins | Close-up: {rv2}'s hand reaches out for a handshake, held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, turning three sugar packets over one after another as if taking turns.
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, turning three sugar packets over one after another as if taking turns.
 7 | coffee | med | {c} sketches a map divided into zones on a napkin; {s} looks uneasy.
 8 | coffee | cu | {c} taps her phone and gestures around the room, explaining that calls, chats and witnesses all count as evidence; {s} nods.
-9 | EDIT | ประกาศประมูลและแผนที่แบ่งเขต แล้วปักธงแดง (กราฟิก)
+9 | expo | ins | Close-up: a tender announcement and a regional map with areas marked by hand on a table at the trade fair.
 10 | expo | two | {s} takes one step back from {rv2} and speaks clearly, one hand raised politely.
 11 | expo | ins | Close-up: {s} notes the date, time and what she heard in her notebook // [ins] {s} sends an email to the legal team on her phone (screen blurred).
 12 | glass | wide | Our bid team meets to set prices from our own costs and strategy, papers spread on the table // [med@lift] {s} rehearses a polite sentence to her reflection in the elevator mirror, then jumps as the doors slide open.
@@ -545,10 +546,10 @@ x rv3 [ตัวแทนบริษัทคู่แข่ง] = a competitor
 3 | assoc | cu | {h} stares at the table, avoiding everyone's eyes, his inner voice heard; beside him a minute-taker keeps typing.
 4 | assoc | ins | Mock news reconstruction: an agenda card on the table is about the environment, but the note pad beside it shows handwritten price figures (blurred) // [med] Back in our meeting, {h} sits motionless.
 5 | assoc | ins | Close-up: the minute-taker's hands typing on a laptop, then holding still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, arranging several blank name cards on the counter.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, arranging several blank name cards on the counter.
 7 | coffee | ots | Over {h}'s shoulder: {c} points to one line in printed meeting minutes (blurred).
 8 | coffee | med | {c} counts three steps on her fingers; {h} repeats them silently.
-9 | EDIT | สไลด์วาระและรายงานการประชุม แล้วปักธงแดง (กราฟิก)
+9 | assoc | ins | Close-up: an agenda slide on a screen and printed meeting minutes on the table (text blurred).
 10 | assoc | med | Back in the meeting, {h} raises his hand and speaks politely but clearly // [two] {h} stands up and walks out of the room as heads turn.
 11 | office | med | {h} sends an email to the legal team with the minutes attached (screen blurred). | typing
 12 | assoc | wide | The chair brings the meeting back to the safety-standard agenda and {h} returns to his seat // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
@@ -559,40 +560,40 @@ x exe2 [ผู้บริหาร] = the senior executive: Thai man, about 55,
 2 | exec | med | {exe2} stands and raps his knuckles on the desk // [cu] {h}, holding a folder, answers carefully // [med] {exe2} waves a hand impatiently. | knuckles on wood
 3 | office | ins | The team exchanges glances; a hand hovers over a skip-step button in the system (blurred).
 4 | board | wide | Mock news reconstruction: a boardroom with the chair's seat empty and a news report on the wall screen (blurred) // [ins@office] Back on {h}'s plan, the review box is crossed out (blurred).
-5 | EDIT | ปุ่ม "ข้ามขั้นตอน" บนจอ (ฉาก 3) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, placing two sugar packets far apart to keep two ideas separate.
+5 | office | ins | Close-up: a hand hovers over a skip-step button in an approval system on a monitor (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, placing two sugar packets far apart to keep two ideas separate.
 7 | coffee | med | {c} counts four risks on her fingers; {h} rubs his jaw.
 8 | coffee | ots | Over {h}'s shoulder: {c} shows him an exception-approval form with three boxes (blurred).
-9 | EDIT | ปฏิทินและปุ่มข้ามขั้นตอน แล้วปักธงแดง (กราฟิก)
+9 | exec | ins | Close-up: a desk calendar with Monday circled beside a monitor showing a skip-review button (blurred).
 10 | exec | two | {h} speaks politely to {exe2}, holding out the folder.
 11 | office | ins | Close-up: {h} opens the company's exception-procedure manual (text blurred).
 12 | exec | ins | {exe2} signs an exception-approval form (text blurred) // [med@office] On Monday morning {h} submits the proposal on time // [cu@office] {h} lets out a long sigh, then sips from his plain white mug.
 
-## 2028-05-16
+## 2028-06-06
 1 | sitebox | med | In a small site-office container, {n} sits at the procurement system on her computer (screen blurred).
 2 | sitebox | ins | Close-up: a chat message on {n}'s phone from the site manager containing a username and a partly hidden password (blurred) // [cu] {n} reads it, unsure. | message ping
-3 | sitebox | med | {n} looks at three piles of paperwork on her desk, worried.
-4 | office | med | At head office, {a} holds up two invoices side by side, frowning.
+3 | sitebox | med | {n} looks at three piles of paperwork on her desk, worried, then phones {a} at head office, the receiver at her ear.
+4 | office | med | At head office, {a} talks on the desk phone and holds up two invoices side by side, frowning.
 5 | sitebox | ins | Close-up: an approve button on the monitor under the site manager's user name (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, tracing one path through every step with her finger.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, tracing one path through every step with her finger.
 7 | coffee | med | {c} lines up four sugar packets, handing each to a different imaginary person; {h} watches.
 8 | coffee | cu | {c} raises an eyebrow, pointing out that the record says he approved while he was out on site; {h} grimaces.
-9 | EDIT | ข้อความ LINE และกองเอกสารสามกอง แล้วปักธงแดง (กราฟิก)
+9 | sitebox | ins | Close-up: a phone showing a password sent in chat beside three stacks of documents: request, receipt and payment.
 10 | sitebox | med | {n} phones the site manager back, polite but firm.
 11 | site | ins | {h} changes his password on his phone (screen blurred) // [med@office] {a} reviews past documents at head office.
 12 | site | wide | A materials truck arrives at the site in the morning; {h} and {n} check the delivery together // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: คำว่า "ด่วนมาก"
 
-## 2028-06-06
+## 2028-05-16
 x vnd [Vendor] = the software vendor's engineer: Thai man, about 35, bleached blond hair tips, grey hoodie, headset, seen on a video call
 1 | itroom | med | Nine at night in the IT room: an error message on the time-attendance system and {vnd} on a video call on {n}'s monitor.
 2 | itroom | ots | Over {n}'s shoulder: {vnd} talks fast on the video call.
 3 | itroom | cu | {n} glances at the clock, then clicks an export menu (blurred).
 4 | ~a dark room lit by a single monitor | ins | Mock news reconstruction: a dark web page advertising stolen data files (blurred) // [ins@itroom] Back on {n}'s monitor, the employee database file (blurred).
 5 | itroom | ins | Close-up: a download progress bar stuck at zero on the monitor (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, laying out three sugar packets as three options.
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, laying out three sugar packets as three options.
 7 | coffee | med | {c} points to a column highlighted in red on her tablet (blurred); {n} nods.
 8 | coffee | ots | Over {n}'s shoulder: {c} runs through a checklist in her notebook (blurred).
-9 | EDIT | ปุ่ม Export และไอคอน Server ของ Vendor แล้วปักธงแดง (กราฟิก)
+9 | itroom | ins | Close-up of a monitor: an export-all-records button and an external server address (blurred).
 10 | itroom | ots | {n} speaks to {vnd} on the video call, calm and firm.
 11 | itroom | med | {n} sends an email asking the DPO for approval and advice, the checklist attached (screen blurred). | typing
 12 | office | ins | Morning: the time-attendance system is back and a log confirms the test data was deleted (blurred) // [cu@itroom] {n} secretly types a question to the company AI, then giggles to herself.
@@ -603,11 +604,11 @@ x dpo2 [DPO] = the data protection officer: Thai man, about 45, short greying ha
 2 | office | trk | {r} walks over to {n}'s desk // [cu] {n} answers, uncertain.
 3 | office | med | {r} holds up a signed confidentiality agreement, smiling as if it settles everything.
 4 | office | ins | Mock news reconstruction: two penalty notices side by side on a desk, one much thicker than the other (blurred) // [ins] Back on {n}'s monitor, an enable-access button (blurred).
-5 | EDIT | ปุ่ม "เปิดสิทธิผู้ใช้" บนจอ (ฉาก 4) หยุดนิ่ง + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {r}, placing a big mug and a small cup side by side to show two roles.
+5 | office | ins | Close-up of {n}'s monitor: the cursor hovers over an enable-access button in a user-administration screen (blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [two] {r} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {r}, placing a big mug and a small cup side by side to show two roles.
 7 | coffee | med | {c} counts four points on her fingers; {r} nods along.
 8 | coffee | cu | {c} taps her wristwatch, stressing the reporting deadline; {r}'s eyebrows rise.
-9 | EDIT | ปฏิทินวันจ่ายเงินเดือนและปุ่มเปิดสิทธิ แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a payroll calendar with payday circled beside a monitor showing an enable-access button (blurred).
 10 | coffee | med | {dpo2} walks in to join them with a laptop showing a draft agreement (blurred) and explains // [two] {r} and {c} lean in to read.
 11 | office | ins | Close-up: {n} ticks items one by one on a pre-access checklist (blurred).
 12 | office | ins | A signed agreement lies on the desk // [med] {n} enables vendor access on her monitor and payroll goes out on time // [cu] {r} waters a small potted plant on his desk, smiling.
@@ -619,15 +620,15 @@ x exe3 = the managing director: Thai woman, about 55, short silver hair, dark-re
 3 | glass | cu | {h} waves a hand as if it is no big deal.
 4 | ~a row of construction-site signboards covered with cloth | wide | Mock news reconstruction: site signboards covered with cloth and progress figures on a whiteboard being erased and rewritten (blurred) // [ins@glass] Back on {h}'s screen, a high number typed into the percentage box (blurred).
 5 | glass | ins | Close-up: a cursor blinking in the percentage box on the screen (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, her expression serious.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, her expression serious.
 7 | coffee | med | {c} gestures as if presenting to a big room; {h} shifts uncomfortably.
 8 | coffee | ots | Over {h}'s shoulder: {c} sketches two columns on a napkin (blurred).
-9 | EDIT | ช่องวันที่และช่อง % ในแบบรายงาน แล้วปักธงแดง (กราฟิก)
+9 | glass | ins | Close-up: a progress report form with the date and percentage boxes being filled in by pen.
 10 | glass | ots | {f} fills in a two-column report on his tablet, then turns it to show {h} // [cu] {h} studies it and nods slowly.
 11 | glass | ins | Close-up: milestone evidence and inspection certificates are attached to the report (blurred).
 12 | board | med | {exe3} reviews the two-column report and approves extra resources for the project // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
 
-## 2028-07-18
+## 2028-08-01
 x pmgr [ผู้จัดการฝ่ายผลิต] = the production manager: Thai man, about 50, thick black moustache, grey factory uniform jacket, factory cap on his head
 x exe4 = a senior executive: Thai woman, about 57, silver hair swept back, dark suit, pearl necklace
 1 | plant | wide | Quarter-end at the control-panel factory: a production board beside the line shows the month's output (blurred). | factory hum | g: บอร์ดยอดผลิต 92% ของเป้า
@@ -635,24 +636,24 @@ x exe4 = a senior executive: Thai woman, about 57, silver hair swept back, dark 
 3 | office | cu | {a} hesitates, her hands frozen above the keyboard, and answers carefully // [cu] {pmgr} replies, pressing her.
 4 | ~a steel warehouse with coils of steel | ins | Mock news reconstruction: quality certificates with figures altered by pen, piled beside coils of steel (blurred) // [ins@office] Back on {a}'s monitor, a pass box in the system (blurred).
 5 | office | ins | Close-up: the cursor rests on a "completed" status box in the system (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, tapping {a}'s name badge gently.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, tapping {a}'s name badge gently.
 7 | coffee | med | {c} traces lines outward from one point on a napkin, showing how one figure spreads; {a} nods.
 8 | coffee | cu | {c} speaks warmly and firmly, reassuring {a} that she will be protected; {a} breathes out.
-9 | EDIT | บอร์ดยอดผลิต (ฉาก 1) และช่องสถานะในระบบ (ฉาก 5) แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a production board with unfinished units next to a monitor showing a status field set to complete (blurred).
 10 | office | med | {a} speaks politely to {pmgr}, then types a note into the system (blurred).
 11 | office | med | {a} sends an email summarising what happened to her next-level manager (screen blurred). | typing
 12 | exec | med | {exe4} reads the report with the note and orders an extra testing team for production // [med@office] {a} files pink folders into a cabinet in colour order, then hands out snacks to everyone at the desk.
 
-## 2028-08-01
+## 2028-07-18
 1 | ~a factory canteen at lunchtime: long tables, trays of rice and curry, big windows | med | {f} and {s} eat lunch in the factory canteen; through the window, a large customer's van is parked outside. | canteen chatter, trays
 2 | glass | ins | Quick cuts: a customer meeting behind glass // [wide@plant] The production line speeding up // [ins@wh] A large new batch of raw materials stacked in the warehouse.
 3 | ~a factory canteen at lunchtime: long tables, trays of rice and curry, big windows | two | {f} leans in and talks quietly with {s} at the lunch table // [cu] {s} answers, eyes lighting up.
 4 | ~a dark trading screen | ins | Mock news reconstruction: a trading chart with one abnormally tall volume bar circled in red (blurred) // [ins@~a factory canteen at lunchtime] Back at lunch, a stock app on {f}'s phone (blurred).
 5 | ~a factory canteen at lunchtime: long tables, trays of rice and curry, big windows | ins | Close-up: {s}'s finger hovers over a buy button in a stock app (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, pushing a paper marked confidential aside and holding up three fingers.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, pushing a paper marked confidential aside and holding up three fingers.
 7 | coffee | med | {c} fits three pieces of a small jigsaw puzzle together on the counter; {f} watches.
 8 | coffee | cu | {c} counts four examples quickly on her fingers; {f} nods.
-9 | EDIT | จิ๊กซอว์แต่ละชิ้น (ฉาก 7) และแอปซื้อขายหุ้น (ฉาก 5) แล้วปักธงแดง (กราฟิก)
+9 | ~a factory canteen at lunchtime: long tables, trays of rice and curry, big windows | ins | Close-up: a phone with a stock-trading app open on a canteen table, a buy button under a thumb (blurred).
 10 | ~a factory canteen at lunchtime: long tables, trays of rice and curry, big windows | two | {f} touches {s}'s arm and says something quietly.
 11 | ~a factory canteen at lunchtime: long tables, trays of rice and curry, big windows | ins | Close-up: {s} closes the stock app and opens an email to Compliance on her phone (blurred).
 12 | plant | wide | {f} and {s} walk back onto the production line after lunch // [two] {f} offers his pink floral lunch box to a colleague to taste his wife's cooking.
@@ -664,10 +665,10 @@ x grp [เพื่อนในกลุ่ม LINE] = a school friend in the gr
 3 | home | cu | {s} scrolls for a sticker and taps send on a smiley; her inner voice is heard.
 4 | home | ins | Replies pop up instantly on {s}'s phone, followed by a flood of stickers (blurred). | rapid message pings
 5 | home | ins | Close-up: the smiley sticker in the group chat on {s}'s phone (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, holding up her own phone and pointing at an imaginary smiley.
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, holding up her own phone and pointing at an imaginary smiley.
 7 | coffee | med | {c} counts three people on her fingers who may speak for the company; {s} listens.
 8 | coffee | ots | Over {s}'s shoulder: {c} shows her the company's investor-relations page on a tablet (blurred).
-9 | EDIT | ข้อความแท็ก ลิงก์ข่าวลือ และสติกเกอร์ (ฉาก 2) แล้วปักธงแดง (กราฟิก)
+9 | home | ins | Close-up of a phone screen: a group chat with a tag, a rumour link and a smiley sticker (blurred).
 10 | home | ins | Close-up: {s} calmly types a reply in the group chat (screen blurred) // [cu] {s} sends it and puts the phone face down.
 11 | office | two | Monday morning, {s} tells {h} about the rumour spreading in the chat; {h} nods seriously.
 12 | home | ins | The friends' group chat moves on to planning a class reunion (blurred) // [ins@office] {s} crosses out a phrase on a sticky note and writes a new one (handwriting blurred).
@@ -679,30 +680,30 @@ x sv [หัวหน้างาน] = the engineering supervisor: Thai man, ab
 3 | ~a small quiet interview room with a round table | two | {f} sits talking with {r} in a small room, his voice low // [cu] {r} listens and answers kindly.
 4 | office | two | {sv} explains himself to {r} at his desk, a little defensive.
 5 | glass | ins | Close-up: the empty chair in the meeting room, held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, counting five things on her fingers.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, counting five things on her fingers.
 7 | coffee | med | {c} speaks firmly, one hand flat on the counter; {f} looks up.
 8 | coffee | cu | {c} glances toward the team area and explains how others are watching; {f} nods slowly.
-9 | EDIT | ปฏิทินว่าง ตาราง Rating และเก้าอี้ว่าง แล้วปักธงแดง (กราฟิก)
+9 | glass | wide | An empty chair at the project meeting table while the team works through the agenda.
 10 | ~a small quiet interview room with a round table | two | {r} sits with {sv} and talks to him directly and frankly.
 11 | glass | med | {f} walks back into the project meeting; the team head pulls out a chair for him.
 12 | glass | wide | The project team meets with every chair filled // [cu@office] {f} opens his pink floral lunch box and finds a handwritten note from his wife; he smiles.
 
-## 2028-09-19
+## 2028-10-03
 x seng [Site Engineer] = the site engineer: Thai man, about 30, tall and lanky, thick black-framed glasses, light-grey work shirt with reflective strips, yellow helmet in hand
 1 | ~a power-transmission line construction site: tall steel lattice towers, workers in harnesses | wide | Morning at a transmission-line site: workers in safety harnesses climb a tall steel lattice tower. | wind, metal clinks
 2 | ~a power-transmission line construction site: tall steel lattice towers, workers in harnesses | ins | Close-up: {f} holds a harness-inspection sheet with every box signed (text blurred).
 3 | ~a site tent beside a transmission tower | two | Under the site tent, {f} talks to {seng} with a worried face // [cu] {seng} answers, unbothered.
 4 | ~a site tent beside a transmission tower | ins | Close-up: {f} opens his pocket notebook to a page of notes (handwriting blurred).
 5 | ~a site tent beside a transmission tower | ins | Close-up: the inspection sheet and the pocket notebook side by side on a table, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, tapping her temple and then her eyes.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, tapping her temple and then her eyes.
 7 | coffee | med | {c} holds her hands out like a balance scale; {f} listens.
 8 | coffee | cu | {c} looks up as if toward a high tower as she speaks; {f} follows her gaze.
-9 | EDIT | ตาชั่งทั้งสองฝั่ง (กราฟิกจากฉาก 7) แล้วปักธงแดง
+9 | ~a site tent beside a transmission tower | ins | Close-up: the harness inspection sheet beside {f}'s pocket notebook on a folding table.
 10 | ~a site tent beside a transmission tower | two | {seng} smiles and pats {f} on the shoulder.
 11 | office | ins | A sample whistleblowing report on a monitor, with headings for who, what, where, when and how it was known (blurred).
 12 | ~a power-transmission line construction site: tall steel lattice towers, workers in harnesses | wide | A new inspection sheet with a time column; workers climb the tower safely // [med@glass] {f} walks into the big project meeting, where the once-empty chair is now taken // [cu] {f} mutters something inaudible under his breath, then shakes his head and grins sheepishly, no audible words.
 
-## 2028-10-03
+## 2028-09-19
 x speng [Supplier Engineer] = the supplier's engineer: Thai man, about 36, round tortoiseshell glasses, short beard, black polo shirt
 1 | lab | ins | In the test lab, a prototype EV-charger control unit sits on the bench, all its status lights green. | soft electrical hum
 2 | lab | two | {n} and {speng} shake hands in front of the prototype that has just worked for the first time.
@@ -710,10 +711,10 @@ x speng [Supplier Engineer] = the supplier's engineer: Thai man, about 36, round
 4 | lab | med | {speng} points at the code on a monitor.
 5 | lab | ins | Together they open the signed paperwork: just a two-page NDA (text blurred) // [two] {n} and {speng} look at each other, unsure.
 6 | lab | ins | Close-up: the two-page NDA lies beside the prototype, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-7 | coffee | two | At the coffee corner {c} talks with {n}, placing two cups apart and a third in the middle.
+7 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, placing two cups apart and a third in the middle.
 8 | coffee | med | {c} holds up a house key and a visitor pass, one in each hand; {n} smiles.
 9 | coffee | cu | {c} explains seriously how projects get stuck; {n} winces.
-10 | EDIT | ไทม์ไลน์โครงการตั้งแต่วันแรก (กราฟิก) แล้วปักธงแดง
+10 | lab | ins | Close-up: the two-page NDA lying beside the working prototype on the lab bench.
 11 | glass | wide | Flashback to the kick-off meeting: both teams fill in a rights table on a whiteboard (writing blurred).
 12 | office | ins | Close-up: the legal team drafts an IP clause in the joint-development contract on a monitor (blurred). | typing
 13 | glass | two | {n} and {speng} sign a joint-development contract with an IP annex // [cu@office] {n} glances at the yellow sticky note on her monitor, which now has another cat sticker on it, and grins.
@@ -724,10 +725,10 @@ x speng [Supplier Engineer] = the supplier's engineer: Thai man, about 36, round
 3 | office | cu | {h} nods slowly, then asks a question back // [cu] {j} answers, a little defensive.
 4 | office | ots | {h} opens a training manual and points at its pictures and fancy fonts (blurred); {j} looks.
 5 | office | ins | Close-up: the flash drive still plugged into the laptop, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {j}, dropping imaginary items into an imaginary box.
+6 | coffee | two | [two] {j} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {j}, dropping imaginary items into an imaginary box.
 7 | coffee | med | {c} explains a cautionary case seriously; {j} swallows.
 8 | coffee | cu | {c} points out the pictures in the manual may not be ours either; {j} raises his eyebrows.
-9 | EDIT | Flash Drive และคู่มือ Training แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a USB flash drive plugged into a laptop beside a printed training manual.
 10 | office | ins | {j} pulls out the flash drive and uploads all his files into the company system with a handover document (blurred).
 11 | office | med | {h} assigns the team to replace the pictures and fonts with ones the company has rights to.
 12 | office | two | {j} shakes hands with {h} to say goodbye, holding only his box of personal things; behind them the team claps at the board // [ins] {j} ties the laces of his brand-new brown leather shoes, then jogs off after the team. | applause | g: กระดานทีม "ส่งมอบดีลใหญ่ ✓"
@@ -739,40 +740,40 @@ x appr = the next-level approver: Thai woman, about 58, silver hair in a low chi
 3 | office | ins | Close-up: the next-level approver's calendar on a monitor shows two weeks blocked out (blurred). | g: "เดินทางต่างประเทศ 2 สัปดาห์"
 4 | ~a road map spread on a table | ins | Mock news reconstruction: a road map with one road cut into many short sections by marker lines (blurred) // [ins@office] Back on {p}'s monitor, two purchase orders side by side (blurred).
 5 | office | ins | Close-up: a split-order button on the monitor (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, stacking two sheets of paper together into one.
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, stacking two sheets of paper together into one.
 7 | coffee | med | {c} counts three points on her fingers; {p} writes them in his pocket notebook.
 8 | coffee | ots | Over {p}'s shoulder: {c} points to a higher row in an approval-limit table (blurred).
-9 | EDIT | PO สองใบและตารางอำนาจอนุมัติ แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: two purchase orders side by side on a desk beside a printed approval-authority table.
 10 | office | two | {p} proposes a solution to {a}, polite but clear.
 11 | ~an airport departure lounge | med | {appr} approves the order on her phone in an airport departure lounge. | airport announcements
 12 | wh | ins | A single purchase order with all approvals; goods arrive at the warehouse on schedule (blurred) // [trk@office] On his first day, {p} follows {n} to a desk and she hands him a yellow note with three questions // [ins@office] {p} writes everything down in his pocket notebook.
 
-## 2028-11-21
+## 2028-12-05
 x aud [ผู้ตรวจสอบภายใน] = the internal auditor: Thai man, about 45, neat grey-streaked hair, glasses, light-grey suit
 1 | wh | wide | At the control-panel factory, shelves are stacked full of copper busbars from the long-time supplier. | warehouse ambience
 2 | office | two | {aud} opens a procurement file and talks with {a} at her desk // [cu] {a} answers confidently.
 3 | office | med | {f} walks over to join the conversation and speaks up.
 4 | office | ins | Close-up: a chart on a monitor shows market copper prices falling twice while our purchase-price line stays flat (blurred).
 5 | office | ins | Close-up: a procurement file open on the desk with no price-comparison sheet inside, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, smiling as she acknowledges that the line runs smoothly.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, smiling as she acknowledges that the line runs smoothly.
 7 | coffee | med | {c} draws three empty boxes on a napkin; {a} looks at them.
 8 | coffee | cu | {c} speaks calmly about fairness and records; {a} nods.
-9 | EDIT | แฟ้มจัดซื้อ (ฉาก 5) และกราฟราคา (ฉาก 4) แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a procurement file with no comparison sheet beside a printed copper price chart.
 10 | office | two | {aud} speaks to {a} in a friendly way, closing the file.
 11 | office | med | {a} sends emails requesting comparison quotes from three suppliers (screen blurred). | typing
 12 | office | ins | The long-time supplier's new, lower quotation is filed with a written reason (blurred) // [cu] {a} sticks a handwritten note beside her monitor and smiles to herself. | g: โน้ต "สิบปีก็ยังต้องเทียบราคา"
 
-## 2028-12-05
+## 2028-11-21
 x cons2 [Consultant] = the consultant: Thai man, about 55, heard over a speakerphone, not seen
 1 | office | ins | In the sales office, a monitor shows a tender status waiting for a decision, next to a sponsorship request letter from a client agency (blurred).
 2 | office | trk | {s} carries the sponsorship letter over to {c}'s desk.
-3 | office | ins | Close-up: a phone on speaker lies on {c}'s desk as the consultant talks // [two] {s} and {c} exchange a look.
+3 | office | med | {s}'s phone rings; she apologises to {c} and switches it to speaker // [ins] Close-up: the phone on speaker lies on the desk as the consultant talks // [two] {s} and {c} exchange a look.
 4 | office | cu | {c} looks up from the documents and speaks // [cu] {s} answers, a bit uneasy.
 5 | office | ins | Close-up: the sponsorship letter lies beside the tender-status screen (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
 6 | coffee | two | At the coffee corner {c} talks with {s}, warmly acknowledging that real community work matters.
 7 | coffee | med | {c} counts four questions on her fingers; {s} listens closely.
 8 | coffee | cu | {c} explains the right way to give, firm and clear; {s} nods.
-9 | EDIT | จดหมาย Sponsor จอสถานะประมูล และชื่อมูลนิธิ แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a sponsorship request letter beside a monitor showing the bid status awaiting decision (blurred).
 10 | office | two | {c} explains the donation-review process to {s}, sliding a form across the desk.
 11 | office | ins | Close-up: a donation-review form with boxes for the real beneficiary and the reason (blurred).
 12 | ~a community event in a Thai village temple ground, a sponsor board without logos | wide | The company's community activity in a village, with a sponsor board shown openly (no readable text) // [cu@office] {s} gives the camera a quick thumbs-up, then hurries to answer a client's call. | festive community chatter
@@ -785,10 +786,10 @@ x sub [ผู้รับเหมาช่วง] = the subcontractor: Thai man
 3 | carpark | two | {sub} hands {f} an envelope in a friendly way, smiling.
 4 | ~a desk with a map of Latin America | ins | Mock news reconstruction: a map of Latin America with red pins in several countries // [ins@carpark] Back at the site, a tent with the company logo (blurred) folded on the bed of a site pickup.
 5 | carpark | ins | Close-up: the site tent on the pickup and the envelope in the subcontractor's hand, held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, tapping the company badge on his shirt.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, tapping the company badge on his shirt.
 7 | coffee | med | {c} explains that personal political views are fine off duty; {f} nods.
 8 | coffee | cu | {c} mimes politely pushing an envelope back; {f} smiles.
-9 | EDIT | เต็นท์ รถกระบะ และซองเงิน แล้วปักธงแดง (กราฟิก)
+9 | carpark | wide | The site tent and pickup parked in the car park, an envelope left on the pickup's dashboard.
 10 | carpark | med | {f} speaks politely but clearly to {liaison} and {sub}, handing the envelope back.
 11 | carpark | ins | Close-up: {f} sends a message to his supervisor on his phone (screen blurred).
 12 | ~a site new-year party under string lights with folding tables | wide | At the site's new-year party, the team and subcontractors raise their glasses to thank one another // [two] {f} offers his pink floral lunch box to a colleague to taste his wife's cooking. | party chatter, clinking glasses
@@ -800,39 +801,39 @@ x sub2 [ผู้รับเหมาช่วง] = the subcontractor: Thai ma
 3 | sitebox | med | {h} walks in and waves at {f} to just sign it.
 4 | sitebox | ins | Reconstruction: a handover certificate with an empty reservation box enlarged on the table (text blurred) // [ins] Back to the pen in {h}'s hand.
 5 | sitebox | ins | Close-up: the pen tip hovers above the signature box on the handover certificate, held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, tapping a printed civil-code page (blurred).
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, tapping a printed civil-code page (blurred).
 7 | coffee | med | {c} points to an empty remarks box on a printed form; {h} winces.
 8 | coffee | ots | Over {h}'s shoulder: {c} sketches a four-column log on a napkin (blurred).
-9 | EDIT | ปฏิทินและช่องหมายเหตุที่ว่าง แล้วปักธงแดง (กราฟิก)
+9 | sitebox | ins | Close-up: a handover form with an empty remarks box beside a desk calendar with the due date circled.
 10 | sitebox | ins | Close-up: {f} writes a reservation note in the remarks box before signing (text blurred).
 11 | sitebox | med | {f} emails the handover certificate to procurement and accounting (screen blurred). | typing
 12 | sitebox | ins | The handover certificate with the reservation note is scanned into the project file (blurred) // [cu@office] {h} lets out a long sigh, then sips from his plain white mug.
 
-## 2029-01-16
+## 2029-02-06
 x cl2 [ลูกค้า] = the client: Thai man, about 50, heard on the phone, not seen
 1 | office | ots | In the design room, {n} opens an approval email from the client; the date is three weeks later than planned (blurred).
 2 | office | two | {n} turns to talk with {s}, worried // [cu] {s} answers, brushing it off.
 3 | office | ins | Hypothetical: a penalty letter from the client lands on a desk // [two] The team digs through old emails looking for dates (screens blurred).
 4 | office | med | {s} talks with the client on the phone, tense.
 5 | office | ins | Close-up: the penalty letter on the desk next to the late-approved drawings, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, tapping a highlighted clause in a printed contract (blurred).
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, tapping a highlighted clause in a printed contract (blurred).
 7 | coffee | med | {c} explains firmly, one finger raised; {n} nods.
 8 | coffee | ots | Over {n}'s shoulder: {c} sketches a delay log with four columns on a napkin (blurred).
-9 | EDIT | แบบที่อนุมัติช้าและปฏิทินกำหนดเวลา แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: an approved drawing stamped late beside a wall calendar with the contract deadline circled.
 10 | office | ots | Flashback to the day the drawings arrived: {s} opens the contract on her monitor and points at a clause (blurred).
 11 | office | ins | Close-up: an extension-of-time letter with a delay log attached is sent to the client's representative (blurred). | email whoosh
 12 | office | wide | The client acknowledges the extension request; the team re-plans on the board // [ins] {n} renames a folder on her monitor and grins (text blurred). | g: ชื่อโฟลเดอร์ "ถามพี่ Compliance ก่อน"
 
-## 2029-02-06
+## 2029-01-16
 1 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | med | After hours in the sales team's break room, {h} closes the door and calls the team to sit together. | door click
 2 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | med | {h} stands in front of the whiteboard; {f}, {s} and a colleague sit listening.
 3 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | two | {f} takes out his phone and scrolls through old chats, muttering // [cu] {s} answers, scrolling her own phone.
 4 | ~a plain investigation room with a table | ins | Hypothetical: an investigator lays out three word-for-word identical statements beside a system log of deleted messages (blurred).
 5 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | ins | Close-up: a finger hovers over a delete-message button on a phone (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, her expression serious.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, her expression serious.
 7 | coffee | med | {c} speaks firmly, one hand flat on the counter; {h} looks down.
 8 | coffee | cu | {c} cups her hands as if protecting something; {h} nods slowly.
-9 | EDIT | ไวต์บอร์ด โทรศัพท์ และปุ่มลบข้อความ แล้วปักธงแดง (กราฟิก)
+9 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | ins | Close-up: a phone with a delete-message prompt open, the whiteboard behind it.
 10 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | med | {f} puts his phone face down on the table and speaks to everyone.
 11 | ~a corridor outside a closed meeting room | wide | Employees walk into an interview room one at a time.
 12 | ~the sales team's break room after hours: a sofa, a whiteboard, a small fridge | wide | The break room is empty, the whiteboard wiped clean // [wide@office] The 12th-floor team works together as usual // [med@office] {h} walks past the team board and wipes one word off it with an eraser.
@@ -843,10 +844,10 @@ x cl2 [ลูกค้า] = the client: Thai man, about 50, heard on the phone,
 3 | ~a maintenance workshop office inside the factory: tool racks, a desk, a window onto the plant floor | two | {a} catches {h}'s arm and speaks calmly.
 4 | plant | med | Team members whisper in a corner, glancing at {h}, who mutters under his breath.
 5 | ~a maintenance workshop office inside the factory | ins | Close-up: {h}'s hand gripping a door handle, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, counting three rights on her fingers.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, counting three rights on her fingers.
 7 | coffee | med | {c} cups her hands as if protecting two people at once; {h} listens.
 8 | coffee | cu | {c} warns him seriously, shaking her head; {h} lets out a breath.
-9 | EDIT | ประตู มุมซุบซิบ และโทรศัพท์ แล้วปักธงแดง (กราฟิก)
+9 | ~a corridor outside a closed meeting room | wide | A closed office door at the end of a quiet corridor, a phone buzzing on a side table.
 10 | ~a maintenance workshop office inside the factory: tool racks, a desk, a window onto the plant floor | two | {a} points at a filing cabinet and talks to {h}.
 11 | ~a maintenance workshop office inside the factory | ins | Close-up: {h} sorts contractor-selection documents into a binder in order (text blurred).
 12 | ~a corridor outside a closed meeting room | med | {h} walks into the hearing room carrying his binder // [ins@coffee] Close-up: {h}'s plain white mug on the counter has a sticky note added to it (handwriting blurred). | g: แก้ว "งานต้องเดิน" + โน้ต "...อย่างถูกทาง"
@@ -858,40 +859,40 @@ x subl [หัวหน้าทีมผู้รับเหมาช่วง
 3 | site | wide | The crew waits at the foot of a ladder, glancing at the clock; {subl} calls out to hurry.
 4 | ~an offshore drilling platform with smoke rising | wide | Mock news reconstruction: smoke rises from an offshore drilling platform // [ins@site] Back on site, the countdown on {f}'s wristwatch. | wind and waves
 5 | site | ins | Close-up: a technician's hand gripping the steel ladder, held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {f}, sketching two power lines and arrows on a napkin.
+6 | coffee | two | [two] {f} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {f}, sketching two power lines and arrows on a napkin.
 7 | coffee | med | {c} gestures as if lining people up side by side; {f} listens.
 8 | coffee | cu | {c} raises one open palm like a stop sign; {f} nods firmly.
-9 | EDIT | นาฬิกานับถอยหลังและบันไดโครงเหล็ก แล้วปักธงแดง (กราฟิก)
+9 | site | wide | A countdown clock on the control truck and a steel ladder leaning against the frame, no one climbing.
 10 | site | med | {f} stands in front of the ladder, blocking it, and speaks firmly to the crew.
 11 | site | med | {f} phones the project manager and the system owner to book a new shutdown.
 12 | site | wide | At dusk the whole team walks off site together, everyone accounted for // [cu@office] {f} opens his pink floral lunch box and finds a handwritten note from his wife; he smiles.
 
-## 2029-03-20
+## 2029-04-03
 x so [เจ้าหน้าที่ความปลอดภัย] = the safety officer: Thai woman, about 45, short curly hair with grey streaks, sporty sunglasses pushed up on her head, notebook in hand
 1 | plant | wide | In the control-panel factory, an overhead crane lifts a steel cabinet frame; a safety-record board hangs by the line (blurred). | crane motor whine | g: ป้าย "ไม่มีอุบัติเหตุ 179 วัน"
 2 | plant | med | A sling slips off one side of the hook and the steel frame swings past {p}, missing him by a hand's width; he jumps back with a cry. | metal clang, a sharp gasp
 3 | plant | two | {h} glances at the safety-record board and talks to {p} // [cu] {p} answers, still shaken.
 4 | plant | wide | Hypothetical: two weeks later, the same hook, a siren wailing in the factory, the safety-record board being taken down. | factory siren
 5 | plant | ins | Close-up: the safety-record board and the loose crane hook, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, drawing a wide-based pyramid on a napkin.
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, drawing a wide-based pyramid on a napkin.
 7 | coffee | med | {c} explains how near misses get checked; {p} writes in his pocket notebook.
 8 | coffee | cu | {c} taps the napkin where she drew a crack; {p} nods slowly.
-9 | EDIT | ตะขอเครน สมุดบันทึก และป้ายสถิติ แล้วปักธงแดง (กราฟิก)
+9 | plant | ins | Close-up: the loose crane hook, an open logbook and the accident-free-days sign behind.
 10 | plant | two | {so}, walking past, overhears and comes over to inspect the crane hook, speaking to {h}.
 11 | plant | ins | Close-up: {p} fills in a near-miss report on a tablet (screen blurred).
 12 | plant | wide | A technician fits a new crane hook and the team lifts the cabinet safely // [ins@office] {p} sticks a question note on his monitor and photographs it on his phone to send to {n}.
 
-## 2029-04-03
+## 2029-03-20
 x hus [คู่สมรส] = the senior accountant's husband: Thai man, about 55, glasses, relaxed home shirt
 1 | home | med | Evening in the living room: {hus} opens a stock app on his tablet while {a} works on her laptop nearby. | TV murmuring softly
 2 | home | ins | Close-up of {a}'s laptop screen: a meeting agenda marked confidential (blurred).
 3 | home | two | {hus} turns his tablet toward {a} and asks her something // [cu] {a} answers carefully.
 4 | ~a plain desk with a printed diagram | ins | Mock news reconstruction: a diagram linking a boardroom to three outside brokerage accounts (blurred) // [ins@home] Back home, the family group chat on {hus}'s tablet (blurred).
 5 | home | ins | Close-up: a short message in the family group chat on the tablet (blurred), held still. | g: ข้อความ "อย่าเพิ่งขายนะ" + หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, spreading her fingers outward from one point like a rumour spreading.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, spreading her fingers outward from one point like a rumour spreading.
 7 | coffee | med | {c} speaks firmly about direct and indirect tips; {a} nods.
 8 | coffee | cu | {c} suggests a gentle way to talk at the dinner table; {a} smiles faintly.
-9 | EDIT | แท็บเล็ตและกลุ่ม LINE ครอบครัว แล้วปักธงแดง (กราฟิก)
+9 | home | ins | Close-up: a tablet with a stock app beside a phone showing a family group chat (blurred).
 10 | home | two | Back on the sofa, {a} answers {hus} calmly, closing her laptop halfway.
 11 | home | ins | Close-up: {a} closes her laptop and locks the screen.
 12 | home | wide | The family watches TV together; the tablet with the stock app lies face down on the table // [two@coffee] {a} offers a box of Thai pastries to {c} as a thank-you; {c} laughs.
@@ -903,10 +904,10 @@ x grp2 [เพื่อนในกลุ่ม LINE] = a friend in the group ch
 3 | office | ins | Close-up: {f}'s phone buzzes with a message from his friends' group chat (blurred). | phone buzz
 4 | office | two | {n} and {f} look at each other, a fictional share-price chart faintly superimposed between them.
 5 | office | ins | Close-up: {f}'s fingers hover over the keyboard on his phone in the group chat (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, tapping a blank card on the counter.
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, tapping a blank card on the counter.
 7 | coffee | med | {c} warns firmly, crossing her arms; {n} nods.
 8 | coffee | cu | {c} mimes deleting a message word by word; {n} laughs nervously.
-9 | EDIT | กราฟหุ้นและกลุ่ม LINE แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a phone with a stock chart and a group chat typing box (blurred).
 10 | office | ins | {f} types a reply to his friends (blurred) // [two] {f} turns and shakes his head at {n}.
 11 | office | ins | Close-up: {n} closes the stock app on her phone (blurred).
 12 | office | wide | The team delivers the site drawings to the client on time // [cu] {n} secretly types a question to the company AI, then giggles to herself.
@@ -918,29 +919,29 @@ x ro [Risk Officer] = the risk officer: Thai woman, about 36, hair in a high bun
 3 | glass | cu | {h} looks at a cost chart creeping above the budget line (blurred), worried.
 4 | ~a plain office desk | ins | Mock news reconstruction: a risk report with one line folded away out of sight (blurred) // [ins@glass] Back on the screen, the red box {h} wants to turn yellow (blurred).
 5 | glass | ins | Close-up: the mouse rests on a menu to change a status from red to yellow (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, drawing a timeline on a napkin and circling its start.
+6 | coffee | two | [two] {h} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {h}, drawing a timeline on a napkin and circling its start.
 7 | coffee | ots | Over {h}'s shoulder: {c} shows him a risk-rating matrix on her tablet (blurred).
 8 | coffee | med | {c} sketches two boxes on a napkin; {h} nods slowly.
-9 | EDIT | เมนูเปลี่ยนสถานะและกราฟต้นทุน แล้วปักธงแดง (กราฟิก)
+9 | glass | ins | Close-up of a monitor: a risk dashboard with a status menu switching red to yellow beside a rising cost chart (blurred).
 10 | glass | two | {ro} speaks to {h} in a friendly way, closing her laptop.
 11 | glass | ins | Close-up: the submitted risk-committee report with a box for the rating rationale (blurred).
 12 | board | wide | The management meeting approves a backup supplier for the project // [cu@office] {h} lets out a long sigh, then sips from his plain white mug.
 
-## 2029-05-15
+## 2029-06-05
 1 | ~a muddy transmission-line construction site at the start of the rainy season, empty tower foundations | wide | Start of the rainy season at a transmission-line project: the site is mud and several tower foundations are still waiting for materials. | rain, wind
 2 | ~a site tent in heavy rain beside muddy tower foundations | two | Under the tent roof in heavy rain, {f} talks to {p}, pointing out at the foundations. | heavy rain on the tent
 3 | ~a site tent in heavy rain beside muddy tower foundations | ins | Close-up: {p} opens a tablet showing an indicator close to its limit (blurred) // [cu] {p} speaks up, worried.
 4 | ~a site tent in heavy rain beside muddy tower foundations | med | {h} trudges through the mud into the tent and speaks to them.
 5 | ~a muddy transmission-line construction site, empty tower foundations | ins | Close-up: rain falls on an empty tower foundation, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, pointing at a row on her tablet (blurred).
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, pointing at a row on her tablet (blurred).
 7 | coffee | med | {c} taps an imaginary button in the air; {p} writes in his notebook.
 8 | coffee | cu | {c} explains that everyone owns their own risks; {p} nods.
-9 | EDIT | ตัวชี้วัดสีส้มและปฏิทินรอบรายงาน แล้วปักธงแดง (กราฟิก)
+9 | ~a site tent in heavy rain beside muddy tower foundations | ins | Close-up: a tablet showing an orange indicator near its limit beside a reporting calendar (blurred).
 10 | ~a site tent in heavy rain beside muddy tower foundations | two | {f} opens his site diary and shows it to {h}.
 11 | ~a site tent in heavy rain | med | {h} phones head office from the site, rain dripping from the tent edge.
 12 | ~a transmission-line construction site after rain | wide | A backup supplier's material truck drives onto the site and the team updates the plan on a board // [ins] {p} writes everything down in his pocket notebook.
 
-## 2029-06-05
+## 2029-05-15
 x smgr [Supplier Manager] = the supplier's factory manager: Thai man, about 50, stern, combed-back black hair, dark-green short-sleeve shirt, thick gold watch
 x wk [แรงงาน] = a migrant worker: man, about 30, slim, faded blue work uniform
 1 | ~a steel-fabrication factory of a supplier: welding sparks, steel frames, workers in uniforms | wide | At a supplier's steel-fabrication plant, our audit team walks through the production area. | welding, grinding
@@ -948,10 +949,10 @@ x wk [แรงงาน] = a migrant worker: man, about 30, slim, faded blue wo
 3 | ~a quiet corner of a factory canteen | two | During a break, {wk} speaks quietly to {a}, away from the supervisor.
 4 | ~a supervisor's office in a supplier factory | ins | Close-up: complete labour files and valid work permits in a binder (blurred).
 5 | ~a supervisor's office in a supplier factory | ins | Close-up: the passport cabinet next to the tidy binder, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, sliding a checklist aside on the counter.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, sliding a checklist aside on the counter.
 7 | coffee | med | {c} counts four warning signs on her fingers; {a} listens.
 8 | coffee | cu | {c} traces a chain on the counter; {a} nods.
-9 | EDIT | ตู้พาสปอร์ต ตาราง OT และสลิปค่าจ้าง แล้วปักธงแดง (กราฟิก)
+9 | ~a supervisor's office in a supplier factory with a steel cabinet | ins | Close-up: a steel cabinet full of passports, an overtime sheet and a pay slip on the desk.
 10 | ~a supplier's meeting room | two | {a} goes through her findings with {smgr}, calm and firm.
 11 | ~a quiet corner of a factory canteen | two | {a} interviews {wk} one-on-one in a private space.
 12 | ~a row of personal lockers in a factory | ins | {wk} opens a personal locker and puts his own passport inside // [med@office] {a} files pink folders into a cabinet in colour order, then hands out snacks to everyone at the desk.
@@ -963,10 +964,10 @@ x srep [ผู้แทน Supplier] = the supplier's representative: Thai man, 
 3 | office | two | {a} leans on the desk and studies the table, then speaks.
 4 | ~a container port with stacked containers | wide | Mock news reconstruction: containers held at a port with a hold notice taped on (blurred) // [ins@office] Back on {p}'s desk, the cheapest steel quotation (blurred).
 5 | office | ins | Close-up: the empty ESG column in the comparison table (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, balancing three sugar packets on a teaspoon.
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, balancing three sugar packets on a teaspoon.
 7 | coffee | med | {c} shows him an unsigned supplier code of conduct on her tablet (blurred); {p} nods.
 8 | coffee | cu | {c} explains how cheap can become expensive; {p} writes it down.
-9 | EDIT | ช่อง ESG ว่างและราคาที่ต่ำผิดปกติ แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a supplier comparison sheet with the ESG column empty and one very low price circled.
 10 | office | two | {a} gives {p} clear instructions, tapping the table.
 11 | office | ins | Close-up: a supplier-selection summary form with boxes for quality, price and ESG (blurred).
 12 | office | ins | The comparison table now has ESG filled in for every supplier, with signed acknowledgements (blurred) // [ins] {p} sticks a question note on his monitor and photographs it to send to {n}.
@@ -978,40 +979,40 @@ x exe5 [ผู้บริหาร] = the senior executive: Thai man, about 55,
 3 | glass | cu | {r} opens the file, sees treatment records and other people's names (blurred), and speaks into the phone.
 4 | ~a Thai street-food stall | ins | Mock news reconstruction: a paper snack bag made from recycled paper with faint doctor's handwriting on it (blurred) // [ins@glass] Back on {r}'s table, the complaint file.
 5 | glass | ins | Close-up: the forward button on an email with the whole file attached (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {r}, cupping her hands around an imaginary lock.
+6 | coffee | two | [two] {r} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {r}, cupping her hands around an imaginary lock.
 7 | coffee | med | {c} folds a thick sheaf of paper down to two pages; {r} nods.
 8 | coffee | cu | {c} speaks gently about the person who complained; {r} looks moved.
-9 | EDIT | ใบรับรองแพทย์และปุ่มส่งต่อ แล้วปักธงแดง (กราฟิก)
+9 | glass | ins | Close-up: a medical certificate in the complaint file beside a monitor with the forward button (blurred).
 10 | glass | med | {r} answers the executive on the phone, polite and firm.
 11 | office | ins | Close-up: the investigation file saved in a restricted folder with three named users (blurred).
 12 | exec | med | {exe5} reads a two-page factual summary and signs his decision // [trk@office] {r} grabs an HR handbook and hurries after a colleague, smiling.
 
-## 2029-07-17
+## 2029-08-07
 x caller [ผู้โทรเข้ามา] = the caller: Thai man, about 35, a former employee heard on the phone, not seen
 1 | office | med | Monday afternoon in HR: {p} picks up the desk phone. | phone ringing
 2 | office | ots | Over {p}'s shoulder: he listens on the phone while opening the employee-records system (blurred) // [cu] {p} answers, eager to help.
 3 | office | trk | {r} overhears and walks over to {p}'s desk.
 4 | office | ins | Close-up: an employee file opens on the monitor with peer-review comments and tax documents (blurred).
 5 | office | ins | Close-up: the send button on an email with the whole file attached (blurred), held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, counting four rights on her fingers.
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, counting four rights on her fingers.
 7 | coffee | med | {c} lists three warnings, tapping the counter each time; {p} writes them down.
 8 | coffee | cu | {c} points toward the DPO's office down the hall; {p} nods.
-9 | EDIT | อีเมลปลายทาง ผลประเมิน และเอกสารภาษี แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: an employee file open at a peer review and tax papers, beside a monitor showing an unknown email address (blurred).
 10 | office | med | {p} speaks calmly on the phone while noting the details in his pocket notebook.
 11 | office | ins | Close-up: {p} sends an email summarising the request to the DPO (blurred). | email whoosh
 12 | office | med | {dpo} sends a redacted copy of the records to a verified email address (screen blurred) // [ins] {p} writes everything down in his pocket notebook.
 
-## 2029-08-07
+## 2029-07-17
 x@ esg [เจ้าหน้าที่ ESG] = the ESG officer: Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle
 1 | office | ins | In marketing, a draft trade-show brochure on a monitor carries a big green headline (blurred). | g: พาดหัว "Carbon Neutral ลดคาร์บอนได้หมื่นตันต่อปี"
 2 | office | two | {s} turns her monitor toward {esg}, proud of the draft // [cu] {esg} answers, raising her eyebrows // [two] {s} gestures at the headline, insisting, while {esg} shakes her head.
 3 | office | med | {s} shrugs and opens a saved web page on her monitor (blurred).
 4 | ~an airport terminal with large advertising posters | wide | Mock news reconstruction: a large airline poster with a bold green claim gets stamped across (blurred) // [ins@office] Back on {s}'s monitor, the headline on the brochure (blurred).
 5 | office | ins | Close-up: the headline on the brochure draft (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {s}, peeling a green leaf-shaped sticker off a printed brochure.
+6 | coffee | two | [two] {s} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {s}, peeling a green leaf-shaped sticker off a printed brochure.
 7 | coffee | med | {c} counts four principles on her fingers; {s} nods.
 8 | coffee | cu | {c} explains what the claim leaves out; {s} looks thoughtful.
-9 | EDIT | พาดหัว ตัวเลข และหน้าเว็บต้นทาง แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up of a monitor: a brochure draft with a large green headline and a web page beside it (text blurred).
 10 | office | two | {esg} opens a calculation spreadsheet from a real project on her laptop and walks {s} through it (blurred).
 11 | office | ins | Close-up: a new brochure with an accurate headline and a footnote on the method (blurred).
 12 | expo | med | At a trade-show booth, a customer reads the brochure with its footnote // [med@lift] {s} rehearses a polite sentence to her reflection in the elevator mirror, then jumps as the doors slide open.
@@ -1022,10 +1023,10 @@ x@ esg [เจ้าหน้าที่ ESG] = the ESG officer: Thai woman, ab
 3 | office | ins | Figures from the factory flow together with other units into a chart in an annual report (blurred).
 4 | ~a vehicle test lab with an engine on a test bench | ins | Mock news reconstruction: an engine test-data table with figures typed over (blurred) // [ins@office] Back on {n}'s monitor, the three-month gap in her spreadsheet (blurred).
 5 | office | ins | Close-up: the three-month gap in the spreadsheet (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {n}, counting four qualities on her fingers.
+6 | coffee | two | [two] {n} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {n}, counting four qualities on her fingers.
 7 | coffee | med | {c} draws a tick and a cross on a napkin; {n} nods.
 8 | coffee | cu | {c} explains how to document an estimate; {n} takes notes.
-9 | EDIT | ช่องว่างในตารางและเป้าหมายลดพลังงาน แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up of a spreadsheet: three empty months in a fuel-use table beside an energy-reduction target (blurred).
 10 | office | ots | {esg} joins on a video call on {n}'s laptop and explains the estimation method.
 11 | office | med | {n} emails the data owner about the missing receipts (screen blurred). | typing
 12 | office | ins | The energy data table is submitted with an "estimate" note and the method file attached (blurred) // [cu] {n} glances at the yellow note on her monitor, which now has another cat sticker on it, and grins.
@@ -1037,29 +1038,29 @@ x fake [เสียงที่อ้างว่าเป็นผู้บร
 3 | office | ins | A wall clock creeps toward five // [ins] Another message pops up on {a}'s phone (blurred). | clock ticking, message ping
 4 | ~a video-conference screen with many tiles | ins | Mock news reconstruction: a video call with many tiles where an executive's face flickers and breaks into pixels (blurred) // [ins@office] Back on {a}'s phone, the voice message.
 5 | office | ins | Close-up: a confirm-transfer button on an online-banking screen (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {a}, holding up two identical sugar packets.
+6 | coffee | two | [two] {a} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {a}, holding up two identical sugar packets.
 7 | coffee | med | {c} counts three tricks on her fingers; {a} nods.
 8 | coffee | cu | {c} cups her hands around an imaginary process like a shield; {a} listens.
-9 | EDIT | ข้อความเสียง เลขบัญชี และนาฬิกา แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up: a phone playing a voice message beside a bank transfer screen and a wall clock near five o'clock (blurred).
 10 | office | ins | Close-up: {a} opens the company directory (blurred) // [cu] {a} dials the executive's listed number and speaks.
 11 | office | ins | Close-up: {a} forwards the voice message to IT (screen blurred).
 12 | office | med | {a} hears the real executive confirm on the phone that he gave no such order // [cu] {a} sticks a handwritten note beside her monitor and smiles to herself. | g: โน้ต "สิบปีก็ยังต้องเทียบราคา"
 
-## 2029-09-18
+## 2029-10-02
 1 | office | med | Eight at night in the office: {p} uses the company-approved AI tool on his monitor; the report is due to management tomorrow morning (blurred). | quiet night office
 2 | office | two | {p} turns to talk with {n} // [cu] {n} answers, leaning over to look at his screen // [cu] {p} replies, a little defensive.
 3 | office | ins | Close-up of two windows side by side: the AI summary citing a section, and the real law's text on the same section (blurred).
 4 | ~a desk with a printed report | ins | Mock news reconstruction: footnotes in a report crossed out in red one line at a time (blurred) // [ins@office] Back on {p}'s monitor, a section number in the draft (blurred).
 5 | office | ins | Close-up: the send-report button on the monitor (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, tapping a neat printout with a question mark drawn on it.
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, tapping a neat printout with a question mark drawn on it.
 7 | coffee | med | {c} counts four expert areas on her fingers; {p} writes them down.
 8 | coffee | cu | {c} points to the author line on a report cover; {p} swallows.
-9 | EDIT | เลขมาตรา ตัวเลขค่าธรรมเนียม และปุ่มส่งรายงาน แล้วปักธงแดง (กราฟิก)
+9 | office | ins | Close-up of a monitor: an AI-written report draft with section numbers and fees, the send button below (blurred).
 10 | office | two | {n} sits down beside {p} and opens the real law next to the draft, explaining.
 11 | office | ins | Close-up: the final report with a note at the end saying AI was used and the text was reviewed (blurred).
 12 | exec | med | An executive reads the final report in the afternoon // [med@office] {p} sticks a yellow question note on his monitor while {n} smiles // [ins@office] {p} photographs the note on his phone to send to {n}.
 
-## 2029-10-02
+## 2029-09-18
 x cons3 [Consultant] = the consultant: Thai man, about 55, slicked-back hair, cream suit, gold watch
 x sup5 [Supplier] = the supplier: Thai man, about 50, heard over a speakerphone, not seen
 1 | glass | wide | Wednesday in the project meeting room, a countdown sign on the wall and a team of six around the table. | g: ป้าย "ปิดรับข้อเสนอ: ศุกร์นี้"
@@ -1067,10 +1068,10 @@ x sup5 [Supplier] = the supplier: Thai man, about 50, heard over a speakerphone,
 3 | glass | ins | A phone on speaker in the middle of the table as {sup5} talks // [med] {a} raises her hand and speaks up.
 4 | glass | two | {s} opens a file on her laptop and speaks // [two] {n} holds up a customer list and replies.
 5 | glass | wide | Everyone around the table freezes at the same moment. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {h}, placing three red-tipped toothpicks in three sugar packets.
-7 | coffee | med | {c} adds two yellow-tipped toothpicks; {h} nods.
-8 | coffee | cu | {c} adds one blue-tipped toothpick to a packet; {h} smiles faintly.
-9 | EDIT | ภาพทุกคนรอบโต๊ะ (ฉาก 5) แล้วปักธงแดงหกผืนทีละคน (กราฟิก)
+6 | glass | two | In the meeting room, {c}, sitting at the end of the table, raises her hand and stands to speak to {h}, sticking three red notes on the whiteboard.
+7 | glass | med | {c} adds two yellow notes to the whiteboard; {h} nods.
+8 | glass | cu | {c} adds one blue note to the whiteboard; {h} smiles faintly.
+9 | glass | wide | The project meeting room: the whole team around the table pauses, looking at one another.
 10 | glass | med | {c}, sitting in on the meeting, writes a list on the whiteboard (writing blurred) as the team watches.
 11 | glass | med | {h} nods and sends an email to senior management asking for an internal extension (screen blurred).
 12 | glass | wide | A whiteboard split into three columns as the team moves forward properly (writing blurred) // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: ไวต์บอร์ด หยุด / เปิดเผย / ยกระดับ
@@ -1079,13 +1080,13 @@ x sup5 [Supplier] = the supplier: Thai man, about 50, heard over a speakerphone,
 x sup6 = the supplier's sales rep: Thai man, about 40, gelled spiky hair, dark-red polo shirt, holding a glossy invitation card
 1 | sitebox | wide | {p}'s first week on site: a shelf in the site meeting room holds a row of policy binders.
 2 | sitebox | two | {p} hugs a stack of policy binders and talks with {n} // [cu] {n} answers with a warm smile.
-3 | sitebox | cu | {n} smiles and holds up six fingers // [cu] {p} asks again, surprised.
+3 | sitebox | cu | {p} asks again, surprised, looking at {n} // [two] {n} smiles, holds up six fingers and answers {p}.
 4 | site | two | That afternoon, {sup6} hands {p} a glossy invitation to a fancy dinner party at the site gate.
 5 | site | ins | Close-up: the invitation card in {p}'s hand, held still. | n:1 | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
-6 | coffee | two | At the coffee corner {c} talks with {p}, flipping over two small cards on the counter.
+6 | coffee | two | [two] {p} walks up to {c} at the coffee corner and asks her a question; {c} turns to listen with a friendly look // At the coffee corner {c} talks with {p}, flipping over two small cards on the counter.
 7 | coffee | med | {c} flips over the next two cards; {p} reads them, nodding.
 8 | coffee | cu | {c} flips over the last two cards so six lie in a row; {p} smiles.
-9 | EDIT | การ์ดคำถามข้อสอง (กราฟิกจากฉาก 6) แล้วปักธงแดง
+9 | ~a site tent beside a work site | ins | Close-up: a luxury party invitation card lying on top of an inspection checklist on a folding table.
 10 | site | two | {p} politely hands the invitation back to {sup6}.
 11 | sitebox | two | {p} tells {n} what happened; they both smile.
 12 | site | wide | At dusk, {n} and {p} walk the site together // [trk@office] The camera glides past every desk on the 12th floor, each with a question note stuck to it, and ends on {h}'s white mug // [ins] {p} writes everything down in his pocket notebook. | g: แก้วหัวหน้าสลักใหม่ "งานต้องเดิน...อย่างถูกต้อง"
