@@ -346,8 +346,8 @@ GAGS = {
 
 # Tue 17 Nov 2569 (topic changed 23 ต.ค. 2569): inside information shared outside need-to-know
 REAL[('พ.ย. 2569', 3)] = dict(
-    ref=dict(case='Rajat Gupta อดีตกรรมการ Goldman Sachs ถูกตัดสินจำคุก 2 ปี ปรับ 5 ล้านดอลลาร์ (สหรัฐฯ ต.ค. 2555)',
-             use='ฉากผู้บรรยายเล่าเคสจริง: กรรมการบอกข้อมูลจากที่ประชุมบอร์ดให้คนรู้จักไปซื้อขายหุ้น ทั้งที่ตัวเองไม่ได้ซื้อขายเอง ใช้ชี้ว่าการบอกต่อก็ผิดได้แม้ไม่ได้ซื้อหุ้น',
-             sources=[['U.S. Attorney SDNY: Former Goldman Sachs Director Rajat Gupta Sentenced (24 ต.ค. 2555)', 'https://www.justice.gov/archive/usao/nys/pressreleases/October12/GuptaSentencing.php'],
-                      ['AP via Washington Times: Former Goldman official gets two years', 'https://www.washingtontimes.com/news/2012/oct/24/former-goldman-official-gets-two-years/']]),
+    ref=dict(case='ก.ล.ต. ลงโทษทางแพ่งกรณีหุ้น SF: ผู้บริหารเปิดเผยดีลที่ยังไม่ประกาศให้มารดาซื้อหุ้น ผู้เปิดเผยถูกปรับ 577,300 บาท และห้ามเป็นกรรมการ 14 เดือน (29 ธ.ค. 2568)',
+             use='ฉากผู้บรรยายเล่าเคสจริงในไทย: บอกข้อมูลภายในให้คนในครอบครัว ทั้งที่ตัวเองไม่ได้ซื้อขาย ก็ถูกลงโทษ ไม่ระบุชื่อคนหรือบริษัทในคลิป',
+             sources=[['LINE TODAY: ก.ล.ต. ลงโทษทางแพ่ง 7 ราย กรณีซื้อหุ้น SF', 'https://today.line.me/th/v3/article/XY5K71Q'],
+                      ['มิติหุ้น: ก.ล.ต. ใช้มาตรการลงโทษทางแพ่ง 7 ราย กรณีหุ้น SF', 'https://www.mitihoon.com/2025/12/29/607035/']]),
     edits={})

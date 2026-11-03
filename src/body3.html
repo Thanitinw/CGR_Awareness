@@ -614,6 +614,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
     <button class="tab" role="tab" id="tab-flowguide" aria-controls="flowguide" data-t="flowguide">คู่มือ Flow</button>
     <button class="tab" role="tab" id="tab-plan" aria-controls="plan" data-t="plan">Action Plan</button>
     <button class="tab" role="tab" id="tab-measure" aria-controls="measure" data-t="measure">Measurement</button>
+    <button class="tab" role="tab" id="tab-status" aria-controls="status" data-t="status">สถานะโครงการ</button>
   </nav>
 
   <div class="tabpanel" id="intro" role="tabpanel" aria-labelledby="tab-intro">
@@ -868,7 +869,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
           <li><b>เรียงคลิปใน CapCut</b>วางคลิปตามเลขฉากและเวลาในสตอรีบอร์ด ความยาวรวม Main Story ไม่เกิน 2 นาที คลิปอังคารที่ 3 ไม่เกิน 1 นาที ฉากแรกใช้เป็นภาพปกคลิป (ตั้ง Cover ใน CapCut จากเฟรมฉากแรก)</li>
           <li><b>ใส่โลโก้ช่องและป้ายชื่อตอน</b>โลโก้ "ชั้น 12" กับแผ่นป้ายชื่อตอนสร้างครั้งเดียวจาก Character sheet › โลโก้ช่องและป้ายชื่อตอน วางป้ายบนฉากแรกแล้วพิมพ์ชื่อตอนใน CapCut (ข้อความอยู่ในการ์ดฉาก 1 ของแต่ละตอน) ข้อความไทยอื่นมีแค่ฉากหยุดคิดกับท้ายคลิป ไม่ให้ AI เขียนตัวหนังสือไทย</li>
           <li><b>ฉากหยุดคิด</b>สร้างใน Flow เหมือนช็อตอื่น (ช็อตช้า ทุกคนนิ่ง กล้องค่อย ๆ ดันเข้า ผู้บรรยายถามคำถามชวนคิดในคลิป) ไม่ต้องใส่ข้อความหรือตัวเลขนับถอยหลัง ขั้นตัดต่อมีแค่ซับไตเติล โลโก้ และป้ายชื่อตอน</li>
-          <li><b>เสียง</b>ใช้เสียงจากคลิป Flow เท่านั้น ไม่ใส่เพลงประกอบ</li>
+          <li><b>เสียงและเพลง</b>ใช้เสียงจากคลิป Flow คู่กับเพลงประกอบตามกล่อง "เพลงประกอบ" ท้ายหน้า Prompt สำหรับ Flow ของตอน (ลิงก์ดาวน์โหลดฟรีจาก Pixabay) ดาวน์โหลดครั้งเดียวเก็บไว้ที่ _template/music คำสั่งตัดต่อลดเสียงเพลงตอนมีคนพูดให้อัตโนมัติ</li>
           <li><b>ตรวจรอบสุดท้าย</b>ใช้รายการในกล่อง "ตรวจก่อนส่ง" ด้านล่าง แล้วส่งให้เจ้าของเนื้อหาของธีมตรวจก่อนเผยแพร่</li>
         </ol>
         <div class="fg-box">
@@ -937,6 +938,25 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
   </div>
 
 
+  <div class="tabpanel" id="status" role="tabpanel" aria-labelledby="tab-status" hidden>
+    <section class="ps">
+      <div class="sec-head"><span class="eyebrow" id="ps-asof">—</span><h2>สถานะโครงการ ชั้น 12</h2></div>
+      <div class="ps-row"><span class="ps-big" id="ps-pub">—</span><span class="muted">ตอนเผยแพร่แล้ว จากทั้งหมด 72 ตอน</span></div>
+      <div class="ps-bar"><i id="ps-fill"></i></div>
+      <h3>ตอนถัดไป</h3>
+      <p class="ps-next" id="ps-next">—</p>
+      <ol class="ps-steps" id="ps-steps"></ol>
+      <h3>ตอนที่ต้องจับตา</h3>
+      <ul class="ps-todo" id="ps-watch"></ul>
+      <h3>งานที่ยังค้าง</h3>
+      <ul class="ps-todo" id="ps-todo"></ul>
+      <details class="ps-more"><summary>ดูสถานะทุกตอน</summary><div class="ps-tw"><table class="ps-t"><thead><tr><th>EP</th><th>ออกอากาศ</th><th>ชื่อตอน</th><th>สุขภาพ</th><th>ขั้นถัดไป</th><th>หมายเหตุ</th></tr></thead><tbody id="ps-all"></tbody></table></div></details>
+      <details class="ps-more"><summary>วิธีนับสถานะ</summary>
+        <div class="ps-tw"><table class="ps-t"><thead><tr><th>#</th><th>ขั้น</th><th>ถือว่าเสร็จเมื่อ</th><th>ใครทำ</th><th>ควรเสร็จ</th></tr></thead><tbody id="ps-def"></tbody></table></div>
+        <p class="muted small">แต่ละขั้นมีสถานะ รอ · กำลังทำ · เสร็จ · ติดปัญหา · <b>ตามแผน</b> ทุกขั้นทันกำหนด · <b>เสี่ยง</b> มีขั้นเลยกำหนดหรือติดปัญหา · <b>ล่าช้า</b> ถึง D-3 แล้วยังไม่อนุมัติคลิป หรือเลยวันออกอากาศแล้วยังไม่เผยแพร่ (D = วันออกอากาศ)</p>
+      </details>
+    </section>
+  </div>
   <div class="tabpanel" id="measure" role="tabpanel" aria-labelledby="tab-measure" hidden>
     <section>
       <div class="sec-head"><span class="eyebrow">วัดผล 3 ชั้น</span><h2>ส่งถึงไหม → ดูจริงไหม → เข้าใจไหม</h2><p class="muted">LINE และ YouTube บอกภาพรวมได้ แต่บอกไม่ได้ว่าใครดู ข้อมูลรายบุคคลจึงมาจากแบบทดสอบปีละครั้งเท่านั้น</p></div>
@@ -1220,6 +1240,40 @@ document.querySelectorAll(".viewsw .vs").forEach(btn=>btn.addEventListener("clic
   const v=btn.dataset.v;document.getElementById("ov").hidden=v!=="ov";document.getElementById("detail").hidden=v!=="detail";document.getElementById("register").hidden=v!=="detail";
 }));
 drawLegend();drawOv();
+// project status (review 3 พ.ย. 2569): per-episode production status lives in DATA[].prod; one-off tasks below
+const SETUP=[["วางแผน","แผน 72 ตอน + ปฏิทินเผยแพร่ (สลับหัวข้อไม่ซ้ำติดกัน)","done","2026-10-27",""],["วางแผน","บทครบ 72 ตอน อ้างอิงนโยบายบริษัท","done","2026-10-27","ร่างโดย GRC"],
+ ["เตรียมผลิต","Character sheet ตัวละครหลัก 9 คนใน Google Flow","done","2026-11-03",""],["เตรียมผลิต","Prompt Google Flow ครบทุกช็อต (72 ตอน)","done","2026-10-28","ไม่เกิน 2 ช็อตต่อฉาก"],["เตรียมผลิต","โลโก้ช่อง \"ชั้น 12\"","done","2026-10-27",""],
+ ["เตรียมผลิต","คำสั่งตัดต่อ Claude Code (template สไตล์ v10)","done","2026-10-28",""],["เตรียมผลิต","เพลงประกอบ 4 ไฟล์ใน _template/music","todo","","ลิงก์ Pixabay อยู่ในหน้า Prompt สำหรับ Flow"],
+ ["เผยแพร่","ช่อง YouTube + Playlist \"ชั้น 12\"","done","2026-11-03",""],["เผยแพร่","ประชาสัมพันธ์ EP1 ผ่าน HR (LINE)","done","2026-11-03",""],["เผยแพร่","CGR Awareness Assessment ปีที่ 1","todo","2026-11-30","แผนกำหนดเดือน พ.ย. 2569"],["ติดตามผล","สรุปยอดชมและความเห็นรายเดือน","todo","2026-11-30",""]];
+const STEPS=[["script","บทพร้อม","บทและ prompt Flow ครบในหน้าเว็บ","GRC",null],["review","เจ้าของนโยบายตรวจ","เจ้าของหัวข้อยืนยันเนื้อหา","เจ้าของนโยบาย",-21],["footage","ถ่ายทำใน Flow","ได้คลิปครบทุกช็อต ตั้งชื่อไฟล์ตามเลขฉาก","GRC",-10],["edit","ตัดต่อ","Claude Code ทำ final.mp4 และตรวจภาพแล้ว","GRC",-7],["approve","อนุมัติคลิป","หัวหน้าหรือเจ้าของเนื้อหาดูคลิปจริงแล้วโอเค","หัวหน้า GRC",-3],["upload","อัป YouTube","ชื่อ คำอธิบาย ติ๊ก AI ใส่ Playlist แล้ว","GRC",-1],["publish","เผยแพร่","HR ส่ง LINE อังคาร 17:00 น.","HR",0],["follow","ติดตามผล","บันทึกยอดวิวและความเห็น 2 สัปดาห์หลังออก","GRC",14]];
+const STW={todo:"รอ",doing:"กำลังทำ",done:"เสร็จ",blocked:"ติดปัญหา"};
+function renderStatus(){
+  const MON=["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."],th=s=>{if(!s)return "";const[y,m,d]=s.split("-").map(Number);return `${d} ${MON[m-1]} ${String(y+543).slice(2)}`};
+  const today=new Date(Date.now()+7*36e5).toISOString().slice(0,10),addD=(s,n)=>{const t=new Date(s+"T00:00:00Z");t.setUTCDate(t.getUTCDate()+n);return t.toISOString().slice(0,10)};
+  const days=s=>Math.round((new Date(s+"T00:00:00Z")-new Date(today+"T00:00:00Z"))/864e5);
+  const E=CLIPS.filter(d=>d.drama).slice().sort((a,b)=>a.date<b.date?-1:1),P=d=>d.prod||{},n=E.length,pub=E.filter(d=>P(d).publish==="done").length;
+  const due=(d,s)=>s[4]==null?null:addD(d.date,s[4]);
+  const health=d=>{const p=P(d);if((today>=addD(d.date,-3)&&p.approve!=="done")||(today>d.date&&p.publish!=="done"))return["bad","ล่าช้า"];
+    const late=STEPS.filter(s=>p[s[0]]!=="done"&&due(d,s)&&due(d,s)<today),blk=STEPS.filter(s=>p[s[0]]==="blocked");return late.length||blk.length?["warn","เสี่ยง"]:["ok","ตามแผน"]};
+  const nextStep=d=>STEPS.find(s=>P(d)[s[0]]!=="done");
+  const dot=h=>el("span",{class:"ps-dot "+h[0],title:h[1]});
+  document.getElementById("ps-asof").textContent="ข้อมูล ณ "+th(today);
+  document.getElementById("ps-pub").textContent=`${pub}/${n}`;
+  document.getElementById("ps-fill").style.width=(pub/n*100)+"%";
+  const nx=E.find(d=>P(d).publish!=="done");
+  if(nx){const h=health(nx),s=nextStep(nx),dd=s&&due(nx,s);
+    document.getElementById("ps-next").replaceChildren(dot(h),` ${EP(nx)} · ${th(nx.date)} (อีก ${days(nx.date)} วัน) · ${nx.drama.title} · `,el("b",{text:h[1]}),s?` · ขั้นถัดไป: ${s[1]}`+(dd?` (ควรเสร็จ ${th(dd)})`:""):"");
+    document.getElementById("ps-steps").replaceChildren(...STEPS.map(s=>{const v=P(nx)[s[0]]||"todo",dd=due(nx,s),late=v!=="done"&&dd&&dd<today;
+      return el("li",{class:"ps-step "+v+(late?" late":"")},el("b",{text:s[1]}),el("span",{text:STW[v]+(dd?` · ${th(dd)}`:"")}))}));}
+  else document.getElementById("ps-next").textContent="ครบทุกตอนแล้ว";
+  const watch=E.map(d=>[d,health(d)]).filter(([d,h])=>h[0]!=="ok");
+  document.getElementById("ps-watch").replaceChildren(...(watch.length?watch.map(([d,h])=>{const s=nextStep(d);return el("li",{},dot(h),` ${EP(d)} · ${th(d.date)} · ${h[1]}`+(s?` · ค้างที่ ${s[1]}`:"")+(P(d).note?` · ${P(d).note}`:""))}):[el("li",{text:"ไม่มี ทุกตอนตามแผน"})]));
+  const todo=SETUP.filter(r=>r[2]!=="done");
+  document.getElementById("ps-todo").replaceChildren(...(todo.length?todo.map(r=>el("li",{},r[1],r[3]?el("span",{class:"muted",text:" · ภายใน "+th(r[3])}):null)):[el("li",{text:"ไม่มี"})]));
+  document.getElementById("ps-all").replaceChildren(...E.map(d=>{const h=health(d),s=nextStep(d);return el("tr",{},el("td",{text:EP(d)}),el("td",{text:th(d.date)}),el("td",{text:d.drama.title}),el("td",{},dot(h),` ${h[1]}`),el("td",{text:s?`${s[1]} (${STW[P(d)[s[0]]||"todo"]})`:"ครบ"}),el("td",{class:"muted",text:P(d).note||""}))}));
+  document.getElementById("ps-def").replaceChildren(...STEPS.map((s,k)=>el("tr",{},el("td",{text:String(k+1)}),el("td",{text:s[1]}),el("td",{text:s[2]}),el("td",{text:s[3]}),el("td",{text:s[4]==null?"ก่อนเริ่มผลิต":s[4]===0?"วันออกอากาศ":(s[4]>0?"D+":"D")+s[4]}))));
+}
+renderStatus();
 
 // calendar: chronological, one block per fiscal year, explicit month + year on every row
 const cal=document.getElementById("cal");
@@ -1315,7 +1369,7 @@ const CS=(function(){
   const REF="Vertical 9:16 portrait orientation, taller than wide. Character reference of ONE single person only, full body from head to toe filling the tall frame, front view, standing relaxed, plain light-grey studio background, soft even lighting, photorealistic, fictional person, no logos, no text. ";
   const C=[
    {l:"พี่ Compliance",per:{"k": "เป็นกันเอง ไม่ดุ ชอบเปรียบเทียบใกล้ตัว เป็นพี่เลี้ยง ไม่ใช่ตำรวจ", "f": "ปีที่ 2 ต้องรักษาความลับผู้แจ้ง แม้คนใกล้ตัวกดดัน", "q": "“ลองถามตัวเองสามข้อก่อน”", "gr": "ตอนจบ โน้ต 3 คำถามของเธออยู่บนโต๊ะทุกคน", "gag": "–", "lab": "ใช้ป้ายนี้ทุกตอน", "n": "อยู่ในทั้ง 72 ตอน"},m:"หญิง · 39 · Compliance · ผู้อธิบายกติกาประจำทุกตอน",c:"#2f4a7a",col:"กรมท่า + เหลือง",look:"ผมบ็อบดำตรงยาวระบ้า แว่นกรอบทองบางทรงกลม ยิ้มอบอุ่น",wear:"เบลเซอร์สีกรมท่าทับเสื้อเชิ้ตขาว กางเกงสแล็กดำ สายคล้องบัตรพนักงาน",props:"สมุดโน้ตเล่มเล็กแปะโพสต์อิทสีเหลือง (โน้ต 3 คำถาม) แก้วกาแฟ",face:"ยิ้มอบอุ่น · ตั้งใจฟัง · อธิบายพร้อมยกนิ้ว",
-    p:"A fictional Thai woman, 39, warm and approachable, shoulder-length straight black bob, thin round gold-rimmed glasses, navy blazer over a white blouse, black slacks, plain staff lanyard, holding a small notebook with yellow sticky notes.",t:"the Compliance mentor: Thai woman, 39, black bob, thin round gold glasses, navy blazer, white blouse, yellow sticky-note notebook"},
+    p:"A fictional Thai woman, 39, warm and approachable, shoulder-length straight black bob, thin round gold-rimmed glasses, navy blazer over a white blouse, black slacks, plain staff lanyard, holding a slim tablet.",t:"the Compliance mentor: Thai woman, 39, black bob, thin round gold glasses, navy blazer, white blouse, yellow sticky-note notebook"},
    {l:"หัวหน้า",per:{"k": "พูดตรง งานต้องเสร็จ ใจดีกับลูกน้อง", "f": "ความกดดันเรื่องเวลา", "q": "“งานต้องเดิน”", "gr": "ปีที่ 2 ต้องเลือกระหว่างเป้ากับขั้นตอน ปีที่ 3 เป็นหัวหน้าที่ลูกน้องกล้าทัก", "gag": "เดินผ่านกระดานทีม ลบคำว่า “ด่วนมาก” ออกหนึ่งคำ", "lab": "พี่ PM · หัวหน้าไซต์ · หัวหน้าช่าง · หัวหน้าเซลส์ · หัวหน้าโครงการ · ผู้จัดการโรงงาน", "n": "ตัวเอก 15 ตอน"},m:"ชาย · 43 · หัวหน้าฝ่ายปฏิบัติการ (เป็น พี่ PM / หัวหน้าไซต์ ฯลฯ ในบางตอน)",c:"#2e3238",col:"ขาว + ดำ",look:"ร่างหนา ผมสั้นเกรียน เริ่มมีผมขาวที่ขมับ หน้าเข้ม แต่ตาใจดี",wear:"เสื้อเชิ้ตแขนสั้นสีขาว ปากกาในกระเป๋าเสื้อ กางเกงสแล็กสีดำ หน้างานสวมหมวกนิรภัยสีขาว เสื้อกั๊กสะท้อนแสงทับเชิ้ต และรองเท้าเซฟตี้",props:"แก้วกาแฟสีขาว (ใส่คำว่า “งานต้องเดิน” ตอนตัดต่อ) แฟ้มเอกสาร",face:"เร่งรีบ · ถอนหายใจ · พยักหน้ายอมรับ",
     p:"A fictional Thai man, 43, sturdy build, very short crew-cut hair with grey at the temples, firm but kind face, white short-sleeve shirt with pens in the breast pocket, black trousers, black leather shoes, holding a plain white coffee mug.",t:"the team head: Thai man, 43, sturdy, short crew cut greying at the temples, white short-sleeve shirt, black trousers, plain white mug"},
    {l:"พี่หน้างาน",per:{"k": "ขี้เล่น ขยัน มีลูกเล็กและภาระทางบ้าน", "f": "เรื่องเงิน งานเสริม ช่วยเพื่อนเกินขอบเขต", "q": "“นิดเดียวเอง ไม่มีใครเสียหาย”", "gr": "ปีที่ 2 เป็นคนแจ้งเบาะแสเรื่องในโครงการใหญ่ และได้รับความคุ้มครอง", "gag": "พึมพำ “นิดเดียวเอง...” แล้วรีบแก้เป็น “ถามก่อนดีกว่า”", "lab": "พี่วิศวกร · พี่ช่าง · หัวหน้าไซต์ · พี่เซฟตี้ · พี่โฟร์แมน · พี่บริการลูกค้า · พี่ฝ่ายผลิต", "n": "ตัวเอก 14 ตอน"},m:"ชาย · 34 · ผู้ประสานงานโครงการ ทีมหน้างาน (เป็น พี่วิศวกร / พี่ช่าง ฯลฯ ในบางตอน)",c:"#1d4fbf",col:"น้ำเงิน + ส้มสะท้อนแสง",look:"ผิวแทน ผมสั้นยุ่งนิด ๆ ยิ้มกว้าง ขี้เล่น",wear:"เสื้อโปโลสีน้ำเงินไม่มีโลโก้ กางเกงคาร์โก้สีดำ รองเท้าเซฟตี้ หน้างานใส่เสื้อกั๊กสะท้อนแสงทับโปโล",props:"กล่องข้าวลายดอกไม้สีชมพู (ภรรยาทำให้) วิทยุสื่อสาร",face:"หัวเราะ · ลังเล · จริงจัง",
@@ -1323,7 +1377,7 @@ const CS=(function(){
    {l:"พี่เซลส์",per:{"k": "ร่าเริง เข้ากับลูกค้าเก่ง ไม่อยากทำให้ใครผิดหวัง", "f": "รับปากลูกค้าก่อนตรวจ", "q": "“ได้ค่ะ ไม่มีปัญหา!”", "gr": "ประโยคติดปากค่อย ๆ เปลี่ยนเป็น “ได้ค่ะ... ขอตรวจก่อนนะคะ”", "gag": "ซ้อมพูด “ขอตรวจก่อนนะคะ” กับกระจกในลิฟต์ แล้วสะดุ้งเมื่อประตูเปิด", "lab": "พี่การตลาด · พี่ฝ่ายธุรกิจ · พี่วิศวกร · พี่ PM · พี่ QC", "n": "ตัวเอก 12 ตอน"},m:"หญิง · 29 · ฝ่ายขาย (เป็น พี่การตลาด / พี่ฝ่ายธุรกิจ ฯลฯ ในบางตอน)",c:"#e0664f",col:"คอรัล",look:"ผมยาวลอนสีน้ำตาลเข้ม รวบครึ่งหัว ยิ้มสดใส",wear:"เสื้อเบลาส์สีคอรัล กระโปรงทรงสอบสีครีม รองเท้าส้นเตี้ย",props:"สมาร์ตโฟนในมือแทบตลอด แท็บเล็ตนำเสนองาน",face:"ยิ้มรับปาก · ลังเล · ซ้อมพูดหน้ากระจก",
     p:"A fictional Thai woman, 29, bright and friendly, long wavy dark-brown hair in a half-up style, coral blouse, cream pencil skirt, low heels, holding a smartphone.",t:"the sales lead: Thai woman, 29, long wavy dark-brown half-up hair, coral blouse, smartphone in hand"},
    {l:"พี่บัญชี",per:{"k": "ละเอียด อบอุ่น เป็นเหมือนแม่ของออฟฟิศ", "f": "ไว้ใจคนที่รู้จักมานาน เกรงใจ", "q": "“พี่ทำงานกับเขามาสิบปีแล้วนะ”", "gr": "เรียนรู้ว่าความไว้ใจกับการตรวจสอบไปด้วยกันได้", "gag": "แปะโน้ต “สิบปีก็ยังต้องเทียบราคา” ไว้ข้างจอ", "lab": "พี่จัดซื้อ · พี่การเงิน · พี่วางแผนผลิต · พี่ Audit", "n": "ตัวเอก 11 ตอน"},m:"หญิง · 51 · บัญชีและจัดซื้ออาวุโส (เป็น พี่จัดซื้อ / พี่การเงิน ฯลฯ ในบางตอน)",c:"#d98aa6",col:"ชมพูพาสเทล",look:"ผมสั้นดัดลอน แว่นสายตาห้อยสร้อยลูกปัด หน้าอบอุ่นแบบแม่ของออฟฟิศ",wear:"คาร์ดิแกนสีชมพูพาสเทลทับเสื้อขาว กางเกงสแล็กสีกรม",props:"แฟ้มสีชมพู กล่องขนมแบ่งเพื่อน",face:"ยิ้มใจดี · เกรงใจ · มั่นใจ",
-    p:"A fictional Thai woman, 51, warm motherly face, short permed black hair, reading glasses on a beaded chain, pastel-pink cardigan over a white blouse, navy trousers, holding pink document folders.",t:"the senior accountant: Thai woman, 51, short permed hair, reading glasses on a beaded chain, pastel-pink cardigan, pink folders"},
+    p:"A fictional Thai woman, 51, warm motherly face, short permed black hair, reading glasses on a beaded chain, pastel-pink cardigan over a white blouse, navy trousers, holding a tablet in a pink case.",t:"the senior accountant: Thai woman, 51, short permed hair, reading glasses on a beaded chain, pastel-pink cardigan, tablet in a pink case"},
    {l:"น้องใหม่ → พี่ดิจิทัล",per:{"k": "ฉลาด ไว ช่างถาม ชอบลองเครื่องมือใหม่", "f": "ใช้ทางลัดด้วยเทคโนโลยีโดยไม่คิดเรื่องข้อมูล", "q": "“เดี๋ยวให้ AI ช่วย”", "gr": "จากเด็กใหม่ที่ต้องถาม กลายเป็นพี่เลี้ยงของน้องใหม่ในปีที่ 3", "gag": "เปลี่ยนชื่อโฟลเดอร์เป็น “ถามพี่ Compliance ก่อน”", "lab": "น้องวิศวกร · น้อง IT · น้อง HR · น้องธุรการ · พี่วิศวกร · พี่ประสานงาน · พี่ธุรการ · พี่การตลาด · หัวหน้าทีม", "n": "ตัวเอก 9 ตอน"},m:"หญิง · 24 · พนักงานใหม่ฝ่ายดิจิทัล (ปีที่ 3 เป็นพี่เลี้ยง)",c:"#5bb5a2",col:"มินต์",look:"ผมดำตรงมัดหางม้า หน้าตาสดใส ตาไว ช่างสังเกต",wear:"เสื้อเชิ้ตสีมินต์ กางเกงสแล็กสีดำ รองเท้าผ้าใบขาว ปีที่ 3 เพิ่มเบลเซอร์สีเทาอ่อน",props:"แล็ปท็อปติดสติกเกอร์ โพสต์อิทมีสติกเกอร์แมว",face:"สงสัย · ตื่นเต้น · ยิ้มภูมิใจ",
     p:"A fictional Thai woman, 24, bright curious eyes, straight black hair in a high ponytail, mint-green button-up shirt, black trousers, white sneakers, holding a laptop covered with small stickers.",t:"the new hire: Thai woman, 24, black high ponytail, mint-green shirt, black trousers, white sneakers, sticker-covered laptop"},
    {l:"พี่ HR",per:{"k": "อารมณ์ดี รู้จักทุกคนในบริษัท เป็นที่ปรึกษาทั้งเรื่องงานและเรื่องชีวิต", "f": "อยากช่วยคนจนเผลอเปิดเผยข้อมูลส่วนตัว หรือเร่งเรื่องจนข้ามขั้นตอน", "q": "“เรื่องคน พี่จัดให้”", "gr": "ปีที่ 3 รักษาความลับเรื่องร้องเรียนและข้อมูลสุขภาพ กลายเป็นคนที่ทุกคนไว้ใจเรื่องข้อมูล", "gag": "รดน้ำต้นไม้บนโต๊ะที่ตั้งชื่อว่า “น้องนโยบาย”", "lab": "ใช้ป้ายนี้ทุกตอน", "n": "ตัวเอก 2 ตอน · ร่วมแสดง 5 ตอน"},m:"ชาย · 37 · ฝ่ายทรัพยากรบุคคล",c:"#2a5fc4",col:"น้ำเงิน (โปโลบริษัท) + ดำ",look:"ร่างท้วม ผมหวีแสกข้างเรียบร้อย หน้ายิ้มแย้ม",wear:"เสื้อโปโลสีน้ำเงินของบริษัท กางเกงสแล็กสีดำ",props:"กระถางต้นไม้เล็กบนโต๊ะ (น้องนโยบาย) คู่มือ HR",face:"อารมณ์ดี · ตั้งใจรับฟัง · จริงจังเรื่องความลับ",
@@ -1401,7 +1455,7 @@ const CS=(function(){
 
 document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a.go-chars");if(a){e.preventDefault();setTab("chars");window.scrollTo({top:0})}});
 // tabs
-const TABS=["intro","series","chars","flowguide","plan","measure"];
+const TABS=["intro","series","chars","flowguide","plan","measure","status"];
 function setTab(id,push=true){
   if(id==="scripts")id="plan";if(id==="roles"){id="intro";setTimeout(()=>{const r=document.getElementById("cats");if(r)r.scrollIntoView()},0)}if(!TABS.includes(id))id="intro";
   TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);b.setAttribute("aria-selected",String(x===id));b.tabIndex=x===id?0:-1});
@@ -1564,8 +1618,8 @@ const FLW=(()=>{
   const GEAR={site:", wearing a white safety helmet, a high-visibility vest and safety boots",plant:", wearing a white safety helmet, a high-visibility vest and safety boots",yard:", wearing a white safety helmet, a high-visibility vest and safety boots",wh:", wearing a high-visibility vest"};
   const MOVE={cu:"moves in to a close-up",ecu:"moves in to an extreme close-up",ins:"moves in to a close-up",med:"settles on a medium shot",two:"settles on a two-shot",ots:"moves behind one shoulder",wide:"pulls back to a wide view",full:"pulls back to a full-body view",pull:"pulls back and rises",trk:"tracks alongside",high:"rises to a high angle",pov:"shifts to a point-of-view angle"};
   const ALT={wide:"med",trk:"med",pull:"med",high:"med",full:"med",med:"cu",two:"cu",ots:"cu",pov:"cu",cu:"med",ins:"med",ecu:"med"};
-  const IMG="Vertical 9:16 portrait-orientation photorealistic still, taller than wide, soft natural light, warm tones, shallow depth of field.";
-  const VID="Portrait orientation, taller than wide, framed for a phone screen. Photorealistic footage, soft natural light, warm tones, shallow depth of field, natural movement. No logos, no text.";
+  const IMG="Vertical 9:16 portrait-orientation photorealistic still, taller than wide, soft natural light, warm tones, shallow depth of field. Modern, tech-forward 2026 workplace: people work on smartphones, tablets, laptops and slim monitors. Any document, contract, form, invoice, report, file, booklet, handbook, notebook, folder or binder named in the action appears on a tablet, laptop or monitor screen, or at most as a single thin sheet (content blurred). No thick binders, ring folders, stacks of paper, books or paper notebooks anywhere.";
+  const VID="Portrait orientation, taller than wide, framed for a phone screen. Photorealistic footage, soft natural light, warm tones, shallow depth of field, natural movement. No logos, no text. Modern, tech-forward 2026 workplace: people work on smartphones, tablets, laptops and slim monitors. Any document, contract, form, invoice, report, file, booklet, handbook, notebook, folder or binder named in the action appears on a tablet, laptop or monitor screen, or at most as a single thin sheet (content blurred). No thick binders, ring folders, stacks of paper, books or paper notebooks anywhere.";
   const fnv=s=>{let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0}return h.toString(16).padStart(8,"0")};
   const cap=t=>t.charAt(0).toUpperCase()+t.slice(1);
   const dot=t=>/[.!?)]$/.test(t)?t:t+".";
@@ -1607,7 +1661,7 @@ const FLW=(()=>{
     let S=[];
     for(let k=0;k<N;k++){
       let [cam,loc,t]=B2[Math.min(k,B2.length-1)];
-      if(k>=B2.length){cam=ALT[S[k-1].cam]||"med";const m=t.match(/\{(\w+)\}/);t=(m?`A few seconds later, a closer angle on {${m[1]}}, who carries on the moment naturally (speaking or reacting). Earlier in this scene: `:"A few seconds later, a slightly different angle on the same detail. Earlier in this scene: ")+t}
+      if(k>=B2.length){cam=ALT[S[k-1].cam]||"med";const m=t.match(/\{(\w+)\}/);t=(m?`A few seconds later, a closer angle on {${m[1]}}, who carries on the moment naturally. Earlier in this scene: `:"A few seconds later, a slightly different angle on the same detail. Earlier in this scene: ")+t}
       const ids=[...new Set([...t.matchAll(/\{(\w+)\}/g)].map(m=>m[1]))];
       S.push({cam,loc,t,ids,len,gen:gen(len),say:[],st0:k===0&&st0?st0:(k<B2.length&&B2[k][3])||null});
     }
@@ -1633,10 +1687,29 @@ const FLW=(()=>{
       P.forEach((t,k)=>{if(t)S[k].say.push({narr:1,t})})}   // one narrator line per shot when the script gives exactly that many
     S.forEach(x=>{const dc=x.say.filter(y=>!y.narr).reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0),nc=x.say.filter(y=>y.narr).reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);
       if(nc&&dc+nc>NLIM){x.say=x.say.filter(y=>!y.narr);x.narrOut=1}});
-    S.forEach(x=>{x.phone=PHONE.test(s.visual);x.chars=x.say.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);x.gen=gen(Math.max(x.len,x.chars/CPS));x.img=imgPrompt(x.st0?Object.assign({},x,x.st0):x,o,C);x.vid=vidPrompt(x,o,C)});
+    S.forEach(x=>{x.phone=PHONE.test(s.visual);x.chars=x.say.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);x.len=Math.max(x.len,x.chars/CPS)*LENK;x.gen=gen(x.len);x.img=imgPrompt(x.st0?Object.assign({},x,x.st0):x,o,C);x.vid=vidPrompt(x,o,C)});
     return S;
   }
-  const MAXC=125, CPS=12.5;  // Thai characters (incl. vowel/tone marks) said clearly in one 10-second Omni Flash shot, ~4.5 syllables/s (review 23 ต.ค. 2569: no needless splits)
+  const MAXC=110, CPS=11;
+  let LENK=1;   // review 3 พ.ย. 2569: unhurried Thai (11 chars/s), but an episode that would run past EPMAX is tightened evenly so the cut stays within 2 minutes
+  const EPMAX=118;
+  // review 3 พ.ย. 2569: Flow mispronounces Thai with abbreviations, digits and English — the prompt gets the line as it should be spoken; subtitles keep the written form
+  const THPRON="Pronunciation: standard Central Thai, every syllable clear with correct tones, unhurried; each quoted line is spelled exactly as it should be spoken, so read it as written. Each line is spoken inside its time window, one speaker at a time with a short pause between lines, never overlapping. Natural micro-expressions and timing.";
+  const SPW=[["pcc_dpo@precise.co.th","พีซีซี อันเดอร์สกอร์ ดีพีโอ แอท พรีไซซ ดอท ซีโอ ดอท ทีเอช"],["02-910-9700","ศูนย์สอง เก้าหนึ่งศูนย์ เก้าเจ็ดศูนย์ศูนย์"],["56-1 One Report","ห้าสิบหก ขีด หนึ่ง วันรีพอร์ต"],["One Report","วันรีพอร์ต"],["CO2ZERO","ซีโอทู ซีโร่"],
+   ["ก.ล.ต.","กอ-ลอ-ตอ"],["ป.ป.ช.","ปอ-ปอ-ชอ"],["สคส.","สอ-คอ-สอ"],["สหรัฐฯ","สหรัฐ"],["แพ่งฯ","แพ่ง"],["Requirement","รีไควร์เมนต์"],["Compliance","คอมพลายแอนซ์"],["Report","รีพอร์ต"],
+   ["PDPA","พีดีพีเอ"],["NDA","เอ็นดีเอ"],["DPO","ดีพีโอ"],["DPA","ดีพีเอ"],["ESG","อีเอสจี"],["TOR","ทีโออาร์"],["LOI","แอลโอไอ"],["OTP","โอทีพี"],["KPI","เคพีไอ"],["KRI","เคอาร์ไอ"],["CSR","ซีเอสอาร์"],["PDF","พีดีเอฟ"],["EIA","อีไอเอ"],["PPE","พีพีอี"],["PLC","พีแอลซี"],["RMC","อาร์เอ็มซี"],
+   ["AI","เอไอ"],["OT","โอที"],["PO","พีโอ"],["IP","ไอพี"],["CG","ซีจี"],["PM","พีเอ็ม"],["AP","เอพี"],["IT","ไอที"],["HR","เอชอาร์"],["One","วัน"]];
+  const THD=["ศูนย์","หนึ่ง","สอง","สาม","สี่","ห้า","หก","เจ็ด","แปด","เก้า"],THU=["","สิบ","ร้อย","พัน","หมื่น","แสน"];
+  const thNum=n=>{n=String(n).replace(/,/g,"");if(/\./.test(n)){const[a,b]=n.split(".");return thNum(a)+"จุด"+[...b].map(d=>THD[+d]).join("")}
+    n=n.replace(/^0+(?=\d)/,"");if(n==="0")return THD[0];if(n.length>6){const hi=n.slice(0,-6),lo=n.slice(-6);return thNum(hi)+"ล้าน"+(+lo?thNum(lo):"")}
+    let o="";const L=n.length;[...n].forEach((c,i)=>{const d=+c,pos=L-1-i;if(!d)return;
+      if(pos===1&&d===1)o+="สิบ";else if(pos===1&&d===2)o+="ยี่สิบ";else if(pos===0&&d===1&&L>1)o+="เอ็ด";else o+=THD[d]+THU[pos]});return o};
+  // Omni Flash docs (aistudio.google.com/docs/omni): timing can be given as timecodes [0-3s]; Thai is not evaluated, so pace each line in its own window
+  const TCL=(L,x)=>{if(!L.length)return;const nat=x.say.map(y=>Math.max(1.5,SP(y.t).length/11+0.3)),tot=nat.reduce((a,b)=>a+b,0),g=0.4*(L.length-1),start=0.5,end=Math.max(start+2,Math.min(x.gen-0.3,(x.len||x.gen)+0.3)),k=Math.min(1,(end-start-g)/tot);let t=start;
+    const f=v=>(Math.round(v*2)/2).toString();L.forEach((l,i)=>{const a=t,b=Math.min(end,t+nat[i]*k);L[i]=l.replace(/^- /,`- [${f(a)}-${f(b)}s] `);t=b+0.4})};
+  const SP=t=>{let s=String(t);SPW.forEach(([a,b])=>{s=s.split(a).join(b)});
+    s=s.replace(/(\d)(?=[ก-๙])/g,"$1 ").replace(/\d[\d,]*(\.\d+)?/g,m=>thNum(m)).replace(/%/g," เปอร์เซ็นต์");
+    s=s.replace(/(\S+)\s*ๆ/g,"$1 $1");return s.replace(/\s+/g," ").trim()};  // Thai characters (incl. vowel/tone marks) said clearly in one 10-second Omni Flash shot, ~4.5 syllables/s (review 23 ต.ค. 2569: no needless splits)
   const nch=a=>a.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);
   function pack2(S){
     const toks=[];S.forEach(x=>x.say.forEach(y=>y.t.split(" ").forEach((w,i)=>toks.push({y,w,first:i===0}))));
@@ -1717,12 +1790,13 @@ const FLW=(()=>{
       if(!(k in CH))return "- "+cap(C.role(k))+" — "+C.look(k,x.loc)+(talks?"; voice: "+voiceEN(k,C):"; does not speak in this shot");
       return `- ${H(k)} — ${C.role0(k)}, a ${sex(k)} (saved Flow character: ${keepNote(k,talks?" and "+her(k)+" own saved voice":"")}${of?"; in this shot "+of:"; same outfit as the character reference"})${talks?"":". Does not speak in this shot."}`});
     const L=x.say.map(y=>{
-      if(y.narr)return `- NARRATOR (voice-over only, never seen; @Voice: ${S.narr.h}) says in Thai: "${y.t}"`;
-      if(!y.id)return `- OFF-SCREEN VOICE (${y.w}, not visible) says in Thai: "${y.t}"`;
-      if(!(y.id in CH))return x.ids.includes(y.id)?`- ${cap(C.role(y.id))} (on screen, ${voiceEN(y.id,C)}) speaks with lips moving, the whole line in that one voice, in Thai: "${y.t}"`:`- ${cap(C.role(y.id))} (not visible, heard ${x.phone?"through the phone or speaker":"off-screen"}; ${voiceEN(y.id,C)}) says in Thai: "${y.t}"`;
-      if(y.th)return `- ${H(y.id)} (${sex(y.id)}) — INNER THOUGHT in ${her(y.id)} own saved voice, heard as a voice-over; on screen ${her(y.id)} lips stay closed. In Thai: "${y.t}"`;
-      return x.ids.includes(y.id)?`- ${H(y.id)} (${sex(y.id)}, on screen, lips moving) speaks the whole line from the first word to the last in ${her(y.id)} own saved ${fem(y.id)?"female":"male"} voice (@Voice: ${S[y.id].h}), in Thai: "${y.t}"`:`- ${H(y.id)} (${sex(y.id)}, not visible, heard ${x.phone||/phone|call|speaker/i.test(x.t)?"through the phone or speaker":"off-screen"}, ${her(y.id)} own saved voice) says in Thai: "${y.t}"`;
+      if(y.narr)return `- NARRATOR (voice-over only, never seen; @Voice: ${S.narr.h}) says in Thai: "${SP(y.t)}"`;
+      if(!y.id)return `- OFF-SCREEN VOICE (${y.w}, not visible) says in Thai: "${SP(y.t)}"`;
+      if(!(y.id in CH))return x.ids.includes(y.id)?`- ${cap(C.role(y.id))} (on screen, ${voiceEN(y.id,C)}) speaks with lips moving, the whole line in that one voice, in Thai: "${SP(y.t)}"`:`- ${cap(C.role(y.id))} (not visible, heard ${x.phone?"through the phone or speaker":"off-screen"}; ${voiceEN(y.id,C)}) says in Thai: "${SP(y.t)}"`;
+      if(y.th)return `- ${H(y.id)} (${sex(y.id)}) — INNER THOUGHT in ${her(y.id)} own saved voice, heard as a voice-over; on screen ${her(y.id)} lips stay closed. In Thai: "${SP(y.t)}"`;
+      return x.ids.includes(y.id)?`- ${H(y.id)} (${sex(y.id)}, on screen, lips moving) speaks the whole line from the first word to the last in ${her(y.id)} own saved ${fem(y.id)?"female":"male"} voice (@Voice: ${S[y.id].h}), in Thai: "${SP(y.t)}"`:`- ${H(y.id)} (${sex(y.id)}, not visible, heard ${x.phone||/phone|call|speaker/i.test(x.t)?"through the phone or speaker":"off-screen"}, ${her(y.id)} own saved voice) says in Thai: "${SP(y.t)}"`;
     });
+    TCL(L,x);
     const sfx=o.sfx||SFX[x.loc]||"natural ambient sound of the location";
     const quiet=x.ids.filter(k=>!spk.includes(k)).map(k=>C.role(k));
     const dia=x.say.filter(y=>!y.narr),who=[...new Set(dia.map(y=>y.id?(y.id in CH?H(y.id):cap(C.role(y.id))):y.w))];
@@ -1738,19 +1812,22 @@ const FLW=(()=>{
       ...(gazeOf(x,C)?[gazeOf(x,C)]:[]),
       "Camera: "+CAM[x.cam][1]+".",
       ...(L.length?[head,...L,...(dia.length?["After the last line, nobody else speaks; the clip ends on a silent reaction."]:[])]:["No dialogue. Nobody speaks; mouths stay closed."]),
+      ...(x.say.length&&x.say.every(y=>y.narr)?["LIP-SYNC LOCK: nobody on screen talks in this clip. The narrator is an off-screen documentary voice, never a person in the frame. Every person keeps their lips closed for the entire clip: no talking, no mouthing, no whispering, no lip movement in time with the narration, even if the action mentions explaining, asking or answering; show that only through gestures, nods, eyes and expressions."]
+        :x.say.some(y=>y.narr)?["LIP-SYNC LOCK for the narration: the NARRATOR line is an off-screen voice-over. While it plays, every mouth on screen stays closed; a character's lips move only during that character's own spoken line above."]:[]),
       ...(quiet.length?["Silent for the whole clip (mouth closed, reacting only, even after a question): "+quiet.join(", ")+"."]:[]),
-      "Sound: "+sfx+". No background music.",
+      ...(L.length?[THPRON]:[]),"Sound: "+sfx+(L.length?", kept low under the speech":"")+". No background music. No extra sound effects or embellishments beyond these.",
       "No subtitles, no captions, no on-screen text."].join("\n");
   }
   function vidPrompt(x,o,C){if(FLMODE==="chars")return vidPromptChar(x,o,C);
     const P=people(x,C,true);
     const L=x.say.map(y=>{
-      if(y.narr)return `- NARRATOR (voice-over only, never seen; ${NARR}) says in Thai: "${y.t}"`;
-      if(!y.id)return `- OFF-SCREEN VOICE (${y.w}, not visible) says in Thai: "${y.t}"`;
+      if(y.narr)return `- NARRATOR (voice-over only, never seen; ${NARR}) says in Thai: "${SP(y.t)}"`;
+      if(!y.id)return `- OFF-SCREEN VOICE (${y.w}, not visible) says in Thai: "${SP(y.t)}"`;
       const r=cap(C.role(y.id));
-      if(y.th)return `- ${r.toUpperCase()} — INNER THOUGHT: heard as a voice-over in ${r.toLowerCase()}'s own voice (${voiceEN(y.id,C)}); on screen the lips stay closed. In Thai: "${y.t}"`;
-      return x.ids.includes(y.id)?`- ${r.toUpperCase()} — ${tagOf(y.id,C)} (on screen, ${voiceEN(y.id,C)}) speaks with lips moving, in Thai: "${y.t}"`:`- ${r.toUpperCase()} (not visible, heard ${x.phone||/phone|call|speaker/i.test(x.t)?"through the phone or speaker":"off-screen"}; ${voiceEN(y.id,C)}) says in Thai: "${y.t}"`;
+      if(y.th)return `- ${r.toUpperCase()} — INNER THOUGHT: heard as a voice-over in ${r.toLowerCase()}'s own voice (${voiceEN(y.id,C)}); on screen the lips stay closed. In Thai: "${SP(y.t)}"`;
+      return x.ids.includes(y.id)?`- ${r.toUpperCase()} — ${tagOf(y.id,C)} (on screen, ${voiceEN(y.id,C)}) speaks with lips moving, in Thai: "${SP(y.t)}"`:`- ${r.toUpperCase()} (not visible, heard ${x.phone||/phone|call|speaker/i.test(x.t)?"through the phone or speaker":"off-screen"}; ${voiceEN(y.id,C)}) says in Thai: "${SP(y.t)}"`;
     });
+    TCL(L,x);
     const sfx=o.sfx||SFX[x.loc]||"natural ambient sound of the location";
     return [`Duration: ${x.gen} seconds, one continuous shot.`+(x.len>x.gen+0.5?` (The scene needs about ${Math.round(x.len)} seconds in total; this clip will be extended afterwards, so end on a natural, continuing moment.)`:x.len<x.gen-1?` (Only about ${Math.round(x.len)} seconds will be used in the edit; keep the key action in the first ${Math.round(x.len)} seconds.)`:""),`Vertical 9:16 video. `+VID,
       "Setting: "+locX(x)+".",
@@ -1760,7 +1837,7 @@ const FLW=(()=>{
       "Camera: "+CAM[x.cam][1]+".",
       ...(L.length?[x.say.every(y=>y.narr)?"Voice-over narration only. Nobody on screen speaks; everyone keeps their mouth closed while the narrator is heard:":x.say.some(y=>y.narr)?"Speech in Thai, spoken clearly at a natural pace. Only the characters listed as speaking move their lips; the narrator is a voice-over and no one on screen mouths those words:":"Speech in Thai with natural lip-sync, spoken clearly at a natural pace:",...L]:["No dialogue."]),
       ...(L.length&&x.ids.length?(()=>{const sp=new Set(x.say.filter(y=>y.id&&!y.th&&!y.narr).map(y=>y.id));const quiet=x.ids.filter(k=>!sp.has(k)).map(k=>cap(C.role(k))+" ("+tagOf(k,C)+")");return quiet.length?["Silent in this shot (mouth closed, reacting only): "+quiet.join(", ")+"."]:[]})():[]),
-      "Sound: "+sfx+". No background music.",
+      ...(L.length?[THPRON]:[]),"Sound: "+sfx+(L.length?", kept low under the speech":"")+". No background music. No extra sound effects or embellishments beyond these.",
       "No subtitles, no captions, no on-screen text."].join("\n");
   }
   function build(d){
@@ -1768,7 +1845,7 @@ const FLW=(()=>{
     const C=ctx(d,V),byH={},byNo={};
     V.fl.s.forEach(o=>{byH[o.h]=o;byNo[o.no]=o});
     const scenes=V.sb.parts.flatMap(p=>p.scenes.map(s=>({p,s})));
-    const out=scenes.map(({p,s})=>{
+    const mk=()=>scenes.map(({p,s})=>{
       let o=byH[fnv(s.visual)],stale=false;
       if(!o){o=byNo[s.no];stale=!!o}
       const r={s,part:p.name,o,stale};
@@ -1776,6 +1853,8 @@ const FLW=(()=>{
       if(o&&o.e&&o.st){const[cam,loc,t]=o.st,ids=[...new Set([...t.matchAll(/\{(\w+)\}/g)].map(m=>m[1]))];r.still=imgPrompt({cam,loc,t,ids,len:3,gen:4,say:[]},o,C)}   // freeze-frame scene: one plain still
       return r;
     });
+    LENK=1;let out=mk();const tot=out.reduce((n,r)=>n+(r.shots||[]).reduce((m,x)=>m+x.len,0)+(r.shots?0:3),0);
+    if(tot>EPMAX){LENK=EPMAX/tot;out=mk();LENK=1}
     const ids=[...new Set(V.fl.s.flatMap(o=>(o.b||[]).flatMap(b=>[...b[2].matchAll(/\{(\w+)\}/g)].map(m=>m[1]))))];
     const speakers=[...new Set(V.sb.parts.flatMap(p=>p.scenes.flatMap(s=>(s.audio||[]).map(a=>a[0]))))];
     const f0=out[0]&&out[0].shots&&out[0].shots[0];   // the first frame doubles as the clip thumbnail (review 23 ต.ค. 2569)
@@ -1843,8 +1922,9 @@ const FLW=(()=>{
 EP: ${d.ep}
 ชื่อตอน: ${V.title}
 คำถามเปิดเรื่อง: ${open&&open!==V.title?open:"-"}
+ไฟล์ฉากหยุดคิด: ${fz?"ไฟล์ที่ชื่อขึ้นต้นด้วย "+P2(fz.no)+" (ใช้ตอนเฟดเพลง)":"-"}
 ข้อความบนจอเพิ่มเติม: ${extra.length?"\n"+extra.map(t=>"- "+t).join("\n"):"-"}
-เสียง: ใช้เสียงจากคลิปเท่านั้น ไม่ใส่เพลงประกอบ
+เพลงประกอบ: ../_template/music/${MOODF[moodOf(d)][0]} (โทน${MOODF[moodOf(d)][1]})${moodOf(d)==="t"?" · ตั้งแต่คลิปหลังฉากหยุดคิดเป็นต้นไป เปลี่ยนเป็น ../_template/music/office.mp3":""} · ลิงก์ดาวน์โหลด: ${MUSIC[moodOf(d)][0][1]}
 
 ### รายชื่อคลิปและบทพูดในแต่ละคลิป (ใช้ทำซับ)
 ชื่อไฟล์ที่คาดไว้ = เลขฉาก 2 หลัก และ .เลขช็อต ถ้าฉากนั้นมีมากกว่า 1 ช็อต ถ้าชื่อไฟล์จริงต่างจากนี้ (เช่น แยกช็อตเพิ่ม) ให้จับคู่ตามเลขฉากและลำดับเสียงพูด
@@ -1854,12 +1934,13 @@ ${files.join("\n")}
 
 ### ไฟล์ในโฟลเดอร์
 - คลิป .mp4 เรียงตามเลขหน้าชื่อไฟล์แบบตัวเลข (01, 02.1, 02.2, 03 ...)
-- logo.png = โลโก้ช่อง (ถ้าไม่โปร่ง ให้ตัดพื้นดำรอบนอกกรอบออก ห้ามตัดสีกรมท่าข้างใน)
+- logo.png = โลโก้ช่อง
+- เพลงอยู่ที่ ../_template/music/ ใช้ชุดเดียวกันทุกตอน: tense.mp3 · office.mp3 · warm.mp3 · sting.mp3 (เสียงลิฟต์ ding สั้น 1–2 วินาที) ถ้าไฟล์ที่ระบุไม่มี ให้ทำแบบไม่มีเพลงและแจ้งในรายงาน (ถ้าไม่โปร่ง ให้ตัดพื้นดำรอบนอกกรอบออก ห้ามตัดสีกรมท่าข้างใน)
 
 ### ใช้ template เดิมทุกครั้ง
-- สไตล์รุ่นปัจจุบัน: v8 (บันทึกเลขรุ่นไว้ในไฟล์ ../_template/STYLE_VERSION)
-- ถ้ามี ../_template และ STYLE_VERSION เป็น v8 อยู่แล้ว ให้ใช้ render_ep.py และ style.ass ในนั้น ห้ามแก้สไตล์ ขนาด ตำแหน่ง หรือฟอนต์
-- ถ้ายังไม่มี หรือเป็นรุ่นเก่า ให้สร้างหรือแก้ทั้งสองไฟล์ตามกติกาด้านล่าง บันทึก STYLE_VERSION = v8 แล้วใช้กับตอนนี้
+- สไตล์รุ่นปัจจุบัน: v10 (บันทึกเลขรุ่นไว้ในไฟล์ ../_template/STYLE_VERSION)
+- ถ้ามี ../_template และ STYLE_VERSION เป็น v10 อยู่แล้ว ให้ใช้ render_ep.py และ style.ass ในนั้น ห้ามแก้สไตล์ ขนาด ตำแหน่ง หรือฟอนต์
+- ถ้ายังไม่มี หรือเป็นรุ่นเก่า ให้สร้างหรือแก้ทั้งสองไฟล์ตามกติกาด้านล่าง บันทึก STYLE_VERSION = v10 แล้วใช้กับตอนนี้
 
 ### ขั้นตอน
 1. เครื่องมือ: ffmpeg (มี libass) และ faster-whisper (model large-v3, language="th") ถ้าไม่มีให้ติดตั้ง
@@ -1887,7 +1968,15 @@ ${files.join("\n")}
    - ข้อความบนจอเพิ่มเติม: กลางจอค่อนบน (y ≈ 520 px) IBM Plex Sans Thai SemiBold 42 px สีขาว แสดงตลอดคลิปที่ระบุ
    - ซับไตเติล: IBM Plex Sans Thai Medium 62 px สีขาว ขอบและเงาตามข้อแรก กึ่งกลาง กว้างไม่เกิน 900 px (บรรทัดละไม่เกิน 26 ตัวอักษร) ขอบล่างของซับสูงจากขอบล่าง 330 px
    - ห้ามมีข้อความในแถบขวา 140 px ช่วงความสูง 900–1700 px (ปุ่มไลก์และคอมเมนต์ของ Shorts)
-6. เสียง: ใช้เสียงจากคลิปเท่านั้น ห้ามใส่เพลงประกอบหรือเสียงโลโก้ ปรับระดับเสียงแต่ละคลิปให้ดังใกล้เคียงกัน (loudnorm ต่อคลิปก่อนต่อ) ไม่ให้มีช่วงที่เสียงกระโดดดังหรือเบาผิดปกติ
+6. เสียงและเพลง
+   - ปรับระดับเสียงแต่ละคลิปให้ดังใกล้เคียงกันก่อนต่อ (loudnorm ต่อคลิป)
+   - sting.mp3 วางที่วินาที 0 พร้อมป้ายชื่อตอน (ถ้ามีไฟล์)
+   - เพลงเป็นแค่เสียงคลอเบา ๆ อยู่ข้างหลัง คนดูแทบไม่ต้องตั้งใจฟัง ห้ามดังจนแย่งความสนใจจากบทพูด
+   - เพลงประกอบตามส่วนที่ 1 วนให้พอความยาว ระดับพื้นต่ำกว่าเสียงพูดประมาณ 20 dB (ราว -34 LUFS เมื่อเสียงพูดอยู่ที่ -14 LUFS)
+   - ทุกช่วงที่มีเสียงพูดหรือเสียงบรรยาย ให้เพลงเบาลงอัตโนมัติอีกประมาณ 10 dB ด้วย sidechaincompress (ใช้เสียงจากคลิปเป็น sidechain: threshold 0.02, ratio 8, attack 20 ms, release 400 ms) ช่วงไม่มีคนพูดเพลงค่อย ๆ กลับขึ้นมา
+   - เฟดเพลงออก 1 วินาทีก่อนคลิปฉากหยุดคิด เงียบตลอดคลิปนั้น (เหลือเสียงในคลิป) แล้วเฟดเพลงกลับเข้ามา 0.5 วินาทีในคลิปถัดไป
+   - เฟดเพลงออกตอนจบ 1.5 วินาที
+   - ตรวจว่าเสียงพูดชัดกว่าเพลงทุกช่วง ถ้าไม่ชัดให้ลดระดับพื้นของเพลงลงอีก
 7. ส่งออก: H.264 High, CRF 18, 30 fps, yuv420p, AAC 192 kbps 48 kHz, -movflags +faststart, loudnorm 2 รอบให้ได้ -14 LUFS ความยาวไม่เกิน 3 นาที
 
 ### ไฟล์ที่ต้องได้
@@ -1997,6 +2086,11 @@ function renderFlow(d){
       au.length?el("div",{class:"fl-au"},el("span",{class:"fl-k",text:"เสียง"}),...au):null);
     box.append(card);
   });
+  const MP=FLW.musicPlan(d);
+  box.append(el("h4",{class:"fl-part",text:"เพลงประกอบ"}),el("article",{class:"fl-sc"},el("div",{class:"fl-au"},...MP.map(([a,c])=>el("p",{},el("b",{text:a+": "}),c)),
+    el("p",{class:"muted",text:"เพลงทั้งชุดดาวน์โหลดครั้งเดียว เก็บไว้ที่ _template/music (tense.mp3 · office.mp3 · warm.mp3 · sting.mp3) คำสั่งตัดต่อจะเลือกไฟล์ตามโทนของตอนและลดเสียงเพลงตอนมีคนพูดให้อัตโนมัติ"})),
+    el("div",{class:"fl-au"},el("span",{class:"fl-k",text:"ดาวน์โหลดเพลง (ฟรี · Pixabay · ไม่ต้องให้เครดิต · กดลิงก์แล้วกด Download ในหน้านั้น)"}),...FLW.musicLinks(d).map(([f,L])=>el("p",{},el("b",{text:f+": "}),...L.flatMap(([t,u],i)=>[i?" · ":"",el("a",{href:u,target:"_blank",rel:"noopener",text:t})])))),
+    flCopy(()=>MP.map(([a,c])=>a+": "+c).join("\n")+"\n\n"+FLW.musicLinks(d).map(([f,L])=>f+": "+L.map(([t,u])=>t+" "+u).join(" | ")).join("\n"),"คัดลอกแผนเพลงและลิงก์")));
   return box;
 }
 function mtabs(d,storyEl,side){return [renderSB(d),side]}

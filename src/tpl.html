@@ -182,6 +182,19 @@ footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);paddin
   .story,.side{grid-template-columns:1fr}
   .line{grid-template-columns:1fr;gap:4px}
 }
+.ps{max-width:46rem}.ps h3{font-size:15px;margin:22px 0 6px}
+.ps-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:8px}.ps-big{font-family:var(--font-display);font-size:44px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1}
+.ps-bar{height:10px;border-radius:6px;background:var(--sunk);overflow:hidden;margin-top:12px}.ps-bar i{display:block;height:100%;background:var(--accent);border-radius:6px;min-width:4px}
+.ps-next{margin:0;font-size:15px}.ps-todo{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+.ps-dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;background:var(--muted)}.ps-dot.ok{background:#3a9b5c}.ps-dot.warn{background:#d9a21b}.ps-dot.bad{background:#d0453a}
+.ps-steps{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr));gap:6px}
+.ps-step{border:1px solid var(--line);border-radius:8px;padding:6px 10px;display:flex;flex-direction:column;gap:2px;font-size:13px}.ps-step span{font-size:12px;color:var(--muted)}
+.ps-step.done{background:var(--accent-soft)}.ps-step.blocked,.ps-step.late{border-color:#d9a21b}.ps-step.late span,.ps-step.blocked span{color:#b07f08}
+.ps-more{margin-top:14px}.ps-more summary{cursor:pointer;color:var(--accent);font-size:14px}
+.ps-tw{overflow:auto;max-height:28rem;margin-top:8px}
+.ps-t{width:100%;border-collapse:collapse;font-size:13px}.ps-t th{position:sticky;top:0;background:var(--bg);text-align:left;font-weight:600;color:var(--muted);font-size:12px;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.ps-t td:nth-child(2){white-space:nowrap}.ps-t td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.ps-pill{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;white-space:nowrap;border:1px solid var(--line)}.ps-pill.ok{background:var(--accent-soft);color:var(--fg)}.ps-pill.todo{color:var(--muted)}
 </style>
 
 <div class="wrap">

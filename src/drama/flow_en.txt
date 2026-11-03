@@ -35,19 +35,20 @@ x sup [Supplier|ตัวแทน Supplier] = the supplier representative: Thai
 12 | office | cu | {n} looks at the yellow sticky note on her monitor and smiles // [pull] The camera pulls back and rises to reveal the whole bright 12th-floor office, colleagues at work.
 
 ## 2026-11-17
-x vis [ผู้มาติดต่อ] = the visitor: Thai man, about 40, neat side-parted hair, navy polo shirt, a red VISITOR badge on a lanyard, smartphone in hand
-1 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | wide | Wednesday morning in a crowded elevator going up: {a} hugs a thick meeting binder with a blurred cover to her chest, {f} and {n} stand beside her, and {vis} stands just behind them looking at his phone. | elevator hum, soft chime
-2 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | two | {f} points at the thick binder in {a}'s arms and asks a question // [med] {a} answers proudly, a little too loudly, while behind her {vis} looks up from his phone, listening. | elevator hum
-3 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | med | The elevator doors open on floor 8 and {vis} steps out, typing on his phone // [two] {n} watches him go, then leans close and whispers to {a}, whose smile fades. | elevator chime, doors sliding
-4 | ~the boardroom of an overseas investment bank: long dark table, city skyline behind the windows | wide | Mock news reconstruction: board members sit around a long boardroom table, faces serious, no logos anywhere // [med] A man in a grey suit steps out into the corridor and quickly raises a phone to his ear, glancing back at the boardroom door. | quiet boardroom, footsteps
-5 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | cu | Close-up: {a} hugs the thick binder tightly to her chest, staring at the elevator doors that have just closed, worried. The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
-6 | coffee | two | [med] {a} walks up to {c} at the coffee corner with {n} beside her and speaks, worried // {c} listens, then answers calmly, holding her coffee cup. | espresso machine hiss
-7 | coffee | med | {c} draws a large circle on a sheet of paper, then a small circle inside it, and taps the small circle with her pen while she explains. | pen on paper
-8 | coffee | two | {f} walks in holding a coffee cup and asks {c} a question // [med] {c} answers seriously, looking at both {f} and {a}. | cups clinking
-9 | lift | med | In the 12th-floor elevator lobby an employee talks loudly on the phone with a meeting binder tucked openly under his arm, its blurred cover facing out, while people walk past.
-10 | glass | med | That afternoon in the small glass-walled meeting room with the door closed, {a} slides documents out of an opaque brown envelope and goes through them with {h}, just the two of them. | door click, paper rustle
-11 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | two | That evening in the elevator going down, {a} holds an opaque brown envelope; {f} asks her a question with a curious grin // [cu] {a} smiles and shakes her head as she answers. | elevator hum
-12 | ~inside a crowded office-building elevator car: brushed-steel walls, a floor-number display above the doors | med | {f} mimes zipping his lips shut, {n} laughs, and the elevator doors slowly slide closed. | elevator chime
+x mom [คุณแม่] = the mother of the senior accountant, heard on the phone only: Thai woman, about 76, gentle warm voice of an older lady
+x nexec [ผู้บริหารในข่าว] = a listed-company executive in a mock news reconstruction: Thai man, about 55, grey suit, rimless glasses, face turned mostly away
+1 | office | med | Wednesday late morning on the 12th floor: {a} sits at her desk by the window (a silver laptop on a stand beside a large monitor, wireless keyboard and mouse, a white ceramic mug, a small potted succulent, and her smartphone in a pale pink case) and finishes the board-meeting presentation on the large monitor (screen blurred), saves it to a secure folder and leans back with a satisfied nod. | office murmur, soft keyboard clicks
+2 | office | med | Lunchtime at the same desk, the board presentation still open on the large monitor beside her silver laptop (screen blurred), the white mug and small succulent beside it: {a}'s smartphone in a pale pink case rings; she answers, smiles and lowers her voice, cupping the phone, while {n} eats from a lunch box at the next desk beside her own closed laptop. | phone ringtone, soft office chatter
+3 | office | two | {a} hangs up and sets her pink-cased smartphone down beside her white mug; {n} turns her chair from the next desk toward her and asks a quiet question, worried // [med] {a} waves a hand breezily and answers with an easy smile, the board slides still on her monitor behind her (blurred). | chair creak
+4 | ~a corridor outside a boardroom in an office tower, glass walls, city light | med | Mock news reconstruction: {nexec} quickly types a message on his phone in a corridor outside a boardroom, glancing back at the closed door, no logos anywhere // [ins@~a living room with a sofa and a coffee table] Close-up: an elderly woman's hand taps a buy button in a stock-trading app on a phone (screen blurred). | footsteps, a soft phone tap
+5 | office | cu | At her desk, {a} looks down at the smartphone in a pale pink case in her hand, the recent-calls screen still open (blurred), her large monitor softly out of focus behind her; her smile fades into hesitation. The moment holds like a pause for thought: she stays almost perfectly still, only a slow breath, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
+6 | coffee | two | [med] {a} walks up to {c} at the coffee corner with {n} beside her and speaks, a little uneasy // {c} listens, then answers seriously but kindly, holding a white takeaway coffee cup, her tablet in a dark grey cover lying on the high table. | espresso machine hiss
+7 | coffee | med | {c} sets her white takeaway cup on the high table, picks up her tablet in a dark grey cover and sketches a large circle with a stylus, then a small circle inside it, and taps the small circle while she explains. | soft stylus taps
+8 | coffee | two | {c} looks straight at {a} and explains calmly, her tablet with the two circles (blurred) and her white takeaway cup on the high table between them; {a} nods slowly, taking it in. | cups clinking
+9 | office | ins | Close-up of {a}'s empty desk by the window: her smartphone in a pale pink case lies face up after a call, beside the white ceramic mug, the small succulent and the large monitor still showing the board presentation (screens blurred); colleagues walk past in the soft-focus open-plan background. | footsteps passing, office chatter
+10 | glass | med | In the small glass-walled meeting room with the door closed, the open-plan office blurred through the glass, {a} calls her mother back on her pink-cased smartphone, speaking seriously but gently. | door click, muffled office sounds
+11 | office | med | Back at her desk by the window, {a} types a short message on her silver laptop (screen blurred), sends it, then locks the laptop and the large monitor goes dark; she turns her pink-cased smartphone face down beside the white mug; {n} gives her a quiet thumbs-up from the next desk. | soft click
+12 | office | med | Friday evening at the same desk by the window, golden dusk outside: the large monitor shows a company news page announcing the new plant (screen blurred), the white mug and small succulent beside it; {a} reads a new message from her mother on her pink-cased smartphone (screen blurred) and smiles warmly as colleagues pack up behind her. | soft office chatter
 
 ## 2026-12-01
 1 | glass | trk | {s} strides quickly into the small glass-walled meeting room holding a tablet that shows a client folder full of files (screen blurred). | door swish, quick footsteps | g: ไฟล์ "NDA.pdf" ในโฟลเดอร์
@@ -103,7 +104,7 @@ x vis [ผู้มาติดต่อ] = the visitor: Thai man, about 40, nea
 9 | office | ins | Close-up of a monitor: an AI-ranked list of job applicants beside a draft rejection email (blurred).
 10 | glass | two | {n} and {r} sit together in the glass meeting room reviewing printed applications against a criteria checklist, the laptop with the AI ranking pushed to one side.
 11 | office | ins | Close-up: an email with an employment-terms attachment is sent to the legal team; a short note line at the bottom of the email (all text blurred). | email whoosh | g: บรรทัด "ใช้ AI ช่วยจัดทำ"
-12 | ~a small Thai electrical repair workshop with tools and cable reels | med | A Thai electrician in his late thirties, in a work shirt, answers his phone in his workshop and breaks into a smile // [cu@office] {n} glances at the yellow sticky note on her monitor, which now has a second cat sticker on it, and grins. | phone ringtone
+12 | ~a small Thai electrical repair workshop with tools and cable reels | med | A Thai electrician in his late thirties, in a work shirt, reads a message on his phone in his workshop and breaks into a smile // [cu@office] {n} glances at the yellow sticky note on her monitor, which now has a second cat sticker on it, and grins. | phone ringtone
 
 ## 2027-01-19
 1 | office | ins | Close-up of a monitor showing a warranty-registration system with thousands of customer rows (blurred), beside a promotional poster of a new home inverter on the wall (no text).
@@ -232,7 +233,7 @@ x wife = the team head's wife: Thai woman, about 42, chin-length hair with a str
 8 | coffee | ots | Over {h}'s shoulder: {c} points to a desk calendar with a block of dates shaded red.
 9 | home | ins | Close-up: a phone with a stock-trading app (blurred) next to a wall calendar with the results-announcement date circled.
 10 | office | two | {h} fills in a reporting form at {c}'s desk while she points to the right boxes (text blurred).
-11 | home | two | At home, {h} explains something to {wife}; they look at a calendar on the fridge together.
+11 | home | two | At home, {h} points at a date on the calendar on the fridge while {wife} nods; they look at it together.
 12 | home | ins | Close-up: a calendar on the fridge with a span of dates circled in red marker // [cu@office] {h} lets out a long sigh, then takes a sip from his plain white mug. | g: แก้ว "งานต้องเดิน"
 
 ## 2027-07-06
@@ -314,7 +315,7 @@ x off [เจ้าหน้าที่] = the counter official: Thai man, abou
 x bil = the procurement officer's brother-in-law: Thai man, about 48, round belly, balding on top, yellow-and-white striped polo shirt, holding a glass of juice
 x phead [หัวหน้าจัดซื้อ] = the procurement manager: Thai man, about 52, neat grey hair, rimless glasses, lavender shirt and dark tie
 1 | office | ins | In the procurement department, a monitor shows a scoring table for four electrical-equipment suppliers (blurred).
-2 | ~a lively Thai family dinner at home: a long table of dishes, relatives chatting | med | At a family gathering, {bil} proudly talks about his business while {a} listens politely, her smile slowly fading. | family chatter, laughter
+2 | ~a lively Thai family dinner at home: a long table of dishes, relatives chatting | med | At a family gathering, {bil} proudly shows photos of his business on his phone while {a} looks on politely, her smile slowly fading. | family chatter, laughter
 3 | office | trk | Monday morning, {a} walks over to {phead}'s desk holding a folder // [two] {phead} looks up and answers thoughtfully.
 4 | ~a plain office with a family-tree diagram drawn in marker on a glass wall | wide | Mock news reconstruction: a family-tree diagram on a glass wall links an officer to relatives who work for a vendor (names blurred) // [ins@office] Back on {a}'s monitor: the supplier scoring table (blurred).
 5 | office | ins | Close-up: the cursor hovers over a score cell in the supplier table on {a}'s monitor (blurred), held still. | g: หยุดภาพ + วงนับถอยหลัง 3 วินาที
@@ -506,7 +507,7 @@ x cust = the client's director: Thai man, about 56, grey hair, trimmed grey mous
 8 | coffee | med | {c} explains, tapping an insurance-policy booklet; {h} listens closely.
 9 | glass | ins | Close-up: a contract page with the unlimited-liability clause highlighted in yellow.
 10 | glass | two | {h} and {legal2} build a worst-case table on a laptop together (screen blurred).
-11 | office | med | {h} talks confidently with the client on the phone, a proposal open on his monitor (blurred).
+11 | office | med | {h} confidently types a reply to the client, a proposal open on his monitor (blurred).
 12 | client | two | {h} shakes hands with {cust} over a signed contract // [med@office] {h} walks past the team board and wipes one word off it with an eraser. | g: คำว่า "ด่วนมาก"
 
 ## 2028-04-04
@@ -670,7 +671,7 @@ x grp [เพื่อนในกลุ่ม LINE] = a school friend in the gr
 8 | coffee | ots | Over {s}'s shoulder: {c} shows her the company's investor-relations page on a tablet (blurred).
 9 | home | ins | Close-up of a phone screen: a group chat with a tag, a rumour link and a smiley sticker (blurred).
 10 | home | ins | Close-up: {s} calmly types a reply in the group chat (screen blurred) // [cu] {s} sends it and puts the phone face down.
-11 | office | two | Monday morning, {s} tells {h} about the rumour spreading in the chat; {h} nods seriously.
+11 | office | two | Monday morning, {s} shows {h} the rumour spreading in the chat on her phone (blurred); {h} nods seriously.
 12 | home | ins | The friends' group chat moves on to planning a class reunion (blurred) // [ins@office] {s} crosses out a phrase on a sticky note and writes a new one (handwriting blurred).
 
 ## 2028-09-05
@@ -1088,5 +1089,5 @@ x sup6 = the supplier's sales rep: Thai man, about 40, gelled spiky hair, dark-r
 8 | coffee | cu | {c} flips over the last two cards so six lie in a row; {p} smiles.
 9 | ~a site tent beside a work site | ins | Close-up: a luxury party invitation card lying on top of an inspection checklist on a folding table.
 10 | site | two | {p} politely hands the invitation back to {sup6}.
-11 | sitebox | two | {p} tells {n} what happened; they both smile.
+11 | sitebox | two | {p} shows {n} the result on his tablet (blurred); they both smile.
 12 | site | wide | At dusk, {n} and {p} walk the site together // [trk@office] The camera glides past every desk on the 12th floor, each with a question note stuck to it, and ends on {h}'s white mug // [ins] {p} writes everything down in his pocket notebook. | g: แก้วหัวหน้าสลักใหม่ "งานต้องเดิน...อย่างถูกต้อง"

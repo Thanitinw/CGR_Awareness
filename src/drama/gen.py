@@ -390,6 +390,7 @@ def lean_edit(dr, date):
         v = re.sub(r'ข้อความบนจอ\s*"[^"]*"\s*', '', s['visual'])
         v = re.sub(r'\s*(พร้อม)?วงนับถอยหลัง 3 วินาที', '', v)
         v = re.sub(r'ภาพหยุดนิ่ง:?\s*(ที่)?|\s*หยุดนิ่ง|หยุดภาพ(ที่)?\s*', ' ', v).strip(' ·,')
+        v = re.sub(r'^ช็อตหยุดคิด[^:]*:\s*', '', v)
         v = re.sub(r'\s+', ' ', v)
         s['visual'] = 'ช็อตหยุดคิด (สร้างใน Flow): ' + v + ' · ทุกคนในภาพนิ่ง กล้องค่อย ๆ ดันเข้า ผู้บรรยายถามคำถามชวนคิด'
         s['screen'] = []   # no question card or countdown (review 27 ต.ค. 2569): the narrator asks, the subtitle shows it
@@ -410,7 +411,7 @@ def lean_edit(dr, date):
         dr['est'] = int(round(t))
     return dr
 
-PACE = 4.5          # syllables per second: brisk, natural Thai (review 22 ต.ค. 2569: every episode ≤ 2 minutes, faster storytelling)
+PACE = 4.1          # syllables per second (review 3 พ.ย. 2569: slower so Flow speaks Thai clearly; was 4.5) (review 22 ต.ค. 2569: every episode ≤ 2 minutes, faster storytelling)
 MAX_EP = 118        # seconds, leaves room under the 2-minute cap
 def pace(dr):
     """re-time every scene from its speech: brisk pace, short breath between scenes, countdown scenes keep 3 s of countdown"""
