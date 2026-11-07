@@ -149,7 +149,7 @@ def attach(D, path=None, report=True):
                     for xk, xv in list(X.items()) + list(G.items()):
                         if xv and (base in xv['al']): k = xk; X.setdefault(xk, xv); break
                 if k: sp[w] = [k, th]; used.add(k)
-        xs = {k: [X[k]['n'], X[k]['d']] for k in sorted(used) if k not in MAIN and X.get(k)}
+        xs = {k: [X[k]['n'], X[k]['d']] + ([X[k]['al'][0]] if X[k].get('al') else []) for k in sorted(used) if k not in MAIN and X.get(k)}
         dr['fl'] = dict(lab={k: lab_id[k] for k in sorted(used & MAIN)}, x=xs, sp=sp, s=out)
     if report:
         print(f'flow: {n_ok}/{n_sc} scenes have shot data')

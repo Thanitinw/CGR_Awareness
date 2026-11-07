@@ -575,7 +575,8 @@
     "x": {
      "sup": [
       "the supplier representative",
-      "Thai man, about 50, shaved bald head, thin goatee, beige short-sleeve shirt, brown trousers, holding a clipboard"
+      "Thai man, about 50, shaved bald head, thin goatee, beige short-sleeve shirt, brown trousers, holding a clipboard",
+      "Supplier"
      ]
     },
     "sp": {
@@ -1335,11 +1336,13 @@
     "x": {
      "mom": [
       "the mother of the senior accountant, heard on the phone only",
-      "Thai woman, about 76, gentle warm voice of an older lady"
+      "Thai woman, about 76, gentle warm voice of an older lady",
+      "คุณแม่"
      ],
      "nexec": [
       "a listed-company executive in a mock news reconstruction",
-      "Thai man, about 55, grey suit, rimless glasses, face turned mostly away"
+      "Thai man, about 55, grey suit, rimless glasses, face turned mostly away",
+      "ผู้บริหารในข่าว"
      ]
     },
     "sp": {
@@ -1567,7 +1570,9 @@
         "Back at her desk by the window, {a} types a short message on her silver laptop (screen blurred), sends it, then locks the laptop and the large monitor goes dark; she turns her pink-cased smartphone face down beside the white mug; {n} gives her a quiet thumbs-up from the next desk."
        ]
       ],
-      "sfx": "soft click"
+      "sfx": "soft click",
+      "n": 1,
+      "np": 1
      },
      {
       "no": 15,
@@ -1872,45 +1877,40 @@
     "พี่ Compliance (ญ)"
    ],
    "lead": "พี่เซลส์",
-   "est": 128,
+   "est": 154,
    "sb": {
     "audience": "ฝ่ายขาย วิศวกรประมาณราคา และผู้ประสานงานกับ Subcontractor",
     "theme": "ละครซีรีส์ \"ชั้น 12\" · ตัวเอกตอนนี้: พี่เซลส์",
-    "music": "จังหวะเร่งเบา ๆ ช่วงทำงานไม่ทัน เบาลงตอนหยุดคิด เพลงประจำซีรีส์ตอนปิด",
+    "music": "จังหวะเร่งเบา ๆ ช่วงเส้นตาย เบาลงตอนหยุดคิด อบอุ่นตอนลูกค้าตอบกลับ",
     "parts": [
      {
       "name": "Opening: ไฟล์ที่มาพร้อม NDA",
       "scenes": [
        {
         "no": 1,
-        "time": "0:00–0:06",
+        "time": "0:00–0:10",
         "title": "เปิดเรื่อง",
         "desc": "เปิดเรื่อง",
-        "visual": "พี่เซลส์เดินเร็วเข้าห้องกระจก ถือแท็บเล็ต บนจอเป็นโฟลเดอร์ไฟล์ลูกค้าพร้อมไฟล์ \"NDA.pdf\"",
+        "visual": "เย็นวันพฤหัส ห้องกระจก พี่เซลส์นั่งหน้าแท็บเล็ต ตาล้า บนจอเป็นโฟลเดอร์ไฟล์ลูกค้าพร้อมไฟล์ \"NDA.pdf\" มือถือขึ้นข้อความจากหัวหน้า",
         "audio": [
          [
           "ผู้บรรยาย",
-          "ลูกค้าส่งแบบกับสเปกมาให้เสนอราคา พร้อม NDA แต่พี่เซลส์มีเวลาแค่ถึงวันศุกร์"
+          "เย็นวันพฤหัส ลูกค้ารายใหญ่ที่สุดของปีส่งแบบกับสเปกมาให้เสนอราคา พร้อม NDA หนึ่งฉบับ พรุ่งนี้บ่ายต้องยื่น แต่รายการวัสดุยังถอดไม่ถึงครึ่ง"
          ]
         ],
-        "screen": [
-         [
-          "ข้อความบนจอ",
-          "ไฟล์ลูกค้าภายใต้ NDA ส่งต่อให้ Vendor ได้ไหม?"
-         ]
-        ],
+        "screen": [],
         "fno": 1
        },
        {
         "no": 2,
-        "time": "0:06–0:12",
-        "title": "ส่งทั้งชุด",
-        "desc": "ส่งทั้งชุด",
-        "visual": "พี่เซลส์กดเลือกทั้งโฟลเดอร์ นิ้วค้างเหนือปุ่ม \"แชร์ให้ Vendor\" น้องใหม่นั่งอยู่ข้าง ๆ",
+        "time": "0:10–0:15",
+        "title": "เวนเดอร์ทักมา",
+        "desc": "เวนเดอร์ทักมา",
+        "visual": "มือถือพี่เซลส์ขึ้นข้อความจากเวนเดอร์ (จอเบลอ) พี่เซลส์กดเลือกทั้งโฟลเดอร์ นิ้วค้างเหนือปุ่มแชร์ น้องใหม่นั่งอยู่ข้าง ๆ",
         "audio": [
          [
           "พี่เซลส์",
-          "“น้องใหม่ พี่ส่งทั้งโฟลเดอร์ให้ เวนเดอร์ ช่วยถอดรายการนะ ไม่งั้นไม่ทันแน่”"
+          "“น้องใหม่ เวนเดอร์บอกส่งมาเลย คืนนี้ถอดราคาให้ ทันแน่”"
          ]
         ],
         "screen": [],
@@ -1918,18 +1918,18 @@
        },
        {
         "no": 3,
-        "time": "0:12–0:20",
-        "title": "น้องใหม่สงสัย",
-        "desc": "น้องใหม่สงสัย",
-        "visual": "น้องใหม่ชี้ไฟล์ NDA บนจอ พี่เซลส์โบกมือยิ้ม ๆ",
+        "time": "0:15–0:21",
+        "title": "ไว้ใจได้",
+        "desc": "ไว้ใจได้",
+        "visual": "น้องใหม่ชี้ไฟล์ NDA บนจอ พูดเสียงเบา พี่เซลส์ยิ้มให้อย่างมั่นใจ",
         "audio": [
          [
           "น้องใหม่",
-          "“ไฟล์ชุดนี้มี NDA นะคะพี่ ส่งต่อได้เหรอคะ”"
+          "“พี่คะ… ในโฟลเดอร์มี NDA ด้วยนะคะ”"
          ],
          [
           "พี่เซลส์",
-          "“เวนเดอร์ ก็ทำงานให้เรา ไม่ใช่คนนอกสักหน่อย ได้ค่ะ ไม่มีปัญหา!”"
+          "“เจ้านี้ทำงานกับเรามาห้าปีแล้ว ไว้ใจได้”"
          ]
         ],
         "screen": [],
@@ -1937,14 +1937,14 @@
        },
        {
         "no": 4,
-        "time": "0:20–0:31",
-        "title": "เคยเกิดขึ้นจริง",
+        "time": "0:21–0:33",
+        "title": "เคสจริงในไทย",
         "desc": "ลองนึกต่อ",
-        "visual": "ภาพข่าวจำลอง (ไม่มีชื่อและโลโก้จริง): หน้าศาลต่างประเทศ หัวข่าว \"Supplier ผิดสัญญารักษาความลับ จ่าย 4.8 ล้านดอลลาร์\" ตัดกลับมาที่พี่เซลส์มองไฟล์ NDA",
+        "visual": "ภาพข่าวจำลอง (ไม่มีชื่อและโลโก้จริง): ออฟฟิศบริษัทขนส่ง โพสต์อิทรหัสผ่านแปะข้างจอคอมพิวเตอร์ แฟ้มใบเสนอราคาวางเปิดบนตู้ ตัดกลับมาที่พี่เซลส์มองไฟล์ NDA",
         "audio": [
          [
           "ผู้บรรยาย",
-          "ปี 2560 ศาลสหรัฐฯ สั่ง ซัพพลายเออร์ รายใหญ่จ่าย 4.8 ล้านดอลลาร์ เพราะพนักงานแอบถ่ายรูปและเก็บชิ้นส่วนลับจากแล็บของลูกค้า ผิดสัญญาที่ให้ไว้"
+          "เรื่องแบบนี้เคยขึ้นศาลไทย ปี 2560 บริษัทขนส่งฟ้องอดีตพนักงานที่เอาลูกค้าไปเปิดบริษัทแข่ง แต่ศาลฎีกาให้แพ้ เพราะรหัสผ่านแปะข้างจอ แฟ้มราคาใครก็เปิดได้"
          ]
         ],
         "screen": [],
@@ -1956,24 +1956,24 @@
         "audio": [
          [
           "ผู้บรรยาย",
-          "บทเรียนจากคดีนั้น ค่าเสียหายสี่จุดแปดล้านดอลลาร์ มาจากข้อมูลลับของลูกค้าที่หลุดออกนอกเงื่อนไขสัญญา ถ้าเราส่งแบบลูกค้าผิดเงื่อนไข NDA บริษัทอาจผิดสัญญา ต้องจ่ายค่าเสียหาย และเสียความไว้ใจของลูกค้า"
+          "ศาลมองว่า ข้อมูลที่ใครก็หยิบได้ ไม่ใช่ความลับแล้ว แบบของลูกค้าก็เหมือนกัน ลูกค้าส่งมาเพราะเชื่อว่าเราจะดูแลเหมือนความลับ ถ้าทั้งโฟลเดอร์หลุดไปถึงคนที่ NDA ไม่อนุญาต บริษัทผิดสัญญา เสียลูกค้า และคนกดส่งอาจถูกเลิกจ้างโดยไม่ได้ค่าชดเชย"
          ]
         ],
         "screen": [],
-        "fx": "glass | cu | {s} sits alone in the glass meeting room, looking thoughtfully at the customer folder still open on a tablet (screen blurred), a finger slowly moving away from the share button. // [cu] A closer, slower angle on the same moment. {s} sits alone in the glass meeting room, looking thoughtfully at the customer folder still open on a tablet (screen blurred), a finger slowly moving away from the share button. | quiet room tone | n:2+",
+        "fx": "glass | cu | {s} sits alone in the glass meeting room, looking thoughtfully at the client folder still open on a tablet (screen blurred), a finger slowly moving away from the share button. // [ins] Close-up: {s}'s hand rests beside the tablet, the share menu still open (interface blurred), then she slowly closes the menu. | quiet room tone | n:2+",
         "no": 5,
-        "time": "0:31–0:46"
+        "time": "0:33–0:51"
        },
        {
         "no": 6,
-        "time": "0:46–0:51",
+        "time": "0:51–0:59",
         "title": "หยุดคิด",
         "desc": "หยุดคิด",
         "visual": "ช็อตหยุดคิด (สร้างใน Flow): นิ้วพี่เซลส์เหนือปุ่มแชร์ · ทุกคนในภาพนิ่ง กล้องค่อย ๆ ดันเข้า ผู้บรรยายถามคำถามชวนคิด",
         "audio": [
          [
           "ผู้บรรยาย",
-          "เวนเดอร์ ที่ทำงานให้เรา ตาม NDA นับเป็นคนในหรือคนนอก?"
+          "เวนเดอร์ไว้ใจได้มาห้าปี ไม่เคยทำเรื่องเสีย แต่คนที่อนุญาตให้ส่งแบบชุดนี้ได้ คือเรา หรือลูกค้า?"
          ]
         ],
         "screen": [],
@@ -1982,22 +1982,22 @@
       ]
      },
      {
-      "name": "Body: NDA กำหนดว่าใครรับข้อมูลได้",
+      "name": "Body: ไว้ใจได้ ไม่ได้แปลว่าส่งได้",
       "scenes": [
        {
         "no": 7,
-        "time": "0:51–1:02",
-        "title": "NDA กำหนดอะไร",
-        "desc": "NDA กำหนดอะไร",
-        "visual": "มุมกาแฟ น้องใหม่พาพี่เซลส์มาถามพี่ Compliance พี่ Compliance วาดวงกลม 2 วงบนกระดาษ \"ใครรับได้\" กับ \"ใช้เพื่ออะไร\"",
+        "time": "0:59–1:09",
+        "title": "ไว้ใจไม่เท่ากับอนุญาต",
+        "desc": "ไว้ใจไม่เท่ากับอนุญาต",
+        "visual": "มุมกาแฟ น้องใหม่พาพี่เซลส์มาหาพี่ Compliance พี่เซลส์ถามด้วยสีหน้าหนักใจ พี่ Compliance ถือแก้วกาแฟ ตอบอย่างใจดีแต่หนักแน่น",
         "audio": [
          [
           "พี่เซลส์",
-          "“พี่ เวนเดอร์ ก็ทำงานให้เรา ตาม NDA นับเป็นคนนอกด้วยเหรอ”"
+          "“พี่คะ เจ้านี้ไม่เคยทำเรื่องเสียเลยนะ ส่งให้เขาไม่ได้เหรอคะ”"
          ],
          [
           "พี่ Compliance",
-          "“NDA ส่วนใหญ่กำหนดว่าใครรับข้อมูลได้ เอาไปใช้ทำอะไร หลายฉบับต้องขอลูกค้าก่อนส่งต่อด้วย”"
+          "“เชื่อค่ะ แต่ NDA ไม่ได้ถามว่าเราไว้ใจใคร มันถามว่าลูกค้าอนุญาตใคร”"
          ]
         ],
         "screen": [],
@@ -2005,14 +2005,14 @@
        },
        {
         "no": 8,
-        "time": "1:02–1:10",
-        "title": "ความลับทางการค้า",
-        "desc": "ความลับทางการค้า",
-        "visual": "ไอคอนแบบ สเปก และตัวเลขเทคนิค มีแม่กุญแจคล้องไว้",
+        "time": "1:09–1:20",
+        "title": "ใครอนุมัติ",
+        "desc": "ใครอนุมัติ",
+        "visual": "มุมกาแฟ พี่ Compliance ยกแท็บเล็ตที่มีแผนภาพลูกศร เจ้าของข้อมูล → อนุมัติ → ส่งเท่าที่จำเป็น (จอเบลอ) อธิบายให้พี่เซลส์กับน้องใหม่ฟัง",
         "audio": [
          [
           "พี่ Compliance",
-          "“แบบกับสเปกลูกค้าอาจเป็นความลับทางการค้า ส่งนอกเงื่อนไขเมื่อไร บริษัทอาจผิดสัญญา แถมเสียความไว้ใจลูกค้าอีก”"
+          "“แบบของลูกค้าเป็นข้อมูลลับค่ะ ตามนโยบายข้อมูลของเรา ก่อนส่งออกนอกบริษัท ให้ผู้จัดการฝ่ายขายซึ่งดูแลข้อมูลลูกค้าอนุมัติก่อน แล้วส่งเท่าที่จำเป็น”"
          ]
         ],
         "screen": [],
@@ -2020,14 +2020,18 @@
        },
        {
         "no": 9,
-        "time": "1:10–1:18",
-        "title": "จรรยาบรรณ",
-        "desc": "จรรยาบรรณ",
-        "visual": "หน้าคู่มือจรรยาบรรณ หัวข้อทรัพย์สินทางปัญญาไฮไลต์สีเหลือง",
+        "time": "1:20–1:29",
+        "title": "แล้วถ้าไม่ทันล่ะ",
+        "desc": "แล้วถ้าไม่ทันล่ะ",
+        "visual": "มุมกาแฟ พี่เซลส์กุมขมับ พี่ Compliance ยิ้มใจเย็น ทำมือเป็นท่าโทรศัพท์",
         "audio": [
          [
+          "พี่เซลส์",
+          "“แต่พรุ่งนี้บ่ายต้องยื่นแล้ว ถ้าลูกค้าตอบไม่ทันล่ะ”"
+         ],
+         [
           "พี่ Compliance",
-          "“จรรยาบรรณเราห้ามเปิดเผยความลับทางการค้าให้คนไม่เกี่ยวข้อง และห้ามใช้ข้อมูลคู่ค้าผิดวัตถุประสงค์”"
+          "“โทรถามลูกค้าตรง ๆ เลยค่ะ ระหว่างรอ ก็ถอดส่วนที่ทำเองได้ไปก่อน”"
          ]
         ],
         "screen": [],
@@ -2039,46 +2043,46 @@
         "audio": [
          [
           "พี่ Compliance",
-          "“ใจเย็น ๆ ทำทีละข้อนะคะ หนึ่ง เปิด NDA ดูข้อผู้รับข้อมูลก่อนส่งต่อค่ะ”"
+          "“ใจเย็น ๆ ทำทีละข้อนะคะ หนึ่ง เปิด NDA ดูว่าใครรับข้อมูลได้ ต้องขอลูกค้าก่อนไหม”"
          ],
          [
           "พี่ Compliance",
-          "“สอง ถ้าต้องให้เวนเดอร์ใช้ ขอความยินยอมลูกค้าเป็นลายลักษณ์อักษร และให้เวนเดอร์เซ็น NDA กับเรา”"
+          "“สอง ขอลูกค้า ให้ผู้จัดการฝ่ายขายอนุมัติ และให้เวนเดอร์เซ็น NDA กับเรา”"
          ],
          [
           "พี่ Compliance",
-          "“สาม ส่งเฉพาะไฟล์ที่จำเป็นต่องาน”"
+          "“สาม ส่งเฉพาะไฟล์ที่ต้องใช้ ผ่านลิงก์ที่ตั้งวันหมดอายุ”"
          ]
         ],
         "screen": [],
         "fx": "coffee | two | {c} holds up her tablet showing three short numbered steps (screen blurred) and explains them one by one to {s}, counting on her fingers; {s} listens closely and nods. // [med] At the coffee corner, {c} goes on to the remaining steps, tablet in hand, still facing {s}, who nods | espresso machine hum | n:2+",
         "no": 10,
-        "time": "1:18–1:32"
+        "time": "1:29–1:44"
        },
        {
         "title": "ถ้าพลาดไปแล้ว",
-        "visual": "ภาพใกล้โน้ตบุ๊ก อีเมลถึงฝ่ายกฎหมายกำลังถูกส่ง (จอเบลอ)",
+        "visual": "ภาพใกล้แท็บเล็ต นิ้วกดยกเลิกลิงก์แชร์ แล้วพิมพ์ข้อความแจ้งหัวหน้า (จอเบลอ)",
         "audio": [
          [
           "ผู้บรรยาย",
-          "ถ้าส่งไปแล้ว อย่าเงียบ แจ้งหัวหน้าและฝ่ายกฎหมายทันที ขอให้ผู้รับลบไฟล์และยืนยันเป็นลายลักษณ์อักษร เก็บหลักฐานการส่งไว้ ให้ฝ่ายกฎหมายประเมินว่าต้องแจ้งลูกค้าหรือไม่"
+          "ถ้าส่งไปแล้ว อย่าเงียบ แจ้งหัวหน้าทันที ขอให้ผู้รับลบไฟล์และยืนยันเป็นลายลักษณ์อักษร เก็บหลักฐานไว้"
          ]
         ],
         "screen": [],
-        "fx": "desk | ins | Close-up: on a laptop, an email to the legal team is being finished (screen blurred, no readable text); a finger presses send. // [ins] A closer, slower angle on the same moment. Close-up: on a laptop, an email to the legal team is being finished (screen blurred, no readable text); a finger presses send. | soft click | n:2+",
+        "fx": "glass | ins | Close-up: on a tablet, a finger taps to revoke a shared link, then types a short message to a manager (screen blurred, no readable text). | soft click",
         "no": 11,
-        "time": "1:32–1:45"
+        "time": "1:44–1:52"
        },
        {
         "no": 12,
-        "time": "1:45–1:52",
+        "time": "1:52–2:04",
         "title": "สัญญาณเตือน",
         "desc": "สัญญาณเตือน",
         "visual": "ภาพใกล้แท็บเล็ตบนโต๊ะประชุม โฟลเดอร์ลูกค้าถูกเลือกทั้งหมด เมนูแชร์เปิดค้างอยู่",
         "audio": [
          [
           "ผู้บรรยาย",
-          "สัญญาณเตือน คือข้อมูลมี NDA กำลังจะส่งให้คนนอก และส่งไปทั้งชุด ทั้งที่ใช้แค่บางส่วน"
+          "ย้อนกลับไปเย็นวันพฤหัส สัญญาณเตือนมีครบ ไฟล์มี NDA แนบมา ผู้รับอยู่นอกบริษัท จะส่งทั้งโฟลเดอร์ทั้งที่ใช้จริงแค่สามไฟล์ และประโยคที่เราพูดกันบ่อยที่สุด ไว้ใจได้"
          ]
         ],
         "screen": [],
@@ -2087,18 +2091,22 @@
       ]
      },
      {
-      "name": "Conclusion: ขอความยินยอม เซ็น NDA และส่งเท่าที่จำเป็น",
+      "name": "Conclusion: ถามก่อน อนุมัติ และส่งเท่าที่จำเป็น",
       "scenes": [
        {
         "no": 13,
-        "time": "1:52–1:56",
-        "title": "เปิด NDA ดู",
-        "desc": "เปิด NDA ดู",
-        "visual": "พี่เซลส์เปิด NDA ไฮไลต์ข้อ \"ผู้รับข้อมูล\" แล้วพิมพ์ Email หาลูกค้า",
+        "time": "2:04–2:15",
+        "title": "โทรหาลูกค้า",
+        "desc": "โทรหาลูกค้า",
+        "visual": "ห้องกระจก พี่เซลส์โทรหาลูกค้า สีหน้าลุ้น ฟังอยู่ครู่หนึ่ง แล้วไหล่ค่อย ๆ คลายลง ยิ้มโล่ง",
         "audio": [
          [
           "พี่เซลส์",
-          "“ต้องขอลูกค้าก่อนจริงด้วย เดี๋ยวพี่ส่ง อีเมล ขอวันนี้เลย”"
+          "“ขอโทษที่รบกวนนะคะ ขอให้เวนเดอร์ของเราช่วยถอดราคาได้ไหมคะ”"
+         ],
+         [
+          "ลูกค้า",
+          "“ขอบคุณที่ถามก่อนนะคะ ให้เขาเซ็น NDA มา แล้วส่งเฉพาะแบบงานระบบได้เลยค่ะ”"
          ]
         ],
         "screen": [],
@@ -2106,14 +2114,14 @@
        },
        {
         "no": 14,
-        "time": "1:56–2:04",
+        "time": "2:15–2:25",
         "title": "ส่งเท่าที่จำเป็น",
         "desc": "ส่งเท่าที่จำเป็น",
-        "visual": "น้องใหม่เลือกเฉพาะ 3 ไฟล์ที่ต้องใช้ พร้อมแนบฟอร์ม NDA สำหรับ Vendor",
+        "visual": "น้องใหม่เลือกเฉพาะ 3 ไฟล์บนจอ ตั้งวันหมดอายุลิงก์ (จอเบลอ) มือถือบนโต๊ะขึ้นข้อความอนุมัติจากผู้จัดการฝ่ายขาย",
         "audio": [
          [
           "ผู้บรรยาย",
-          "ได้ความยินยอมแล้ว ให้ เวนเดอร์ เซ็น NDA กับเรา ส่งเฉพาะส่วนที่ต้องใช้ ไม่แน่ใจถ้อยคำ ให้ฝ่ายกฎหมายดู"
+          "หนึ่งชั่วโมงต่อมา ผู้จัดการฝ่ายขายอนุมัติ เวนเดอร์เซ็น NDA กลับมา น้องใหม่ส่งแค่สามไฟล์ผ่านลิงก์ที่หมดอายุได้ ทันยื่นราคาบ่ายวันศุกร์"
          ]
         ],
         "screen": [],
@@ -2121,14 +2129,18 @@
        },
        {
         "no": 15,
-        "time": "2:04–2:08",
+        "time": "2:25–2:34",
         "title": "ปิดท้าย",
         "desc": "ปิดท้าย",
-        "visual": "น้องใหม่เปลี่ยนชื่อโฟลเดอร์จาก \"ส่งทั้งชุด\" เป็น \"ส่งเท่าที่จำเป็น\" พี่เซลส์หัวเราะ",
+        "visual": "บ่ายวันศุกร์ พี่เซลส์วางแก้วกาแฟบนโต๊ะน้องใหม่ ยิ้มขอบคุณ น้องใหม่ยิ้มตอบ",
         "audio": [
          [
+          "พี่เซลส์",
+          "“ขอบใจนะที่ทักพี่”"
+         ],
+         [
           "ผู้บรรยาย",
-          "ข้อมูลภายใต้ NDA ส่งต่อได้เฉพาะคนและงานที่ NDA อนุญาต"
+          "งานไม่ได้ช้าลง แค่ถามก่อนหนึ่งสาย ข้อมูลภายใต้ NDA ส่งเฉพาะคนและงานที่อนุญาต เท่าที่จำเป็น"
          ]
         ],
         "screen": [],
@@ -2139,25 +2151,35 @@
     ]
    },
    "ref": {
-    "case": "T-Mobile v. Huawei (สหรัฐฯ 2017): Supplier ผิดสัญญารักษาความลับของลูกค้า",
-    "use": "เปลี่ยน \"ลองนึกต่อ\" เป็นเรื่องจริง: คู่ค้าที่ได้เข้าถึงข้อมูลลับของลูกค้าแล้วนำไปใช้ จนศาลให้จ่ายค่าเสียหาย 4.8 ล้านดอลลาร์ฐานผิดสัญญา",
+    "case": "คำพิพากษาศาลฎีกาที่ 1323/2560: รายชื่อลูกค้าและอัตราค่าขนส่งไม่เป็นความลับทางการค้า เพราะเจ้าของไม่มีมาตรการรักษาความลับที่เหมาะสม (รหัสผ่านแปะข้างจอ แฟ้มราคาพนักงานทุกคนเปิดได้) · ประกอบ ศาลอุทธรณ์คดีชำนัญพิเศษ 196/2564: ลูกจ้างเปิดเผยความลับทางการค้าแก่บุคคลภายนอก เลิกจ้างได้โดยไม่จ่ายค่าชดเชย",
+    "use": "ฉากผู้บรรยายเล่าเคสไทย: ความลับจะได้รับความคุ้มครองก็ต่อเมื่อทุกคนดูแลมันเหมือนความลับ โยงกลับมาที่แบบของลูกค้าที่พี่เซลส์จะส่งทั้งโฟลเดอร์ให้เวนเดอร์ที่ \"ไว้ใจได้\"",
     "sources": [
      [
-      "Phys.org (AP): Jury awards T-Mobile $4.8M in trade-secrets case against Huawei",
-      "https://phys.org/news/2017-05-jury-awards-t-mobile-48m-trade-secrets.html"
+      "Advancedlaw9: คำพิพากษาศาลฎีกาที่ 1323/2560 ไม่ถือเป็นความลับทางการค้า",
+      "https://www.advancedlaw9.com/2020/09/07/%E0%B8%84%E0%B8%B3%E0%B8%9E%E0%B8%B4%E0%B8%9E%E0%B8%B2%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B8%A8%E0%B8%B2%E0%B8%A5%E0%B8%8E%E0%B8%B5%E0%B8%81%E0%B8%B2%E0%B8%97%E0%B8%B5%E0%B9%88-1323-2560-%E0%B9%84%E0%B8%A1/"
+     ],
+     [
+      "Legal Clinic: ลูกจ้างเปิดเผยความลับทางการค้าของนายจ้างแก่บุคคลภายนอก (ศาลอุทธรณ์คดีชำนัญพิเศษ 196/2564)",
+      "https://legalclinic.co.th/2025/06/11/%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%88%E0%B9%89%E0%B8%B2%E0%B8%87-%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B9%80%E0%B8%9C%E0%B8%A2%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A5%E0%B8%B1%E0%B8%9A-2/"
      ]
     ]
    },
-   "summary": "ข้อมูลภายใต้ NDA ส่งต่อได้เฉพาะคนและวัตถุประสงค์ที่ NDA อนุญาต",
+   "summary": "ข้อมูลภายใต้ NDA ส่งเฉพาะคนและงานที่เจ้าของข้อมูลอนุญาต และเท่าที่จำเป็น",
    "pov": "เมื่อพี่ส่งไฟล์ลูกค้าทั้งโฟลเดอร์ให้เวนเดอร์",
-   "script": "[0:00–0:51 | Opening: ไฟล์ที่มาพร้อม NDA]\nผู้บรรยาย: ลูกค้าส่งแบบกับสเปกมาให้เสนอราคา พร้อม NDA แต่พี่เซลส์มีเวลาแค่ถึงวันศุกร์\nข้อความบนจอ: ไฟล์ลูกค้าภายใต้ NDA ส่งต่อให้ Vendor ได้ไหม?\nพี่เซลส์: “น้องใหม่ พี่ส่งทั้งโฟลเดอร์ให้ เวนเดอร์ ช่วยถอดรายการนะ ไม่งั้นไม่ทันแน่”\nน้องใหม่: “ไฟล์ชุดนี้มี NDA นะคะพี่ ส่งต่อได้เหรอคะ”\nพี่เซลส์: “เวนเดอร์ ก็ทำงานให้เรา ไม่ใช่คนนอกสักหน่อย ได้ค่ะ ไม่มีปัญหา!”\nผู้บรรยาย: ปี 2560 ศาลสหรัฐฯ สั่ง ซัพพลายเออร์ รายใหญ่จ่าย 4.8 ล้านดอลลาร์ เพราะพนักงานแอบถ่ายรูปและเก็บชิ้นส่วนลับจากแล็บของลูกค้า ผิดสัญญาที่ให้ไว้\nผู้บรรยาย: บทเรียนจากคดีนั้น ค่าเสียหายสี่จุดแปดล้านดอลลาร์ มาจากข้อมูลลับของลูกค้าที่หลุดออกนอกเงื่อนไขสัญญา ถ้าเราส่งแบบลูกค้าผิดเงื่อนไข NDA บริษัทอาจผิดสัญญา ต้องจ่ายค่าเสียหาย และเสียความไว้ใจของลูกค้า\nผู้บรรยาย: เวนเดอร์ ที่ทำงานให้เรา ตาม NDA นับเป็นคนในหรือคนนอก?\n\n[0:51–1:52 | Body: NDA กำหนดว่าใครรับข้อมูลได้]\nพี่เซลส์: “พี่ เวนเดอร์ ก็ทำงานให้เรา ตาม NDA นับเป็นคนนอกด้วยเหรอ”\nพี่ Compliance: “NDA ส่วนใหญ่กำหนดว่าใครรับข้อมูลได้ เอาไปใช้ทำอะไร หลายฉบับต้องขอลูกค้าก่อนส่งต่อด้วย”\nพี่ Compliance: “แบบกับสเปกลูกค้าอาจเป็นความลับทางการค้า ส่งนอกเงื่อนไขเมื่อไร บริษัทอาจผิดสัญญา แถมเสียความไว้ใจลูกค้าอีก”\nพี่ Compliance: “จรรยาบรรณเราห้ามเปิดเผยความลับทางการค้าให้คนไม่เกี่ยวข้อง และห้ามใช้ข้อมูลคู่ค้าผิดวัตถุประสงค์”\nพี่ Compliance: “ใจเย็น ๆ ทำทีละข้อนะคะ หนึ่ง เปิด NDA ดูข้อผู้รับข้อมูลก่อนส่งต่อค่ะ”\nพี่ Compliance: “สอง ถ้าต้องให้เวนเดอร์ใช้ ขอความยินยอมลูกค้าเป็นลายลักษณ์อักษร และให้เวนเดอร์เซ็น NDA กับเรา”\nพี่ Compliance: “สาม ส่งเฉพาะไฟล์ที่จำเป็นต่องาน”\nผู้บรรยาย: ถ้าส่งไปแล้ว อย่าเงียบ แจ้งหัวหน้าและฝ่ายกฎหมายทันที ขอให้ผู้รับลบไฟล์และยืนยันเป็นลายลักษณ์อักษร เก็บหลักฐานการส่งไว้ ให้ฝ่ายกฎหมายประเมินว่าต้องแจ้งลูกค้าหรือไม่\nผู้บรรยาย: สัญญาณเตือน คือข้อมูลมี NDA กำลังจะส่งให้คนนอก และส่งไปทั้งชุด ทั้งที่ใช้แค่บางส่วน\n\n[1:52–2:08 | Conclusion: ขอความยินยอม เซ็น NDA และส่งเท่าที่จำเป็น]\nพี่เซลส์: “ต้องขอลูกค้าก่อนจริงด้วย เดี๋ยวพี่ส่ง อีเมล ขอวันนี้เลย”\nผู้บรรยาย: ได้ความยินยอมแล้ว ให้ เวนเดอร์ เซ็น NDA กับเรา ส่งเฉพาะส่วนที่ต้องใช้ ไม่แน่ใจถ้อยคำ ให้ฝ่ายกฎหมายดู\nผู้บรรยาย: ข้อมูลภายใต้ NDA ส่งต่อได้เฉพาะคนและงานที่ NDA อนุญาต",
+   "script": "[0:00–0:59 | Opening: ไฟล์ที่มาพร้อม NDA]\nผู้บรรยาย: เย็นวันพฤหัส ลูกค้ารายใหญ่ที่สุดของปีส่งแบบกับสเปกมาให้เสนอราคา พร้อม NDA หนึ่งฉบับ พรุ่งนี้บ่ายต้องยื่น แต่รายการวัสดุยังถอดไม่ถึงครึ่ง\nพี่เซลส์: “น้องใหม่ เวนเดอร์บอกส่งมาเลย คืนนี้ถอดราคาให้ ทันแน่”\nน้องใหม่: “พี่คะ… ในโฟลเดอร์มี NDA ด้วยนะคะ”\nพี่เซลส์: “เจ้านี้ทำงานกับเรามาห้าปีแล้ว ไว้ใจได้”\nผู้บรรยาย: เรื่องแบบนี้เคยขึ้นศาลไทย ปี 2560 บริษัทขนส่งฟ้องอดีตพนักงานที่เอาลูกค้าไปเปิดบริษัทแข่ง แต่ศาลฎีกาให้แพ้ เพราะรหัสผ่านแปะข้างจอ แฟ้มราคาใครก็เปิดได้\nผู้บรรยาย: ศาลมองว่า ข้อมูลที่ใครก็หยิบได้ ไม่ใช่ความลับแล้ว แบบของลูกค้าก็เหมือนกัน ลูกค้าส่งมาเพราะเชื่อว่าเราจะดูแลเหมือนความลับ ถ้าทั้งโฟลเดอร์หลุดไปถึงคนที่ NDA ไม่อนุญาต บริษัทผิดสัญญา เสียลูกค้า และคนกดส่งอาจถูกเลิกจ้างโดยไม่ได้ค่าชดเชย\nผู้บรรยาย: เวนเดอร์ไว้ใจได้มาห้าปี ไม่เคยทำเรื่องเสีย แต่คนที่อนุญาตให้ส่งแบบชุดนี้ได้ คือเรา หรือลูกค้า?\n\n[0:59–2:04 | Body: ไว้ใจได้ ไม่ได้แปลว่าส่งได้]\nพี่เซลส์: “พี่คะ เจ้านี้ไม่เคยทำเรื่องเสียเลยนะ ส่งให้เขาไม่ได้เหรอคะ”\nพี่ Compliance: “เชื่อค่ะ แต่ NDA ไม่ได้ถามว่าเราไว้ใจใคร มันถามว่าลูกค้าอนุญาตใคร”\nพี่ Compliance: “แบบของลูกค้าเป็นข้อมูลลับค่ะ ตามนโยบายข้อมูลของเรา ก่อนส่งออกนอกบริษัท ให้ผู้จัดการฝ่ายขายซึ่งดูแลข้อมูลลูกค้าอนุมัติก่อน แล้วส่งเท่าที่จำเป็น”\nพี่เซลส์: “แต่พรุ่งนี้บ่ายต้องยื่นแล้ว ถ้าลูกค้าตอบไม่ทันล่ะ”\nพี่ Compliance: “โทรถามลูกค้าตรง ๆ เลยค่ะ ระหว่างรอ ก็ถอดส่วนที่ทำเองได้ไปก่อน”\nพี่ Compliance: “ใจเย็น ๆ ทำทีละข้อนะคะ หนึ่ง เปิด NDA ดูว่าใครรับข้อมูลได้ ต้องขอลูกค้าก่อนไหม”\nพี่ Compliance: “สอง ขอลูกค้า ให้ผู้จัดการฝ่ายขายอนุมัติ และให้เวนเดอร์เซ็น NDA กับเรา”\nพี่ Compliance: “สาม ส่งเฉพาะไฟล์ที่ต้องใช้ ผ่านลิงก์ที่ตั้งวันหมดอายุ”\nผู้บรรยาย: ถ้าส่งไปแล้ว อย่าเงียบ แจ้งหัวหน้าทันที ขอให้ผู้รับลบไฟล์และยืนยันเป็นลายลักษณ์อักษร เก็บหลักฐานไว้\nผู้บรรยาย: ย้อนกลับไปเย็นวันพฤหัส สัญญาณเตือนมีครบ ไฟล์มี NDA แนบมา ผู้รับอยู่นอกบริษัท จะส่งทั้งโฟลเดอร์ทั้งที่ใช้จริงแค่สามไฟล์ และประโยคที่เราพูดกันบ่อยที่สุด ไว้ใจได้\n\n[2:04–2:34 | Conclusion: ถามก่อน อนุมัติ และส่งเท่าที่จำเป็น]\nพี่เซลส์: “ขอโทษที่รบกวนนะคะ ขอให้เวนเดอร์ของเราช่วยถอดราคาได้ไหมคะ”\nลูกค้า: “ขอบคุณที่ถามก่อนนะคะ ให้เขาเซ็น NDA มา แล้วส่งเฉพาะแบบงานระบบได้เลยค่ะ”\nผู้บรรยาย: หนึ่งชั่วโมงต่อมา ผู้จัดการฝ่ายขายอนุมัติ เวนเดอร์เซ็น NDA กลับมา น้องใหม่ส่งแค่สามไฟล์ผ่านลิงก์ที่หมดอายุได้ ทันยื่นราคาบ่ายวันศุกร์\nพี่เซลส์: “ขอบใจนะที่ทักพี่”\nผู้บรรยาย: งานไม่ได้ช้าลง แค่ถามก่อนหนึ่งสาย ข้อมูลภายใต้ NDA ส่งเฉพาะคนและงานที่อนุญาต เท่าที่จำเป็น",
    "fl": {
     "lab": {
      "c": "พี่ Compliance",
      "n": "น้องใหม่",
      "s": "พี่เซลส์"
     },
-    "x": {},
+    "x": {
+     "client": [
+      "the client's procurement manager, heard on the phone only",
+      "Thai woman, about 45, polite, warm and professional voice",
+      "ลูกค้า"
+     ]
+    },
     "sp": {
      "พี่เซลส์": [
       "s",
@@ -2170,72 +2192,74 @@
      "พี่ Compliance": [
       "c",
       0
+     ],
+     "ลูกค้า": [
+      "client",
+      0
      ]
     },
     "s": [
      {
       "no": 1,
-      "h": "57bfbea2",
+      "h": "e1bfb181",
       "b": [
        [
-        "trk",
+        "med",
         "glass",
-        "{s} strides quickly into the small glass-walled meeting room holding a tablet that shows a client folder full of files (screen blurred)."
+        "Thursday evening in the small glass-walled meeting room, city lights coming on outside: {s} sits with a tablet showing a client folder full of files (screen blurred), rubbing her tired eyes; her smartphone on the table lights up with a message (screen blurred)."
        ]
       ],
-      "sfx": "door swish, quick footsteps",
+      "sfx": "phone buzz, quiet room tone",
       "g": "ไฟล์ \"NDA.pdf\" ในโฟลเดอร์"
      },
      {
       "no": 2,
-      "h": "a4fbb863",
+      "h": "55dd85ff",
       "b": [
        [
         "ins",
         "glass",
-        "Close-up: {s}'s finger selects the entire client folder on the tablet and hovers over a share button (interface blurred)"
+        "Close-up: {s}'s smartphone shows a chat message (blurred), then her finger selects the entire client folder on the tablet and hovers over a share button (interface blurred)"
        ],
        [
         "two",
         "glass",
-        "{s} smiles confidently and turns to {n}, who sits beside her, ready to tap."
+        "{s} turns to {n}, who sits beside her, and speaks with tired relief."
        ]
       ],
-      "g": "ปุ่ม \"แชร์ให้ Vendor\""
+      "sfx": "phone buzz"
      },
      {
       "no": 3,
-      "h": "9d6a1310",
+      "h": "2449e89c",
       "b": [
        [
         "two",
         "glass",
-        "{n} leans in toward {s} and points at one particular file on the tablet with a worried look"
+        "{n} leans in and points at one file on the tablet, speaking softly and hesitantly"
        ],
        [
         "med",
         "glass",
-        "{s} waves a hand breezily and smiles."
+        "{s} answers with a reassuring smile and a small shrug."
        ]
       ]
      },
      {
       "no": 4,
-      "h": "45fd1603",
+      "h": "25aa1831",
       "b": [
        [
-        "wide",
-        "~outside a modern courthouse in a foreign city, stone steps, reporters with cameras",
-        "Mock news reconstruction: reporters and camera crews gather on the courthouse steps, no logos anywhere"
+        "med",
+        "~a Thai logistics company office with cluttered desks and filing cabinets",
+        "Mock news reconstruction: a sticky note with a password stuck on the edge of a computer monitor, and an open folder of price quotations lying on a cabinet (no readable text, no logos, no people)"
        ],
        [
         "cu",
         "glass",
-        "Back in the meeting room, {s} stares at the tablet as her smile fades."
+        "Back in the meeting room, {s} stares at the NDA file on her tablet."
        ]
-      ],
-      "sfx": "camera shutters, city traffic",
-      "g": "หัวข่าวจำลอง"
+      ]
      },
      {
       "no": 5,
@@ -2244,12 +2268,12 @@
        [
         "cu",
         "glass",
-        "{s} sits alone in the glass meeting room, looking thoughtfully at the customer folder still open on a tablet (screen blurred), a finger slowly moving away from the share button."
+        "{s} sits alone in the glass meeting room, looking thoughtfully at the client folder still open on a tablet (screen blurred), a finger slowly moving away from the share button."
        ],
        [
-        "cu",
+        "ins",
         "glass",
-        "A closer, slower angle on the same moment. {s} sits alone in the glass meeting room, looking thoughtfully at the customer folder still open on a tablet (screen blurred), a finger slowly moving away from the share button."
+        "Close-up: {s}'s hand rests beside the tablet, the share menu still open (interface blurred), then she slowly closes the menu."
        ]
       ],
       "sfx": "quiet room tone",
@@ -2270,45 +2294,46 @@
      },
      {
       "no": 7,
-      "h": "160e939b",
+      "h": "8f5b843d",
       "b": [
        [
         "two",
         "coffee",
-        "{s} and {n} walk up to {c} at the coffee corner and {s} asks her a question"
+        "{n} brings {s} over to {c} at the coffee corner and {s} asks her a question with a worried face"
        ],
        [
-        "two",
+        "med",
         "coffee",
-        "At the coffee corner {c} draws two overlapping circles on a sheet of paper with a pen while {s} watches, holding her coffee."
+        "{c}, holding her coffee cup, answers {s} kindly but firmly."
        ]
-      ],
-      "g": "วงกลม 2 วง \"ใครรับได้\" กับ \"ใช้เพื่ออะไร\""
+      ]
      },
      {
       "no": 8,
-      "h": "d183c544",
+      "h": "97c9a14f",
       "b": [
        [
-        "ins",
-        "desk",
-        "Close-up: rolled engineering drawings, a thick specification binder and pages of technical figures on a desk are wrapped with a steel chain; a brass padlock clicks shut."
+        "med",
+        "coffee",
+        "At the coffee corner {c} holds up her tablet showing a simple arrow diagram (screen blurred) and explains it to {s} and {n}."
        ]
-      ],
-      "sfx": "padlock click"
+      ]
      },
      {
       "no": 9,
-      "h": "1570ec1a",
+      "h": "00485507",
       "b": [
        [
-        "ins",
-        "desk",
-        "Close-up: a printed code-of-conduct booklet open on a desk; a hand runs a yellow highlighter across one section heading (text blurred)."
+        "two",
+        "coffee",
+        "{s} rubs her forehead with worry and asks {c}"
+       ],
+       [
+        "med",
+        "coffee",
+        "{c} smiles calmly and answers, making a small phone-call gesture with her hand."
        ]
-      ],
-      "sfx": "highlighter squeak",
-      "g": "หัวข้อทรัพย์สินทางปัญญา"
+      ]
      },
      {
       "no": 10,
@@ -2331,22 +2356,15 @@
      },
      {
       "no": 11,
-      "h": "ff9847fa",
+      "h": "b1902da3",
       "b": [
        [
         "ins",
-        "desk",
-        "Close-up: on a laptop, an email to the legal team is being finished (screen blurred, no readable text); a finger presses send."
-       ],
-       [
-        "ins",
-        "desk",
-        "A closer, slower angle on the same moment. Close-up: on a laptop, an email to the legal team is being finished (screen blurred, no readable text); a finger presses send."
+        "glass",
+        "Close-up: on a tablet, a finger taps to revoke a shared link, then types a short message to a manager (screen blurred, no readable text)."
        ]
       ],
-      "sfx": "soft click",
-      "n": 2,
-      "np": 1
+      "sfx": "soft click"
      },
      {
       "no": 12,
@@ -2361,55 +2379,44 @@
      },
      {
       "no": 13,
-      "h": "127cf31d",
+      "h": "d76dfc15",
       "b": [
        [
         "med",
         "glass",
-        "{s} opens the NDA on her tablet and highlights one clause with her finger"
-       ],
-       [
-        "ins",
-        "glass",
-        "{s} types an email to the client on a laptop, focused and calm (screen blurred)."
+        "{s} sits in the glass meeting room on a phone call with the client, tense at first and listening, then her shoulders relax and she smiles with relief."
        ]
       ],
-      "sfx": "typing",
-      "g": "ข้อ \"ผู้รับข้อมูล\""
+      "sfx": "faint phone voice"
      },
      {
       "no": 14,
-      "h": "855ad6db",
+      "h": "93d33760",
       "b": [
        [
         "med",
         "office",
-        "{n} sits at her desk and carefully selects only three files from a folder on her monitor"
+        "{n} sits at her desk, carefully selects only three files from a folder on her monitor and sets a link expiry date (screen blurred)"
        ],
        [
         "ins",
         "office",
-        "{n} attaches a blank NDA form to a new email for the vendor (screen blurred)."
+        "A smartphone on the desk lights up with a short approval message (blurred)."
        ]
       ],
-      "sfx": "mouse clicks"
+      "sfx": "mouse clicks, phone buzz"
      },
      {
       "no": 15,
-      "h": "74c6b38c",
+      "h": "b619f67c",
       "b": [
-       [
-        "ots",
-        "office",
-        "Over {n}'s shoulder: she renames a folder on her monitor (text blurred)"
-       ],
        [
         "two",
         "office",
-        "{s}, standing behind {n}, bursts out laughing and gives her a playful pat on the shoulder."
+        "Friday afternoon: {s} places a cup of coffee on {n}'s desk and smiles at her gratefully; {n} smiles back."
        ]
       ],
-      "g": "ชื่อโฟลเดอร์ \"ส่งทั้งชุด\" → \"ส่งเท่าที่จำเป็น\""
+      "sfx": "soft office chatter"
      }
     ]
    }
@@ -2980,7 +2987,8 @@
     "x": {
      "it": [
       "the IT security officer",
-      "Thai man, about 29, hair tied in a small bun at the back, round black glasses, black zip jacket over a grey T-shirt, plain black lanyard"
+      "Thai man, about 29, hair tied in a small bun at the back, round black glasses, black zip jacket over a grey T-shirt, plain black lanyard",
+      "IT Security"
      ]
     },
     "sp": {
@@ -4588,7 +4596,8 @@
     "x": {
      "dpo": [
       "the data protection officer",
-      "Thai woman, about 45, short layered black hair, charcoal blazer, pearl stud earrings, slim grey folder"
+      "Thai woman, about 45, short layered black hair, charcoal blazer, pearl stud earrings, slim grey folder",
+      "DPO"
      ]
     },
     "sp": {
@@ -6958,11 +6967,13 @@
     "x": {
      "legal": [
       "the legal counsel",
-      "Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie"
+      "Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie",
+      "Legal"
      ],
      "sup": [
       "the supplier",
-      "Thai man, about 50, slicked-back grey hair, maroon shirt, seen on a video call from his own office"
+      "Thai man, about 50, slicked-back grey hair, maroon shirt, seen on a video call from his own office",
+      "Supplier"
      ]
     },
     "sp": {
@@ -8545,7 +8556,8 @@
     "x": {
      "env": [
       "the project environmental officer",
-      "Thai woman, about 38, short pixie haircut, olive-green field shirt with many pockets, khaki trousers, wide-brim hat in one hand, tablet in the other"
+      "Thai woman, about 38, short pixie haircut, olive-green field shirt with many pockets, khaki trousers, wide-brim hat in one hand, tablet in the other",
+      "เจ้าหน้าที่สิ่งแวดล้อมโครงการ"
      ]
     },
     "sp": {
@@ -9342,7 +9354,8 @@
     "x": {
      "rival": [
       "the competitor's sales director",
-      "Thai man, about 45, slicked-back hair, dark suit, holding a coffee cup"
+      "Thai man, about 45, slicked-back hair, dark suit, holding a coffee cup",
+      "ตัวแทนคู่แข่ง"
      ]
     },
     "sp": {
@@ -10131,7 +10144,8 @@
     "x": {
      "comm": [
       "the village representative",
-      "Thai man, about 60, weathered face, short grey hair, faded blue farmer's shirt"
+      "Thai man, about 60, weathered face, short grey hair, faded blue farmer's shirt",
+      "ตัวแทนชุมชน"
      ]
     },
     "sp": {
@@ -12502,11 +12516,13 @@
     "x": {
      "con": [
       "the contractor's boss",
-      "Thai man, about 52, stocky, bushy moustache, faded orange polo shirt, olive cargo trousers, gold watch"
+      "Thai man, about 52, stocky, bushy moustache, faded orange polo shirt, olive cargo trousers, gold watch",
+      "Contractor"
      ],
      "safe": [
       "the site safety officer",
-      "Thai woman, about 35, hair in a low bun, white helmet, high-visibility vest, notebook in hand"
+      "Thai woman, about 35, hair in a low bun, white helmet, high-visibility vest, notebook in hand",
+      "Safety Officer"
      ]
     },
     "sp": {
@@ -14084,7 +14100,8 @@
     "x": {
      "sup2": [
       "the contractor's site supervisor",
-      "Thai man, about 40, thin moustache, grey work shirt, holding a clipboard"
+      "Thai man, about 40, thin moustache, grey work shirt, holding a clipboard",
+      "ผู้ควบคุมงาน Contractor"
      ]
     },
     "sp": {
@@ -14892,7 +14909,8 @@
     "x": {
      "cons": [
       "the consultant",
-      "Thai man, about 55, slicked-back greying hair, expensive navy suit, gold ring, confident smile"
+      "Thai man, about 55, slicked-back greying hair, expensive navy suit, gold ring, confident smile",
+      "Consultant"
      ]
     },
     "sp": {
@@ -15705,7 +15723,8 @@
      ],
      "phead": [
       "the procurement manager",
-      "Thai man, about 52, neat grey hair, rimless glasses, lavender shirt and dark tie"
+      "Thai man, about 52, neat grey hair, rimless glasses, lavender shirt and dark tie",
+      "หัวหน้าจัดซื้อ"
      ]
     },
     "sp": {
@@ -16515,7 +16534,8 @@
     "x": {
      "off": [
       "the counter official",
-      "Thai man, about 50, fictional civil servant in a plain khaki shirt without insignia, glasses"
+      "Thai man, about 50, fictional civil servant in a plain khaki shirt without insignia, glasses",
+      "เจ้าหน้าที่"
      ]
     },
     "sp": {
@@ -17330,7 +17350,8 @@
     "x": {
      "mc": [
       "the main contractor's manager",
-      "Thai man, about 50, heavy-set, short-sleeve checked shirt, two phones on his belt"
+      "Thai man, about 50, heavy-set, short-sleeve checked shirt, two phones on his belt",
+      "Main Contractor"
      ]
     },
     "sp": {
@@ -18134,7 +18155,8 @@
     "x": {
      "nb": [
       "the neighbour",
-      "Thai man, about 55, round face, white singlet and loose shorts, friendly"
+      "Thai man, about 55, round face, white singlet and loose shorts, friendly",
+      "เพื่อนบ้าน"
      ]
     },
     "sp": {
@@ -18943,7 +18965,8 @@
     "x": {
      "intern": [
       "the engineering intern",
-      "Thai woman, about 21, shoulder-length hair with a straight fringe, thin silver-rimmed glasses, white blouse neatly tucked into a black skirt"
+      "Thai woman, about 21, shoulder-length hair with a straight fringe, thin silver-rimmed glasses, white blouse neatly tucked into a black skirt",
+      "นักศึกษาฝึกงาน"
      ]
     },
     "sp": {
@@ -19753,11 +19776,13 @@
     "x": {
      "ceng": [
       "the client's site engineer",
-      "Thai man, about 35, short hair, plain blue work shirt"
+      "Thai man, about 35, short hair, plain blue work shirt",
+      "วิศวกรลูกค้า"
      ],
      "cpm": [
       "the client's project manager",
-      "Thai woman, about 50, short curly hair, burgundy blazer, thin gold necklace"
+      "Thai woman, about 50, short curly hair, burgundy blazer, thin gold necklace",
+      "ผู้จัดการฝั่งลูกค้า"
      ]
     },
     "sp": {
@@ -20564,7 +20589,8 @@
     "x": {
      "exe": [
       "the senior executive",
-      "Thai man, about 58, silver hair, dark suit, rimless glasses"
+      "Thai man, about 58, silver hair, dark suit, rimless glasses",
+      "ผู้บริหาร"
      ],
      "kid": [
       "the executive's grown-up son",
@@ -20572,7 +20598,8 @@
      ],
      "sup3": [
       "the supplier's sales director",
-      "Thai man, about 50, tanned, dark-purple polo shirt, gold-rimmed sunglasses pushed up on his head, car keys in hand"
+      "Thai man, about 50, tanned, dark-purple polo shirt, gold-rimmed sunglasses pushed up on his head, car keys in hand",
+      "Supplier"
      ]
     },
     "sp": {
@@ -21381,7 +21408,8 @@
     "x": {
      "cman": [
       "the contract manager",
-      "Thai man, about 52, bald with a neat grey beard, pale-yellow shirt under a navy sweater vest, a thick contract binder"
+      "Thai man, about 52, bald with a neat grey beard, pale-yellow shirt under a navy sweater vest, a thick contract binder",
+      "Contract Manager"
      ]
     },
     "sp": {
@@ -23778,11 +23806,13 @@
     "x": {
      "cli": [
       "the client's plant director",
-      "Thai man, about 55, round glasses, short grey hair, light-pink shirt with rolled sleeves"
+      "Thai man, about 55, round glasses, short grey hair, light-pink shirt with rolled sleeves",
+      "ลูกค้า"
      ],
      "frd": [
       "a friend on the phone",
-      "Thai man, about 30, heard but not seen"
+      "Thai man, about 30, heard but not seen",
+      "เพื่อน"
      ]
     },
     "sp": {
@@ -26204,7 +26234,8 @@
      ],
      "legal2": [
       "the legal counsel",
-      "Thai woman, about 45, long straight hair worn loose, emerald-green blazer, statement earrings"
+      "Thai woman, about 45, long straight hair worn loose, emerald-green blazer, statement earrings",
+      "Legal"
      ]
     },
     "sp": {
@@ -26982,7 +27013,8 @@
     "x": {
      "rv2": [
       "the competitor's sales manager",
-      "Thai man, about 42, slick undercut hair, slim grey suit, a lanyard with a blank exhibitor badge"
+      "Thai man, about 42, slick undercut hair, slim grey suit, a lanyard with a blank exhibitor badge",
+      "คู่แข่ง"
      ]
     },
     "sp": {
@@ -27812,7 +27844,8 @@
     "x": {
      "legal": [
       "the legal counsel",
-      "Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie"
+      "Thai man, about 46, clean-shaven, short salt-and-pepper hair, thin oval wire glasses, charcoal suit with a burgundy tie",
+      "Legal"
      ]
     },
     "sp": {
@@ -28620,7 +28653,8 @@
     "x": {
      "rv3": [
       "a competitor's representative",
-      "Thai man, about 50, heavy-set, dark suit, loud and confident"
+      "Thai man, about 50, heavy-set, dark suit, loud and confident",
+      "ตัวแทนบริษัทคู่แข่ง"
      ]
     },
     "sp": {
@@ -29416,7 +29450,8 @@
     "x": {
      "exe2": [
       "the senior executive",
-      "Thai man, about 55, broad-shouldered, slicked-back black hair, dark suit, impatient"
+      "Thai man, about 55, broad-shouldered, slicked-back black hair, dark suit, impatient",
+      "ผู้บริหาร"
      ]
     },
     "sp": {
@@ -30213,7 +30248,8 @@
     "x": {
      "vnd": [
       "the software vendor's engineer",
-      "Thai man, about 35, bleached blond hair tips, grey hoodie, headset, seen on a video call"
+      "Thai man, about 35, bleached blond hair tips, grey hoodie, headset, seen on a video call",
+      "Vendor"
      ]
     },
     "sp": {
@@ -31793,7 +31829,8 @@
     "x": {
      "dpo2": [
       "the data protection officer",
-      "Thai man, about 45, short greying hair, rimless glasses, navy blazer, carrying a laptop"
+      "Thai man, about 45, short greying hair, rimless glasses, navy blazer, carrying a laptop",
+      "DPO"
      ]
     },
     "sp": {
@@ -34203,7 +34240,8 @@
      ],
      "pmgr": [
       "the production manager",
-      "Thai man, about 50, thick black moustache, grey factory uniform jacket, factory cap on his head"
+      "Thai man, about 50, thick black moustache, grey factory uniform jacket, factory cap on his head",
+      "ผู้จัดการฝ่ายผลิต"
      ]
     },
     "sp": {
@@ -34989,7 +35027,8 @@
     "x": {
      "grp": [
       "a school friend in the group chat",
-      "Thai woman, about 29, heard reading her chat message aloud, not seen"
+      "Thai woman, about 29, heard reading her chat message aloud, not seen",
+      "เพื่อนในกลุ่ม LINE"
      ]
     },
     "sp": {
@@ -35787,7 +35826,8 @@
     "x": {
      "sv": [
       "the engineering supervisor",
-      "Thai man, about 48, square jaw, wavy hair with long sideburns, maroon polo shirt"
+      "Thai man, about 48, square jaw, wavy hair with long sideburns, maroon polo shirt",
+      "หัวหน้างาน"
      ]
     },
     "sp": {
@@ -36596,7 +36636,8 @@
     "x": {
      "speng": [
       "the supplier's engineer",
-      "Thai man, about 36, round tortoiseshell glasses, short beard, black polo shirt"
+      "Thai man, about 36, round tortoiseshell glasses, short beard, black polo shirt",
+      "Supplier Engineer"
      ]
     },
     "sp": {
@@ -37396,7 +37437,8 @@
     "x": {
      "seng": [
       "the site engineer",
-      "Thai man, about 30, tall and lanky, thick black-framed glasses, light-grey work shirt with reflective strips, yellow helmet in hand"
+      "Thai man, about 30, tall and lanky, thick black-framed glasses, light-grey work shirt with reflective strips, yellow helmet in hand",
+      "Site Engineer"
      ]
     },
     "sp": {
@@ -39775,7 +39817,8 @@
     "x": {
      "cons2": [
       "the consultant",
-      "Thai man, about 55, heard over a speakerphone, not seen"
+      "Thai man, about 55, heard over a speakerphone, not seen",
+      "Consultant"
      ]
     },
     "sp": {
@@ -40582,7 +40625,8 @@
     "x": {
      "aud": [
       "the internal auditor",
-      "Thai man, about 45, neat grey-streaked hair, glasses, light-grey suit"
+      "Thai man, about 45, neat grey-streaked hair, glasses, light-grey suit",
+      "ผู้ตรวจสอบภายใน"
      ]
     },
     "sp": {
@@ -41379,11 +41423,13 @@
     "x": {
      "liaison": [
       "the community liaison",
-      "Thai woman, about 42, short hair with a cloth headband, batik-pattern shirt, clipboard"
+      "Thai woman, about 42, short hair with a cloth headband, batik-pattern shirt, clipboard",
+      "เจ้าหน้าที่ประสานชุมชน"
      ],
      "sub": [
       "the subcontractor",
-      "Thai man, about 45, gold chain, loud floral shirt"
+      "Thai man, about 45, gold chain, loud floral shirt",
+      "ผู้รับเหมาช่วง"
      ]
     },
     "sp": {
@@ -42180,7 +42226,8 @@
     "x": {
      "sub2": [
       "the subcontractor",
-      "Thai man, about 46, thick moustache, red bandana on his head, khaki work shirt, clipboard"
+      "Thai man, about 46, thick moustache, red bandana on his head, khaki work shirt, clipboard",
+      "ผู้รับเหมาช่วง"
      ]
     },
     "sp": {
@@ -43776,7 +43823,8 @@
     "x": {
      "cl2": [
       "the client",
-      "Thai man, about 50, heard on the phone, not seen"
+      "Thai man, about 50, heard on the phone, not seen",
+      "ลูกค้า"
      ]
     },
     "sp": {
@@ -45343,7 +45391,8 @@
     "x": {
      "subl": [
       "the subcontractor's crew leader",
-      "Thai man, about 40, wiry, deeply tanned, towel around his neck, baseball cap, tool belt"
+      "Thai man, about 40, wiry, deeply tanned, towel around his neck, baseball cap, tool belt",
+      "หัวหน้าทีมผู้รับเหมาช่วง"
      ]
     },
     "sp": {
@@ -46134,7 +46183,8 @@
     "x": {
      "hus": [
       "the senior accountant's husband",
-      "Thai man, about 55, glasses, relaxed home shirt"
+      "Thai man, about 55, glasses, relaxed home shirt",
+      "คู่สมรส"
      ]
     },
     "sp": {
@@ -46929,7 +46979,8 @@
     "x": {
      "so": [
       "the safety officer",
-      "Thai woman, about 45, short curly hair with grey streaks, sporty sunglasses pushed up on her head, notebook in hand"
+      "Thai woman, about 45, short curly hair with grey streaks, sporty sunglasses pushed up on her head, notebook in hand",
+      "เจ้าหน้าที่ความปลอดภัย"
      ]
     },
     "sp": {
@@ -47725,7 +47776,8 @@
     "x": {
      "grp2": [
       "a friend in the group chat",
-      "Thai man, about 35, heard reading his chat message aloud, not seen"
+      "Thai man, about 35, heard reading his chat message aloud, not seen",
+      "เพื่อนในกลุ่ม LINE"
      ]
     },
     "sp": {
@@ -48525,7 +48577,8 @@
     "x": {
      "ro": [
       "the risk officer",
-      "Thai woman, about 36, hair in a high bun, black cat-eye glasses, burgundy blouse"
+      "Thai woman, about 36, hair in a high bun, black cat-eye glasses, burgundy blouse",
+      "Risk Officer"
      ]
     },
     "sp": {
@@ -49320,11 +49373,13 @@
     "x": {
      "smgr": [
       "the supplier's factory manager",
-      "Thai man, about 50, stern, combed-back black hair, dark-green short-sleeve shirt, thick gold watch"
+      "Thai man, about 50, stern, combed-back black hair, dark-green short-sleeve shirt, thick gold watch",
+      "Supplier Manager"
      ],
      "wk": [
       "a migrant worker",
-      "man, about 30, slim, faded blue work uniform"
+      "man, about 30, slim, faded blue work uniform",
+      "แรงงาน"
      ]
     },
     "sp": {
@@ -50906,7 +50961,8 @@
     "x": {
      "srep": [
       "the supplier's representative",
-      "Thai man, about 40, heard over the phone, not seen"
+      "Thai man, about 40, heard over the phone, not seen",
+      "ผู้แทน Supplier"
      ]
     },
     "sp": {
@@ -51695,7 +51751,8 @@
     "x": {
      "exe5": [
       "the senior executive",
-      "Thai man, about 55, receding hairline, dark suit, in his office"
+      "Thai man, about 55, receding hairline, dark suit, in his office",
+      "ผู้บริหาร"
      ]
     },
     "sp": {
@@ -52483,7 +52540,8 @@
     "x": {
      "esg": [
       "the ESG officer",
-      "Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle"
+      "Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle",
+      "เจ้าหน้าที่ ESG"
      ]
     },
     "sp": {
@@ -53285,11 +53343,13 @@
     "x": {
      "caller": [
       "the caller",
-      "Thai man, about 35, a former employee heard on the phone, not seen"
+      "Thai man, about 35, a former employee heard on the phone, not seen",
+      "ผู้โทรเข้ามา"
      ],
      "dpo": [
       "the data protection officer",
-      "Thai woman, about 45, short layered black hair, charcoal blazer, pearl stud earrings, slim grey folder"
+      "Thai woman, about 45, short layered black hair, charcoal blazer, pearl stud earrings, slim grey folder",
+      "DPO"
      ]
     },
     "sp": {
@@ -54083,7 +54143,8 @@
     "x": {
      "esg": [
       "the ESG officer",
-      "Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle"
+      "Thai woman, about 33, short straight hair tucked behind her ears, mustard-yellow linen shirt, reusable water bottle",
+      "เจ้าหน้าที่ ESG"
      ]
     },
     "sp": {
@@ -54882,7 +54943,8 @@
     "x": {
      "fake": [
       "a voice message claiming to be a senior executive",
-      "a deep male voice, heard only"
+      "a deep male voice, heard only",
+      "เสียงที่อ้างว่าเป็นผู้บริหาร"
      ]
     },
     "sp": {
@@ -55718,11 +55780,13 @@
     "x": {
      "cons3": [
       "the consultant",
-      "Thai man, about 55, slicked-back hair, cream suit, gold watch"
+      "Thai man, about 55, slicked-back hair, cream suit, gold watch",
+      "Consultant"
      ],
      "sup5": [
       "the supplier",
-      "Thai man, about 50, heard over a speakerphone, not seen"
+      "Thai man, about 50, heard over a speakerphone, not seen",
+      "Supplier"
      ]
     },
     "sp": {

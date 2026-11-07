@@ -342,6 +342,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
 .fl-th{margin:0;font-size:13.5px;color:var(--muted)}
 .fl-e{margin:0;font-size:14px}
 .fl-warn{margin:0;font-size:13px;color:#b45309}
+.fl-kb{margin:0;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);border-radius:8px;padding:6px 10px}
 .fl-shot h5{margin:4px 0 6px;font-size:13px;font-weight:600}
 .fl-pp{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:10px}
 .fl-pp.one{grid-template-columns:1fr}
@@ -596,6 +597,89 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
 .auth-act{display:flex;align-items:center;gap:8px;margin-top:16px;flex-wrap:wrap}
 .auth-link{all:unset;cursor:pointer;font-size:12px;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 @media (max-width:560px){.seqnote .go{display:none}.seqlist{padding-left:18px}}
+
+/* production board: staged approvals stored in the artifact db */
+.pb-wrap{display:flex;flex-direction:column;gap:18px}
+.pb-note{border:1px solid var(--line);background:var(--sunk);border-radius:10px;padding:10px 14px;font-size:14px}
+.pb-note.call{border-color:var(--accent);background:var(--accent-soft)}
+.pb-eps{display:flex;gap:6px;flex-wrap:wrap}
+.pb-ep{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:4px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.pb-ep[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);font-weight:600}
+.pb-ep small{color:var(--muted);font-size:11px}
+.pb-stages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:pb}
+.pb-st{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pb-st.review,.pb-st.you{border-color:#d9a21b;box-shadow:inset 4px 0 0 #d9a21b}
+.pb-st.done{background:var(--sunk)}
+.pb-st.work,.pb-st.queued,.pb-st.revise{box-shadow:inset 4px 0 0 var(--accent)}
+.pb-st.wait{opacity:.72}
+.pb-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.pb-h b{font-size:16px}
+.pb-n{font-family:var(--font-data);font-size:12px;color:var(--muted)}
+.pb-pill{margin-left:auto;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.pb-pill i{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.pb-pill.done i{background:#3a9b5c}.pb-pill.review i,.pb-pill.you i{background:#d9a21b}.pb-pill.work i,.pb-pill.queued i,.pb-pill.revise i{background:var(--accent)}
+.pb-desc{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:4px 16px;font-size:13px;color:var(--muted)}
+.pb-desc span b{color:var(--fg);font-weight:600}
+.pb-rep{font-size:14px;white-space:pre-wrap;border-left:3px solid var(--line);padding-left:10px}
+.pb-meta{font-size:12px;color:var(--muted)}
+.pb-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(9rem,1fr));gap:8px}
+.pb-it{border:1px solid var(--line);border-radius:8px;padding:6px;display:flex;flex-direction:column;gap:4px;font-size:12px;min-width:0}
+.pb-it img,.pb-it video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:6px;background:var(--sunk)}
+.pb-it.redo{border-color:#d9a21b}
+.pb-it label{display:flex;gap:4px;align-items:center}
+.pb-trk{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line);border-radius:8px;padding:8px;font-size:13px}
+.pb-trk audio{width:100%}
+.pb-act{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start}
+.pb-act textarea{flex:1 1 16rem;min-height:3.2em;font:inherit;font-size:14px;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface);color:var(--fg)}
+.pb-b{font:inherit;font-size:14px;border-radius:8px;padding:6px 14px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.pb-b.ok{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.pb-eps select{max-width:100%;min-width:0;flex:1 1 100%}
+.pb-b:disabled{opacity:.5;cursor:default}
+.pb-log{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:2px;max-height:14rem;overflow:auto}
+
+/* series sub-menu */
+.subtabs{position:sticky;top:calc(env(safe-area-inset-top,0px) + 52px);margin-top:-44px;z-index:4;background:var(--bg);display:flex;gap:6px;padding:10px 0 12px;overflow-x:auto;border-bottom:1px solid var(--line)}
+.subtab{all:unset;cursor:pointer;font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;background:var(--surface)}
+.subtab:hover{color:var(--fg)}
+.subtab[aria-current="page"]{color:var(--on-accent);background:var(--accent);border-color:var(--accent);font-weight:600}
+.subtab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tab-caret{font-size:11px;opacity:.7}
+
+/* review 7 พ.ย. 2569: prompts are copied, not read — hide the text, keep the copy buttons */
+pre.fl-p,pre.cs-p{display:none}
+.fl-pp{grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:8px}
+.fl-pp>div{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--sunk)}
+.fl-pp>div>*{flex:0 0 auto;width:auto;margin:0}
+.fl-pp>div>.fl-k{flex:1 1 auto;text-align:left;font-size:13px;color:var(--fg)}
+
+/* compact Flow tab (review 7 พ.ย. 2569) */
+.fl2-bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 10px}
+.fl2-bar>.sb-copy:first-child{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
+.fl2-more{position:relative}.fl2-more>summary{list-style:none;cursor:pointer;font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;color:var(--muted)}
+.fl2-more>summary::-webkit-details-marker{display:none}
+.fl2-mbox{position:absolute;z-index:3;top:calc(100% + 4px);left:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:6px;min-width:12rem;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.fl2-leg{background:var(--sunk);border-radius:10px;padding:8px 12px;margin:0 0 12px;font-size:13px;display:flex;flex-direction:column;gap:4px}.fl2-leg p{margin:0}
+.fl2-x{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.fl2-xc{display:inline-flex;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:2px 4px 2px 8px}
+.fl2-part{margin:14px 0 6px;font-size:13px;color:var(--muted);font-weight:600}
+.fl2-sc{border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin:0 0 8px;background:var(--surface);display:flex;flex-direction:column;gap:5px}
+.fl2-hd{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;font-size:14px}.fl2-hd .num{font-size:12px}
+.fl2-tag{margin-left:auto;font-size:11px;border-radius:999px;padding:1px 8px;background:var(--line)}
+.fl2-v{margin:0;font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fl2-plate{margin:0;font-size:12.5px}
+.fl2-shot{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:5px 0;border-top:1px dashed var(--line)}
+.fl2-f{font-family:var(--font-data);font-weight:600;font-size:13px;min-width:2.6em}
+.fl2-len{font-size:12px;color:var(--muted);min-width:3em}
+.fl2-360{font-size:11px;font-weight:700;color:#8a5a00;background:#fdf1d6;border-radius:999px;padding:1px 8px}
+.fl2-cs{display:inline-flex;flex-wrap:wrap;gap:4px;flex:1 1 10rem;min-width:0}
+.fl2-c{font-size:11.5px;border-radius:999px;padding:1px 8px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+.fl2-c.x{background:var(--sunk);color:var(--fg);font-weight:500}.fl2-c.set{background:transparent;border:1px solid var(--accent);font-weight:500}
+.fl2-btn{display:inline-flex;gap:6px;margin-left:auto}.fl2-btn .sb-copy{padding:4px 10px;font-size:12.5px}
+.fl2-w{flex-basis:100%;margin:0;font-size:12px;color:#b45309}
+.fl2-au{list-style:none;margin:2px 0 0;padding:0;font-size:12.5px;display:flex;flex-direction:column;gap:1px}.fl2-au b{margin-right:6px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fl2-360{background:#3a2a08;color:#f2c46b}}
+:root[data-theme="dark"] .fl2-360{background:#3a2a08;color:#f2c46b}
+.sb-metaw{margin:0 0 10px;grid-column:1/-1;width:100%;min-width:0}.sb-metaw>summary{display:block;white-space:normal}
+.fl2-more{flex:0 0 auto}.fl2-more>summary{display:inline-block}.sb-metaw>summary{cursor:pointer;font-size:13px;color:var(--muted);padding:4px 0}
 </style>
 
 <div class="wrap">
@@ -609,12 +693,16 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
 
   <nav class="tabs" role="tablist" aria-label="ส่วนของแผน">
     <button class="tab" role="tab" id="tab-intro" aria-controls="intro" data-t="intro">Introduction</button>
-    <button class="tab" role="tab" id="tab-series" aria-controls="series" data-t="series">ภาพรวมซีรีส์ ชั้น 12</button>
-    <button class="tab" role="tab" id="tab-chars" aria-controls="chars" data-t="chars">Character sheet</button>
-    <button class="tab" role="tab" id="tab-flowguide" aria-controls="flowguide" data-t="flowguide">คู่มือ Flow</button>
+    <button class="tab" role="tab" id="tab-series" aria-controls="series" data-t="series" aria-haspopup="true">ภาพรวมซีรีส์ ชั้น 12 <span class="tab-caret" aria-hidden="true">▾</span></button>
     <button class="tab" role="tab" id="tab-plan" aria-controls="plan" data-t="plan">Action Plan</button>
     <button class="tab" role="tab" id="tab-measure" aria-controls="measure" data-t="measure">Measurement</button>
     <button class="tab" role="tab" id="tab-status" aria-controls="status" data-t="status">สถานะโครงการ</button>
+    <button class="tab" role="tab" id="tab-board" aria-controls="board" data-t="board">สั่งงานผลิต</button>
+  </nav>
+  <nav class="subtabs" id="subtabs" aria-label="ภาพรวมซีรีส์ ชั้น 12" hidden>
+    <button class="subtab" type="button" id="sub-series" data-t="series">Description</button>
+    <button class="subtab" type="button" id="tab-chars" data-t="chars">Character sheet</button>
+    <button class="subtab" type="button" id="tab-flowguide" data-t="flowguide">Flow manual</button>
   </nav>
 
   <div class="tabpanel" id="intro" role="tabpanel" aria-labelledby="tab-intro">
@@ -676,7 +764,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
       <div class="sec-head"><span class="eyebrow">ทำงานอย่างไร</span><h2>เดือนละ 4 ขั้น</h2></div>
       <div class="steps">
         <div class="step"><h3>1. ตรวจสคริปต์</h3><p>เปิดสคริปต์ทั้ง 2 คลิปของเดือนจากหน้า Action Plan ปรับถ้อยคำ แล้วส่งเจ้าของเนื้อหาของธีมนั้นตรวจ (ดูชื่อได้ในสคริปต์แต่ละคลิป) (<span id="rv" class="num"></span> เรื่องมีหมายเหตุให้ตรวจเป็นพิเศษ)</p></div>
-        <div class="step"><h3>2. ผลิตด้วย AI</h3><p>ภาพและการแสดงสร้างใน Google Flow เสียงพากย์ไทยสร้างด้วย Gemini TTS แล้ว Claude Code ตัดต่อ ใส่ซับ โลโก้ และเพลงตามคำสั่งตัดต่อของแต่ละตอน ไม่ใช้ข้อมูลภายในกับ Public AI และให้เจ้าของเนื้อหาตรวจความถูกต้องก่อนเผยแพร่</p></div>
+        <div class="step"><h3>2. ผลิตด้วย AI</h3><p>ภาพ การแสดง และเสียงพูดภาษาไทยสร้างใน Google Flow แล้ว Claude Code ตัดต่อ ใส่ซับ โลโก้ และเพลงตามคำสั่งตัดต่อของแต่ละตอน ไม่ใช้ข้อมูลภายในกับ Public AI และให้เจ้าของเนื้อหาตรวจความถูกต้องก่อนเผยแพร่</p></div>
         <div class="step"><h3>3. ส่งลิงก์</h3><p>อัปโหลด YouTube แบบ Unlisted จัดเป็น Playlist รายปี แล้วส่งลิงก์ในกลุ่ม LINE ของพนักงาน อังคารที่ 1 และ 3 ของเดือน เวลา 17:00 น.</p></div>
         <div class="step"><h3>4. ดูผล</h3><p>จดตัวเลข "อ่านแล้ว" ในกลุ่ม LINE และสรุปสถิติ YouTube Studio ทุกเดือน และวัดความเข้าใจด้วยแบบทดสอบทุกเดือนพฤศจิกายน (รายละเอียดในแท็บ Measurement)</p></div>
       </div>
@@ -697,7 +785,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
         <dt>โครงแต่ละตอน</dt><dd>เปิดเรื่อง → สถานการณ์ → เคสจริง / ลองนึกต่อ → <b>ผลที่ตามมา</b> → หยุดคิด (ช็อตนิ่งที่สร้างใน Flow ผู้บรรยายถามคำถามชวนคิด) → พี่ Compliance อธิบาย → <b>ทำตามขั้นตอน 3 ข้อตามนโยบาย</b> → <b>ถ้าพลาดไปแล้วทำอย่างไร</b> → สัญญาณเตือน → สิ่งที่ควรทำ → ปิดท้ายพร้อมมุกท้ายตอน (ตั้งแต่ EP2 เพิ่ม 3 ฉากตัวหนา ให้สาระครบขึ้น)</dd>
         <dt>อิงเคสจริง</dt><dd>ทุกตอนปรับร่างจากเคสที่เกิดขึ้นจริง ใช้เคสไทยก่อน ถ้าไม่มีจึงใช้เคสต่างประเทศ ในคลิปเล่าแบบไม่ระบุชื่อบริษัท ชื่อเคสและแหล่งข้อมูลอยู่ในช่อง "อ้างอิงเคสจริง" ของสตอรีบอร์ด</dd>
         <dt>สาระ</dt><dd>ข้อเท็จจริง Red Flag สิ่งที่ควรทำ และนโยบายอ้างอิงมาจากเวอร์ชันเคสสั้นของตอนนั้น และให้เจ้าของเนื้อหาตรวจเหมือนเดิม</dd>
-        <dt>การผลิต</dt><dd>ผลิตด้วย AI ทั้งหมด 3 ขั้น: <b>1) Google Flow</b> (Omni Flash) สร้างภาพและการแสดง ตัวละครพูดภาษาอังกฤษที่คำนวณความยาวให้เท่ากับบทไทย เพื่อให้ปากขยับตรงช่วงเวลา ฉากบรรยายไม่มีใครขยับปาก <b>2) Gemini TTS</b> พากย์ไทยด้วยเสียงประจำตัวละคร เสียงเดิมทั้ง 72 ตอน <b>3) Claude Code</b> ตัดต่อ ทิ้งเสียงจาก Flow วางเสียงพากย์ ทำซับ ใส่โลโก้ ป้ายชื่อตอน และเพลงเบา ๆ ใช้ Character sheet และฉากประจำล็อกหน้าตา ทรงผม ชุด และอุปกรณ์บนโต๊ะให้ต่อเนื่องทุกตอน</dd>
+        <dt>การผลิต</dt><dd>ผลิตด้วย AI 2 ขั้น: <b>1) Google Flow</b> (Omni Flash) สร้างภาพ การแสดง และเสียงพูดภาษาไทยในคลิป (ตัวละครพูดตามบทในช่วงเวลาที่กำหนด ผู้บรรยายเป็นเสียงบรรยาย ไม่มีใครขยับปาก) <b>2) Claude Code</b> ตัดต่อ ใช้เสียงจากคลิป ทำซับตามบท ใส่โลโก้ ป้ายชื่อตอน ฮุกเปิดคลิป และเพลงเบา ๆ ใช้ Character sheet และฉากประจำล็อกหน้าตา ทรงผม ชุด และอุปกรณ์บนโต๊ะให้ต่อเนื่องทุกตอน</dd>
         <dt>ดึงคนดู</dt><dd>เปิดทุกคลิปด้วยฮุก (ประโยคที่ชวนให้หยุดดู) ก่อนป้ายชื่อตอน · ชื่อบน YouTube เป็นสถานการณ์ "เมื่อ…" ตามด้วย "ชั้น 12 EP<เลข>" · พี่ Compliance เปิดขั้นตอนด้วยประโยคประจำตัว "ใจเย็น ๆ ทำทีละข้อนะคะ" · ไม่มีคำชวนคอมเมนต์</dd>
         <dt>บรรยากาศ</dt><dd>ออฟฟิศยุคปัจจุบัน ใช้มือถือ แท็บเล็ต โน้ตบุ๊ก และจอ ไม่มีแฟ้มหนาหรือกองกระดาษ</dd>
       </dl>
@@ -761,7 +849,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
       <div class="cs-filter" role="group" aria-label="กรองตัวละคร"><button type="button" class="cf" data-cf="all" aria-pressed="true">ทั้งหมด</button><button type="button" class="cf" data-cf="main" aria-pressed="false">ตัวละครหลัก (9)</button><button type="button" class="cf" data-cf="sup" aria-pressed="false">ตัวละครสมทบ (<span class="cs-nsup">–</span>)</button><button type="button" class="cf" data-cf="set" aria-pressed="false">ฉากประจำ (<span class="cs-nset">–</span>)</button></div>
       <div id="cs-mainwrap"><h3 class="cs-h cs-gh">ตัวละครหลัก <span class="muted">· อยู่ทั้งซีรีส์ ใช้ภาพอ้างอิงชุดเดียวทุกตอน</span></h3>
       <div class="cs-ctl">
-        <div class="cs-ctl-row"><span class="cs-ctl-l">ดูข้อมูล</span><div class="cs-filter cs-view" role="group" aria-label="เลือกข้อมูลที่จะดู"><button type="button" class="cf" data-cv="sum" aria-pressed="true">สรุป</button><button type="button" class="cf" data-cv="story" aria-pressed="false">นิสัยและเรื่องราว</button><button type="button" class="cf" data-cv="look" aria-pressed="false">หน้าตาและคำสั่งภาพ</button><button type="button" class="cf" data-cv="flow" aria-pressed="false">ตั้งค่า Flow + เสียงพากย์</button><button type="button" class="cf" data-cv="all" aria-pressed="false">ทั้งหมด</button></div></div>
+        <div class="cs-ctl-row"><span class="cs-ctl-l">ดูข้อมูล</span><div class="cs-filter cs-view" role="group" aria-label="เลือกข้อมูลที่จะดู"><button type="button" class="cf" data-cv="sum" aria-pressed="true">สรุป</button><button type="button" class="cf" data-cv="story" aria-pressed="false">นิสัยและเรื่องราว</button><button type="button" class="cf" data-cv="look" aria-pressed="false">หน้าตาและคำสั่งภาพ</button><button type="button" class="cf" data-cv="flow" aria-pressed="false">ตั้งค่า Flow + เสียง</button><button type="button" class="cf" data-cv="all" aria-pressed="false">ทั้งหมด</button></div></div>
         <div class="cs-ctl-row"><span class="cs-ctl-l">ตัวละคร</span><div class="cs-who" id="cs-who" role="group" aria-label="เลือกตัวละคร"></div></div>
       </div>
       <div class="cs-grid" id="cs-grid"></div></div>
@@ -796,7 +884,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
         <li><b>1</b><span>ตั้งโปรเจกต์</span><small>ครั้งเดียว</small></li>
         <li><b>2</b><span>ภาพอ้างอิงตัวละครและฉาก</span><small>ครั้งเดียว</small></li>
         <li><b>3</b><span>สร้างช็อตของตอน</span><small>ทุกตอน</small></li>
-        <li><b>4</b><span>เสียงพากย์ไทย</span><small>อัตโนมัติ</small></li>
+        <li><b>4</b><span>ตรวจเสียงในคลิป</span><small>ทุกตอน</small></li>
         <li><b>5</b><span>ตัดต่อและตรวจ</span><small>ทุกตอน</small></li>
       </ol>
 
@@ -846,9 +934,9 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
           <li><b>สร้างภาพนิ่งของช็อต</b>กด "คัดลอก" ใต้ "ภาพนิ่ง" ของช็อต 1 ใน Flow เลือกโหมดสร้างภาพ กด Add › Characters เลือกตัวละครตามป้าย @ ใต้ช็อต (ช็อตที่ไซต์ โรงงาน หรือคลังสินค้า คำสั่งระบุชุดหน้างานให้แล้ว) แนบภาพฉากถ้าเป็นชั้น 12 วางคำสั่ง "1 · ภาพนิ่ง" แล้วสร้าง 2–4 ภาพ เลือกภาพที่คนครบ ไม่ซ้ำ และชุดตรงที่สุด</li>
           <li><b>ทำเป็นวิดีโอ</b>เลือก Video › Ingredients โมเดล Omni Flash ใส่ตัวละครชุดเดิมกับภาพนิ่งจากข้อ 4 กลับมาที่เว็บ กด "คัดลอก" ใต้ "2 · วิดีโอ" วางในกล่องคำสั่ง ตั้งความยาวตามที่ช็อตระบุ แล้วกด Generate</li>
           <li><b>ตรวจผล</b>ดูว่าหน้า ชุด ท่า และทิศที่มองตรงคำสั่ง ตัวละครที่พูดขยับปากในช่วงเวลาที่กำหนด ไม่ต้องสนใจเสียงในคลิป (เป็นภาษาอังกฤษและจะถูกทิ้งตอนตัดต่อ) ฉากบรรยายต้องไม่มีใครขยับปาก ถ้าไม่ผ่านกดสร้างใหม่ 1–2 รอบ ถ้ายังไม่ผ่านดูกล่อง "แก้ปัญหาที่เจอบ่อย"</li>
-          <li><b>ความยาวช็อต</b>ตั้งความยาว 4, 6, 8 หรือ 10 วินาทีตามที่ช็อตระบุ ฉากละไม่เกิน 2 ช็อต ถ้าเสียงพากย์ยาวกว่าคลิป คำสั่งตัดต่อจะค้างเฟรมสุดท้ายให้เอง</li>
+          <li><b>ความยาวช็อต</b>ตั้งความยาว 4, 6, 8 หรือ 10 วินาทีตามที่ช็อตระบุ ฉากละไม่เกิน 2 ช็อต ถ้าบทพูดยาวกว่าคลิป คำสั่งตัดต่อจะค้างเฟรมสุดท้ายให้เอง</li>
           <li><b>ทำจนครบทุกช็อต</b>ทำข้อ 4–7 ทีละช็อตตามลำดับ ช็อตที่ตามกันในฉากเดียว ใช้ภาพนิ่งชุดเดียวกันเป็นฐาน ภาพจะต่อเนื่องกว่า</li>
-          <li><b>ดาวน์โหลด</b>ดาวน์โหลดคลิปทั้งหมด ตั้งชื่อไฟล์ตามเลขฉาก 2 หลักและเลขช็อต เช่น <code>01.mp4</code> <code>04.1.mp4</code> <code>04.2.mp4</code> แล้ววางไว้ในโฟลเดอร์ของตอนพร้อม logo.png</li>
+          <li><b>ดาวน์โหลด</b>ดาวน์โหลดคลิปทั้งหมด ตั้งชื่อไฟล์ตามเลขฉาก 2 หลักและเลขช็อต เช่น <code>01.mp4</code> <code>04.1.mp4</code> <code>04.2.mp4</code> แล้ววางไว้ในโฟลเดอร์ของตอน <code>D:\PRECISE__Vedio E-Learning\2569-2572\EP&lt;เลข&gt;</code> ทั้งภาพนิ่งและวิดีโอ ขอแค่ชื่อไฟล์ขึ้นต้นด้วยเลขช็อต (เช่น <code>07.1 …mp4</code>) หรือโหลดไว้ใน Downloads แล้วให้ Claude ตั้งชื่อและย้ายให้ ช็อตที่ขึ้นว่า "ไม่ต้องสร้างวิดีโอ" ใช้แค่ภาพนิ่ง</li>
         </ol>
         <div class="fg-box fg-alt">
           <h4>ทางเลือก: สร้างวิดีโอโดยไม่ทำภาพนิ่งก่อน</h4>
@@ -857,24 +945,22 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
       </div>
 
       <div class="fg-phase">
-        <h3><span class="fg-n">4</span>เสียงพากย์ไทย <em>อัตโนมัติในขั้นตัดต่อ</em></h3>
+        <h3><span class="fg-n">4</span>ตรวจเสียงพูดในคลิป <em>ทุกตอน</em></h3>
         <ol class="fg-steps">
-          <li><b>ไม่ใช้เสียงจาก Flow</b>เสียงในคลิปเป็นภาษาอังกฤษไว้ขับการขยับปากเท่านั้น คำสั่งตัดต่อทิ้งเสียงนี้ทั้งหมด รวมถึงเสียงบรรยากาศ</li>
-          <li><b>Gemini TTS พากย์ทุกบรรทัด</b>Claude Code สร้างเสียงไทยทีละบรรทัดผ่าน Gemini API ตามตารางเสียงในคำสั่งตัดต่อ ผู้บรรยายใช้ Charon ตัวละครหลักแต่ละคนมีเสียงประจำ (ดูได้ใน Character sheet) ตัวประกอบใช้ 4 เสียงกลางตามเพศและวัย</li>
-          <li><b>อ่านตัวย่อ ตัวเลข และคำอังกฤษให้ถูก</b>บรรทัดที่มีตัวย่อหรือตัวเลขจะมี "อ่านว่า" ให้ TTS เช่น ก.ล.ต. อ่านว่า กอ-ลอ-ตอ ส่วนซับยังใช้ตัวเขียนปกติ</li>
-          <li><b>เสียงคงที่ทั้ง 72 ตอน</b>ล็อกรุ่นโมเดลไว้ใน _template/TTS_MODEL ตารางเสียงไว้ใน _template/voices.json และเก็บ cache เสียงที่สร้างแล้ว ห้ามเปลี่ยนเสียงหรือรุ่นกลางซีรีส์</li>
-          <li><b>ตรวจเสียงอัตโนมัติ</b>ถอดเสียงกลับเทียบกับบท บรรทัดที่คำหายหรือเกินจะสร้างใหม่ (ไม่เกิน 3 ครั้ง) และแจ้งในรายงาน ไฟล์เสียงทุกบรรทัดเก็บไว้ใน EP&lt;เลข&gt;_dub/ ฟังหรือแก้รายบรรทัดได้</li>
+          <li><b>ใช้เสียงจาก Flow</b>บทพูดและเสียงบรรยายภาษาไทยสร้างอยู่ในคลิปเลย ปากกับเสียงจึงตรงกัน ไม่ต้องพากย์เพิ่ม</li>
+          <li><b>คำอ่านที่เขียนให้แล้ว</b>ตัวย่อ ตัวเลข และคำอังกฤษในคำสั่งวิดีโอถูกเขียนเป็นคำอ่าน เช่น ก.ล.ต. เป็น กอ-ลอ-ตอ ส่วนซับยังใช้ตัวเขียนปกติ</li>
+          <li><b>ฟังก่อนเก็บไฟล์</b>ฟังแต่ละคลิปว่าพูดครบ ตรงบท เสียงตัวละครเหมือนตอนก่อน ๆ ถ้าเพี้ยนหรือพูดตกคำ ให้สร้างคลิปนั้นใหม่</li>
+          <li><b>เสียงคงที่</b>ใช้ตัวละครที่บันทึกไว้ใน Flow (Characters) พร้อมเสียงประจำตัวทุกครั้ง ผู้บรรยายใช้เสียงเดิมทุกตอน</li>
         </ol>
-        <p class="mnote">ต้องตั้งค่าครั้งเดียว: สร้าง API key ใน Google AI Studio แล้วตั้งเป็น environment variable <code>GEMINI_API_KEY</code> ในเครื่องที่ใช้ Claude Code ห้ามใส่คีย์ใน repo เพราะ repo เป็น public</p>
       </div>
 
       <div class="fg-phase">
         <h3><span class="fg-n">5</span>ตัดต่อและตรวจก่อนเผยแพร่ <em>ทำทุกตอน</em></h3>
         <ol class="fg-steps">
-          <li><b>สั่ง Claude Code ตัดต่อ</b>ในหน้า Prompt สำหรับ Flow ของตอน กด "คัดลอกคำสั่งตัดต่อ (Claude Code)" เปิด Claude Code ในโฟลเดอร์ของตอน แล้ววางคำสั่ง ระบบจะพากย์ไทย เรียงคลิป ทำซับ ใส่โลโก้ ป้ายชื่อตอน และเพลง ตาม template เดียวกันทุกตอน (ใน ../_template) ความยาวรวมไม่เกิน 3 นาที ฉากแรกใช้เป็นภาพปกคลิป</li>
+          <li><b>สั่ง Claude Code ตัดต่อ</b>ในหน้า Prompt สำหรับ Flow ของตอน กด "คัดลอกคำสั่งตัดต่อ (Claude Code)" เปิด Claude Code ในโฟลเดอร์ของตอน แล้ววางคำสั่ง ระบบจะเรียงคลิป ใช้เสียงจากคลิป ทำซับ ใส่โลโก้ ป้ายชื่อตอน และเพลง ตาม template เดียวกันทุกตอน (ใน ../_template) ความยาวรวมไม่เกิน 3 นาที ฉากแรกใช้เป็นภาพปกคลิป</li>
           <li><b>โลโก้และป้ายชื่อตอน</b>โลโก้ช่องอยู่มุมขวาบนตลอดคลิป พร้อมคำว่า "ซีรีส์ชั้น 12" ป้ายชื่อตอนกับคำถามเปิดเรื่องขึ้นตัวใหญ่ในตำแหน่งซับช่วง 4 วินาทีแรก ไม่มีพื้นหลังทึบ คำสั่งตัดต่อใส่ให้ ไม่ให้ AI ใน Flow เขียนตัวหนังสือไทย</li>
-          <li><b>ฉากหยุดคิด</b>สร้างใน Flow เหมือนช็อตอื่น (ช็อตช้า ทุกคนนิ่ง กล้องค่อย ๆ ดันเข้า) ผู้บรรยายถามคำถามชวนคิดผ่านเสียงพากย์ ไม่มีข้อความหรือตัวเลขนับถอยหลัง เพลงเงียบลงช่วงนี้</li>
-          <li><b>เสียงและเพลง</b>เสียงพากย์ไทยจากขั้นที่ 4 คู่กับเพลงคลอเบา ๆ ตามกล่อง "เพลงประกอบ" ท้ายหน้า Prompt สำหรับ Flow (ลิงก์ดาวน์โหลดฟรีจาก Pixabay ดาวน์โหลดครั้งเดียวเก็บไว้ที่ _template/music) เพลงเบาลงเองตอนมีคนพูด และมีเสียงพื้นห้องเบา ๆ ไม่ให้ช่วงเงียบเงียบสนิท</li>
+          <li><b>ฉากหยุดคิด</b>สร้างใน Flow เหมือนช็อตอื่น (ช็อตช้า ทุกคนนิ่ง กล้องค่อย ๆ ดันเข้า) ผู้บรรยายถามคำถามชวนคิด ไม่มีข้อความหรือตัวเลขนับถอยหลัง เพลงเงียบลงช่วงนี้</li>
+          <li><b>เสียงและเพลง</b>เสียงพูดจากคลิป Flow คู่กับเพลงคลอเบา ๆ ตามกล่อง "เพลงประกอบ" ท้ายหน้า Prompt สำหรับ Flow (ลิงก์ดาวน์โหลดฟรีจาก Pixabay ดาวน์โหลดครั้งเดียวเก็บไว้ที่ _template/music) เพลงเบาลงเองตอนมีคนพูด และมีเสียงพื้นห้องเบา ๆ ไม่ให้ช่วงเงียบเงียบสนิท</li>
           <li><b>ตรวจรอบสุดท้าย</b>ใช้รายการในกล่อง "ตรวจก่อนส่ง" ด้านล่าง แล้วส่งให้เจ้าของเนื้อหาของธีมตรวจก่อนเผยแพร่</li>
         </ol>
         <div class="fg-box">
@@ -884,7 +970,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
             <li>ไม่มีชื่อบริษัท โลโก้ หรือชื่อคนจริงในภาพ รวมถึงเคสจริงที่เล่าในคลิป</li>
             <li>ไม่มีตัวอักษรเพี้ยนจาก AI หลงเหลือในภาพ (ป้าย จอคอม เอกสาร)</li>
             <li>ข้อความไทยสะกดถูก ตรงกับสคริปต์</li>
-            <li>เสียงพากย์ชัด ตรงบท เสียงตัวละครเหมือนตอนก่อน ๆ และปากขยับช่วงเดียวกับเสียง (ไม่ต้องตรงทุกคำ)</li>
+            <li>เสียงพูดชัด ตรงบท เสียงตัวละครเหมือนตอนก่อน ๆ ปากขยับตรงกับเสียง</li>
             <li>ความยาวรวมไม่เกิน 3 นาที (YouTube Shorts รับได้ถึง 3:00)</li>
             <li>ข้อความท้ายคลิปและช่องทางแจ้งเรื่องถูกต้อง</li>
           </ul>
@@ -893,7 +979,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
 
       <div class="fg-box">
         <h4>ล็อกหน้าด้วย Flow › Characters</h4>
-        <p>Flow มีเมนู Characters ให้บันทึกหน้าตัวละครไว้ในบัญชี แล้วเรียกในคำสั่งด้วย @ชื่อ ใช้กับโมเดล Omni Flash ในโหมด Video › Ingredients ไม่ต้องตั้งเสียงใน Flow แล้ว เพราะเสียงจริงเป็นเสียงพากย์ไทยจาก Gemini TTS</p>
+        <p>Flow มีเมนู Characters ให้บันทึกหน้าตัวละครไว้ในบัญชี แล้วเรียกในคำสั่งด้วย @ชื่อ ใช้กับโมเดล Omni Flash ในโหมด Video › Ingredients และตั้งเสียงประจำตัวในช่อง Voice ของตัวละคร (ดูชื่อเสียงใน Character sheet) เพราะเสียงพูดไทยในคลิปมาจาก Flow เลย</p>
         <ol class="fg-steps">
           <li><b>สร้างตัวละคร 9 คน (ครั้งเดียว)</b>เมนูซ้าย Characters › New Character › Upload ภาพอ้างอิงที่เลือกไว้ แล้วกรอกตามการ์ดใน Character sheet หัวข้อ "ตั้งค่าใน Flow › Characters": Name, Extra view, Character info</li>
           <li><b>ทดลองก่อนผลิตจริง</b>สร้างฉาก 2 ของ EP2 ก่อน ดูว่าหน้าคงที่ มองหน้าคนที่คุยด้วย และปากขยับเฉพาะคนที่พูดในช่วงเวลาที่กำหนด</li>
@@ -910,7 +996,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
           <dt>มีตัวละครในช็อตมากกว่า 3 คน</dt><dd>แนบเฉพาะคนที่เห็นหน้าชัด คนที่อยู่ไกลหรือหันหลังไม่ต้องแนบ หรือแยกเป็น 2 ช็อต</dd>
           <dt>มีตัวอักษรมั่วในภาพ</dt><dd>สร้างใหม่ หรือบังด้วยกราฟิกตอนตัดต่อ อย่าปล่อยไว้</dd>
           <dt>คลิปสั้นกว่าเวลาในสตอรีบอร์ด</dt><dd>ค้างภาพสุดท้าย หรือตัดสลับมุมตอนตัดต่อ ตามที่ช็อตบอกไว้</dd>
-          <dt>ขึ้น "Failed: This generation might violate our policies"</dt><dd>Flow ปฏิเสธคำสั่งและไม่คิดเครดิต ลองตามลำดับ: กดสร้างซ้ำ 1–2 ครั้ง → ถ้ายังไม่ผ่าน ลบประโยคทั่วไปตอนต้นทีละประโยค (เช่น "All characters are original and fictional.") → ถ้าเป็นวิดีโอ ลบบรรทัดบทพูดออก (เสียงพากย์ไทยไม่ได้มาจาก Flow อยู่แล้ว ปากอาจไม่ขยับ) → ถ้าแนบ Ingredient อยู่ ลองสร้างโดยไม่แนบก่อน แล้วแจ้งว่าเป็นคำสั่งของ EP และช็อตไหน จะได้แก้ในเว็บให้ทั้งชุด</dd>
+          <dt>ขึ้น "Failed: This generation might violate our policies"</dt><dd>Flow ปฏิเสธคำสั่งและไม่คิดเครดิต ลองตามลำดับ: กดสร้างซ้ำ 1–2 ครั้ง → ถ้ายังไม่ผ่าน ลบประโยคทั่วไปตอนต้นทีละประโยค (เช่น "All characters are original and fictional.") → ถ้าเป็นวิดีโอ ลองตัดบรรทัดบทพูดให้สั้นลง → ถ้าแนบ Ingredient อยู่ ลองสร้างโดยไม่แนบก่อน แล้วแจ้งว่าเป็นคำสั่งของ EP และช็อตไหน จะได้แก้ในเว็บให้ทั้งชุด</dd>
           <dt>ภาพของฉากถูกแก้หลังเขียนคำสั่ง</dt><dd>ถ้าเห็นคำเตือนนี้ในหน้า Prompt อ่านช่องภาพในสตอรีบอร์ดก่อน แล้วปรับคำสั่งให้ตรงก่อนสร้าง</dd>
         </dl>
       </div>
@@ -959,6 +1045,18 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
         <div class="ps-tw"><table class="ps-t"><thead><tr><th>#</th><th>ขั้น</th><th>ถือว่าเสร็จเมื่อ</th><th>ใครทำ</th><th>ควรเสร็จ</th></tr></thead><tbody id="ps-def"></tbody></table></div>
         <p class="muted small">แต่ละขั้นมีสถานะ รอ · กำลังทำ · เสร็จ · ติดปัญหา · <b>ตามแผน</b> ทุกขั้นทันกำหนด · <b>เสี่ยง</b> มีขั้นเลยกำหนดหรือติดปัญหา · <b>ล่าช้า</b> ถึง D-3 แล้วยังไม่อนุมัติคลิป หรือเลยวันออกอากาศแล้วยังไม่เผยแพร่ (D = วันออกอากาศ)</p>
       </details>
+    </section>
+  </div>
+  <div class="tabpanel" id="board" role="tabpanel" aria-labelledby="tab-board" hidden>
+    <section class="pb-wrap">
+      <div class="sec-head"><span class="eyebrow">ผลิตทีละด่าน · ตรวจแล้วค่อยไปต่อ</span><h2>สั่งงานผลิต ชั้น 12</h2></div>
+      <p class="muted">Claude ทำงานทีละด่าน แล้วหยุดรอคุณตรวจ กด <b>ยืนยัน</b> เพื่อไปด่านถัดไป หรือ <b>สั่งแก้</b> พร้อมบอกว่าแก้อะไร</p>
+      <div class="pb-note" id="pb-sys">กำลังเชื่อมต่อ…</div>
+      <div class="pb-note call" id="pb-call" hidden></div>
+      <div><h3>เลือกตอน</h3><div class="pb-eps" id="pb-eps"></div></div>
+      <div id="pb-head"></div>
+      <ol class="pb-stages" id="pb-stages"></ol>
+      <details class="ps-more"><summary>ประวัติคำสั่งตอนนี้</summary><div class="pb-log" id="pb-log"></div></details>
     </section>
   </div>
   <div class="tabpanel" id="measure" role="tabpanel" aria-labelledby="tab-measure" hidden>
@@ -1063,6 +1161,7 @@ li,dd,td,th,small,h4,.cown,.gmeta{text-wrap:pretty}
 </div>
 
 <script>
+const DUB=false;   // review 7 พ.ย. 2569: back to Thai speech voiced in Flow (dubbing looked out of sync); true = English in Flow + Gemini TTS dub
 // review 6 พ.ย. 2569: Thai dubbing with Gemini TTS — one fixed prebuilt voice per character for all 72 episodes
 var GV={c:["Sulafat","หญิง","warm, calm, kind but firm; a trusted senior colleague"],h:["Alnilam","ชาย","deep, firm, measured; a senior executive"],f:["Puck","ชาย","cheerful, upbeat, a little playful"],s:["Autonoe","หญิง","bright, upbeat, energetic"],a:["Gacrux","หญิง","mature, soft, warm; an experienced senior accountant"],n:["Leda","หญิง","youthful, clear, curious; a new employee"],r:["Achird","ชาย","friendly, warm, easygoing"],j:["Algieba","ชาย","smooth, eager, confident"],p:["Enceladus","ชาย","soft, polite, a little shy"]};
 var GNAME={c:"พี่นุ่น",h:"พี่ต้น",f:"โอ๊ต",s:"มายด์",a:"พี่อร",n:"เบล",r:"พี่เอก",j:"ก้อง",p:"ภูมิ"};
@@ -1252,7 +1351,7 @@ drawLegend();drawOv();
 // project status (review 3 พ.ย. 2569): per-episode production status lives in DATA[].prod; one-off tasks below
 const SETUP=[["วางแผน","แผน 72 ตอน + ปฏิทินเผยแพร่ (สลับหัวข้อไม่ซ้ำติดกัน)","done","2026-10-27",""],["วางแผน","บทครบ 72 ตอน อ้างอิงนโยบายบริษัท","done","2026-10-27","ร่างโดย GRC"],
  ["เตรียมผลิต","Character sheet ตัวละครหลัก 9 คนใน Google Flow","done","2026-11-03",""],["เตรียมผลิต","Prompt Google Flow ครบทุกช็อต (72 ตอน)","done","2026-10-28","ไม่เกิน 2 ช็อตต่อฉาก"],["เตรียมผลิต","โลโก้ช่อง \"ชั้น 12\"","done","2026-10-27",""],
- ["เตรียมผลิต","คำสั่งตัดต่อ Claude Code (template สไตล์ v10)","done","2026-10-28",""],["เตรียมผลิต","คำสั่งตัดต่อ v11: เสียงพากย์ไทย Gemini TTS","done","2026-11-06",""],["เตรียมผลิต","สร้าง Gemini API key + ตั้ง GEMINI_API_KEY ในเครื่องที่ใช้ Claude Code","todo","2026-11-10","Google AI Studio › Get API key"],["เตรียมผลิต","ทดลองเสียงตัวละครหลัก (Gemini TTS) แล้วล็อกตาราง voices.json","todo","2026-11-11","ถ้าเสียงไหนไม่ชอบ เปลี่ยนก่อนเริ่ม EP2 เท่านั้น"],["เตรียมผลิต","เพลงประกอบ 4 ไฟล์ใน _template/music","todo","","ลิงก์ Pixabay อยู่ในหน้า Prompt สำหรับ Flow"],
+ ["เตรียมผลิต","คำสั่งตัดต่อ Claude Code (template สไตล์ v10)","done","2026-10-28",""],["เตรียมผลิต","คำสั่งตัดต่อ v11: เสียงพากย์ไทย Gemini TTS","done","2026-11-06","ยกเลิก 7 พ.ย. 2569"],["เตรียมผลิต","คำสั่งตัดต่อ v12: กลับมาใช้เสียงพูดไทยจาก Flow (เลิกพากย์ Gemini TTS)","done","2026-11-07","พากย์ทีหลังภาพกับเสียงไม่ตรงกัน"],["เตรียมผลิต","เพลงประกอบ 4 ไฟล์ใน _template/music","todo","","ลิงก์ Pixabay อยู่ในหน้า Prompt สำหรับ Flow"],
  ["เผยแพร่","ช่อง YouTube + Playlist \"ชั้น 12\"","done","2026-11-03",""],["เผยแพร่","ประชาสัมพันธ์ EP1 ผ่าน HR (LINE)","done","2026-11-03",""],["เผยแพร่","CGR Awareness Assessment ปีที่ 1","todo","2026-11-30","แผนกำหนดเดือน พ.ย. 2569"],["ติดตามผล","สรุปยอดชมและความเห็นรายเดือน","todo","2026-11-30",""]];
 const STEPS=[["script","บทพร้อม","บทและ prompt Flow ครบในหน้าเว็บ","GRC",null],["review","เจ้าของนโยบายตรวจ","เจ้าของหัวข้อยืนยันเนื้อหา","เจ้าของนโยบาย",-21],["footage","ถ่ายทำใน Flow","ได้คลิปครบทุกช็อต ตั้งชื่อไฟล์ตามเลขฉาก","GRC",-10],["edit","ตัดต่อ","Claude Code ทำ final.mp4 และตรวจภาพแล้ว","GRC",-7],["approve","อนุมัติคลิป","หัวหน้าหรือเจ้าของเนื้อหาดูคลิปจริงแล้วโอเค","หัวหน้า GRC",-3],["upload","อัป YouTube","ชื่อ คำอธิบาย ติ๊ก AI ใส่ Playlist แล้ว","GRC",-1],["publish","เผยแพร่","HR ส่ง LINE อังคาร 17:00 น.","HR",0],["follow","ติดตามผล","บันทึกยอดวิวและความเห็น 2 สัปดาห์หลังออก","GRC",14]];
 const STW={todo:"รอ",doing:"กำลังทำ",done:"เสร็จ",blocked:"ติดปัญหา"};
@@ -1361,15 +1460,15 @@ render();
 // character sheet for Google Flow
 // Google Flow "Characters" setup: face + voice locked per character (voices work with Omni Flash + Ingredients)
 const FCH={
- c:{h:"Noon",vo:[["Vindemiatrix", "Female, gentle, mid pitch", "นุ่มนวล ฟังสบาย ถ้า Sulafat ฟังเป็นทางการไป"], ["Sulafat", "Female, warm, mid pitch", "อบอุ่น ใจเย็น ตรงกับพี่เลี้ยงที่ไม่ดุ"], ["Despina", "Female, smooth, mid pitch", "ลื่น ชัด เหมาะช่วงอธิบายยาว"]],sel:"Vindemiatrix",v:"หญิงวัยปลาย 30",perf:"Warm, calm female voice in her late 30s. Speaks natural Central Thai, clear and unhurried, friendly mentor tone, polite endings ค่ะ/นะคะ, never stern.",say:"ไม่ต้องจำทุกหน้าหรอกค่ะ ลองถามตัวเองสามข้อก่อน ถูกกฎหมายไหม อธิบายได้ไหม และยอมรับได้ไหมถ้าเป็นเรา",info:"Compliance mentor at a Thai engineering company. Warm, calm and approachable; explains rules with everyday examples; a mentor, never a police officer. Speaks politely, in English (Thai dubbing is added later)."},
- h:{h:"Ton",vo:[["Alnilam", "Male, firm, mid-low pitch", "หนักแน่น โทนต่ำกลาง เหมาะหัวหน้าพูดตรง"], ["Orus", "Male, firm, mid-low pitch", "หนักแน่นเหมือนกัน ลองเทียบว่าตัวไหนดูใจดีกว่า"], ["Schedar", "Male, even, mid-low pitch", "เรียบ นิ่ง ถ้าอยากให้ดุน้อยลง"]],sel:"Alnilam",v:"ชายวัยต้น 40",perf:"Deep, firm male voice in his early 40s. Speaks natural Central Thai, direct and steady, a busy team head who is kind underneath, ends with ครับ.",say:"ทดสอบให้ครบก่อนนะ ค่อยเซ็นพรุ่งนี้ งานต้องเดินก็จริง แต่ต้องไม่เดินผิดทาง",info:"Team head. Direct and deadline-driven but kind to his team; catchphrase 'งานต้องเดิน'. Speaks firmly, in English (Thai dubbing is added later)."},
- f:{h:"Oat",vo:[["Zubenelgenubi", "Male, casual, mid-low pitch", "สบาย ๆ แบบคนหน้างาน"], ["Achird", "Male, friendly, mid pitch", "เป็นมิตร ร่าเริง เหมาะคนขี้เล่น"], ["Algenib", "Male, gravelly, low pitch", "แหบ ห้าว ถ้าอยากได้เสียงแหบชัดขึ้น"]],sel:"Zubenelgenubi",v:"ชายวัยกลาง 30",perf:"Cheerful, slightly husky male voice in his mid 30s. Speaks casual, friendly Central Thai with a light, joking rhythm, ends with ครับ.",say:"นิดเดียวเอง... เอ๊ย ถามก่อนดีกว่าครับ เดี๋ยวผมไปเช็กกับพี่ Compliance ให้",info:"Field coordinator and engineer. Playful, hard-working family man with a young child. Speaks cheerfully, in English (Thai dubbing is added later)."},
- s:{h:"Mind",vo:[["Autonoe", "Female, bright, mid pitch", "สดใสแต่โทนกลาง ฟังโตขึ้นนิด"], ["Laomedeia", "Female, upbeat, mid-high pitch", "สดใส กระตือรือร้น แบบคนขายเก่ง"], ["Aoede", "Female, breezy, mid pitch", "ปลอดโปร่ง เป็นกันเอง"]],sel:"Autonoe",v:"หญิงวัยปลาย 20",perf:"Bright, upbeat female voice in her late 20s. Speaks quick, warm Central Thai like a friendly salesperson, ends with ค่ะ/คะ.",say:"ได้ค่ะ ไม่มีปัญหา! เอ้ย... ได้ค่ะ ขอตรวจสัญญาก่อนนะคะ",info:"Sales lead. Cheerful, great with clients, hates disappointing anyone; catchphrase 'ได้ค่ะ ไม่มีปัญหา!'. Speaks brightly, in English (Thai dubbing is added later)."},
- a:{h:"Orn",vo:[["Gacrux", "Female, mature, mid pitch", "เสียงผู้ใหญ่ เหมาะวัย 50 แบบแม่ของออฟฟิศ"], ["Vindemiatrix", "Female, gentle, mid pitch", "อ่อนโยน ถ้าอยากให้นุ่มขึ้น"], ["Callirrhoe", "Female, easy-going, mid pitch", "สบาย ๆ อบอุ่น"]],sel:"Gacrux",v:"หญิงวัยต้น 50",perf:"Soft, motherly female voice in her early 50s. Speaks gentle, careful Central Thai at an unhurried pace, ends with ค่ะ/นะ/จ้ะ.",say:"พี่ทำงานกับเขามาสิบปีแล้วนะ แต่สิบปีก็ยังต้องเทียบราคาอยู่ดีจ้ะ",info:"Senior accountant, the warm 'mother' of the office. Meticulous and trusts long-time partners. Speaks softly, in English (Thai dubbing is added later)."},
- n:{h:"Bell",vo:[["Leda", "Female, youthful, mid-high pitch", "เสียงสาว สดใส ช่างถาม"], ["Zephyr", "Female, bright, mid-high pitch", "สดใส มีพลัง"], ["Erinome", "Female, clear, mid pitch", "ชัด ฟังโตขึ้น เหมาะปีที่ 3 ตอนเป็นพี่เลี้ยง"]],sel:"Leda",v:"หญิงวัยกลาง 20",perf:"Clear, lively young female voice in her mid 20s. Speaks fast, curious Central Thai, calls herself หนู when talking to seniors, ends with ค่ะ/คะ.",say:"พี่คะ หนูขอถามก่อนนะคะ ไฟล์นี้ใส่ AI ของบริษัทได้ไหมคะ",info:"New hire who grows into the team's digital lead. Smart, quick, curious and loves new tools. Speaks in a lively, respectful way, in English (Thai dubbing is added later)."},
- r:{h:"Ek",vo:[["Sadaltager", "Male, knowledgeable, mid pitch", "ฟังน่าเชื่อถือ เหมาะตอนพูดเรื่องนโยบาย"], ["Algieba", "Male, easy-going, mid-low pitch", "สบาย ๆ เป็นกันเอง แบบคนรู้จักทุกคน"], ["Umbriel", "Male, smooth, lower pitch", "นุ่ม ทุ้ม อบอุ่น"]],sel:"Sadaltager",v:"ชายวัยปลาย 30",perf:"Friendly, warm male voice in his late 30s. Speaks relaxed, cheerful Central Thai like someone who knows everyone, ends with ครับ.",say:"เรื่องคน พี่จัดให้ครับ แต่เรื่องข้อมูลส่วนตัว ต้องเก็บเป็นความลับนะ",info:"HR officer. Good-humoured, knows everyone in the company, a helpful advisor on work and life. Speaks warmly, in English (Thai dubbing is added later)."},
- j:{h:"Kong",vo:[["Sadachbia", "Male, lively, low pitch", "มีชีวิตชีวา ทุ้มขึ้น ฟังมั่นใจ"], ["Puck", "Male, upbeat, mid pitch", "กระตือรือร้น อยากทำผลงาน"], ["Umbriel", "Male, smooth, lower pitch", "ลื่นไหลแบบคนขายเก่ง"]],sel:"Sadachbia",v:"ชายวัยต้น 30",perf:"Eager, smooth male voice in his early 30s. Speaks confident, fast Central Thai with a salesman's charm, ends with ครับ.",say:"ผมมีไฟล์ราคาจากบริษัทเก่าครับ เอามาเทียบกันได้เลย รับรองแม่นขึ้นแน่",info:"Junior sales engineer. Confident, eager to impress, a little overconfident. Speaks smoothly, in English (Thai dubbing is added later)."},
- p:{h:"Phum",vo:[["Fenrir", "Male, excitable, younger pitch", "เสียงวัยรุ่นที่สุด ช่อง Customise performance คุมให้สุภาพ ไม่ตื่นเต้น"], ["Iapetus", "Male, clear, mid-low pitch", "ชัด สุภาพ"], ["Enceladus", "Male, breathy, lower pitch", "เบา มีลม ฟังขี้อาย"]],sel:"Fenrir",v:"ชายวัยต้น 20",perf:"Polite, slightly shy young male voice in his early 20s. Calm, not excitable. Speaks careful, respectful Central Thai, a little hesitant, ends with ครับ.",say:"พี่ครับ ผมจดไว้หมดแล้วครับ ข้อไหนไม่แน่ใจ ผมจะถามก่อนทำครับ",info:"Newcomer, 21. Polite, slightly shy and careful; likes to ask before acting. Speaks respectfully, in English (Thai dubbing is added later)."},
+ c:{h:"Noon",vo:[["Vindemiatrix", "Female, gentle, mid pitch", "นุ่มนวล ฟังสบาย ถ้า Sulafat ฟังเป็นทางการไป"], ["Sulafat", "Female, warm, mid pitch", "อบอุ่น ใจเย็น ตรงกับพี่เลี้ยงที่ไม่ดุ"], ["Despina", "Female, smooth, mid pitch", "ลื่น ชัด เหมาะช่วงอธิบายยาว"]],sel:"Vindemiatrix",v:"หญิงวัยปลาย 30",perf:"Warm, calm female voice in her late 30s. Speaks natural Central Thai, clear and unhurried, friendly mentor tone, polite endings ค่ะ/นะคะ, never stern.",say:"ไม่ต้องจำทุกหน้าหรอกค่ะ ลองถามตัวเองสามข้อก่อน ถูกกฎหมายไหม อธิบายได้ไหม และยอมรับได้ไหมถ้าเป็นเรา",info:"Compliance mentor at a Thai engineering company. Warm, calm and approachable; explains rules with everyday examples; a mentor, never a police officer. Speaks politely in Thai."},
+ h:{h:"Ton",vo:[["Alnilam", "Male, firm, mid-low pitch", "หนักแน่น โทนต่ำกลาง เหมาะหัวหน้าพูดตรง"], ["Orus", "Male, firm, mid-low pitch", "หนักแน่นเหมือนกัน ลองเทียบว่าตัวไหนดูใจดีกว่า"], ["Schedar", "Male, even, mid-low pitch", "เรียบ นิ่ง ถ้าอยากให้ดุน้อยลง"]],sel:"Alnilam",v:"ชายวัยต้น 40",perf:"Deep, firm male voice in his early 40s. Speaks natural Central Thai, direct and steady, a busy team head who is kind underneath, ends with ครับ.",say:"ทดสอบให้ครบก่อนนะ ค่อยเซ็นพรุ่งนี้ งานต้องเดินก็จริง แต่ต้องไม่เดินผิดทาง",info:"Team head. Direct and deadline-driven but kind to his team; catchphrase 'งานต้องเดิน'. Speaks firmly in Thai."},
+ f:{h:"Oat",vo:[["Zubenelgenubi", "Male, casual, mid-low pitch", "สบาย ๆ แบบคนหน้างาน"], ["Achird", "Male, friendly, mid pitch", "เป็นมิตร ร่าเริง เหมาะคนขี้เล่น"], ["Algenib", "Male, gravelly, low pitch", "แหบ ห้าว ถ้าอยากได้เสียงแหบชัดขึ้น"]],sel:"Zubenelgenubi",v:"ชายวัยกลาง 30",perf:"Cheerful, slightly husky male voice in his mid 30s. Speaks casual, friendly Central Thai with a light, joking rhythm, ends with ครับ.",say:"นิดเดียวเอง... เอ๊ย ถามก่อนดีกว่าครับ เดี๋ยวผมไปเช็กกับพี่ Compliance ให้",info:"Field coordinator and engineer. Playful, hard-working family man with a young child. Speaks cheerfully in Thai."},
+ s:{h:"Mind",vo:[["Autonoe", "Female, bright, mid pitch", "สดใสแต่โทนกลาง ฟังโตขึ้นนิด"], ["Laomedeia", "Female, upbeat, mid-high pitch", "สดใส กระตือรือร้น แบบคนขายเก่ง"], ["Aoede", "Female, breezy, mid pitch", "ปลอดโปร่ง เป็นกันเอง"]],sel:"Autonoe",v:"หญิงวัยปลาย 20",perf:"Bright, upbeat female voice in her late 20s. Speaks quick, warm Central Thai like a friendly salesperson, ends with ค่ะ/คะ.",say:"ได้ค่ะ ไม่มีปัญหา! เอ้ย... ได้ค่ะ ขอตรวจสัญญาก่อนนะคะ",info:"Sales lead. Cheerful, great with clients, hates disappointing anyone; catchphrase 'ได้ค่ะ ไม่มีปัญหา!'. Speaks brightly in Thai."},
+ a:{h:"Orn",vo:[["Gacrux", "Female, mature, mid pitch", "เสียงผู้ใหญ่ เหมาะวัย 50 แบบแม่ของออฟฟิศ"], ["Vindemiatrix", "Female, gentle, mid pitch", "อ่อนโยน ถ้าอยากให้นุ่มขึ้น"], ["Callirrhoe", "Female, easy-going, mid pitch", "สบาย ๆ อบอุ่น"]],sel:"Gacrux",v:"หญิงวัยต้น 50",perf:"Soft, motherly female voice in her early 50s. Speaks gentle, careful Central Thai at an unhurried pace, ends with ค่ะ/นะ/จ้ะ.",say:"พี่ทำงานกับเขามาสิบปีแล้วนะ แต่สิบปีก็ยังต้องเทียบราคาอยู่ดีจ้ะ",info:"Senior accountant, the warm 'mother' of the office. Meticulous and trusts long-time partners. Speaks softly in Thai."},
+ n:{h:"Bell",vo:[["Leda", "Female, youthful, mid-high pitch", "เสียงสาว สดใส ช่างถาม"], ["Zephyr", "Female, bright, mid-high pitch", "สดใส มีพลัง"], ["Erinome", "Female, clear, mid pitch", "ชัด ฟังโตขึ้น เหมาะปีที่ 3 ตอนเป็นพี่เลี้ยง"]],sel:"Leda",v:"หญิงวัยกลาง 20",perf:"Clear, lively young female voice in her mid 20s. Speaks fast, curious Central Thai, calls herself หนู when talking to seniors, ends with ค่ะ/คะ.",say:"พี่คะ หนูขอถามก่อนนะคะ ไฟล์นี้ใส่ AI ของบริษัทได้ไหมคะ",info:"New hire who grows into the team's digital lead. Smart, quick, curious and loves new tools. Speaks in a lively, respectful way in Thai."},
+ r:{h:"Ek",vo:[["Sadaltager", "Male, knowledgeable, mid pitch", "ฟังน่าเชื่อถือ เหมาะตอนพูดเรื่องนโยบาย"], ["Algieba", "Male, easy-going, mid-low pitch", "สบาย ๆ เป็นกันเอง แบบคนรู้จักทุกคน"], ["Umbriel", "Male, smooth, lower pitch", "นุ่ม ทุ้ม อบอุ่น"]],sel:"Sadaltager",v:"ชายวัยปลาย 30",perf:"Friendly, warm male voice in his late 30s. Speaks relaxed, cheerful Central Thai like someone who knows everyone, ends with ครับ.",say:"เรื่องคน พี่จัดให้ครับ แต่เรื่องข้อมูลส่วนตัว ต้องเก็บเป็นความลับนะ",info:"HR officer. Good-humoured, knows everyone in the company, a helpful advisor on work and life. Speaks warmly in Thai."},
+ j:{h:"Kong",vo:[["Sadachbia", "Male, lively, low pitch", "มีชีวิตชีวา ทุ้มขึ้น ฟังมั่นใจ"], ["Puck", "Male, upbeat, mid pitch", "กระตือรือร้น อยากทำผลงาน"], ["Umbriel", "Male, smooth, lower pitch", "ลื่นไหลแบบคนขายเก่ง"]],sel:"Sadachbia",v:"ชายวัยต้น 30",perf:"Eager, smooth male voice in his early 30s. Speaks confident, fast Central Thai with a salesman's charm, ends with ครับ.",say:"ผมมีไฟล์ราคาจากบริษัทเก่าครับ เอามาเทียบกันได้เลย รับรองแม่นขึ้นแน่",info:"Junior sales engineer. Confident, eager to impress, a little overconfident. Speaks smoothly in Thai."},
+ p:{h:"Phum",vo:[["Fenrir", "Male, excitable, younger pitch", "เสียงวัยรุ่นที่สุด ช่อง Customise performance คุมให้สุภาพ ไม่ตื่นเต้น"], ["Iapetus", "Male, clear, mid-low pitch", "ชัด สุภาพ"], ["Enceladus", "Male, breathy, lower pitch", "เบา มีลม ฟังขี้อาย"]],sel:"Fenrir",v:"ชายวัยต้น 20",perf:"Polite, slightly shy young male voice in his early 20s. Calm, not excitable. Speaks careful, respectful Central Thai, a little hesitant, ends with ครับ.",say:"พี่ครับ ผมจดไว้หมดแล้วครับ ข้อไหนไม่แน่ใจ ผมจะถามก่อนทำครับ",info:"Newcomer, 21. Polite, slightly shy and careful; likes to ask before acting. Speaks respectfully in Thai."},
  narr:{h:"Narrator",vo:[["Charon", "Male, informative, lower pitch", "เสียงบรรยายแบบสารคดี"], ["Rasalgethi", "Male, informative, mid pitch", "บรรยายเหมือนกัน โทนสูงกว่าเล็กน้อย"], ["Sadaltager", "Male, knowledgeable, mid pitch", "ฟังน่าเชื่อถือ แบบผู้รู้"]],v:"ชายวัยกลาง 40",perf:"Calm, friendly Thai male narrator in his mid 40s, documentary tone, clear Central Thai diction, steady pace, never dramatic.",say:"ไม่แน่ใจ ถามก่อนทำ ธรรมาภิบาลเริ่มที่การตัดสินใจของเราทุกคน"}};
 const FLMODE="chars";   // one way only: Flow characters with locked face + voice (review 23 ต.ค. 2569: Frames mode removed)
 const CS=(function(){
@@ -1428,7 +1527,7 @@ const CS=(function(){
         el("li",{},el("span",{class:"fx-l"},el("b",{text:"ภาพหลัก"}),el("span",{class:"muted",text:" · Upload"})),el("span",{class:"fch-v muted",text:"ภาพอ้างอิงที่เลือกไว้ (คำสั่งสร้างภาพอยู่ในมุมมอง \"หน้าตาและคำสั่งภาพ\")"})),
         row("Extra view",x.p.replace(/^A fictional /,"").replace(/, (?:holding|carrying) [^.]*\./,".").replace(/, black backpack on both shoulders/,"")+(k==="f"||k==="h"?" Office outfit only: no safety vest, no helmet.":""),"บรรยายตัวและชุด"),
         row("Character info",F.info,"ไม่บังคับ แต่ช่วยให้นิสัยคงที่"),
-        el("li",{},el("span",{class:"fx-l"},el("b",{text:"เสียง"}),el("span",{class:"muted",text:" · ไม่ต้องตั้งใน Flow"})),el("span",{class:"fch-v muted",text:"ใน Flow ตัวละครพูดภาษาอังกฤษเพื่อให้ปากขยับเท่านั้น เสียงจริงคือเสียงพากย์ไทย Gemini TTS: "+GV[k][0]+" (สร้างอัตโนมัติตอนตัดต่อ)"}))))};
+        row("Voice",GV[k][0],"เลือกเสียงนี้ในช่อง Voice ของตัวละครใน Flow ใช้เสียงเดิมทุกตอน ตัวละครพูดไทยในคลิปเลย")))};
   const unvest=x=>`Edit the attached image of ${x.l==="พี่หน้างาน"?"him":"him"}: remove the high-visibility safety vest and any helmet completely, and remove anything he is holding so his hands rest relaxed at his sides. He now wears only ${x.l==="พี่หน้างาน"?"the same royal-blue short-sleeve polo shirt without logo, black cargo trousers and safety boots":"the same white short-sleeve shirt with pens in the breast pocket, black trousers and black leather shoes"}. Keep the exact same face, hair, skin tone, body, pose, framing, lighting and plain light-grey background. Vertical 9:16 portrait orientation, photorealistic, one single person, no logos, no text.`;
   const fxList=x=>{const L=[["มุม 3/4 ครึ่งตัว",null]].concat(SITE[x.l]?[["แก้ภาพเดิมที่มีเสื้อกั๊ก ให้เป็นชุดออฟฟิศ (แนบภาพนั้น)","UNVEST"],["ชุดหน้างาน (ทำแยกอีกภาพ)","SITE"]]:[]).concat(FX[x.l]||[]);
     return el("ul",{class:"fx-list"},...L.map(([th,en])=>{const pr=en==="UNVEST"?unvest(x):en==="SITE"?sitePrompt(x):en?fxPrompt(x,en):angPrompt(x);
@@ -1441,7 +1540,7 @@ const CS=(function(){
     const sec=(id,...kids)=>el("section",{class:"cs-sec","data-sec":id},...kids);
     g.append(el("article",{class:"cs-card",style:"--cc:"+x.c,"data-k":k},
       el("h3",{},el("span",{class:"sw"}),x.l,el("span",{class:"cs-at",text:"@"+F.h})),el("p",{class:"meta",text:x.m}),
-      el("dl",{class:"cs-sum"},el("dt",{text:"คาแรกเตอร์"}),el("dd",{text:P.k}),el("dt",{text:"ติดปาก"}),el("dd",{text:P.q}),el("dt",{text:"หน้าตา"}),el("dd",{text:x.look}),el("dt",{text:"เสียงพากย์"}),el("dd",{},el("b",{text:GV[k][0]}),el("span",{class:"muted",text:" · Gemini TTS · "+GV[k][2]})),el("dt",{text:"อยู่ในตอน"}),el("dd",{text:P.n||"–"})),
+      el("dl",{class:"cs-sum"},el("dt",{text:"คาแรกเตอร์"}),el("dd",{text:P.k}),el("dt",{text:"ติดปาก"}),el("dd",{text:P.q}),el("dt",{text:"หน้าตา"}),el("dd",{text:x.look}),el("dt",{text:"เสียงใน Flow"}),el("dd",{},el("b",{text:GV[k][0]}),el("span",{class:"muted",text:" · "+GV[k][2]})),el("dt",{text:"อยู่ในตอน"}),el("dd",{text:P.n||"–"})),
       sec("story",el("h4",{class:"cs-sub",text:"นิสัยและเรื่องราว"}),
         el("dl",{},el("dt",{text:"คาแรกเตอร์"}),el("dd",{text:P.k}),el("dt",{text:"จุดที่พลาด"}),el("dd",{text:P.f}),el("dt",{text:"ติดปาก"}),el("dd",{text:P.q}),el("dt",{text:"เติบโต 3 ปี"}),el("dd",{text:P.gr}),el("dt",{text:"มุกท้ายตอน"}),el("dd",{text:P.gag}),el("dt",{text:"ป้ายในตอนอื่น"}),el("dd",{text:P.lab}),el("dt",{text:"อยู่ในตอน"}),el("dd",{text:P.n||"–"}))),
       sec("look",el("h4",{class:"cs-sub",text:"หน้าตาและคำสั่งภาพ"}),
@@ -1452,22 +1551,26 @@ const CS=(function(){
       sec("flow",fchBox(k,x))));
   });
   {const F=FCH.narr,row=(lab,val,hint)=>el("li",{},el("span",{class:"fx-l"},el("b",{text:lab}),hint?el("span",{class:"muted",text:" · "+hint}):null),el("span",{class:"fch-v",text:val}),copyBtn(()=>val));
-   g.append(el("article",{class:"cs-card cs-narr",style:"--cc:#8a8f98","data-k":"narr"},el("h3",{},el("span",{class:"sw"}),"เสียงบรรยาย",el("span",{class:"cs-at",text:"พากย์: "+GNARR[0]})),el("dl",{class:"cs-sum"},el("dt",{text:"เสียงพากย์"}),el("dd",{},el("b",{text:GNARR[0]}),el("span",{class:"muted",text:" · Gemini TTS · "+GNARR[2]}))),el("p",{class:"meta",text:"ไม่มีตัวตนบนจอ Flow ไม่ต้องสร้างเสียงนี้ ใช้ในขั้นตัดต่อเท่านั้น"})))}
+   g.append(el("article",{class:"cs-card cs-narr",style:"--cc:#8a8f98","data-k":"narr"},el("h3",{},el("span",{class:"sw"}),"เสียงบรรยาย",el("span",{class:"cs-at",text:"เสียง: "+GNARR[0]})),el("dl",{class:"cs-sum"},el("dt",{text:"เสียงใน Flow"}),el("dd",{},el("b",{text:GNARR[0]}),el("span",{class:"muted",text:" · เสียงใน Flow · "+GNARR[2]}))),el("p",{class:"meta",text:"ไม่มีตัวตนบนจอ เสียงบรรยายสร้างในคลิป Flow ตามคำสั่งวิดีโอ (บันทึกไว้ใน Flow › Voices ชื่อ Narrator ใช้เสียงเดิมทุกตอน)"})))}
   document.querySelectorAll("button.cs-copy[data-for]").forEach(b=>b.replaceWith(copyBtn(()=>document.getElementById(b.dataset.for).textContent)));
 })();
 
 document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a.go-chars");if(a){e.preventDefault();setTab("chars");window.scrollTo({top:0})}});
 // tabs
-const TABS=["intro","series","chars","flowguide","plan","measure","status"];
+const TABS=["intro","series","chars","flowguide","plan","measure","status","board"];
 function setTab(id,push=true){
   if(id==="scripts")id="plan";if(id==="roles"){id="intro";setTimeout(()=>{const r=document.getElementById("cats");if(r)r.scrollIntoView()},0)}if(!TABS.includes(id))id="intro";
-  TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);b.setAttribute("aria-selected",String(x===id));b.tabIndex=x===id?0:-1});
+  const SG=["series","chars","flowguide"],inG=SG.includes(id);
+  TABS.forEach(x=>{document.getElementById(x).hidden=x!==id;const b=document.getElementById("tab-"+x);if(SG.includes(x)&&x!=="series"){b.removeAttribute("aria-selected");return}b.setAttribute("aria-selected",String(x===id||(x==="series"&&inG)));b.tabIndex=(x===id||(x==="series"&&inG))?0:-1});
+  const sub=document.getElementById("subtabs");sub.hidden=!inG;sub.querySelectorAll(".subtab").forEach(b=>{if(b.dataset.t===id)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
   if(push){try{history.replaceState(null,"","#"+id)}catch(e){}}
 }
+document.querySelectorAll(".subtab").forEach(b=>b.addEventListener("click",()=>{setTab(b.dataset.t);window.scrollTo({top:0})}));
+const MAINT=["intro","series","plan","measure","status","board"];
 document.querySelectorAll(".tab").forEach(b=>{
   b.addEventListener("click",()=>{setTab(b.dataset.t);window.scrollTo({top:0})});
-  b.addEventListener("keydown",e=>{const i=TABS.indexOf(b.dataset.t);let n=null;
-    if(e.key==="ArrowRight")n=TABS[(i+1)%TABS.length];if(e.key==="ArrowLeft")n=TABS[(i+TABS.length-1)%TABS.length];
+  b.addEventListener("keydown",e=>{const i=MAINT.indexOf(b.dataset.t);let n=null;
+    if(e.key==="ArrowRight")n=MAINT[(i+1)%MAINT.length];if(e.key==="ArrowLeft")n=MAINT[(i+MAINT.length-1)%MAINT.length];
     if(n){e.preventDefault();setTab(n);document.getElementById("tab-"+n).focus()}});
 });
 
@@ -1546,7 +1649,7 @@ function renderSB(d){
   [["case","เคสสั้น"],["drama","ละครซีรีส์ \"ชั้น 12\""]].forEach(([k,l])=>{const b=el("button",{type:"button","aria-pressed":String((drama?"drama":"case")===k),text:l});b.disabled=k==="drama"&&!d.drama;b.addEventListener("click",()=>{if(sbVer===k)return;sbVer=k;box.replaceWith(renderSB(d));const e=document.querySelector("#dlg .sheet-head .est");if(e&&VIEW(d).est)e.textContent=`ยาวประมาณ ${mmss(VIEW(d).est)} นาที`});ver.append(b)});
   const mode=el("div",{class:"sb-ver sb-mode",role:"group","aria-label":"เลือกมุมมอง"});
   [["table","สตอรีบอร์ด"],["flow","Prompt สำหรับ Flow"]].forEach(([k,l])=>{const b=el("button",{type:"button","aria-pressed":String((drama&&V.fl?sbMode:"table")===k),text:l});b.disabled=k==="flow"&&!(drama&&V.fl);if(b.disabled)b.title=d.drama?"ตอนนี้ยังไม่มีคำสั่ง":"มีเฉพาะเวอร์ชันละคร \"ชั้น 12\"";b.addEventListener("click",()=>{if(sbMode===k)return;sbMode=k;box.replaceWith(renderSB(d))});mode.append(b)});
-  const box=el("div",{class:"sb"+(drama?" drama":"")},el("div",{class:"sb-h"},el("h3",{text:"โครงสร้างเนื้อหา"}),el("div",{class:"sb-sw"},ver,mode)),meta);
+  const box=el("div",{class:"sb"+(drama?" drama":"")},el("div",{class:"sb-h"},el("h3",{text:"โครงสร้างเนื้อหา"}),el("div",{class:"sb-sw"},d.drama?mode:ver)),el("details",{class:"sb-metaw"},el("summary",{text:"▸ ข้อมูลตอน · ความยาว ตัวละคร เคสจริงที่อ้างอิง"}),meta));
   const F=[["visual","ภาพ"],["screen","Keyword บนจอ"],["audio","เสียง"]];
   const fb=el("div",{class:"sb-filter",role:"group","aria-label":"เลือกคอลัมน์ที่จะแสดงและคัดลอก"},el("span",{class:"muted",text:"แสดง:"}));
   const apply=()=>{F.forEach(([k])=>box.classList.toggle("hide-"+k,!sbShow.has(k)));fb.querySelectorAll("button[data-f]").forEach(x=>x.setAttribute("aria-pressed",String(sbShow.has(x.dataset.f))))};
@@ -1691,14 +1794,15 @@ function renderSB(d){
       P.forEach((t,k)=>{if(t)S[k].say.push({narr:1,t})})}   // one narrator line per shot when the script gives exactly that many
     S.forEach(x=>{const dc=x.say.filter(y=>!y.narr).reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0),nc=x.say.filter(y=>y.narr).reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);
       if(nc&&dc+nc>NLIM){x.say=x.say.filter(y=>!y.narr);x.narrOut=1}});
-    S.forEach(x=>{x.phone=PHONE.test(s.visual);x.chars=x.say.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);x.len=Math.max(x.len,x.chars/CPS)*LENK;x.gen=gen(x.len);x.img=imgPrompt(x.st0?Object.assign({},x,x.st0):x,o,C);x.vid=vidPrompt(x,o,C)});
+    S.forEach(x=>{x.phone=PHONE.test(s.visual);x.chars=x.say.reduce((n,y)=>n+y.t.replace(/\s/g,"").length,0);x.len=Math.max(x.len,x.chars/CPS)*LENK;x.gen=gen(x.len);x.kb=x.say.length>0&&x.say.every(y=>y.narr)&&(x.cam==="ins"||!x.ids.some(k=>"chfsanrjp".includes(k)&&k.length===1));x.say.forEach(y=>{y.ph=!DUB&&x.phone&&!y.narr&&!y.th&&!x.ids.includes(y.id)});x.img=imgPrompt(x.st0?Object.assign({},x,x.st0):x,o,C);x.vid=vidPrompt(x,o,C);x.pv=phonePrompt(x,C)});
     return S;
   }
   const MAXC=110, CPS=11;
   let LENK=1;   // review 3 พ.ย. 2569: unhurried Thai (11 chars/s), but an episode that would run past EPMAX is tightened evenly so the cut stays within 3 minutes
   const EPMAX=175;
   // review 3 พ.ย. 2569: Flow mispronounces Thai with abbreviations, digits and English — the prompt gets the line as it should be spoken; subtitles keep the written form
-  const THPRON="All dialogue is spoken in natural, clear English at a relaxed conversational pace, only to drive realistic lip movement and acting; the final Thai dubbing replaces all audio later. Each line starts and ends inside its time window, one speaker at a time with a short pause between lines, never overlapping. Natural micro-expressions and timing. No narrator or voice-over in this clip.";
+  const THPRON_EN="All dialogue is spoken in natural, clear English at a relaxed conversational pace, only to drive realistic lip movement and acting; the final Thai dubbing replaces all audio later. Each line starts and ends inside its time window, one speaker at a time with a short pause between lines, never overlapping. Natural micro-expressions and timing. No narrator or voice-over in this clip.";
+  const THPRON=DUB?THPRON_EN:"Pronunciation: standard Central Thai, every syllable clear with correct tones, unhurried; each quoted line is spelled exactly as it should be spoken, so read it as written. Each line is spoken inside its time window, one speaker at a time with a short pause between lines, never overlapping. Natural micro-expressions and timing.";
   const SPW=[["pcc_dpo@precise.co.th","พีซีซี อันเดอร์สกอร์ ดีพีโอ แอท พรีไซซ ดอท ซีโอ ดอท ทีเอช"],["02-910-9700","ศูนย์สอง เก้าหนึ่งศูนย์ เก้าเจ็ดศูนย์ศูนย์"],["56-1 One Report","ห้าสิบหก ขีด หนึ่ง วันรีพอร์ต"],["Subject to Contract","ซับเจ็กต์ ทู คอนแทร็กต์"],["ใจเย็น ๆ","ใจเย็นเย็น"],["GT200","จีทีสองร้อย"],["One Report","วันรีพอร์ต"],["CO2ZERO","ซีโอทู ซีโร่"],
    ["ก.ล.ต.","กอ-ลอ-ตอ"],["ป.ป.ช.","ปอ-ปอ-ชอ"],["สคส.","สอ-คอ-สอ"],["สหรัฐฯ","สหรัฐ"],["แพ่งฯ","แพ่ง"],["Requirement","รีไควร์เมนต์"],["Compliance","คอมพลายแอนซ์"],["Report","รีพอร์ต"],
    ["PDPA","พีดีพีเอ"],["NDA","เอ็นดีเอ"],["DPO","ดีพีโอ"],["DPA","ดีพีเอ"],["ESG","อีเอสจี"],["TOR","ทีโออาร์"],["LOI","แอลโอไอ"],["OTP","โอทีพี"],["KPI","เคพีไอ"],["KRI","เคอาร์ไอ"],["CSR","ซีเอสอาร์"],["PDF","พีดีเอฟ"],["EIA","อีไอเอ"],["PPE","พีพีอี"],["PLC","พีแอลซี"],["RMC","อาร์เอ็มซี"],
@@ -1712,7 +1816,8 @@ function renderSB(d){
   const TCL=(L,x)=>{if(!L.length)return;const nat=x.say.map(y=>Math.max(1.5,SP(y.t).length/11+0.3)),tot=nat.reduce((a,b)=>a+b,0),g=0.4*(L.length-1),start=0.5,end=Math.max(start+2,Math.min(x.gen-0.3,(x.len||x.gen)+0.3)),k=Math.min(1,(end-start-g)/tot);let t=start;
     const f=v=>(Math.round(v*2)/2).toString();L.forEach((l,i)=>{const a=t,b=Math.min(end,t+nat[i]*k),y=x.say[i];
       y.win=[Math.round(a*10)/10,Math.round(b*10)/10];
-      if(y.narr||y.th){L[i]=null}
+      if(!DUB){L[i]=l.replace(/^- /,`- [${f(a)}-${f(b)}s] `)}
+      else if(y.narr||y.th){L[i]=null}
       else if(!y.id||!x.ids.includes(y.id)){L[i]=`- [${f(a)}-${f(b)}s] PAUSE for an off-screen voice that is added later in the edit (not generated here): nobody on screen speaks in this window; whoever is on screen listens with lips fully closed, reacting only with the eyes and small nods.`}   // review 6 พ.ย. 2569: all audio is Thai dubbing added later — Flow never voices the narrator or inner thoughts
       else{const n=Math.max(2,Math.round((b-a)*ENWPS)),en=ENL[clean(y.t).replace(/[“”"]/g,"").trim()];
         L[i]=l.replace(/^- /,`- [${f(a)}-${f(b)}s] `).replace(/in Thai: "[^"]*"/,en?`in English (${en.split(/\s+/).length} words): "${en}"`:`in English, one natural line of about ${n} words that means: ${clean(y.t).replace(/[“”"]/g,"")}`)}
@@ -1802,6 +1907,7 @@ function renderSB(d){
       if(!(k in CH))return "- "+cap(C.role(k))+" — "+C.look(k,x.loc)+(talks?"; voice: "+voiceEN(k,C):"; does not speak in this shot");
       return `- ${H(k)} — ${C.role0(k)}, a ${sex(k)} (saved Flow character: ${keepNote(k,talks?" and "+her(k)+" own saved voice":"")}${of?"; in this shot "+of:"; same outfit as the character reference"})${talks?"":". Does not speak in this shot."}`});
     const L=x.say.map(y=>{
+      if(y.ph)return `- PHONE PAUSE (the caller talks, but the caller's voice is NOT heard in this clip; it is added in the edit): keep this window silent except quiet room tone; ${x.ids.length?[(x.say.find(z=>!z.narr&&!z.th&&!z.ph&&x.ids.includes(z.id))||{id:x.ids[0]}).id].map(k=>k in CH?"@"+FCH[k].h:C.role(k)).join(" and ")+" listens to the phone with lips completely closed, nodding slightly":"nobody speaks"}`;
       if(y.narr)return `- NARRATOR (voice-over only, never seen; @Voice: ${S.narr.h}) says in Thai: "${SP(y.t)}"`;
       if(!y.id)return `- OFF-SCREEN VOICE (${y.w}, not visible) says in Thai: "${SP(y.t)}"`;
       if(!(y.id in CH))return x.ids.includes(y.id)?`- ${cap(C.role(y.id))} (on screen, ${voiceEN(y.id,C)}) speaks with lips moving, the whole line in that one voice, in Thai: "${SP(y.t)}"`:`- ${cap(C.role(y.id))} (not visible, heard ${x.phone?"through the phone or speaker":"off-screen"}; ${voiceEN(y.id,C)}) says in Thai: "${SP(y.t)}"`;
@@ -1811,7 +1917,7 @@ function renderSB(d){
     TCL(L,x);
     const sfx=o.sfx||SFX[x.loc]||"natural ambient sound of the location";
     const quiet=x.ids.filter(k=>!spk.includes(k)).map(k=>C.role(k));
-    const dia=x.say.filter(y=>!y.narr&&!y.th&&y.id&&x.ids.includes(y.id)),who=[...new Set(dia.map(y=>y.id?(y.id in CH?H(y.id):cap(C.role(y.id))):y.w))];
+    const dia=x.say.filter(y=>DUB?!y.narr&&!y.th&&y.id&&x.ids.includes(y.id):!y.narr&&!y.ph),who=[...new Set(dia.map(y=>y.id?(y.id in CH?H(y.id):cap(C.role(y.id))):y.w))];
     const head=x.say.every(y=>y.narr)?"Voice-over narration only. Nobody on screen speaks; everyone keeps their mouth closed while the narrator is heard:"
       :who.length===0?"Nobody on screen speaks in this clip; everyone keeps their lips closed. Timing of the off-screen voice added later:":who.length===1?`Only ${who[0]} speaks in this clip. Every word below is spoken by ${who[0]} in that one voice; the voice never changes, no other voice is heard, and nobody replies. Outside the windows given for ${who[0]}, ${who[0]}'s lips stay closed:`
       :`Exactly ${NUMW[who.length]||who.length} speakers, in this order. Each line is spoken entirely in that character's own saved voice and never switches to another voice mid-line:`;
@@ -1830,9 +1936,19 @@ function renderSB(d){
       ...(L.length?[THPRON]:[]),"Sound: "+sfx+(L.length?", kept low under the speech":"")+". No background music. No extra sound effects or embellishments beyond these.",
       "No subtitles, no captions, no on-screen text."].join("\n");
   }
+  // review 7 พ.ย. 2569: Flow mixes up the on-screen speaker and the caller in one clip — the caller's voice is a separate 360p audio-only clip with the same timings, mixed in at the edit with a phone filter
+  function phonePrompt(x,C){const ph=x.say.filter(y=>y.ph);if(!ph.length)return "";
+    const f=v=>(Math.round(v*2)/2).toString(),k=ph[0].id,vo=(k&&C.look(k))||ph[0].w||"a Thai adult";
+    return [`Duration: ${x.gen} seconds. Vertical 9:16 video. Generate at 360p: only the audio of this clip is used, the picture is discarded.`,
+      "Picture: a static close-up of a smartphone lying face up on a plain desk, screen dark. No people, no hands, no text. The camera does not move.",
+      "Audio: ONE voice only — the person on the other end of a phone call, recorded clean and close to the microphone (the telephone effect is added in the edit). Voice: "+vo+".",
+      "Speak each line inside its time window and stay completely silent outside the windows (those gaps are when the other person talks):",
+      ...ph.map(y=>`- [${y.win?f(y.win[0])+"-"+f(y.win[1])+"s":"?"}] says in Thai: "${SP(y.t)}"`),
+      THPRON,"Sound: no music, no room sound, no sound effects, no other voices.","No subtitles, no captions, no on-screen text."].join("\n")}
   function vidPrompt(x,o,C){if(FLMODE==="chars")return vidPromptChar(x,o,C);
     const P=people(x,C,true);
     const L=x.say.map(y=>{
+      if(y.ph)return `- PHONE PAUSE (the caller talks, but the caller's voice is NOT heard in this clip; it is added in the edit): keep this window silent except quiet room tone; ${x.ids.length?[(x.say.find(z=>!z.narr&&!z.th&&!z.ph&&x.ids.includes(z.id))||{id:x.ids[0]}).id].map(k=>cap(C.role(k))).join(" and ")+" listens to the phone with lips completely closed, nodding slightly":"nobody speaks"}`;
       if(y.narr)return `- NARRATOR (voice-over only, never seen; ${NARR}) says in Thai: "${SP(y.t)}"`;
       if(!y.id)return `- OFF-SCREEN VOICE (${y.w}, not visible) says in Thai: "${SP(y.t)}"`;
       const r=cap(C.role(y.id));
@@ -1916,16 +2032,39 @@ function renderSB(d){
       tags.join(" ")].join("\n");
     return {title,desc,tags};
   }
-  const HOOKSEL={"2026-11-03":"เซ็นๆไปก่อน","2026-11-17":"ศุกร์นี้จะมีข่าวดี","2027-01-05":"ส่งไปเลยนะ","2027-04-06":"งดรถฉีดน้ำไปก่อน","2028-01-04":"กดไปเลยดีกว่า","2028-02-01":"แชร์ลิงก์ทั้งโฟลเดอร์","2028-05-02":"ข้าม รีวิว ไปก่อน","2028-07-18":"งั้นซื้อหุ้นเลยดีไหม","2028-08-01":"ช่วยบันทึกตู้ที่เกือบเสร็จ","2028-08-15":"บอกพี่ชายให้ซื้อด้วย","2029-01-02":"เซ็นรับไปก่อนเถอะ","2029-09-04":"โอนมัดจำให้บริษัทนี้","2029-09-18":"เอกสารตามทีหลัง"};
+  // per-episode notes from clip review (Claude) — appended to Part 1 of the edit prompt
+  const EDITNOTE={"2026-11-17":["ฉาก 14 เป็นช็อตเดียว (ไฟล์ขึ้นต้น 14.) ยาวราว 10 วินาที ไม่มี 14.1/14.2","ช็อต 15: ภาพยังเป็นแสงกลางวัน ให้เกรดสีอุ่นขึ้นเล็กน้อยเป็นแสงเย็น (colortemperature ราว 4300K หรือ colorbalance เพิ่มแดง/เหลืองในโทนสว่างเล็กน้อย) ไม่ต้องจัดจ้า","ช็อต 06 เป็น 720p (ไฟล์อื่น 1080p): ขยายเป็น 1080x1920 ด้วย lanczos","เพลง: ฉาก 1 ไม่มีเพลง (มีแค่ room tone) · Crime Piano เริ่มฉาก 2 ถึงจบฉาก 12 · piano hit ตอนตัดจากฮุกเข้าป้ายชื่อตอน และที่ต้นฉาก 6 (ฉากหยุดคิด) · ครอสเฟดเป็น Soft Hopeful Piano 2 วินาทีที่ต้นฉาก 13 แล้วเฟดออกตอนจบ (รายละเอียดใน music/_music_EP2.txt)","จุดเล็กที่ไม่ต้องแก้: ช็อต 01 พี่อรสวมแว่นบนหน้า · ช็อต 02 น้องใหม่ไม่ได้กินข้าวกล่อง · ช็อต 03 โต๊ะคนละมุม"]};
+  const HOOKSEL={"2026-11-03":"เซ็นๆไปก่อน","2026-11-17":"ศุกร์นี้จะมีข่าวดี","2026-12-01":"ทำงานกับเรามาห้าปี","2027-01-05":"ส่งไปเลยนะ","2027-04-06":"งดรถฉีดน้ำไปก่อน","2028-01-04":"กดไปเลยดีกว่า","2028-02-01":"แชร์ลิงก์ทั้งโฟลเดอร์","2028-05-02":"ข้าม รีวิว ไปก่อน","2028-07-18":"งั้นซื้อหุ้นเลยดีไหม","2028-08-01":"ช่วยบันทึกตู้ที่เกือบเสร็จ","2028-08-15":"บอกพี่ชายให้ซื้อด้วย","2029-01-02":"เซ็นรับไปก่อนเถอะ","2029-09-04":"โอนมัดจำให้บริษัทนี้","2029-09-18":"เอกสารตามทีหลัง"};
+
+  // review 7 พ.ย. 2569: Flow voices all Thai speech (dialogue + narrator); the edit keeps the clip audio and adds music + subtitles only
+  function flowAudio(t,d){
+    const cut=(s,a,b,rep)=>{const i=s.indexOf(a);if(i<0)return s;const j=b?s.indexOf(b,i+a.length):s.length;return j<0?s:s.slice(0,i)+rep+s.slice(j)};
+    t=cut(t,"### ตารางเสียงพากย์","### รายชื่อคลิป","");
+    t=t.replace("### รายชื่อคลิปและบทพากย์ในแต่ละคลิป (ใช้ทำเสียงพากย์และซับ)","### รายชื่อคลิปและบทพูดในแต่ละคลิป (ใช้ทำซับ)");
+    t=t.replace(/ \((?:[A-Z][a-z]+)(?: · (เสียงปลายสาย|เสียงความคิด))?\):/g,(m,k)=>k?` (${k}):`:":");
+    t=t.replace(/\n {8}อ่านว่า: [^\n]*/g,"").replace(/ · "อ่านว่า" = [^\n]*/,"");
+    t=t.replace(/สไตล์รุ่นปัจจุบัน: v11 \([^)]*\)/,"สไตล์รุ่นปัจจุบัน: v13 (v13 = ใช้เสียงพูดภาษาไทยจากคลิป Flow + เสียงปลายสายแยกคลิป + เสียงประกอบพื้นหลังตามฉาก + เพลง + ซับ ไม่มีเสียงพากย์)").replace(/STYLE_VERSION เป็น v11/g,"STYLE_VERSION เป็น v13").replace(/STYLE_VERSION = v11/g,"STYLE_VERSION = v13");
+    t=cut(t,"1. เครื่องมือ:","2. ฟอนต์:",'1. เครื่องมือ: ffmpeg (มี libass) และ faster-whisper (model large-v3, language="th") ถ้าไม่มีให้ติดตั้ง\n');
+    t=cut(t,"3. ปรับทุกคลิปเป็น 1080x1920","4. ซับไตเติล","3. ปรับทุกคลิปเป็น 1080x1920, 30 fps, เสียง 48 kHz stereo ใช้เสียงจากคลิป Flow (บทพูดและเสียงบรรยายภาษาไทยอยู่ในคลิปแล้ว ไม่ต้องทำเสียงพากย์) แล้วต่อแบบชนกัน ใส่ audio crossfade 0.08 วินาที ถ้าท้ายคลิปเงียบเกิน 1 วินาทีหลังคำพูดสุดท้าย ให้ตัดเหลือ 0.4 วินาที\n   - ความยาวแต่ละคลิป: ใช้ตาม \"ใช้ประมาณ N วินาที\" หรือจนจบคำพูดสุดท้ายในคลิปนั้น + 0.4 วินาที แล้วแต่อันไหนยาวกว่า (ไม่เกินความยาวไฟล์)\n");
+    t=cut(t,"4. ซับไตเติล","5. ข้อความบนจอ","4. ซับไตเติล\n   - ใช้ faster-whisper (word_timestamps=True) หาเวลาเสียงพูดในแต่ละคลิป\n   - ข้อความซับใช้จาก \"รายชื่อคลิปและบทพูด\" ด้านบนเท่านั้น ใช้ Whisper แค่จับเวลาเริ่ม-จบ ห้ามใช้คำที่ Whisper ถอดได้แทนคำในบท\n   - ถ้าเสียงในคลิปพูดไม่ตรงบทชัดเจน (ขาดหรือเกิน) ให้ซับตามเสียงจริงและจดไว้ในรายงาน\n   - ไม่ใส่ชื่อผู้พูดและเครื่องหมายคำพูด เสียงบรรยายก็ทำซับสไตล์เดียวกัน\n   - บรรทัดละไม่เกิน 26 ตัวอักษร แผ่นละไม่เกิน 2 บรรทัด ตัดตามช่องว่างเท่านั้น ห้ามตัดกลางคำ แต่ละแผ่นอยู่บนจออย่างน้อย 1.0 วินาที\n");
+    t=t.replace(/- ปรับเสียงพากย์ทุกไฟล์ให้ดังเท่ากัน[^\n]*/,"- ปรับระดับเสียงแต่ละคลิปให้ดังใกล้เคียงกันก่อนต่อ (loudnorm ต่อคลิป)").replace("ใช้แทร็กเสียงพากย์เป็น sidechain","ใช้เสียงจากคลิปเป็น sidechain").replace("เหลือเสียงผู้บรรยายกับ room tone","เหลือเสียงในคลิป");
+    t=t.replace("พร้อมเสียงพากย์บรรทัดนั้นและซับ","พร้อมเสียงจากคลิปช่วงนั้นและซับ").replace(/ใช้เฉพาะท่อนนั้นทั้งเสียงและซับ/g,"ตัดภาพและเสียงจากคลิปเฉพาะท่อนนั้น").replace(/\(ฮุกใช้แค่ท่อนนี้: [^)]*\)/,"(ฮุกใช้แค่ท่อนนี้: ตัดภาพและเสียงจากคลิปเฉพาะท่อนนี้)");
+    t=t.replace(/\n- EP\d+_dub\/[^\n]*/,"").replace("รุ่นโมเดล TTS, ","").replace(/บรรทัดที่ gen ใหม่หรือไม่ผ่านการตรวจ, /,"บรรทัดที่เสียงไม่ตรงบท, ").replace(/บรรทัดที่เร่งเสียงหรือค้างเฟรม/,"คลิปที่ค้างเฟรม");
+    t=t.replace(/\n- ตอนนี้เป็นตอนแรกที่ใช้เสียงพากย์ชุดใหม่[^\n]*/,"");
+    t=t.replace("ช็อตภาพนิ่ง (ไม่มีวิดีโอ เคลื่อนกล้องตอนตัดต่อ):","ช็อตภาพนิ่ง + เสียงจากคลิป 360p:");
+    t=t.replace(/- ช็อตตาม "ช็อตภาพนิ่ง" ในส่วนที่ 1 ไม่มี \.mp4: ใช้ภาพนิ่งชื่อเดียวกัน/,'- ช็อตตาม "ช็อตภาพนิ่ง" ในส่วนที่ 1 มีคลิป .mp4 แบบ 360p ไว้เอาเสียงบรรยายอย่างเดียว: ใช้เสียงจากคลิปนั้นทั้งหมด (ห้ามใช้ภาพจากคลิป 360p) ส่วนภาพใช้ภาพนิ่งชื่อเดียวกัน').replace("ทำเป็นคลิปยาวตามช่วงพากย์","ทำเป็นคลิปยาวเท่าเสียงในคลิป 360p");
+    if(/เสียงปลายสายอยู่ในไฟล์/.test(t))t=t.replace(/(- ช็อตตาม "ช็อตภาพนิ่ง" ในส่วนที่ 1 มีคลิป[^\n]*)/,'$1\n- เสียงปลายสายโทรศัพท์: ช็อตที่มีบรรทัด "เสียงปลายสายอยู่ในไฟล์ NNp" ให้ใช้ภาพและเสียงตัวละครจากคลิป NN ตามปกติ แล้วเอาเสียงจากคลิป NNp (360p ห้ามใช้ภาพ) มาวางทับตั้งแต่วินาทีที่ 0 ของคลิป NN เวลาตรงกันแล้ว ใส่เสียงโทรศัพท์: highpass=f=300, lowpass=f=3400, acompressor เบา ๆ เบากว่าเสียงตัวละครราว 3 dB ถ้า Whisper เจอว่าทับเสียงตัวละคร ให้เลื่อนไปช่วงที่ตัวละครเงียบในคลิป NN แล้วจดในรายงาน ซับของบรรทัดปลายสายใช้สไตล์เดียวกัน');
+    return t}
   function editPrompt(d,R){   // review 27 ต.ค. 2569: one fixed Claude Code editing prompt per episode, same pattern for all 72
     const V=R.V,P2=n=>String(n).padStart(2,"0"),files=[],extra=[];let fz=null;
     const sc=R.out.map(x=>x.s),first=sc[0],last=sc[sc.length-1];
     const txt=s=>(s.screen||[]).map(a=>a[1]);
-    R.out.forEach(({s,shots})=>{
+    const AMB=x=>{const l=String(x.loc||""),bed=SFX[l]?l:l[0]==="~"?"เฉพาะฉาก":"office";return bed+" ("+(SFX[l]||(l[0]==="~"?"ambience of "+l.slice(1).split(/[,|]/)[0].trim():SFX.office))+")"};
+    R.out.forEach(({s,shots,o})=>{
       const isFz=/ช็อตหยุดคิด/.test(s.visual);if(isFz)fz=s;
       (shots||[]).forEach((x,k)=>{const f=P2(s.no)+(shots.length>1?"."+(k+1):"");
         files.push(`- ${f} · ฉาก ${s.no} ${s.title} · ใช้ประมาณ ${Math.round(x.len)} วินาที`+(x.say.length?"\n"+x.say.map(y=>{const w=y.narr?"ผู้บรรยาย":y.w,v=gvoice(R,w),t=clean(y.t).replace(/[“”]/g,""),sp=SP(t);
-          return `    [${y.win?y.win[0]+"–"+y.win[1]:"?"} วิ] ${w} (${v[0]}${(k=>k==="off"?" · เสียงปลายสาย":k==="thought"?" · เสียงความคิด":"")(lineKind(R,s,null,shots,w).k)}): ${t}`+(sp!==t?`\n        อ่านว่า: ${sp}`:"")}).join("\n"):"\n    (ไม่มีเสียงพูด)"))});
+          return `    [${y.win?y.win[0]+"–"+y.win[1]:"?"} วิ] ${w} (${v[0]}${(k=>k==="off"?" · เสียงปลายสาย":k==="thought"?" · เสียงความคิด":"")(lineKind(R,s,null,shots,w).k)}): ${t}`+(sp!==t?`\n        อ่านว่า: ${sp}`:"")}).join("\n"):"\n    (ไม่มีเสียงพูด)")+(x.pv?`\n    เสียงปลายสายอยู่ในไฟล์ ${f}p (คลิป 360p ใช้แค่เสียง)`:"")+`\n    เสียงพื้นหลัง: ${AMB(x)}`+(o&&o.sfx?` · เสียงเฉพาะช็อต: ${o.sfx}`:""))});
       if(s!==first&&s!==last&&!isFz)txt(s).forEach(t=>extra.push(`ไฟล์ที่ขึ้นต้นด้วย ${P2(s.no)}: ${t}`));
     });
     const q=fz?(txt(fz).find(t=>!/นับถอยหลัง/.test(t))||"ถ้าเป็นคุณ จะทำอย่างไร?").replace(/\s*\([^)]*\)\s*$/,""):"";
@@ -1936,17 +2075,18 @@ function renderSB(d){
   const sc=c=>(c.hit?100:0)+(c.fr?20:0)+(c.q?8:0)+(c.n?0:6)+((c.w[1]-c.w[0])<=6?4:0);
   C.forEach(c=>{if(!hook||sc(c)>sc(hook))hook=c});if(hook&&hook.w[1]-hook.w[0]>6){const ws=hook.t.split(/\s+/);let o=[];const hi=hook.hit?ws.findIndex(x=>x.includes(want.split(/\s/)[0])):-1;if(hi>=0){for(let k=hi;k<ws.length;k++){const x=[...o,ws[k]].join(" ");if(x.replace(/\s/g,"").length>58&&o.length)break;o.push(ws[k])}}else for(let k=ws.length-1;k>=0;k--){const x=[ws[k],...o].join(" ");if(x.replace(/\s/g,"").length>58&&o.length)break;o=[ws[k],...o]}
   const tt=o.join(" ");hook={...hook,t:tt,w:[hook.w[0],+(hook.w[0]+Math.min(6,tt.replace(/\s/g,"").length/11+0.6)).toFixed(1)],cut:1}}}
-    return `# ตัดต่อซีรีส์ "ชั้น 12" สำหรับ YouTube Shorts · ${EP(d)}
+    const OUT=`# ตัดต่อซีรีส์ "ชั้น 12" สำหรับ YouTube Shorts · ${EP(d)}
 
 ## ส่วนที่ 1: ข้อมูลตอนนี้
 EP: ${d.ep}
 ชื่อตอน: ${V.title}
 ชื่อบน YouTube: ${V.pov||V.title}
+ช็อตภาพนิ่ง (ไม่มีวิดีโอ เคลื่อนกล้องตอนตัดต่อ): ${(()=>{const k=[];R.out.forEach(({s,shots})=>(shots||[]).forEach((x,j)=>{if(x.kb)k.push(P2(s.no)+(shots.length>1?"."+(j+1):""))}));return k.join(", ")||"-"})()}
 ฮุกเปิดคลิป: ${hook?`ไฟล์ ${hook.f} ช่วง ${hook.w[0]}–${hook.w[1]} วิ · ${hook.who}: ${hook.t}${hook.cut?" (ฮุกใช้แค่ท่อนนี้: สร้างเสียงพากย์แยกเฉพาะท่อนนี้ ใช้ภาพจากไฟล์นี้ช่วงต้น)":""}`:"-"}
 คำถามเปิดเรื่อง: ${open&&open!==V.title?open:"-"}
 ไฟล์ฉากหยุดคิด: ${fz?"ไฟล์ที่ชื่อขึ้นต้นด้วย "+P2(fz.no)+" (ใช้ตอนเฟดเพลง)":"-"}
-ข้อความบนจอเพิ่มเติม: ${extra.length?"\n"+extra.map(t=>"- "+t).join("\n"):"-"}
-เพลงประกอบ: ../_template/music/${MOODF[moodOf(d)][0]} (โทน${MOODF[moodOf(d)][1]})${moodOf(d)==="t"?" · ตั้งแต่คลิปหลังฉากหยุดคิดเป็นต้นไป เปลี่ยนเป็น ../_template/music/office.mp3":""} · ลิงก์ดาวน์โหลด: ${MUSIC[moodOf(d)][0][1]}
+ข้อความบนจอเพิ่มเติม: ${extra.length?"\n"+extra.map(t=>"- "+t).join("\n"):"-"}${EDITNOTE[d.date]?"\nหมายเหตุเฉพาะตอนนี้ (จากการตรวจคลิป ทำตามนี้ก่อนกติกาทั่วไป):\n"+EDITNOTE[d.date].map(t=>"- "+t).join("\n"):""}
+เพลงประกอบ: ถ้ามีโฟลเดอร์ music/ ในโฟลเดอร์ตอน ให้ใช้ตามไฟล์ _music_EP${d.ep}.txt ในนั้นก่อน (tense_* = ช่วงตึง · warm_* = ช่วงคลี่คลาย · sting_* = ฮุกและฉากหยุดคิด) ถ้าไม่มีจึงใช้ ../_template/music/${MOODF[moodOf(d)][0]} (โทน${MOODF[moodOf(d)][1]})${moodOf(d)==="t"?" · ตั้งแต่คลิปหลังฉากหยุดคิดเป็นต้นไป เปลี่ยนเป็น ../_template/music/office.mp3":""} · ลิงก์ดาวน์โหลด: ${MUSIC[moodOf(d)][0][1]}
 
 ### ตารางเสียงพากย์ (Gemini TTS · ใช้ชุดเดียวกันทุกตอน)
 ${[...new Set(["ผู้บรรยาย",...R.speakers.map(w=>w.replace(/ \(คิดในใจ\)$/,""))])].map(w=>{const v=gvoice(R,w),m=R.C.F.sp[w],k=w==="ผู้บรรยาย"?"ผู้บรรยาย":m&&GV[m[0]]?GNAME[m[0]]:"ตัวประกอบ"+(v[1])+(/สูงวัย|older/.test(v[2])?"สูงวัย":"");return `- ${w} → คีย์ "${k}": ${v[0]} (${v[1]}) · ${v[2]}`}).join("\n")}
@@ -1959,9 +2099,14 @@ ${files.join("\n")}
 ## ส่วนที่ 2: กติกาตายตัว (เหมือนกันทุก EP ห้ามแก้)
 
 ### ไฟล์ในโฟลเดอร์
-- คลิป .mp4 เรียงตามเลขหน้าชื่อไฟล์แบบตัวเลข (01, 02.1, 02.2, 03 ...)
-- logo.png = โลโก้ช่อง
-- เพลงอยู่ที่ ../_template/music/ ใช้ชุดเดียวกันทุกตอน: tense.mp3 · office.mp3 · warm.mp3 · sting.mp3 (เสียงลิฟต์ ding สั้น 1–2 วินาที) ถ้าไฟล์ที่ระบุไม่มี ให้ทำแบบไม่มีเพลงและแจ้งในรายงาน (ถ้าไม่โปร่ง ให้ตัดพื้นดำรอบนอกกรอบออก ห้ามตัดสีกรมท่าข้างใน)
+- คลิป .mp4 และภาพนิ่ง .jpg/.png จับคู่กับช็อตจากเลขที่ขึ้นต้นชื่อไฟล์ (01, 02.1, 02.2, 03 ... ข้อความหลังเลขไม่สนใจ เช่น "07.1 Women_talking….mp4" = ช็อต 07.1) ถ้าเลขซ้ำหลายไฟล์ใช้ไฟล์ใหม่สุด ภาพนิ่งที่ขึ้นต้นด้วยหลายเลข เช่น "08 - 09." ใช้ได้กับทุกช็อตในช่วงนั้น
+- ช็อตตาม "ช็อตภาพนิ่ง" ในส่วนที่ 1 ไม่มี .mp4: ใช้ภาพนิ่งชื่อเดียวกัน (.png หรือ .jpg ถ้าไม่มีให้ใช้ภาพนิ่งของฉาก เช่น 04.png) ทำเป็นคลิปยาวตามช่วงพากย์ ด้วย zoompan เคลื่อนช้า ๆ ซูมเข้า 1.00→1.06 (ช็อตที่ 2 ของฉากเดียวกันให้แพนข้างแทน) 30 fps ภาพคม ไม่สั่น เกรดสีเดียวกับคลิปวิดีโอ ซ้อน grain บาง ๆ ให้เนียนกับคลิปอื่น
+- โครงโฟลเดอร์: รันคำสั่งนี้ในโฟลเดอร์ของตอน (เช่น D:\\PRECISE__Vedio E-Learning\\2569-2572\\EP${d.ep}) · ของที่ใช้ร่วมกันทุกตอนอยู่ที่ ../_template (สคริปต์ สไตล์ ฟอนต์ voices.json tts_cache) · ห้ามย้าย เปลี่ยนชื่อ หรือลบไฟล์ต้นฉบับในโฟลเดอร์ตอน
+- ถ้ามี _shots_EP${d.ep}.txt ในโฟลเดอร์ตอน ให้ใช้เป็นแผนที่ไฟล์ (ช็อตไหนใช้ไฟล์ไหน) ก่อนการจับคู่เอง
+- โลโก้ช่อง: logo.png ในโฟลเดอร์ตอน ถ้าไม่มีให้ใช้ "../logo icon.png"
+- ผลลัพธ์ทั้งหมด (ไฟล์ตามหัวข้อ "ไฟล์ที่ต้องได้") เก็บในโฟลเดอร์ย่อย _output/ ของโฟลเดอร์ตอน
+- เสียงประกอบพื้นหลัง: ../_template/sfx/ (ใช้ร่วมทุกตอน)
+- เพลง: ใช้โฟลเดอร์ music/ ของตอนก่อน (ตาม _music_EP${d.ep}.txt) ถ้าไม่มีจึงใช้ ../_template/music/ ชุดเดียวกันทุกตอน: tense.mp3 · office.mp3 · warm.mp3 · sting.mp3 (เสียงลิฟต์ ding สั้น 1–2 วินาที) ถ้าไฟล์ที่ระบุไม่มี ให้ทำแบบไม่มีเพลงและแจ้งในรายงาน (ถ้าไม่โปร่ง ให้ตัดพื้นดำรอบนอกกรอบออก ห้ามตัดสีกรมท่าข้างใน)
 
 ### ใช้ template เดิมทุกครั้ง
 - สไตล์รุ่นปัจจุบัน: v11 (v11 = เสียงพากย์ Gemini TTS แทนเสียงจาก Flow) (บันทึกเลขรุ่นไว้ในไฟล์ ../_template/STYLE_VERSION)
@@ -1974,7 +2119,7 @@ ${files.join("\n")}
    - คีย์ API อ่านจาก environment variable GEMINI_API_KEY เท่านั้น ห้ามเขียนคีย์ลงไฟล์ใด ๆ ห้าม commit ถ้าไม่มีคีย์ให้หยุดแล้วแจ้ง
    - รุ่นโมเดล: ถ้ายังไม่มี ../_template/TTS_MODEL ให้เลือกโมเดล TTS รุ่นล่าสุดของ Gemini ที่ใช้กับคีย์นี้ได้ บันทึกชื่อไว้ แล้วใช้รุ่นเดิมทุกตอน ห้ามเปลี่ยนเอง (เปลี่ยนรุ่นแล้วเสียงตัวละครจะเพี้ยน)
    - ตารางเสียง: เก็บที่ ../_template/voices.json ใช้คีย์ตามตาราง (ชื่อตัวละครหลัก หรือประเภทตัวประกอบ → ชื่อเสียง + สไตล์) ตัวละครเดียวกันต้องได้เสียงเดิมทุกตอน แม้บทจะเรียกด้วยตำแหน่งต่างกัน
-   - เลือกเสียงครั้งแรก (คีย์ไหนยังไม่มีใน voices.json): ชื่อเสียงในตารางเป็นแค่ข้อเสนอ ถ้าโมเดลรุ่นที่ใช้ไม่มีชื่อนั้น ให้ดึงรายชื่อเสียงที่มีจริงจาก API แล้วเลือกเองให้ตรงเพศ วัย และลักษณะในตาราง โดยทดลองพูดประโยคไทยของตัวละครนั้นในตอนนี้ เลือก 2–3 ตัวเลือกต่อคีย์ ใช้ faster-whisper ถอดกลับเทียบบท และเลือกเสียงที่ออกเสียงไทยถูกและฟังเป็นธรรมชาติที่สุด ถ้าไม่มีเสียงสำเร็จรูปที่พูดไทยได้ดี และ API รองรับการออกแบบเสียงจากคำบรรยาย ให้ออกแบบเป็น "native Thai speaker, natural Central Thai, no foreign accent" ตามลักษณะในตาราง
+   - เลือกเสียงครั้งแรก (คีย์ไหนยังไม่มีใน voices.json): ใช้ชื่อเสียงตามตารางเลย (ผู้ใช้เลือกไว้แล้ว และเป็นเสียงเดียวกับที่ตั้งให้ตัวละครใน Flow) ไม่ต้องทดลองเสียงอื่น ถ้าโมเดลรุ่นที่ใช้ไม่มีชื่อนั้นจริง ๆ เท่านั้น ให้ดึงรายชื่อเสียงที่มีจริงจาก API แล้วเลือกเองให้ตรงเพศ วัย และลักษณะในตาราง โดยทดลองพูดประโยคไทยของตัวละครนั้นในตอนนี้ เลือก 2–3 ตัวเลือกต่อคีย์ ใช้ faster-whisper ถอดกลับเทียบบท และเลือกเสียงที่ออกเสียงไทยถูกและฟังเป็นธรรมชาติที่สุด ถ้าไม่มีเสียงสำเร็จรูปที่พูดไทยได้ดี และ API รองรับการออกแบบเสียงจากคำบรรยาย ให้ออกแบบเป็น "native Thai speaker, natural Central Thai, no foreign accent" ตามลักษณะในตาราง
    - บันทึกเสียงที่เลือกลง voices.json ทันที และทำไฟล์ ../_template/voice_samples/<คีย์>.wav (ประโยคทดสอบ 1 ประโยคต่อคีย์) ให้ผู้ใช้ฟัง พร้อมแจ้งในรายงานว่าเลือกเสียงอะไรให้ใคร ผู้ใช้ขอเปลี่ยนได้จนกว่าจะปล่อย EP2 หลังจากนั้นห้ามเปลี่ยน ถ้ายังไม่มีหรือมีผู้พูดใหม่ ให้เพิ่มจาก "ตารางเสียงพากย์" ในส่วนที่ 1 ห้ามแก้ของเดิมที่มีอยู่แล้ว
    - สร้าง 1 ไฟล์ต่อ 1 บรรทัด ใช้ข้อความ "อ่านว่า" ถ้ามี ไม่มีให้ใช้บท · style prompt = "Speak in natural Central Thai with correct tones, clear and unhurried. Voice: <สไตล์จากตาราง>. Emotion: <อารมณ์ที่เข้ากับชื่อฉากและบท>" (คำสั่งเป็นภาษาอังกฤษ ข้อความพูดเป็นภาษาไทย)
    - ผลลัพธ์เป็น PCM 24 kHz mono ให้แปลงเป็น wav 48 kHz ตัดเงียบหัวท้ายเหลือ 0.05 วินาที เก็บ cache ที่ ../_template/tts_cache/<sha1 ของ รุ่น+เสียง+สไตล์+ข้อความ>.wav ไม่ต้อง gen ซ้ำถ้ามีแล้ว
@@ -2014,6 +2159,12 @@ ${files.join("\n")}
    - ทุกช่วงที่มีเสียงพูดหรือเสียงบรรยาย ให้เพลงเบาลงอัตโนมัติอีกประมาณ 10 dB ด้วย sidechaincompress (ใช้แทร็กเสียงพากย์เป็น sidechain: threshold 0.02, ratio 8, attack 20 ms, release 400 ms) ช่วงไม่มีคนพูดเพลงค่อย ๆ กลับขึ้นมา
    - เฟดเพลงออก 1 วินาทีก่อนคลิปฉากหยุดคิด เงียบตลอดคลิปนั้น (เหลือเสียงผู้บรรยายกับ room tone) แล้วเฟดเพลงกลับเข้ามา 0.5 วินาทีในคลิปถัดไป
    - เฟดเพลงออกตอนจบ 1.5 วินาที
+   - เสียงประกอบพื้นหลัง (ambience) ให้เข้ากับสถานการณ์ของแต่ละฉาก ตาม "เสียงพื้นหลัง" ของแต่ละไฟล์ในรายชื่อคลิป:
+     · ใช้ไฟล์ใน ../_template/sfx/ ก่อน ตั้งชื่อตามฉาก เช่น office.mp3, glass.mp3, coffee.mp3, lift.mp3 และเสียงเฉพาะ เช่น phone_ring.mp3, clock_tick.mp3 ใช้ชุดเดียวกันทุกตอน ถ้ายังไม่มี ให้หาไฟล์ฟรีที่ใช้เชิงพาณิชย์ได้โดยไม่ต้องให้เครดิต (Pixabay Sound Effects, Mixkit หรือ Freesound ที่เป็น CC0) เก็บลง ../_template/sfx/ แล้วจดที่มาไว้ใน ../_template/sfx/_sources.txt ถ้าดาวน์โหลดไม่ได้ ให้สร้าง room tone เองด้วย ffmpeg (anoisesrc สีชมพู + lowpass 1–2 kHz) และจดในรายงาน
+     · วาง ambience เป็นพื้นยาวตลอดฉาก วนให้พอความยาว เปลี่ยนฉากใช้ crossfade 0.3 วินาที ระดับต่ำกว่าเสียงพูดราว 24 dB (ราว -38 LUFS) และเบาลงอีกตอนมีคนพูดด้วย sidechain เดียวกับเพลง
+     · ในคลิป Flow มีเสียงบรรยากาศอยู่บ้างแล้ว ใช้ ambience แค่เสริมให้ต่อเนื่องและเต็มขึ้น ห้ามดังกลบเสียงในคลิป ส่วน "เสียงเฉพาะช็อต" (เช่น โทรศัพท์ดัง เสียงประตู) ใส่เพิ่มเฉพาะเมื่อในคลิปไม่มีหรือเบาจนไม่ได้ยิน วางให้ตรงกับจังหวะภาพ
+     · ฉากหยุดคิด: เหลือแค่ room tone เบา ๆ กับเสียงนาฬิกาเดิน (ถ้ามีในบท) ห้ามมีเสียงคนคุยหรือเสียงจ้อกแจ้ก
+     · ฮุกเปิดคลิปใช้ ambience ของไฟล์ที่ตัดมา ฉากจำลองข่าวหรือนอกออฟฟิศใช้ ambience ตามสถานที่จริงในฉากนั้น
    - ตรวจว่าเสียงพูดชัดกว่าเพลงทุกช่วง ถ้าไม่ชัดให้ลดระดับพื้นของเพลงลงอีก
 6.5 ฮุกเปิดคลิป (cold open): ก่อนคลิปแรก ใส่ภาพช่วงฮุกตาม "ฮุกเปิดคลิป" ในส่วนที่ 1 พร้อมเสียงพากย์บรรทัดนั้นและซับ ยาวตามบรรทัดนั้น (ไม่เกิน 6 วินาที ถ้าส่วนที่ 1 ระบุว่าใช้แค่ท่อน ให้ใช้เฉพาะท่อนนั้นทั้งเสียงและซับ) เริ่มทันทีที่วินาที 0 ไม่มีจอดำ ตัดเข้าคลิปแรกด้วยเสียง whoosh สั้นเบา ๆ (สร้างเองได้ ไม่ต้องดาวน์โหลด) ป้ายชื่อตอนเลื่อนไปเริ่มที่คลิปแรกหลังฮุก ความยาวรวมยังต้องไม่เกิน 3 นาที
 7. ส่งออก: H.264 High, CRF 18, 30 fps, yuv420p, AAC 192 kbps 48 kHz, -movflags +faststart, loudnorm 2 รอบให้ได้ -14 LUFS ความยาวไม่เกิน 3 นาที
@@ -2027,6 +2178,7 @@ ${files.join("\n")}
 
 ### ก่อนส่งงาน
 เปิดภาพใน EP${d.ep}_check ดูเองทุกภาพ ตรวจว่าสระและวรรณยุกต์ไทยไม่ลอยหรือซ้อน โลโก้ไม่ทับหน้าคน ซับไม่ล้นขอบ ถ้าผิดให้แก้แล้วรันใหม่ก่อนส่ง`;
+    return DUB?OUT:flowAudio(OUT,d);
   }
   function allText(d,R){
     const L=[`ชั้น 12 · ${EP(d)} · ${d.date_th.split(" · ")[0]} · ${R.V.title} — Prompt สำหรับ Google Flow (แนวตั้ง 9:16 · ${FLMODE==="chars"?"ตัวละคร @ · พูดอังกฤษ พากย์ไทยทีหลัง · Omni Flash · Video › Ingredients":"ภาพนิ่ง → Frames · Veo 3.1"})`,
@@ -2035,7 +2187,7 @@ ${files.join("\n")}
       L.push(`=== ${s.no}. ${s.title} · ${s.time} ===`);
       if(!o){L.push("(ยังไม่มีคำสั่ง)","");return}
       if(o.e){L.push("[ทำในขั้นตัดต่อ] "+o.e);if(still)L.push("ภาพนิ่ง:\n"+still);}
-      (shots||[]).forEach((x,k)=>{L.push(`--- ช็อต ${k+1}/${shots.length} · ใช้จริงประมาณ ${Math.round(x.len)} วินาที (สร้าง ${x.gen} วินาที) ---`,...(x.img?["[ภาพนิ่ง]",x.img,""]:[]),"[วิดีโอ]",x.vid,"")});
+      (shots||[]).forEach((x,k)=>{L.push(`--- ช็อต ${k+1}/${shots.length} · ใช้จริงประมาณ ${Math.round(x.len)} วินาที`+(x.kb?(DUB?" · ภาพนิ่งเคลื่อนกล้อง ไม่ต้องสร้างวิดีโอ ---":` · สร้าง ${x.gen} วินาที แบบ 360p (ใช้แค่เสียง ภาพใช้ภาพนิ่ง) ---`):` (สร้าง ${x.gen} วินาที) ---`),...(x.img?["[ภาพนิ่ง]",x.img,""]:[]),...(x.kb&&DUB?[]:["[วิดีโอ]",x.vid,""]),...(x.pv?["[เสียงปลายสาย · คลิปแยก 360p เอาแค่เสียง ตั้งชื่อไฟล์ลงท้าย p]",x.pv,""]:[]))});
       const ed=edits(s,o);if(ed.length)L.push("[ใส่ตอนตัดต่อ] "+ed.join(" · "));
       L.push("");
     });
@@ -2073,66 +2225,50 @@ function flCopy(get,label){const b=el("button",{type:"button",class:"sb-copy fl-
 const SETS={office:"ฉาก · ออฟฟิศชั้น 12",coffee:"ฉาก · มุมกาแฟ",glass:"ฉาก · ห้องประชุมกระจก",lift:"ฉาก · หน้าลิฟต์ชั้น 12",exec:"ฉาก · ห้องผู้บริหาร",board:"ฉาก · ห้องประชุมใหญ่",plant:"ฉาก · โรงงาน",wh:"ฉาก · คลังสินค้า"};
 const setPrompt=k=>"Vertical 9:16 portrait orientation, taller than wide. Location reference: an empty room with no people, eye-level view, photorealistic, soft natural light, neutral natural colour with a slight warm tint, no logos, no text. "+(k==="office"?CS.SET.replace(/^Vertical 9:16 portrait orientation, taller than wide\. /,""):FLW.LOC[k].replace(/, workers in [^,]*(, [^,]*)?$/,"").replace(/^./,c=>c.toUpperCase())+".");
 const CSN={c:"พี่ Compliance",h:"หัวหน้า",f:"พี่หน้างาน",s:"พี่เซลส์",a:"พี่บัญชี",n:"น้องใหม่",r:"พี่ HR",j:"น้องเซลส์",p:"น้องใหม่ปีที่ 3"};
-function renderFlow(d){
-  const R=FLW.build(d);const box=el("div",{class:"fl"});
+function renderFlow(d){   // review 7 พ.ย. 2569: compact layout — one toolbar, one legend, one row per shot with copy buttons only
+  const R=FLW.build(d);const box=el("div",{class:"fl fl2"});
   if(!R){box.append(el("p",{class:"muted",text:"ตอนนี้ยังไม่มีคำสั่งสำหรับ Flow"}));return box}
-  const ing=el("div",{class:"fl-ing"},...R.ids.map(k=>{
-    if(k in {c:1,h:1,f:1,s:1,a:1,n:1,r:1,j:1,p:1})return el("span",{class:"fl-chip"},el("b",{text:R.C.thLab(k)}),el("span",{class:"muted",text:" · Character sheet"}));
-    const ref=FLW.REF()+"A fictional "+R.C.look(k)+".";
-    return el("span",{class:"fl-chip x"},el("b",{text:R.C.thLab(k)}),el("span",{class:"muted",text:" · "+R.C.look(k)}),flCopy(()=>ref,"คัดลอกคำสั่งภาพอ้างอิง"));
-  }));
-  const nShots=R.out.reduce((n,x)=>n+(x.shots?x.shots.length:0),0),nEdit=R.out.filter(x=>x.o&&x.o.e).length;
-  const CHM=FLMODE==="chars";
-  box.append(el("div",{class:"fl-head"},
-    CHM?el("p",{},el("b",{text:"ตั้งค่า Flow: "}),"แนวตั้ง 9:16 · โมเดล Omni Flash · Video › Ingredients · ความยาว 4, 6, 8 หรือ 10 วินาที"):el("p",{},el("b",{text:"ตั้งค่า Flow: "}),"แนวตั้ง 9:16 · Veo 3.1 · ความยาวตามที่ระบุในแต่ละช็อต (ใช้ได้ไม่เกิน 8 วินาทีต่อครั้ง)"),
-    CHM?el("p",{},el("b",{text:"ลำดับงาน: "}),"สร้างตัวละครหลักใน Flow › Characters ตามการ์ดใน Character sheet ครั้งเดียว (ชื่อและภาพ) แล้วแต่ละช็อต: 1) สร้างภาพนิ่งโดยเพิ่มตัวละคร @ และภาพฉาก เลือกภาพที่คนครบไม่ซ้ำ 2) Video › Ingredients ใส่ตัวละครชุดเดิมกับภาพนิ่งนั้น แล้ววางคำสั่งวิดีโอ คำสั่งเรียกตัวละครด้วย @ชื่อ ไม่ต้องบรรยายหน้าตาหรือเสียงซ้ำ"):el("p",{},el("b",{text:"ลำดับงาน: "}),"สร้างภาพนิ่งจากคำสั่ง \"ภาพนิ่ง\" โดยแนบ Ingredient ของตัวละครในช็อต แล้วใช้ภาพนั้นเป็นเฟรมแรกใน Frames to Video และวางคำสั่ง \"วิดีโอ\" ข้อความบนจอ ดนตรี และกราฟิกใส่ตอนตัดต่อ"),
-    CHM?el("p",{},el("b",{text:"เสียง: "}),"ใน Flow ตัวละครพูดภาษาอังกฤษตามช่วงเวลาที่กำหนด เพื่อให้ปากขยับเท่านั้น ฉากบรรยายไม่มีเสียงพูด เสียงจริงทั้งหมดเป็นเสียงพากย์ไทย Gemini TTS ที่คำสั่งตัดต่อสร้างให้ ไม่ต้องสนใจเสียงในคลิป Flow"):el("p",{},el("b",{text:"เสียง: "}),"คำสั่งวิดีโอมีบทพูดภาษาไทยให้ AI พูดเลย แต่เสียงอาจเปลี่ยนไปในแต่ละคลิป ใช้บทอัดเสียงแยกถ้าอยากให้เสียงคงที่ หรือเปลี่ยนเป็นแบบ B"),
-    el("p",{class:"fl-n",text:`ตอนนี้มี ${nShots} ช็อตที่ต้องสร้าง และ ${nEdit} ฉากที่ทำในขั้นตัดต่อ`}),
-    el("h4",{text:"Ingredient ที่ใช้ในตอนนี้"}),ing,
-    el("div",{class:"fl-acts"},flCopy(()=>FLW.allText(d,R),"คัดลอกคำสั่งทั้งตอน"),flCopy(()=>FLW.voText(d,R),"คัดลอกบทพากย์ไทย"),flCopy(()=>FLW.editPrompt(d,R),"คัดลอกคำสั่งตัดต่อ (Claude Code)"),flCopy(()=>FLW.ytText(d).title,"คัดลอกชื่อคลิป YouTube"),flCopy(()=>FLW.ytText(d).desc,"คัดลอกคำอธิบาย YouTube")),
-    el("p",{class:"muted",text:"คำสั่งตัดต่อ: วางคลิปที่ตั้งชื่อตามเลขฉาก (เช่น 01, 02.1, 02.2) กับ logo.png ไว้ในโฟลเดอร์เดียวกัน ตั้ง GEMINI_API_KEY ในเครื่อง เปิด Claude Code ในโฟลเดอร์นั้น แล้ววางคำสั่ง ระบบจะพากย์ไทยด้วย Gemini TTS และตัดต่อตาม template เดียวกันใน ../_template"})));
-  const PT=FLW.plateText(d);
-  let part=null;
+  const M={c:1,h:1,f:1,s:1,a:1,n:1,r:1,j:1,p:1},SITE_L={site:1,plant:1,yard:1,wh:1};
+  const all=R.out.flatMap(x=>x.shots||[]),nShots=all.length,n360=all.filter(x=>x.kb).length;
+  const pad=n=>String(n).padStart(2,"0");
+  // toolbar
+  const more=el("details",{class:"fl2-more"},el("summary",{text:"อื่น ๆ ▾"}),el("div",{class:"fl2-mbox"},
+    flCopy(()=>FLW.allText(d,R),"คำสั่งทั้งตอน"),flCopy(()=>FLW.plateText(d).join("\n"),"ข้อความป้ายชื่อตอน"),DUB?flCopy(()=>FLW.voText(d,R),"บทพากย์ไทย"):null,
+    flCopy(()=>{const MP=FLW.musicPlan(d);return MP.map(([a,c])=>a+": "+c).join("\n")},"แผนเพลง")));
+  box.append(el("div",{class:"fl2-bar"},
+    flCopy(()=>FLW.editPrompt(d,R),"คำสั่งตัดต่อ (Claude Code)"),flCopy(()=>FLW.ytText(d).title,"ชื่อ YouTube"),flCopy(()=>FLW.ytText(d).desc,"คำอธิบาย YouTube"),more));
+  // legend + ingredients
+  const xs=R.ids.filter(k=>!(k in M));
+  box.append(el("div",{class:"fl2-leg"},
+    el("p",{},el("b",{text:`${nShots} ช็อต`}),n360?` · ${n360} ช็อต 360p (เอาแค่เสียง ภาพใช้ภาพนิ่ง)`:"" ," · 9:16 · Omni Flash"),
+    el("p",{class:"muted"},"ภาพนิ่ง: โหมดสร้างภาพ + แนบตัวละคร/ฉากตามป้าย · วิดีโอ: Video › Ingredients + ตัวละครชุดเดิม + ภาพนิ่งนั้น · ความยาวตามช็อต · โหลดไฟล์ไว้ในโฟลเดอร์ตอน ขึ้นต้นชื่อด้วยเลขช็อต"),
+    xs.length?el("div",{class:"fl2-x"},el("span",{class:"muted",text:"ตัวละครสมทบ (แนบภาพเอง):"}),...xs.map(k=>el("span",{class:"fl2-xc"},(R.C.F.x[k]&&R.C.F.x[k][2])||R.C.thLab(k),flCopy(()=>FLW.REF()+"A fictional "+R.C.look(k)+".","ภาพอ้างอิง")))):null));
+  const PT=FLW.plateText(d);let part=null;
   R.out.forEach(({s,part:pn,o,stale,shots,still})=>{
-    if(pn!==part){part=pn;box.append(el("h4",{class:"fl-part",text:pn}))}
-    const au=(s.audio||[]).map(([w,x])=>el("p",{},el("b",{text:w+": "}),String(x)));
-    const ed=s===R.out[0].s?[]:FLW.edits(s,o);   // scene 1 text goes on the title plate
-    const card=el("article",{class:"fl-sc"+(o&&o.e?" edit":"")},
-      el("div",{class:"fl-hd"},el("b",{text:s.no+". "+s.title}),el("span",{class:"num",text:s.time}),o&&o.e?el("span",{class:"fl-tag",text:"ทำในขั้นตัดต่อ"}):shots?el("span",{class:"fl-tag g",text:shots.length+" ช็อต"}):null),
-      el("p",{class:"fl-th",text:s.visual}),
-      s===R.out[0].s?el("div",{class:"fl-au"},el("span",{class:"fl-k",text:"ป้ายชื่อตอน (ตัวอักษรบนฉากนี้ ไม่มีแถบพื้นหลัง)"}),...PT.map((t,i)=>el("p",{},el("b",{text:(i?"บรรทัดรอง: ":"บรรทัดหลัก: ")}),t)),flCopy(()=>PT.join("\n"),"คัดลอกข้อความป้าย")):null,
-      stale?el("p",{class:"fl-warn",text:"ภาพของฉากนี้ถูกแก้หลังเขียนคำสั่ง ตรวจคำสั่งก่อนใช้"}):null,
-      !o?el("p",{class:"fl-warn",text:"ฉากนี้ยังไม่มีคำสั่ง"}):null,
-      o&&o.e?el("p",{class:"fl-e",text:o.e}):null,
-      still?el("div",{class:"fl-shot"},el("h5",{text:"ภาพนิ่งสำหรับฉากหยุดคิด (ไม่ต้องทำวิดีโอ)"}),
-        el("ol",{class:"fl-steps"},el("li",{},el("b",{text:"สร้างภาพนิ่ง: "}),"โหมดสร้างภาพ · Add › Characters ตามตัวละครในคำสั่ง (ถ้ามี) · วางคำสั่งด้านล่าง"),el("li",{},el("b",{text:"ตัดต่อ: "}),"วางภาพค้างตามเวลาฉาก ใส่วงนับถอยหลัง 3 วินาทีกับข้อความบนจอ")),
-        el("div",{class:"fl-pp"},el("div",{},el("span",{class:"fl-k",text:"ภาพนิ่ง"}),el("pre",{class:"fl-p",text:still}),flCopy(()=>still)))):null,
-      ...(shots||[]).map((x,k)=>el("div",{class:"fl-shot"},
-        el("h5",{text:`ช็อต ${k+1}/${shots.length} · ใช้จริงประมาณ ${Math.round(x.len)} วินาที · สร้าง ${x.gen} วินาที`+(x.len>x.gen+0.5?` แล้วค้างภาพสุดท้ายตอนตัดต่ออีก ${Math.round(x.len-x.gen)} วินาที`:"")+(x.chars>x.gen*12.5+2?" · บทพูดยาวเกินช็อต แบ่งบทเป็นสองคลิปแล้วตัดต่อ":"")}),
-        (()=>{const SITE_L={site:1,plant:1,yard:1,wh:1},M={c:1,h:1,f:1,s:1,a:1,n:1,r:1,j:1,p:1};
-          const att=x.ids.map(k=>{const nm=R.C.thLab(k);if(!(k in M))return nm+" (ตัวละครสมทบ)";let s=k==="n"&&d.date>="2028-11"?"น้องใหม่ · ปีที่ 3":(k==="f"||k==="h")&&x.loc in SITE_L?CSN[k]+" · ชุดหน้างาน":CSN[k];return nm&&nm!==CSN[k]&&!(k==="n"&&nm==="น้องใหม่")?s+" (ตอนนี้เรียก "+nm+")":s});
-          const setNote="";if(SETS[x.loc])att.push({set:SETS[x.loc]});
-          if(CHM){const chips=x.ids.map(k=>k in M?el("span",{class:"fl-tag",text:"@"+FCH[k].h+" · "+R.C.thLab(k)+(R.C.thLab(k)!==CSN[k]?" ("+CSN[k]+")":"")}):el("span",{class:"fl-tag",text:R.C.thLab(k)+" (ตัวละครสมทบ · แนบภาพ)"}));if(SETS[x.loc])chips.push(el("span",{class:"fl-tag set",text:SETS[x.loc]}));
-            return el("ol",{class:"fl-steps"},
-              el("li",{},el("b",{text:"สร้างภาพนิ่ง: "}),"โหมดสร้างภาพ · Add › Characters ",chips.length?el("span",{class:"fl-att"},...chips):el("span",{text:"(ไม่มีตัวละคร)"})," · วางคำสั่ง \"1 · ภาพนิ่ง\" แล้วเลือกภาพที่คนครบและไม่ซ้ำ"),
-              el("li",{},el("b",{text:"ทำวิดีโอ: "}),`Video › Ingredients · โมเดล Omni Flash · ใส่ตัวละครชุดเดิม + ภาพนิ่งจากข้อ 1 · วางคำสั่ง "2 · วิดีโอ" · ความยาว ${x.gen} วินาที`))}
-          return el("ol",{class:"fl-steps"},
-            el("li",{},el("b",{text:"สร้างภาพนิ่ง: "}),"โหมดสร้างภาพ · แนบ ",att.some(a=>typeof a==="string")||att.length?el("span",{class:"fl-att"},...att.map(a=>typeof a==="string"?el("span",{class:"fl-tag",text:a}):el("span",{class:"fl-tag set",text:a.set}))):el("span",{text:"(ไม่ต้องแนบภาพตัวละคร)"}),setNote+" · วางคำสั่ง \"ภาพนิ่ง\" ด้านล่าง"),
-            el("li",{},el("b",{text:"ทำวิดีโอ: "}),`Video › Frames · ลากภาพนิ่งที่ได้ไปที่ + Add start frame · วางคำสั่ง "วิดีโอ" · ตั้งความยาว ${x.gen} วินาที`))})(),
-        el("div",{class:"fl-pp"},
-          el("div",{},el("span",{class:"fl-k",text:CHM?"1 · ภาพนิ่ง (ตัวละคร @)":"1 · ภาพนิ่ง"}),el("pre",{class:"fl-p",text:x.img}),flCopy(()=>x.img)),
-          el("div",{},el("span",{class:"fl-k",text:CHM?"2 · วิดีโอ (ล็อกหน้า · พูดอังกฤษ)":"2 · วิดีโอ"}),el("pre",{class:"fl-p",text:x.vid}),flCopy(()=>x.vid))),
-        x.narrOut?el("p",{class:"fl-warn",text:"เสียงบรรยายช่วงนี้ยาวเกินช็อต คำสั่งตัดต่อจะค้างเฟรมให้จนเสียงพากย์จบ"}):null)),
-      (()=>{if(!shots)return null;const[t0,t1]=s.time.split("–"),tm=x=>{const[a,b]=x.split(":").map(Number);return a*60+b},hold=Math.round(tm(t1)-tm(t0)-shots.reduce((n,x)=>n+x.len,0));return hold>=2?el("p",{class:"fl-post",text:`ฉากนี้ยาวกว่าช็อตที่สร้าง ${hold} วินาที ให้ค้างภาพสุดท้าย หรือใส่กราฟิกตอนตัดต่อ`}):null})(),
-      ed.length?el("p",{class:"fl-post"},el("b",{text:"ใส่ตอนตัดต่อ: "}),ed.join(" · ")):null,
-      au.length?el("div",{class:"fl-au"},el("span",{class:"fl-k",text:"เสียง"}),...au):null);
-    box.append(card);
+    if(pn!==part){part=pn;box.append(el("h4",{class:"fl2-part",text:pn}))}
+    const rows=(shots||[]).map((x,k)=>{const f=pad(s.no)+(shots.length>1?"."+(k+1):"");
+      const chips=x.ids.map(k=>k in M?el("span",{class:"fl2-c",text:"@"+FCH[k].h}):el("span",{class:"fl2-c x",text:(R.C.F.x[k]&&R.C.F.x[k][2])||R.C.thLab(k)}));
+      if(SETS[x.loc])chips.push(el("span",{class:"fl2-c set",text:SETS[x.loc]}));
+      return el("div",{class:"fl2-shot"+(x.kb?" lo":"")},
+        el("span",{class:"fl2-f",text:f}),
+        el("span",{class:"fl2-len",text:x.kb&&DUB?"ภาพนิ่ง":x.gen+" วิ"}),
+        x.kb&&!DUB?el("span",{class:"fl2-360",title:"สร้าง 360p เอาแค่เสียงบรรยาย ตอนตัดต่อใช้ภาพนิ่งเคลื่อนกล้อง",text:"360p · เสียง"}):null,
+        el("span",{class:"fl2-cs"},...chips),
+        el("span",{class:"fl2-btn"},flCopy(()=>x.img,"ภาพนิ่ง"),x.kb&&DUB?null:flCopy(()=>x.vid,"วิดีโอ"),x.pv?flCopy(()=>x.pv,"เสียงปลายสาย"):null),
+        x.pv?el("span",{class:"fl2-360",title:"เสียงคนปลายสายสร้างแยกเป็นอีกคลิป แบบ 360p เอาแค่เสียง ตั้งชื่อไฟล์ "+f+"p",text:f+"p · 360p · เสียงปลายสาย"}):null,
+        x.narrOut?el("span",{class:"fl2-w",text:"เสียงบรรยายยาวเกินคลิป จะค้างเฟรมตอนตัดต่อ"}):null)});
+    const au=(s.audio||[]).map(([w,x])=>el("li",{},el("b",{text:w}),String(x).replace(/[“”]/g,"")));
+    box.append(el("article",{class:"fl2-sc"},
+      el("div",{class:"fl2-hd"},el("b",{text:s.no+" · "+s.title}),el("span",{class:"muted num",text:s.time}),o&&o.e?el("span",{class:"fl2-tag",text:"ทำในขั้นตัดต่อ"}):null),
+      el("p",{class:"fl2-v",title:s.visual,text:s.visual}),
+      s===R.out[0].s?el("p",{class:"fl2-plate",text:"ป้ายชื่อตอน: "+PT.join(" / ")}):null,
+      stale?el("p",{class:"fl2-w",text:"ภาพของฉากนี้ถูกแก้หลังเขียนคำสั่ง ตรวจก่อนใช้"}):null,
+      !o?el("p",{class:"fl2-w",text:"ฉากนี้ยังไม่มีคำสั่ง"}):null,
+      o&&o.e?el("p",{class:"fl2-v",text:o.e}):null,
+      still?el("div",{class:"fl2-shot"},el("span",{class:"fl2-f",text:pad(s.no)}),el("span",{class:"fl2-len",text:"ภาพนิ่ง"}),el("span",{class:"fl2-cs"}),el("span",{class:"fl2-btn"},flCopy(()=>still,"ภาพนิ่ง"))):null,
+      ...rows,
+      au.length?el("ul",{class:"fl2-au"},...au):null));
   });
-  const MP=FLW.musicPlan(d);
-  box.append(el("h4",{class:"fl-part",text:"เพลงประกอบ"}),el("article",{class:"fl-sc"},el("div",{class:"fl-au"},...MP.map(([a,c])=>el("p",{},el("b",{text:a+": "}),c)),
-    el("p",{class:"muted",text:"เพลงทั้งชุดดาวน์โหลดครั้งเดียว เก็บไว้ที่ _template/music (tense.mp3 · office.mp3 · warm.mp3 · sting.mp3) คำสั่งตัดต่อจะเลือกไฟล์ตามโทนของตอนและลดเสียงเพลงตอนมีคนพูดให้อัตโนมัติ"})),
-    el("div",{class:"fl-au"},el("span",{class:"fl-k",text:"ดาวน์โหลดเพลง (ฟรี · Pixabay · ไม่ต้องให้เครดิต · กดลิงก์แล้วกด Download ในหน้านั้น)"}),...FLW.musicLinks(d).map(([f,L])=>el("p",{},el("b",{text:f+": "}),...L.flatMap(([t,u],i)=>[i?" · ":"",el("a",{href:u,target:"_blank",rel:"noopener",text:t})])))),
-    flCopy(()=>MP.map(([a,c])=>a+": "+c).join("\n")+"\n\n"+FLW.musicLinks(d).map(([f,L])=>f+": "+L.map(([t,u])=>t+" "+u).join(" | ")).join("\n"),"คัดลอกแผนเพลงและลิงก์")));
   return box;
 }
 function mtabs(d,storyEl,side){return [renderSB(d),side]}
@@ -2402,6 +2538,104 @@ document.querySelectorAll(".cs-filter .cf[data-cf]").forEach(b=>b.addEventListen
   who.append(mk("all","ทุกคน"),...cards.map(c=>mk(c.dataset.k,c.querySelector("h3").childNodes[1].textContent,c.style.getPropertyValue("--cc"),c.querySelector(".cs-at").textContent)));
   pick("all")})();
 renderSupporting();renderSets();renderBrand();
+
+/* ---- Production board (สั่งงานผลิต): stage gates kept in the artifact db at prod/<date> ---- */
+(function(){
+  const ST=[
+    ["s1","บท","ร่าง/ปรับบทไทยและบทอังกฤษ อ้างอิงนโยบาย","อ่านบททีละฉาก"],
+    ["s2","ภาพนิ่ง","สร้างภาพนิ่งทุกฉากใน Flow","ดูภาพทั้งตอน ติ๊กฉากที่ต้องสร้างใหม่"],
+    ["s3","วิดีโอ","สร้างคลิปใน Flow ตรวจเฟรมเอง สร้างใหม่ไฟล์ที่ผิดชัด ๆ","ดูคลิปกับรายงาน ติ๊กไฟล์ที่ต้องสร้างใหม่"],
+    ["s4","เพลงประกอบ","เสนอเพลงที่ใช้ได้ไม่ติดลิขสิทธิ์ 2–3 เพลง พร้อมแหล่งและเงื่อนไข","ฟังแล้วเลือก 1 เพลง"],
+    ["s5","ตัดต่อ","พากย์ไทย ต่อคลิป ซับ ฮุก ป้ายชื่อ ส่งออก MP4 ≤3 นาที","ดูคลิปเต็ม สั่งแก้ตามวินาที"],
+    ["s6","อัปโหลด YouTube","เตรียมชื่อ คำอธิบาย แท็ก ภาพปก แล้วอัปแบบส่วนตัว","ตรวจข้อความ แล้วสั่งเผยแพร่"]];
+  const LB={wait:"ยังไม่ถึง",you:"รอไฟล์จากคุณ",queued:"รอ Claude เริ่ม",work:"Claude กำลังทำ",review:"รอคุณตรวจ",revise:"สั่งแก้แล้ว · รอ Claude",done:"ผ่าน"};
+  const EPS=CLIPS.filter(d=>d.drama).slice().sort((a,b)=>a.date<b.date?-1:1);
+  const $=id=>document.getElementById(id);
+  let db=null,me=null,edit=false,all={},cur=null,unDoc=null,unLog=null,docData=null,busy=false;
+  const MON=["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
+  const when=t=>{if(!t)return"";const d=new Date(t);if(isNaN(d))return"";const b=new Date(d.getTime()+7*36e5);return `${b.getUTCDate()} ${MON[b.getUTCMonth()]} ${String(b.getUTCFullYear()+543).slice(2)} ${String(b.getUTCHours()).padStart(2,"0")}:${String(b.getUTCMinutes()).padStart(2,"0")}`};
+  const stOf=(x,k)=>((x&&x.stages&&x.stages[k])||{}).st||(k==="s1"?"queued":"wait");
+  const curStage=x=>ST.find(([k])=>stOf(x,k)!=="done");
+  function drawEps(){
+    const sel=el("select",{class:"pb-b","aria-label":"เลือกตอน"},...EPS.map(d=>{const x=all[d.date],c=curStage(x),o=el("option",{value:d.date},`${EP(d)} · ${d.drama.title}`+(x?(c?` — ${c[1]}: ${LB[stOf(x,c[0])]}`:" — ครบ"):""));if(cur&&cur.date===d.date)o.selected=true;return o}));
+    sel.addEventListener("change",()=>pick(EPS.find(d=>d.date===sel.value)));
+    const act=EPS.filter(d=>all[d.date]&&curStage(all[d.date]));
+    $("pb-eps").replaceChildren(sel,...act.map(d=>{const x=all[d.date],c=curStage(x),b=el("button",{class:"pb-ep",type:"button","aria-pressed":String(cur&&cur.date===d.date)},EP(d),el("small",{text:`${c[1]} · ${LB[stOf(x,c[0])]}`}));b.addEventListener("click",()=>pick(d));return b}));
+    const q=EPS.filter(d=>all[d.date]&&ST.some(([k])=>["queued","revise"].includes(stOf(all[d.date],k))&&k!=="s1"||k==="s1"&&all[d.date].stages&&all[d.date].stages.s1&&["queued","revise"].includes(all[d.date].stages.s1.st)));
+    const c=$("pb-call");c.hidden=!q.length;
+    if(q.length)c.replaceChildren("มีงานรอ Claude: ",...q.map((d,i)=>{const s=ST.find(([k])=>["queued","revise"].includes(stOf(all[d.date],k)));return (i?", ":"")+`${EP(d)} ${s[1]} (${LB[stOf(all[d.date],s[0])]})`}),el("br"),el("span",{class:"muted",text:"พิมพ์ในแชตกับ Claude ว่า \"ทำงานตามกระดาน\" แล้ว Claude จะอ่านคำสั่งจากหน้านี้และเริ่มทำ"}));
+  }
+  async function act(d,k,kind,text,redo){
+    if(!db||!edit||busy)return;busy=true;
+    try{const now=new Date().toISOString(),i=ST.findIndex(s=>s[0]===k),upd={stages:{}};
+      if(kind==="ok"){upd.stages[k]={st:"done",at:now,by:me,note:""};if(ST[i+1])upd.stages[ST[i+1][0]]={st:"queued",at:now,report:"",note:""}}
+      else upd.stages[k]={st:"revise",at:now,by:me,note:text};
+      const it=docData&&docData.items&&docData.items[k];
+      if(Array.isArray(it)&&redo){upd.items={};upd.items[k]=it.map((x,j)=>({...x,redo:redo.includes(j)}))}
+      await db.doc("prod/"+d.date).update(upd);
+      await db.collection("prod/"+d.date+"/log").add({at:now,who:"you",by:me,stage:k,act:kind,text:text||""});
+      const g=await db.doc("prod/"+d.date).get();if(g.exists){docData=g.data();all[d.date]=docData}drawEps();drawEp();
+      const n=$("pb-sys");n.textContent=kind==="ok"?`บันทึกแล้ว · ${ST[i][1]} ผ่าน`+(ST[i+1]?` · ด่าน ${ST[i+1][1]} รอ Claude เริ่ม (พิมพ์ในแชตว่า "ทำงานตามกระดาน")`:""):`บันทึกคำสั่งแก้แล้ว · รอ Claude แก้ (พิมพ์ในแชตว่า "ทำงานตามกระดาน")`;
+      $("pb-call").scrollIntoView({block:"nearest",behavior:"smooth"});
+    }catch(e){alert("บันทึกไม่สำเร็จ: "+(e&&e.message||e))}finally{busy=false}
+  }
+  async function pickTrack(d,j){
+    const it=(docData.items&&docData.items.s4)||[];if(!db||!edit)return;
+    try{await db.doc("prod/"+d.date).update({items:{s4:it.map((x,i)=>({...x,pick:i===j}))}})}catch(e){}
+  }
+  function stageBody(d,k,s,x){
+    const box=[],it=(x&&x.items&&x.items[k])||[],canAct=edit&&s.st==="review";
+    if(s.report)box.push(el("div",{class:"pb-rep",text:s.report}));
+    if(s.note&&s.st==="revise")box.push(el("div",{class:"pb-rep",text:"สิ่งที่สั่งแก้: "+s.note}));
+    if(k==="s1"){const b=el("button",{class:"pb-b",type:"button"},"เปิดบท "+EP(d));b.addEventListener("click",()=>openRow(d));box.push(el("div",{class:"pb-act"},b))}
+    if(k==="s5"){const b=el("button",{class:"pb-b ok",type:"button"},"คัดลอกคำสั่งตัดต่อ (Claude Code)");b.addEventListener("click",async()=>{let t="";try{t=FLW.editPrompt(d,FLW.build(d))}catch(e){}if(!t)return;try{await navigator.clipboard.writeText(t);b.textContent="คัดลอกแล้ว · วางใน Claude Code ที่เปิดในโฟลเดอร์ EP"+d.ep}catch(e){const ta=el("textarea",{style:"width:100%;min-height:10em"});ta.value=t;b.replaceWith(ta);ta.select()}});box.push(el("div",{class:"pb-act"},b))}
+    const ticks=[];
+    if((k==="s2"||k==="s3"||k==="s5")&&it.length){
+      box.push(el("div",{class:"pb-items"},...it.map((m,j)=>{const media=m.url?(k==="s2"?el("img",{src:m.url,alt:m.label||"",loading:"lazy"}):el("video",{src:m.url,controls:"",preload:"metadata",playsinline:""})):el("div",{class:"muted",text:"ยังไม่มีไฟล์"});
+        const c=el("input",{type:"checkbox"});if(m.redo)c.checked=true;if(!canAct)c.disabled=true;ticks.push(c);
+        return el("div",{class:"pb-it"+(m.redo?" redo":"")},media,el("b",{text:m.label||m.k||""}),m.qc?el("span",{class:"muted",text:m.qc}):null,k!=="s5"?el("label",{},c,"สร้างใหม่"):null)})));
+    }
+    if(k==="s4"&&it.length){it.forEach((m,j)=>{const r=el("input",{type:"radio",name:"pb-trk"});if(m.pick)r.checked=true;if(!(edit&&s.st==="review"))r.disabled=true;r.addEventListener("change",()=>pickTrack(d,j));
+      box.push(el("div",{class:"pb-trk"},el("label",{},r," ",el("b",{text:m.label||"เพลง "+(j+1)})),m.url?el("audio",{src:m.url,controls:"",preload:"none"}):null,el("span",{class:"muted",text:[m.src,m.license].filter(Boolean).join(" · ")})))})}
+    if(k==="s6"&&s.yt)box.push(el("a",{href:s.yt,target:"_blank",rel:"noopener",text:"เปิดใน YouTube"}));
+    if(canAct){const ta=el("textarea",{placeholder:k==="s5"?"สั่งแก้ เช่น 1:12 ซับผิด, 2:05 เสียงเบาไป":"ถ้าต้องแก้ พิมพ์ตรงนี้ว่าแก้อะไร"});
+      const ok=el("button",{class:"pb-b ok",type:"button"},k==="s6"?"ยืนยัน · เผยแพร่ได้":"ยืนยัน · ไปด่านถัดไป"),fx=el("button",{class:"pb-b",type:"button"},"สั่งแก้");
+      ok.addEventListener("click",()=>{if(ticks.some(c=>c.checked)){alert("มีรายการที่ติ๊ก \"สร้างใหม่\" อยู่ ถ้าจะให้แก้ ให้กด \"สั่งแก้\"");return}ok.disabled=fx.disabled=true;act(d,k,"ok","")});
+      fx.addEventListener("click",()=>{const t=ta.value.trim(),rd=ticks.map((c,j)=>c.checked?j:-1).filter(j=>j>=0);if(!t&&!rd.length){ta.focus();ta.placeholder="บอกสั้น ๆ ว่าแก้อะไร หรือติ๊กรายการที่ต้องสร้างใหม่";return}ok.disabled=fx.disabled=true;act(d,k,"fix",t||"สร้างใหม่ตามที่ติ๊ก",rd)});
+      box.push(el("div",{class:"pb-act"},ta,ok,fx));}
+    return box;
+  }
+  function drawEp(){
+    if(!cur)return;const d=cur,x=docData;
+    $("pb-head").replaceChildren(el("h3",{text:`${EP(d)} · ${d.drama.title}`}),el("p",{class:"muted small"},"ออกอากาศ "+d.date,x&&x.folder?el("span",{}," · โฟลเดอร์ไฟล์: ",el("code",{text:String(x.folder)})):null));
+    $("pb-stages").replaceChildren(...ST.map(([k,name,cl,you],i)=>{const s=(x&&x.stages&&x.stages[k])||{st:stOf(x,k)};
+      return el("li",{class:"pb-st "+s.st},el("div",{class:"pb-h"},el("span",{class:"pb-n",text:"ด่าน "+(i+1)}),el("b",{text:name}),el("span",{class:"pb-pill "+s.st},el("i"),LB[s.st]||s.st)),
+        el("div",{class:"pb-desc"},el("span",{},el("b",{text:"Claude: "}),cl),el("span",{},el("b",{text:"คุณ: "}),you)),
+        ...stageBody(d,k,s,x),s.at?el("div",{class:"pb-meta",text:"อัปเดต "+when(s.at)}):null)}));
+  }
+  function pick(d){
+    cur=d;docData=all[d.date]||null;drawEps();drawEp();
+    if(unDoc)unDoc();if(unLog)unLog();if(!db)return;
+    unDoc=db.doc("prod/"+d.date).onSnapshot(sn=>{docData=sn.exists?sn.data():null;drawEp()},()=>{});
+    unLog=db.collection("prod/"+d.date+"/log").orderBy("at","desc").limit(40).onSnapshot(q=>{
+      $("pb-log").replaceChildren(...(q.empty?[el("span",{text:"ยังไม่มี"})]:q.docs.map(r=>{const v=r.data(),sn=(ST.find(s=>s[0]===v.stage)||["",v.stage])[1];
+        return el("span",{text:`${when(v.at)} · ${v.who==="claude"?"Claude":"คุณ"} · ${sn} · ${v.act==="ok"?"ยืนยัน":v.act==="fix"?"สั่งแก้":v.act}${v.text?": "+v.text:""}`})})))},()=>{});
+  }
+  const first=()=>EPS.find(d=>{const x=all[d.date];return !x||curStage(x)})||EPS[0];
+  pick(EPS.find(d=>d.date==="2026-11-17")||EPS[0]);
+  (async()=>{
+    const sys=$("pb-sys");
+    if(!window.claude||!window.claude.use){sys.textContent="สั่งงานได้เมื่อเปิดหน้านี้ใน claude.ai เท่านั้น (หน้านี้แสดงขั้นตอนให้ดูอย่างเดียว)";return}
+    const t=setTimeout(()=>{sys.textContent="เชื่อมต่อฐานข้อมูลไม่ได้ ลองเปิดหน้าใหม่"},10000);
+    try{db=await claude.use("db");const u=await claude.use("user");
+      if(!db){clearTimeout(t);sys.textContent="ต้องล็อกอิน claude.ai เพื่อสั่งงาน";return}
+      edit=u?await u.canEdit():false;me=u?await u.id():null;
+      db.collection("prod").onSnapshot(q=>{clearTimeout(t);all={};q.docs.forEach(r=>all[r.id]=r.data());
+        sys.textContent=edit?"เชื่อมต่อแล้ว · คุณกดยืนยัน/สั่งแก้ได้":"เชื่อมต่อแล้ว · ดูได้อย่างเดียว (ผู้มีสิทธิ์แก้ไขเท่านั้นที่กดได้)";
+        if(all[cur.date])docData=all[cur.date];drawEps();drawEp()},e=>{clearTimeout(t);sys.textContent="อ่านข้อมูลไม่ได้: "+(e&&e.message||"")});
+    }catch(e){clearTimeout(t);sys.textContent="เชื่อมต่อไม่ได้"}
+  })();
+})();
 setTab((location.hash||"").slice(1),false);
 window.addEventListener("hashchange",()=>setTab(location.hash.slice(1),false));
 </script>

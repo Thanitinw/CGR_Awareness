@@ -11,6 +11,9 @@ from natural import NAT
 from tight import TIGHT, SUBS, EXACT
 from film import FILM, SCREEN, DROP
 from thai import THAI
+# EP3 (1 ธ.ค. 2569) rewritten from scratch 7 พ.ย. 2569: drop the old line-level overrides of the previous version
+for _D in (NAT, TIGHT, SMOOTH): _D.pop(('ธ.ค. 2569', 1), None)
+SUBS[:] = [x for x in SUBS if x[0] != ('ธ.ค. 2569', 1)]
 
 FEMALE = {'เบล', 'มายด์', 'พี่อร', 'พี่นุ่น'}
 MALE = {'พี่ต้น', 'โอ๊ต', 'พี่เอก', 'ก้อง', 'ภูมิ', 'คุณวิชัย'}

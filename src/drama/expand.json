@@ -14,13 +14,14 @@
   "sf2": "[two] Camera on the window side of the coffee corner: {c} on the RIGHT facing LEFT, {L} on the LEFT facing RIGHT, {n} behind {L} on the far LEFT; {c} goes on to the second and third steps, raising two and then three fingers; {L} nods firmly and already takes out her pink-cased smartphone; {n} nods too"
  },
  "2026-12-01": {
-  "c": "บทเรียนจากคดีนั้น ค่าเสียหายสี่จุดแปดล้านดอลลาร์ มาจากข้อมูลลับของลูกค้าที่หลุดออกนอกเงื่อนไขสัญญา ถ้าเราส่งแบบลูกค้าผิดเงื่อนไข NDA บริษัทอาจผิดสัญญา ต้องจ่ายค่าเสียหาย และเสียความไว้ใจของลูกค้า",
+  "c": "ศาลมองว่า ข้อมูลที่ใครก็หยิบได้ ไม่ใช่ความลับแล้ว แบบของลูกค้าก็เหมือนกัน ลูกค้าส่งมาเพราะเชื่อว่าเราจะดูแลเหมือนความลับ ถ้าทั้งโฟลเดอร์หลุดไปถึงคนที่ NDA ไม่อนุญาต บริษัทผิดสัญญา เสียลูกค้า และคนกดส่งอาจถูกเลิกจ้างโดยไม่ได้ค่าชดเชย",
   "cv": "ห้องกระจก พี่เซลส์นั่งคนเดียว มองโฟลเดอร์ลูกค้าที่ยังเปิดค้างบนแท็บเล็ต (จอเบลอ) นิ้วค่อย ๆ ถอยออกจากปุ่มแชร์",
-  "cf": "glass | cu | {L} sits alone in the glass meeting room, looking thoughtfully at the customer folder still open on a tablet (screen blurred), a finger slowly moving away from the share button. | quiet room tone",
-  "s": "หนึ่ง เปิด NDA ดูข้อผู้รับข้อมูลก่อนส่งต่อค่ะ สอง ถ้าต้องให้เวนเดอร์ใช้ ขอความยินยอมลูกค้าเป็นลายลักษณ์อักษร และให้เวนเดอร์เซ็น NDA กับเรา สาม ส่งเฉพาะไฟล์ที่จำเป็นต่องาน",
-  "f": "ถ้าส่งไปแล้ว อย่าเงียบ แจ้งหัวหน้าและฝ่ายกฎหมายทันที ขอให้ผู้รับลบไฟล์และยืนยันเป็นลายลักษณ์อักษร เก็บหลักฐานการส่งไว้ ให้ฝ่ายกฎหมายประเมินว่าต้องแจ้งลูกค้าหรือไม่",
-  "fv": "ภาพใกล้โน้ตบุ๊ก อีเมลถึงฝ่ายกฎหมายกำลังถูกส่ง (จอเบลอ)",
-  "ff": "desk | ins | Close-up: on a laptop, an email to the legal team is being finished (screen blurred, no readable text); a finger presses send. | soft click"
+  "cf": "glass | cu | {L} sits alone in the glass meeting room, looking thoughtfully at the client folder still open on a tablet (screen blurred), a finger slowly moving away from the share button. | quiet room tone",
+  "cf2": "[ins] Close-up: {L}'s hand rests beside the tablet, the share menu still open (interface blurred), then she slowly closes the menu.",
+  "s": "หนึ่ง เปิด NDA ดูว่าใครรับข้อมูลได้ ต้องขอลูกค้าก่อนไหม สอง ขอลูกค้า ให้ผู้จัดการฝ่ายขายอนุมัติ และให้เวนเดอร์เซ็น NDA กับเรา สาม ส่งเฉพาะไฟล์ที่ต้องใช้ ผ่านลิงก์ที่ตั้งวันหมดอายุ",
+  "f": "ถ้าส่งไปแล้ว อย่าเงียบ แจ้งหัวหน้าทันที ขอให้ผู้รับลบไฟล์และยืนยันเป็นลายลักษณ์อักษร เก็บหลักฐานไว้",
+  "fv": "ภาพใกล้แท็บเล็ต นิ้วกดยกเลิกลิงก์แชร์ แล้วพิมพ์ข้อความแจ้งหัวหน้า (จอเบลอ)",
+  "ff": "glass | ins | Close-up: on a tablet, a finger taps to revoke a shared link, then types a short message to a manager (screen blurred, no readable text). | soft click"
  },
  "2026-12-15": {
   "c": "ผลที่ตามมา ข้อมูลที่ส่งเข้า AI สาธารณะไปแล้ว ดึงกลับมาไม่ได้ บริษัทนั้นต้องสั่งห้ามใช้ AI ภายนอกบนเครื่องของบริษัท ทั้งองค์กรเสียเครื่องมือช่วยงานไป เพราะความพลาดของไม่กี่คน",
