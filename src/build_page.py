@@ -5,6 +5,7 @@ t = open(os.path.join(here, 'tpl.html'), encoding='utf-8').read()
 b = open(os.path.join(here, 'body3.html'), encoding='utf-8').read()
 D = json.load(open(os.path.join(here, 'rows9.json'), encoding='utf-8'))
 data = json.dumps(D, ensure_ascii=False).replace('</', '<\\/')
-page = t[:t.find('</style>')] + b.replace('__DATA__', data, 1)
+EN = json.load(open(os.path.join(here, 'drama', 'en_lines.json'), encoding='utf-8')) if os.path.exists(os.path.join(here, 'drama', 'en_lines.json')) else {}
+page = t[:t.find('</style>')] + b.replace('__DATA__', data, 1).replace('__EN__', json.dumps(EN, ensure_ascii=False).replace('</', '<\\/'), 1)
 open(os.path.join(here, '..', 'index.html'), 'w', encoding='utf-8').write(page)
 print('index.html', len(page))

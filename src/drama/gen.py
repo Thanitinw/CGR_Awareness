@@ -412,7 +412,7 @@ def lean_edit(dr, date):
     return dr
 
 PACE = 4.1          # syllables per second (review 3 พ.ย. 2569: slower so Flow speaks Thai clearly; was 4.5) (review 22 ต.ค. 2569: every episode ≤ 2 minutes, faster storytelling)
-MAX_EP = 118        # seconds, leaves room under the 2-minute cap
+MAX_EP = 172        # seconds (review 6 พ.ย. 2569: ≤ 3 minutes with the three added scenes; was 118 for 2 minutes)
 def pace(dr):
     """re-time every scene from its speech: brisk pace, short breath between scenes, countdown scenes keep 3 s of countdown"""
     scenes = [s for p in dr['sb']['parts'] for s in p['scenes']]
@@ -443,6 +443,58 @@ def add_gag(dr, key):
     last = dr['sb']['parts'][-1]['scenes'][-1]
     last['visual'] = last['visual'] + ' · มุกท้ายตอน: ' + g[k % len(g)]
 
+# ---- review 6 พ.ย. 2569: episodes grow to ≤ 3 minutes — three scenes per episode (expand.json):
+#   X1 "ผลที่ตามมา" after the real-case scene (narrator), X2 "ทำตามขั้นตอน" (Compliance, steps from the policy) and
+#   X3 "ถ้าพลาดไปแล้ว" (narrator) before the warning-signs scene. Scenes are renumbered; s['fno'] keeps the old number for
+#   flow_en.txt, inserted scenes carry their own Flow line in s['fx'].
+POV = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pov.json'), encoding='utf-8'))   # review 7 พ.ย. 2569: situational ('เมื่อ…') titles for YouTube
+EXP_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'expand.json')
+EXP = json.load(open(EXP_PATH, encoding='utf-8')) if os.path.exists(EXP_PATH) else {}
+def apply_expand(dr, date, lab):
+    e = EXP.get(date)
+    scenes = [s for p in dr['sb']['parts'] for s in p['scenes']]
+    for s in scenes: s['fno'] = s['no']
+    if not e: return dr
+    lead = dr.get('lead') or 'ทีมชั้น 12'
+    fz = next(s for s in scenes if FREEZE.search(s['visual']))
+    sig = next(s for s in scenes if 'สัญญาณเตือน' in s['title'])
+    real = scenes[scenes.index(fz) - 1]
+    X1 = dict(title='ผลที่ตามมา', visual=e['cv'], audio=[[N, e['c']]], screen=[], fx=e['cf'])
+    comp = lab.get('พี่นุ่น', 'พี่ Compliance')
+    nch = lambda t: len(re.sub(r'\s', '', t))
+    st = 'ใจเย็น ๆ ทำทีละข้อนะคะ ' + e['s'] if not e['s'].startswith('ใจเย็น') else e['s']   # review 7 พ.ย. 2569: Compliance's signature line, same in every episode
+    if nch(st) > 100 and ' สอง ' in st and ' สาม ' in st:   # one line per step, so the shots split between steps, never mid-step
+        i2, i3 = st.index(' สอง '), st.index(' สาม ')   # the signature phrase stays with step 1
+        lines = [st[:i2].strip(), st[i2:i3].strip(), st[i3:].strip()]
+    else:
+        lines = [st]
+    X2 = dict(title='ทำตามขั้นตอน', visual=f"มุมกาแฟ {comp} ยกแท็บเล็ตที่มีขั้นตอน 3 ข้อ (จอเบลอ) อธิบายให้{lead}ฟัง",
+              audio=[[comp, '“' + x + '”'] for x in lines], screen=[],
+              fx=e.get('sf') or "coffee | two | {c} holds up her tablet showing three short numbered steps (screen blurred) and explains them one by one to {L}, counting on her fingers; {L} listens closely and nods. | espresso machine hum")
+    X3 = dict(title=e.get('ft', 'ถ้าพลาดไปแล้ว'), visual=e['fv'], audio=[[N, e['f']]], screen=[], fx=e['ff'])
+    ids = {'พี่นุ่น': 'c', 'พี่ต้น': 'h', 'โอ๊ต': 'f', 'มายด์': 's', 'พี่อร': 'a', 'เบล': 'n', 'พี่เอก': 'r', 'ก้อง': 'j', 'ภูมิ': 'p'}
+    lid = next((ids[k] for k, v in lab.items() if v == lead and k in ids), None)
+    for X in (X1, X2, X3):
+        X['fx'] = X['fx'].replace('{L}', '{' + lid + '}' if lid else 'a colleague')
+        if sum(nch(x) for _, x in X['audio']) > 100:   # two clips: a second, closer beat of the same moment
+            f = X['fx'].split(' | ')
+            own = e.get('cf2') if X is X1 else e.get('ff2') if X is X3 else None   # optional hand-written second beat
+            two = own.replace('{L}', '{' + lid + '}' if lid else 'a colleague') if own else \
+                  (e.get('sf2') or '[med] At the coffee corner, {c} goes on to the remaining steps, tablet in hand, still facing {L}, who nods').replace('{L}', '{' + lid + '}' if lid else 'a colleague') if X is X2 else \
+                  '[' + ('ins' if f[1] == 'ins' else 'cu') + '] A closer, slower angle on the same moment. ' + f[2]
+            f[2] = f[2] + ' // ' + two
+            X['fx'] = ' | '.join(f) + ' | n:2+'
+    for p in dr['sb']['parts']:
+        out = []
+        for s in p['scenes']:
+            if s is sig: out += [X2, X3]
+            out.append(s)
+            if s is real: out.append(X1)
+        p['scenes'] = out
+    for n, s in enumerate((s for p in dr['sb']['parts'] for s in p['scenes']), 1):
+        s['no'] = n; s.setdefault('time', '0:00–0:00')
+    return dr
+
 def script_of(dr):
     L = []
     for p in dr['sb']['parts']:
@@ -464,7 +516,7 @@ if __name__ == '__main__':
         if dr.get('est') is None: dr['est'] = d.get('est')
         dr = apply_real(dr, (d['m'], d['w'])); dr = apply_smooth(dr, (d['m'], d['w'])); dr = apply_natural(dr, (d['m'], d['w'])); dr = apply_natural(dr, (d['m'], d['w']), TIGHT); dr = apply_subs(dr, (d['m'], d['w'])); dr = apply_exact(dr, (d['m'], d['w'])); dr = pace(dr); add_gag(dr, (d['m'], d['w']))
         if (d['m'], d['w']) in ARC: dr['arc'] = ARC[(d['m'], d['w'])].split(': ', 1)[1]
-        dr = relabel(dr, (d['m'], d['w']), d['date']); dr = lean_edit(dr, d['date']); dr['script'] = script_of(dr)
+        dr = relabel(dr, (d['m'], d['w']), d['date']); dr = lean_edit(dr, d['date']); dr = apply_expand(dr, d['date'], labels_for((d['m'], d['w']), d['date'])); dr = pace(dr); dr['pov'] = POV.get(d['date'], ''); dr['script'] = script_of(dr)
         if dr.get('est') is None: dr['est'] = d.get('est')
         d['drama'] = dr; n += 1
     import flow; flow.attach(D)   # Google Flow shot data (flow_en.txt)

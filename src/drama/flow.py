@@ -72,6 +72,22 @@ def parse(path=os.path.join(HERE, 'flow_en.txt')):
     return G, E
 
 
+def parse_line(line):   # one shot line without the scene number (inserted scenes, expand.json)
+    f = [t.strip() for t in line.split(' | ')]
+    loc, cam, act = f[0], f[1], f[2]
+    rest = f[3:]
+    beats = []
+    for b in act.split(' // '):
+        bc, bl = cam, loc
+        m = re.match(r'\[(\w+)(?:@([^\]]+))?\]\s*(.*)$', b)
+        if m: bc, bl, b = m.group(1), m.group(2) or loc, m.group(3)
+        beats.append([bc, bl, b.strip()])
+    ns = next((int(t[2:].rstrip('+')) for t in rest if re.match(r'n:\d+\+?$', t)), 0)
+    np = any(re.match(r'n:\d+\+$', t) for t in rest)
+    sfx = next((t for t in rest if t and not t.startswith('g:') and not re.match(r'n:\d+\+?$', t)), '')
+    return dict(b=beats, sfx=sfx, g='', n=ns, np=np)
+
+
 def attach(D, path=None, report=True):
     G, E = parse(path) if path else parse()
     probs, n_sc, n_ok = [], 0, 0
@@ -91,7 +107,7 @@ def attach(D, path=None, report=True):
         used = set()
         out = []
         for s in scenes:
-            e = ep['s'].get(s['no'])
+            e = parse_line(s['fx']) if s.get('fx') else ep['s'].get(s.get('fno', s['no']))
             if not e:
                 probs.append(f"{d['date']} scene {s['no']}: missing"); continue
             o = dict(no=s['no'], h=fnv(s['visual']))
