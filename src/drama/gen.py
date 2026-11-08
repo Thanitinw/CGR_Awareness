@@ -498,6 +498,50 @@ def apply_expand(dr, date, lab):
         s['no'] = n; s.setdefault('time', '0:00–0:00')
     return dr
 
+FIN_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'final.json')
+FINAL = json.load(open(FIN_PATH, encoding='utf-8')) if os.path.exists(FIN_PATH) else {}
+_RAW = {}
+def _raw_flow():
+    if _RAW: return _RAW
+    cur = None
+    for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'flow_en.txt'), encoding='utf-8'):
+        l = l.rstrip('\n')
+        if l.startswith('## '): cur = _RAW.setdefault(l[3:].strip(), {}); continue
+        m = re.match(r'(\d+) \| (.*)$', l)
+        if cur is not None and m: cur[int(m.group(1))] = m.group(2)
+    return _RAW
+_TAG = re.compile(r'^\[(\w+)(?:@([^\]]+))?\]\s*')
+def one_shot(fx, b=None):
+    """flow line -> one continuous shot: keep beat b, or merge beats that share the first beat's place"""
+    f = [t.strip() for t in fx.split(' | ')]
+    loc, cam, act, rest = f[0], f[1], f[2], [t for t in f[3:] if not re.match(r'n:\d+\+?$', t)]
+    beats = []
+    for x in act.split(' // '):
+        m = _TAG.match(x); bc, bl = (m.group(1), m.group(2) or loc) if m else (cam, loc)
+        beats.append([bc, bl, _TAG.sub('', x).strip()])
+    beats = [x for k, x in enumerate(beats) if not (k and x[2].startswith('A closer, slower angle on the same moment'))]
+    if b is not None: beats = [beats[b]]
+    else: beats = [x for x in beats if x[1] == beats[0][1]]
+    c0, l0 = beats[0][0], beats[0][1]
+    t = beats[0][2].rstrip(' .') + '.' + ''.join(' Then, in the same continuous shot, ' + x[2][0].lower() + x[2][1:].rstrip(' .') + '.' for x in beats[1:])
+    return ' | '.join([l0, c0, t] + rest)
+def apply_final(dr, date):
+    """review 8 พ.ย. 2569: hand-cut episode (≈2 min, ≤14 shots, one shot per scene) replaces the generated scene list.
+    scene = {title, visual, audio, fx} or compact {t, from: old scene no, b: beat, a: audio, fx?, v?}"""
+    f = FINAL.get(date)
+    if not f: return dr
+    old = {s['no']: s for p in dr['sb']['parts'] for s in p['scenes']}
+    raw = _raw_flow().get(date, {})
+    def mk(x):
+        if 'from' in x:
+            o = old[x['from']]
+            fx = x.get('fx') or one_shot(o.get('fx') or raw[o['fno']], x.get('b'))
+            return dict(title=x.get('t', o['title']), desc=x.get('t', o['title']), visual=x.get('v', o['visual']), audio=x['a'], screen=[], fx=fx + ' | n:1+', time='0:00–0:00')
+        return dict(title=x['title'], desc=x['title'], visual=x['visual'], audio=x['audio'], screen=[], fx=x['fx'] + ' | n:1+', time='0:00–0:00')
+    dr['sb']['parts'] = [dict(name=p['name'], scenes=[mk(x) for x in p['scenes']]) for p in f]
+    for n, s in enumerate((s for p in dr['sb']['parts'] for s in p['scenes']), 1): s['no'] = s['fno'] = n
+    return dr
+
 def script_of(dr):
     L = []
     for p in dr['sb']['parts']:
@@ -519,7 +563,7 @@ if __name__ == '__main__':
         if dr.get('est') is None: dr['est'] = d.get('est')
         dr = apply_real(dr, (d['m'], d['w'])); dr = apply_smooth(dr, (d['m'], d['w'])); dr = apply_natural(dr, (d['m'], d['w'])); dr = apply_natural(dr, (d['m'], d['w']), TIGHT); dr = apply_subs(dr, (d['m'], d['w'])); dr = apply_exact(dr, (d['m'], d['w'])); dr = pace(dr); add_gag(dr, (d['m'], d['w']))
         if (d['m'], d['w']) in ARC: dr['arc'] = ARC[(d['m'], d['w'])].split(': ', 1)[1]
-        dr = relabel(dr, (d['m'], d['w']), d['date']); dr = lean_edit(dr, d['date']); dr = apply_expand(dr, d['date'], labels_for((d['m'], d['w']), d['date'])); dr = pace(dr); dr['pov'] = POV.get(d['date'], ''); dr['script'] = script_of(dr)
+        dr = relabel(dr, (d['m'], d['w']), d['date']); dr = lean_edit(dr, d['date']); dr = apply_expand(dr, d['date'], labels_for((d['m'], d['w']), d['date'])); dr = apply_final(dr, d['date']); dr = pace(dr); dr['pov'] = POV.get(d['date'], ''); dr['script'] = script_of(dr)
         if dr.get('est') is None: dr['est'] = d.get('est')
         d['drama'] = dr; n += 1
     import flow; flow.attach(D)   # Google Flow shot data (flow_en.txt)

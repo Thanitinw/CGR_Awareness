@@ -51,7 +51,6 @@ x nexec [ผู้บริหารในข่าว] = a listed-company execu
 12 | office | med | Friday evening at the same desk by the window, golden dusk outside: the large monitor shows a company news page announcing the new plant (screen blurred), the white mug and small succulent beside it; {a} reads a new message from her mother on her pink-cased smartphone (screen blurred) and smiles warmly as colleagues pack up behind her. | soft office chatter
 
 ## 2026-12-01
-x client [ลูกค้า] = the client's procurement manager, heard on the phone only: Thai woman, about 45, polite, warm and professional voice
 1 | glass | med | Thursday evening in the small glass-walled meeting room, city lights coming on outside: {s} sits with a tablet showing a client folder full of files (screen blurred), rubbing her tired eyes; her smartphone on the table lights up with a message (screen blurred). | phone buzz, quiet room tone | g: ไฟล์ "NDA.pdf" ในโฟลเดอร์
 2 | glass | ins | Close-up: {s}'s smartphone shows a chat message (blurred), then her finger selects the entire client folder on the tablet and hovers over a share button (interface blurred) // [two] {s} turns to {n}, who sits beside her, and speaks with tired relief. | phone buzz
 3 | glass | two | {n} leans in and points at one file on the tablet, speaking softly and hesitantly // [med] {s} answers with a reassuring smile and a small shrug.
@@ -59,9 +58,9 @@ x client [ลูกค้า] = the client's procurement manager, heard on the p
 5 | glass | ins | Close-up: {s}'s finger hovers just above the share button on a tablet showing the whole client folder selected (interface blurred). The moment holds like a pause for thought: everyone in frame stays almost perfectly still, only a slow breath or a blink, and the camera pushes in very slowly. | quiet room tone, a soft clock tick
 6 | coffee | two | [two] {n} brings {s} over to {c} at the coffee corner and {s} asks her a question with a worried face // [med] {c}, holding her coffee cup, answers {s} kindly but firmly.
 7 | coffee | med | At the coffee corner {c} holds up her tablet showing a simple arrow diagram (screen blurred) and explains it to {s} and {n}.
-8 | coffee | two | {s} rubs her forehead with worry and asks {c} // [med] {c} smiles calmly and answers, making a small phone-call gesture with her hand.
+8 | coffee | two | {s} rubs her forehead with worry and asks {c} // [med] {c} smiles calmly and answers, pointing gently at the tablet in {s}'s hands.
 9 | glass | ins | Close-up of a tablet on the meeting table: a whole client folder selected, the share menu open (interface blurred).
-10 | glass | med | {s} sits in the glass meeting room on a phone call with the client, tense at first and listening, then her shoulders relax and she smiles with relief. | faint phone voice
+10 | glass | two | In the glass meeting room {s} stares tensely at an email on her tablet (screen blurred) with {n} beside her; then her shoulders relax, she smiles with relief and turns to tell {n}, who smiles back. | soft notification chime, quiet room tone
 11 | office | med | {n} sits at her desk, carefully selects only three files from a folder on her monitor and sets a link expiry date (screen blurred) // [ins] A smartphone on the desk lights up with a short approval message (blurred). | mouse clicks, phone buzz
 12 | office | two | Friday afternoon: {s} places a cup of coffee on {n}'s desk and smiles at her gratefully; {n} smiles back. | soft office chatter
 
